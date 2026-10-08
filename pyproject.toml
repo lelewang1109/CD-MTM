@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cd-mtm"
+version = "1.0.0"
+description = "Certificate-Driven Merge Tree Maps and position-topology trade-off analysis"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy==2.0.2",
+  "scipy==1.13.1",
+  "matplotlib==3.9.4",
+  "Pillow==12.3.0",
+  "netCDF4==1.7.4",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
