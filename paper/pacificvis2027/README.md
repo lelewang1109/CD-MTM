@@ -26,4 +26,16 @@ repository root with `python3 tools/build_supplement.py`.
 
 Before submission, replace `\\onlineid{0}` with the PCS identifier, compile the
 review PDF, and confirm that body material ends by page 9. The current review
-PDF has nine body pages and one references-only page.
+PDF has nine body pages and two references-only pages.
+
+The 2026-10-08 revision was compiled with Tectonic 0.17.0 (XeLaTeX engine,
+Times New Roman, Arial, and Courier New installed locally). The pdfLaTeX branch
+keeps the VGTC Times packages and is recommended for Overleaf. The final local
+preview has no unresolved citations/references or overfull boxes. All pages
+were rendered for visual inspection; data and figure credits end on page 9.
+
+Writing comparisons and remaining evidence priorities are documented in
+`../../notes/pacificvis-writing-revision.md`. Three author-hosted reference
+PDFs and their download hashes are available locally under
+`../../references/pacificvis2025/`; these reading copies are excluded from the
+submission supplement.

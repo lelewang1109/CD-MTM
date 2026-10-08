@@ -1,0 +1,39 @@
+{
+  "retrieved": "2026-10-08",
+  "official_program": "https://pacificvis2025.github.io/pages/TechnicalSessions.html",
+  "papers": [
+    {
+      "file": "pdfs/parkview_2025.pdf",
+      "title": "ParkView: Visualizing Monotone Interleavings",
+      "download_url": "https://arxiv.org/pdf/2501.10728",
+      "publication_url": "https://doi.org/10.1109/PacificVis64226.2025.00018",
+      "track": "PacificVis 2025 Conference Track",
+      "version": "Author-hosted arXiv preprint; pagination may differ from published proceedings",
+      "selection": "Topic-matched conference paper; no award claimed",
+      "bytes": 1838956,
+      "sha256": "c39f11cba7efd7f1a20a895ad8cf21cf6c060bc3ac854e363dd19dff4452b0dd"
+    },
+    {
+      "file": "pdfs/visnerf_2025.pdf",
+      "title": "ViSNeRF: Efficient Multidimensional Neural Radiance Field Representation for Visualization Synthesis of Dynamic Volumetric Scenes",
+      "download_url": "https://arxiv.org/pdf/2502.16731",
+      "publication_url": null,
+      "track": "PacificVis 2025 Conference Track",
+      "version": "Author-hosted arXiv preprint; pagination may differ from published proceedings",
+      "selection": "Conference Track Honorable Mention",
+      "bytes": 36782809,
+      "sha256": "a2123018d42f3674eb486e4efcc212c5a269fc6c41ff8360dec5209cefc302ab"
+    },
+    {
+      "file": "pdfs/more_than_beautiful_2025.pdf",
+      "title": "More Than Beautiful: Exploring Design Features, Practical Perspectives, and Implications of Artistic Data Visualization",
+      "download_url": "https://arxiv.org/pdf/2502.04940",
+      "publication_url": "https://doi.org/10.1109/PacificVis64226.2025.00039",
+      "track": "PacificVis 2025 Conference Track",
+      "version": "Author-hosted arXiv preprint; pagination may differ from published proceedings",
+      "selection": "Conference Track Best Paper",
+      "bytes": 4642953,
+      "sha256": "d9213148440da116e7b2674c2d57321501bf2b3f6dfff4a53b67284cf5b54bc9"
+    }
+  ]
+}
