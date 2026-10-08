@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+build/
+dist/
+data/real
+paper/pacificvis2027/supplement.zip
+paper/pacificvis2027/*.aux
+paper/pacificvis2027/*.bbl
+paper/pacificvis2027/*.blg
+paper/pacificvis2027/*.log
+paper/pacificvis2027/*.out
+paper/pacificvis2027/*.pdfsync

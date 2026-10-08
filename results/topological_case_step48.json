@@ -1,0 +1,146 @@
+{
+  "dataset": "era5",
+  "frame": 48,
+  "merge_gap_cap_fraction": 0.2,
+  "full_sequence_runtime_seconds": 1.7141159170000009,
+  "order": [
+    3,
+    2,
+    1,
+    0,
+    4
+  ],
+  "optimal_filling_delta_hPa": 12.557165664888316,
+  "pairs": [
+    {
+      "leaf_ranks": [
+        3,
+        2
+      ],
+      "leaf_values_hPa": [
+        985.6084423819829,
+        985.7514179165552
+      ],
+      "true_merge_hPa": 985.83785408534,
+      "displayed_merge_hPa": 998.3950197502284,
+      "error_hPa": 12.557165664888316
+    },
+    {
+      "leaf_ranks": [
+        3,
+        1
+      ],
+      "leaf_values_hPa": [
+        985.6084423819829,
+        985.4767013541777
+      ],
+      "true_merge_hPa": 985.8645403636665,
+      "displayed_merge_hPa": 998.4217060285548,
+      "error_hPa": 12.557165664888316
+    },
+    {
+      "leaf_ranks": [
+        3,
+        4
+      ],
+      "leaf_values_hPa": [
+        985.6084423819829,
+        987.5686152382711
+      ],
+      "true_merge_hPa": 994.1356005658286,
+      "displayed_merge_hPa": 1006.6927662307169,
+      "error_hPa": 12.557165664888316
+    },
+    {
+      "leaf_ranks": [
+        2,
+        1
+      ],
+      "leaf_values_hPa": [
+        985.7514179165552,
+        985.4767013541777
+      ],
+      "true_merge_hPa": 985.8645403636665,
+      "displayed_merge_hPa": 998.4217060285548,
+      "error_hPa": 12.557165664888316
+    },
+    {
+      "leaf_ranks": [
+        2,
+        4
+      ],
+      "leaf_values_hPa": [
+        985.7514179165552,
+        987.5686152382711
+      ],
+      "true_merge_hPa": 994.1356005658286,
+      "displayed_merge_hPa": 1006.6927662307169,
+      "error_hPa": 12.557165664888316
+    },
+    {
+      "leaf_ranks": [
+        1,
+        4
+      ],
+      "leaf_values_hPa": [
+        985.4767013541777,
+        987.5686152382711
+      ],
+      "true_merge_hPa": 994.1356005658286,
+      "displayed_merge_hPa": 1006.6927662307169,
+      "error_hPa": 12.557165664888316
+    },
+    {
+      "leaf_ranks": [
+        3,
+        0
+      ],
+      "leaf_values_hPa": [
+        985.6084423819829,
+        1006.6927662307169
+      ],
+      "true_merge_hPa": 1009.4491865784461,
+      "displayed_merge_hPa": 1006.6927662307169,
+      "error_hPa": -2.756420347729204
+    },
+    {
+      "leaf_ranks": [
+        2,
+        0
+      ],
+      "leaf_values_hPa": [
+        985.7514179165552,
+        1006.6927662307169
+      ],
+      "true_merge_hPa": 1009.4491865784461,
+      "displayed_merge_hPa": 1006.6927662307169,
+      "error_hPa": -2.756420347729204
+    },
+    {
+      "leaf_ranks": [
+        1,
+        0
+      ],
+      "leaf_values_hPa": [
+        985.4767013541777,
+        1006.6927662307169
+      ],
+      "true_merge_hPa": 1009.4491865784461,
+      "displayed_merge_hPa": 1006.6927662307169,
+      "error_hPa": -2.756420347729204
+    },
+    {
+      "leaf_ranks": [
+        0,
+        4
+      ],
+      "leaf_values_hPa": [
+        1006.6927662307169,
+        987.5686152382711
+      ],
+      "true_merge_hPa": 1009.4491865784461,
+      "displayed_merge_hPa": 1006.6927662307169,
+      "error_hPa": -2.756420347729204
+    }
+  ]
+}

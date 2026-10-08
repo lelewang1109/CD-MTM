@@ -1,0 +1,56 @@
+{
+  "protocol": "same widths/q/pixels; root arity varied",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.9.24",
+  "numpy": "2.0.2",
+  "rows": [
+    {
+      "leaves": 12,
+      "pixels": 96,
+      "root_degree": 2,
+      "subset_states": 3,
+      "tau": 28.664154835872246,
+      "seconds": 0.0007948750000000282
+    },
+    {
+      "leaves": 12,
+      "pixels": 96,
+      "root_degree": 3,
+      "subset_states": 7,
+      "tau": 17.87483812798775,
+      "seconds": 0.0008682500000000148
+    },
+    {
+      "leaves": 12,
+      "pixels": 96,
+      "root_degree": 4,
+      "subset_states": 15,
+      "tau": 17.87483812798775,
+      "seconds": 0.0009376669999999754
+    },
+    {
+      "leaves": 12,
+      "pixels": 96,
+      "root_degree": 6,
+      "subset_states": 63,
+      "tau": 11.433455018802977,
+      "seconds": 0.0018117089999999947
+    },
+    {
+      "leaves": 12,
+      "pixels": 96,
+      "root_degree": 8,
+      "subset_states": 255,
+      "tau": 7.5686251532921105,
+      "seconds": 0.006429833999999968
+    },
+    {
+      "leaves": 12,
+      "pixels": 96,
+      "root_degree": 12,
+      "subset_states": 4095,
+      "tau": 0.48310373318885813,
+      "seconds": 0.13500141599999999
+    }
+  ]
+}

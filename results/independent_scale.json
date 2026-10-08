@@ -1,0 +1,32 @@
+{
+  "1999": {
+    "season": "1999",
+    "sigma_km": 150,
+    "frames": 118,
+    "leaves_max": 12,
+    "leaves_mean": 5.830508474576271,
+    "frames_above_free_enumeration_limit": 1,
+    "certified_hierarchy_conflict_frames": 84,
+    "certified_hierarchy_conflict_share": 0.711864406779661,
+    "hierarchy_cost_lower_max_share": 0.34367461402370425,
+    "certificate_seconds_total": 0.11957082799998986,
+    "certificate_seconds_max": 0.002276957999999496,
+    "resolution_pixels": 1024,
+    "interpretation": "Lower bound only: tau_hier >= relaxed DP bound and tau_free <= fixed q-sort tau."
+  },
+  "2014": {
+    "season": "2014",
+    "sigma_km": 150,
+    "frames": 124,
+    "leaves_max": 14,
+    "leaves_mean": 5.443548387096774,
+    "frames_above_free_enumeration_limit": 4,
+    "certified_hierarchy_conflict_frames": 63,
+    "certified_hierarchy_conflict_share": 0.5080645161290323,
+    "hierarchy_cost_lower_max_share": 0.25315271753196306,
+    "certificate_seconds_total": 0.10728237500000404,
+    "certificate_seconds_max": 0.002429542000001561,
+    "resolution_pixels": 1024,
+    "interpretation": "Lower bound only: tau_hier >= relaxed DP bound and tau_free <= fixed q-sort tau."
+  }
+}
