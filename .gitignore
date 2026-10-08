@@ -1,10 +1,14 @@
 __pycache__/
+.DS_Store
 *.py[cod]
 *.egg-info/
 .venv/
 .pytest_cache/
 build/
 dist/
+tmp/
+output/
+references/pacificvis2025/pdfs/
 data/real
 paper/pacificvis2027/supplement.zip
 paper/pacificvis2027/*.aux
