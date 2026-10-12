@@ -4,13 +4,11 @@ Reject missing evidence, wrong dataset membership, or inconsistent frame counts.
 Retired ERA5 evidence is never used when aggregating the revised paper.
 """
 from pathlib import Path
-import sys,json,hashlib,re,runpy,shutil
-import numpy as np
+import sys,json,hashlib,re,runpy,shutil,csv
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'analysis'))
 from dataset_suite import REAL_DATASETS,PAPER_DATASETS,PROXY_DATASETS,LABELS
 PAPER=ROOT/'paper/pacificvis2027';OUT=ROOT/'results'
-METHODS=[('TMTM','TMTM'),('ST-MTM','ST-MTM'),('Hilbert','Hilbert'),('Morton','Morton'),
- ('A','A (tree kept)'),('R 20%',r'R, $\kappa=20\%$'),('q-sort (packed)','sorted, packed'),('oracle q','exact projection')]
+from result_tables import METHODS
 
 def read(file):
  p=OUT/file
@@ -19,7 +17,8 @@ def read(file):
 def percent(x,d=1):return f'{100*x:.{d}f}'+r'\%'
 def proxy(d,method,mode='proxy'):
  rows=[x for x in d[mode] if x['method']==method and x['k']==2 and x['eps']==.02]
- return rows[0] if rows else {'clear':0}
+ if len(rows)!=1:raise ValueError(f'Expected one completed motion row: {d.get("dataset")} / {method} / {mode}')
+ return rows[0]
 def tabular(cols,header,rows,caption,label,notes='',wide=False):
  env='table*' if wide else 'table'
  return '\n'.join([rf'\begin{{{env}}}[t]',rf'\caption{{{caption}}}',rf'\label{{{label}}}',r'\centering\footnotesize',
@@ -37,59 +36,64 @@ def main():
   assert all(x['frames']==reps[n]['certificate']['frames'] for x in fill[n])
  for n in PROXY_DATASETS:assert ev[n]['dataset']==n
  for n in REAL_DATASETS:assert n in rob and n in witness
- data_rows=[]
- short=dict(era5='ERA5',wildfire='Fire',oisst='SST',olr='OLR',ring='Ring',gaussians='Gaussians',pm25='PM2.5')
- step=dict(era5=r'12\,h',wildfire=r'2\,d',oisst=r'1\,d',olr=r'1\,d',ring='--',gaussians='--',pm25=r'1\,d')
- units=dict(pm25=r'$\mu$g\,m$^{-3}$',era5='hPa',wildfire='log-FRP',oisst=r'$^{\circ}$C',olr=r'W\,m$^{-2}$',ring='--',gaussians='--')
- kind=dict(pm25='split',era5='join',wildfire='split',oisst='split',olr='join',ring='split',gaussians='split')
+ short=dict(era5='ERA5',wildfire='Fire',olr='OLR',ring='Ring',gaussians='Gaussians',pm25='PM2.5')
+ pos=read('final_performance.json')
  for n in PAPER_DATASETS:
-  c=reps[n]['certificate'];data_rows.append([LABELS[n],c['frames'],step[n],f'{c["leaves"][0]}--{c["leaves"][1]}',c['tracks'],kind[n]+f' / {c["field_range"]:.1f}'])
- dataset_table=tabular('lrrrrl','Dataset & Steps & $\Delta t$ & Leaves & Tracks & Tree / range',data_rows,
-  'Datasets and extracted merge-tree features.','tab:data',
-  r'Ranges are in hPa (ERA5), $\log(1+\mathrm{FRP})$ (fire), W\,m$^{-2}$ (OLR), $\mu$g\,m$^{-3}$ (PM2.5), and arbitrary units (synthetics).')
- certrows=[]
- for n in REAL_DATASETS:
-  c=reps[n]['certificate'];certrows.append([short[n],f'{c["conflict_frames"]}/{c["frames"]}',percent(c['conflict_share'],0),percent(c['H_max_share']),percent(c['space_cost_max_share'])])
- certtable=tabular('lrrrr',r'Data & $H>\theta$ & Share & Max $H/L$ & Max $\tau_{\free}/L$',certrows,
-  'Hierarchy conflicts and packing costs under the shared operating threshold.','tab:cert_revised')
- proxyrows=[]
- for key,label in METHODS:
+  for source,digest in pos[n]['source_sha256'].items():
+   if hashlib.sha256((ROOT/source).read_bytes()).hexdigest()!=digest:
+    raise ValueError(f'Stale positional evidence for {n}: {source}; rerun result_tables.py')
+ for n in PAPER_DATASETS:
+  assert pos[n]['frames']==reps[n]['certificate']['frames']
+  assert all(m in pos[n]['methods'] and m in ev[n]['hidden'] for m,_ in METHODS)
+  assert len({proxy(ev[n],m)['clear'] for m,_ in METHODS})==1
+ def cell(value,best,digits=2):
+  if value is None:return '--'
+  formatted=f'{100*value:.{digits}f}'
+  return r'\textbf{'+formatted+'}' if best is not None and round(100*value,digits)==round(100*best,digits) else formatted
+ actual=[m for m,_ in METHODS if m!='oracle q']
+ bestpos={n:min(pos[n]['methods'][m]['mean'] for m in actual) for n in PAPER_DATASETS}
+ positionrows=[[label]+[cell(pos[n]['methods'][m]['mean'],bestpos[n] if m!='oracle q' else None) for n in PAPER_DATASETS] for m,label in METHODS]
+ positionrows.insert(-1,[r'\midrule Certificate $\overline{\tau^*_{\mathrm{pt}}}/L$']+[f"{100*pos[n]['bound_mean']:.2f}" for n in PAPER_DATASETS])
+ positionrows[-1][0]=r'\midrule '+positionrows[-1][0]
+ positionrows.append([r'\midrule Frames']+[reps[n]['certificate']['frames'] for n in PAPER_DATASETS])
+ positiontable=tabular('l'+'r'*len(PAPER_DATASETS),'Method & '+' & '.join(short[n] for n in PAPER_DATASETS),positionrows,
+  r'Position comparison against the hierarchy certificate (\%, lower is better).','tab:position',
+  r'Mean framewise minimax order deviation under monotone calibration, normalized by reference extent $L$; widths/gaps removed, raster ties resolved by stable source-feature order. This is a 1-D reference deviation. Certificate: lower bound for hierarchy-consistent orders; R, native curves and packed sort may fall below it. Exact projection is an unconstrained control, excluded from bold minima. Bold includes displayed ties.',wide=True)
+ beststress={n:min(ev[n]['hidden'][m]['stress'] for m in actual if ev[n]['hidden'][m]['stress'] is not None) for n in PAPER_DATASETS}
+ bestmotion={n:min([proxy(ev[n],m)['error'] for m in actual if proxy(ev[n],m).get('clear')],default=None) for n in PAPER_DATASETS}
+ spatialrows=[]
+ for m,label in METHODS:
   row=[label]
-  for n in REAL_DATASETS:
-   v=proxy(ev[n],key);row.append(f'{100*v["reversal"]:.1f} / {100*v["error"]:.1f}' if v.get('clear') else '--')
-  proxyrows.append(row)
- proxyrows.append(['clear cases']+[proxy(ev[n],'A').get('clear',0) for n in REAL_DATASETS])
- proxytable=tabular('l'+'c'*len(REAL_DATASETS),'Method & '+' & '.join(short[n] for n in REAL_DATASETS),proxyrows,
-  r'Geometric motion proxy: reversal / total error (\%) at $k=2$.','tab:proxy',
-  r'Total error = reversal + miss over clear 2-D pair-windows. Synthetic results and alternative caps are in the supplement; Gaussian has no clear events at this setting.',wide=False)
- proxytable=proxytable.replace(r'\centering\footnotesize',r'\centering\scriptsize').replace('{3pt}','{1.7pt}')
- toporows=[]
- for n in REAL_DATASETS:
-  ds=ev[n]['dstar'];r=ds['R 20%'];pk=ds['q-sort (packed)'];p=proxy(ev[n],'R 20%','projected_proxy')
-  toporows.append([short[n],f'{r["max"]:.2f}',percent(r['max_share']),percent(r['mean_share']),percent(pk['max_share']),
-                   f'{100*p["error"]:.1f}' if p.get('clear') else '--'])
- topotable=tabular('lrrrrr',r'Data & Max $\dtop$ & Max \% & Mean \% & Sort \% & Proj. \%',toporows,
-  r'Achieved optimal-filling costs of R at $\kappa=20\%$.','tab:topo_revised',
-  r'The absolute topological cost uses the scalar units of Table~\ref{tab:data}. Proj. error is reversal + miss (\%).')
- sfcrows=[]
- for n in REAL_DATASETS:
-  row=[short[n]]
-  for m in ('Hilbert','Morton'):
-   d=ev[n]['dstar'][m];row.append(f"{100*d['max_share']:.1f} / {100*d['mean_share']:.1f} / {d['segments_mean']:.1f}")
-  sfcrows.append(row)
- sfctable=tabular('lcc',r'Data & Hilbert & Morton',sfcrows,
-   'Native curve merge errors and feature fragmentation.','tab:sfc',
-   r'Entries: temporal max / mean of framewise maximum merge error (\% of range) / mean runs per leaf support. Samples are unchanged; no optimal refilling is applied.')
- hiddenrows=[]
- for n in REAL_DATASETS:
-  for m in ['ST-MTM','A','R 20%']:
-   h=ev[n]['hidden'][m];hiddenrows.append([short[n],m.replace('%',r'\%'),*[f'{h[k]:.3f}' if h[k] is not None else '--' for k in ['order_flip_rate','jitter','stress','nn_preservation']]])
- hiddentable=tabular('llrrrr','Data & Method & Flips & Step & Stress & NN',hiddenrows,
-  'Temporal change and 2-D neighbourhood preservation.','tab:hidden',
-  'Flips and step measure change, not error. Step is normalized anchor displacement. Stress is Kruskal stress-1 (lower is better); NN is nearest-neighbour preservation (higher is better).')
+  for n in PAPER_DATASETS:
+   v=proxy(ev[n],m)
+   row.extend([cell(ev[n]['hidden'][m]['stress'],beststress[n] if m!='oracle q' else None,1),cell(v.get('error') if v.get('clear') else None,bestmotion[n] if m!='oracle q' else None,1)])
+  if m=='oracle q':row[0]=r'\midrule '+row[0]
+  spatialrows.append(row)
+ spatialrows.append([r'\midrule Frames / events']+[x for n in PAPER_DATASETS for x in (str(ev[n]['hidden']['A']['neighbourhood_frames']),str(proxy(ev[n],'A').get('clear',0)))])
+ groups='Method & '+' & '.join(r'\multicolumn{2}{c}{'+short[n]+'}' for n in PAPER_DATASETS)
+ subheader=' & '+' & '.join(['Stress & Motion']*len(PAPER_DATASETS))
+ spatialtable=tabular('l'+'rr'*len(PAPER_DATASETS),groups+r'\\'+subheader,spatialrows,
+  r'Spatial deviation and motion-reading error (\%, lower is better).','tab:spatial',
+  r'Stress: mean Kruskal stress-1 $\times100$, comparing 1-D and 2-D extremum distances after optimal scale fitting (at least three extrema). Motion: reversal + miss over clear 2-D pair-windows, $k=2$, 2\% change threshold. Last row: stress frames / motion events; no events gives --. These are geometric proxies, not human accuracy. Controls and bold ties follow Table~\ref{tab:position}.',wide=True)
+ with (OUT/'final_performance.csv').open('w',newline='') as handle:
+  writer=csv.writer(handle,lineterminator='\n')
+  writer.writerow(['dataset','method','position_order_error_mean_pct','hierarchy_certificate_mean_pct','spatial_stress_pct','motion_error_pct','stress_frames','clear_events'])
+  for n in PAPER_DATASETS:
+   for m,_ in METHODS:
+    v=proxy(ev[n],m);stress=ev[n]['hidden'][m]['stress']
+    writer.writerow([n,m,100*pos[n]['methods'][m]['mean'],100*pos[n]['bound_mean'],100*stress if stress is not None else '',100*v['error'] if v.get('clear') else '',ev[n]['hidden'][m]['neighbourhood_frames'],v.get('clear',0)])
+ # Detailed costs are evidence for interpreting the trade-off, not additional main performance tables.
+ diagnosticrows=[]
+ for n in PAPER_DATASETS:
+  for m in ('R 20%','q-sort (packed)','Hilbert','Morton'):
+   d=ev[n]['dstar'][m]
+   diagnosticrows.append([short[n],m.replace('%',r'\%'),f"{100*d['max_share']:.1f}",f"{100*d['mean_share']:.1f}",f"{d['segments_mean']:.1f}" if 'segments_mean' in d else '--'])
+ diagnostic=tabular('llrrr','Data & Method & Max merge \% & Mean merge \% & Runs',diagnosticrows,
+  'Supplementary merge-cost and native fragmentation diagnostics.','tab:merge_diagnostics',
+  'Native curves use unchanged scalar samples; R and packed sorting use optimal barrier filling. Mean merge cost is the temporal mean of framewise maximum pairwise merge error, normalized by scalar range. Runs apply only to native source-support fragmentation.')
+ (PAPER/'performance_diagnostics.tex').write_text(diagnostic+'\n')
  shares=[reps[n]['certificate']['conflict_share'] for n in REAL_DATASETS]
  max_fill=max(x['measured_vs_closed_form_max'] for n in PAPER_DATASETS for x in fill[n])
- zero=[n for n in REAL_DATASETS if reps[n]['certificate']['conflict_frames']==0]
  sigmaolr=read('protocol_olr.json')['sigma_km']
  sigmapm=read('protocol_pm25.json')['sigma_km']
  pmst=proxy(ev['pm25'],'ST-MTM');pma=proxy(ev['pm25'],'A');pmr=proxy(ev['pm25'],'R 20%')
@@ -115,7 +119,7 @@ def main():
 We test \textbf{RQ1}, the prevalence and causes of hierarchy conflict; \textbf{RQ2}, merge-level cost and proximity to the exact frontier; \textbf{RQ3}, geometric motion error relative to projected and 2-D references; and \textbf{RQ4}, transfer to dendrograms. Four real sequences and two synthetic controls test these questions; the winter case illustrates interpretation without measuring human performance.
 
 \subsection{Datasets, baselines, and validation protocol}
-'''+dataset_table+r'''
+'''+positiontable+spatialtable+r'''
 
 \textbf{Pressure data.} We retain ERA5 mean sea-level pressure for 1999-11-17--2000-01-14, sampled every 12 hours over the North Atlantic and Europe (25--80\textdegree N, 40\textdegree W--50\textdegree E)~\cite{Hersbach:2020:ERA5}. A $49\times49$ equal-area grid and 250\,km Gaussian smoothing define join-tree minima. Smoothing is performed on a buffered domain; only extrema of that extended field inside the window are retained, and other cropped basins are filled to their spill levels. These are processed-field minima, not independently validated cyclone centres.
 
@@ -130,37 +134,33 @@ We test \textbf{RQ1}, the prevalence and causes of hierarchy conflict; \textbf{R
 \textbf{Checks.} The shared pipeline checks interval legality, widths, gaps, canvas, eccentricity, positional budget, and rendered merge levels. For each sequence, the exact frontier is enumerated over all leaf orders; $F_T(0)=\tau^*$ is checked independently. Across the '''+str(frames)+r''' evaluated frames, the largest normalized discrepancy between measured barrier-filling error and its closed form is '''+f'{max_fill:.2g}'+r''', including the strict-extremum clearance. Full-layout scalability remains limited by order enumeration; the large-leaf benchmark concerns certificate diagnosis.
 
 \subsection{RQ1: Prevalence and sources of hierarchy conflict}\label{sec:rq1}
-'''+certtable+r'''
 \begin{figure*}[t]
 \centering\includegraphics[width=\linewidth]{fig_rq1}
 \caption{Packing cost $\tau_{\free}$ (grey) and hierarchy cost $H$ (orange) per frame for the four real sequences; dotted: $\theta=2\%$ of the axis. Their sum is the minimum possible maximum positional error.}
 \label{fig:rq1}
 \end{figure*}
 
-Table~\ref{tab:cert_revised} separates packing from the additional cost of subtree contiguity. Conflict shares span '''+percent(min(shares),0)+'--'+percent(max(shares),0)+r''' under these extraction protocols, not as general incidence estimates.
+Figure~\ref{fig:rq1} separates packing from the additional cost of subtree contiguity; Table~\ref{tab:position} compares all methods against the width-free hierarchy certificate. Conflict shares span '''+percent(min(shares),0)+'--'+percent(max(shares),0)+r''' under these extraction protocols, not as general incidence estimates.
 
 A conflict needs at least three leaves and depends on both the hierarchy and the chosen reference. The retained ERA5 sequence has conflicts in 34\% of frames and fire in 63\%; these values are not used to select the new domains or their smoothing scales. Eight fixed directions and thresholds of 1\%, 2\%, and 5\% are evaluated for all four real sequences in the supplement. Witness triples explain the conflicting features where present. Persistence simplification is tested separately: it can remove conflicts by deleting extrema, whereas flattening retains them and changes merge relations. All rates refer to the resulting processed fields.
 
 \subsection{RQ2: Topological cost and proximity to the frontier}\label{sec:cost}
-\begin{figure*}[t]
+\begin{figure*}[!t]
 \centering\includegraphics[width=\linewidth]{fig_frontier_exact}
 \caption{Exact attainable frontier $F$ (blue), certified lower bound $\Phi$ (dashed), and R for the six evaluated sequences. Filled points use optimal barrier filling; open points use LCA filling. The vertical axis reports mean fixed-order position optimum, excluding layout slack.}
 \label{fig:frontier}
 \end{figure*}
-'''+topotable+r'''
 
-Barrier filling attains $\delta^*(\pi)$ for each order while keeping extremum values, for both join and split trees. Table~\ref{tab:topo_revised} reports achieved costs: the $\kappa=20\%$ merge-gap threshold is not a distortion bound. Packed sorting drops hierarchy entirely. Sequences without triggered conflicts test preservation and offer no relaxation benefit. The bound $\Phi$ ignores fixed leaf heights and need not be attainable.
-'''+hiddentable+sfctable+r'''
+Barrier filling attains $\delta^*(\pi)$ for each order while keeping extremum values, for both join and split trees. The supplementary merge-cost diagnostics report achieved costs: the $\kappa=20\%$ merge-gap threshold is not a distortion bound. Packed sorting drops hierarchy entirely. Sequences without triggered conflicts test preservation and offer no relaxation benefit. The bound $\Phi$ ignores fixed leaf heights and need not be attainable.
 
-Table~\ref{tab:hidden} separates temporal change from neighbourhood preservation; anchor displacement is not jitter error. Table~\ref{tab:sfc} reports native-curve costs. Saved records report frontier excess and pruning controls. The policy has no approximation guarantee.
+Table~\ref{tab:spatial} reports 2-D distance stress for every method and dataset. Native-curve merge costs and support fragmentation, temporal order changes, nearest-neighbour preservation, frontier excess and pruning controls remain supplementary diagnostics. Anchor displacement measures change, not jitter error. The policy has no approximation guarantee.
 
 \subsection{RQ3: Geometric motion error and projection loss}\label{sec:motion}
 We simulate approach/separation readings over $k=2$ steps: 24\,h for ERA5, four days for fire, and two days for OLR and PM2.5. These are comparable step windows, not equal physical durations. A clear 2-D event changes extremum distance by more than 2\% of the domain diagonal. A reversal reads its opposite; a miss reads no change; total error is their sum. Projected-reference events instead use 2\% of the reference-axis extent. Paired comparisons use circular moving-block bootstrap over time with $k+2$-step blocks; results with sparse cases are descriptive.
-'''+proxytable+r'''
 
 Against the projected reference, the exact-projection baseline has zero error by construction. Its 2-D error can remain positive because motion orthogonal to one direction is lost. The projected and 2-D definitions select different clear events, so subtracting their rates does not isolate projection loss. The proxy assumes known feature identities and anchors; it does not measure human performance.
 
-On the retained ERA5 period, R at $\kappa=20\%$ reduces total 2-D proxy error from ST-MTM's 41.3\% to 18.3\%, with maximum merge-level distortion of 26.1\% of the scalar range. On fire it reduces reversals from 21.4\% to 6.2\% but total error only from 35.7\% to 31.2\%: some reversals become misses. Table~\ref{tab:proxy} reports the radiation and pollution cases with their actual clear-case counts, including results with no relaxation. The method therefore offers a measured position--topology trade-off rather than guaranteed dominance of ST-MTM or reference sorting.
+On the retained ERA5 period, R at $\kappa=20\%$ reduces total 2-D proxy error from ST-MTM's 41.3\% to 18.3\%, with maximum merge-level distortion of 26.1\% of the scalar range. On fire it reduces reversals from 21.4\% to 6.2\% but total error only from 35.7\% to 31.2\%: some reversals become misses. Table~\ref{tab:spatial} reports the radiation and pollution cases with their actual clear-case counts, including results with no relaxation. The method therefore offers a measured position--topology trade-off rather than guaranteed dominance of ST-MTM or reference sorting.
 
 On OLR, A and R at $\kappa=20\%$ both have 5.4\% total 2-D proxy error, while R incurs maximum merge-level distortion of 33.6\% of the value range. Better positional alignment therefore need not improve this motion proxy.
 
@@ -169,10 +169,7 @@ On OLR, A and R at $\kappa=20\%$ both have 5.4\% total 2-D proxy error, while R 
 The supplement reports three change thresholds, four step windows, fixed-direction relaxation, and per-feature diagnostic flags for each active real sequence. These are exploratory analyses without multiplicity correction; the original multi-period ERA5 aggregates are not carried into the revised evaluation.
 
 '''
- rq1figure=re.search(r'\\begin\{figure\*\}\[t\].*?\\label\{fig:rq1\}\s*\\end\{figure\*\}',text,re.S).group(0)
- text=text.replace(rq1figure,'')
- text=text.replace(r'\section{Evaluation of Diagnosis and Trade-offs}\label{sec:eval}',r'\section{Evaluation of Diagnosis and Trade-offs}\label{sec:eval}'+'\n'+rq1figure)
- text+=r'''\begin{figure*}[t]
+ text+=r'''\begin{figure*}[!t]
 \centering\includegraphics[width=\linewidth]{fig_witness}
 \caption{Retained ERA5 winter case. The tree-preserving map shows witness triples, the spatial field and projected extrema explain the conflict, and the relaxed map ($\kappa=20\%$) discloses achieved position and merge-level errors.}
 \label{fig:witness}
@@ -196,8 +193,9 @@ The supplement reports three change thresholds, four step windows, fixed-directi
   'Fire data: Franke et al.~\\cite{Franke:2021:1DP} (CC BY 4.0); ERA5: Copernicus~\\cite{Hersbach:2020:ERA5}; OLR: NOAA~\\cite{NOAA:OLR}, provided by NOAA PSL, Boulder, Colorado, USA; coastlines: Natural Earth (public domain).')
  src=src.replace('coastlines: Natural Earth (public domain).','PM2.5: integrated China dataset V2~\cite{Dong:2026:PM25} (CC BY 4.0); coastlines: Natural Earth (public domain).') if 'PM2.5: integrated China' not in src else src
  src=src.replace(r'SST and OLR: NOAA~\cite{NOAA:OISST,NOAA:OLR}',r'OLR: NOAA~\cite{NOAA:OLR}')
+ src=src.replace(r'\cref{tab:hidden}',r'\cref{tab:spatial}')
  main.write_text(src)
- files=[f'replicate_{n}.json' for n in PAPER_DATASETS]+[f'attainable_{n}.json' for n in PAPER_DATASETS]+[f'protocol_{n}.json' for n in ('olr','pm25')]+['eval_projection.json','filling.json','robustness.json','witness.json','sfc_baseline_protocol.json']
+ files=[f'replicate_{n}.json' for n in PAPER_DATASETS]+[f'attainable_{n}.json' for n in PAPER_DATASETS]+[f'protocol_{n}.json' for n in ('olr','pm25')]+['final_performance.json','eval_projection.json','filling.json','robustness.json','witness.json','sfc_baseline_protocol.json']
  if seasontext:files+=['pm25_season_protocol.json','method_performance_audit.json']+[f'replicate_{n}.json' for n in plan['periods']]
  audit=dict(active_real=list(REAL_DATASETS),active_all=list(PAPER_DATASETS),retired=['era5_2014','oisst'],frames=frames,
   conflict_share_range=[min(shares),max(shares)],source_sha256={f:hashlib.sha256((OUT/f).read_bytes()).hexdigest() for f in files})
@@ -207,6 +205,6 @@ The supplement reports three change thresholds, four step windows, fixed-directi
  attainable.plot()
  for figure in ('fig_rq1.pdf','fig_frontier_exact.pdf'):
   shutil.copy2(OUT/figure,PAPER/'figures'/figure)
- print('Generated revised experiment section, tables, abstract, figures, and evidence hashes.')
+ print('Generated two consolidated main performance tables, supplementary diagnostics, prose and evidence hashes.')
 
 if __name__=='__main__':main()

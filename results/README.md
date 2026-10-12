@@ -5,6 +5,7 @@ OLR, January 2000 PM2.5, Ring and Gaussians. Main membership is defined by
 `../analysis/dataset_suite.py`. Older records are kept for traceability, not
 included automatically in main aggregates.
 
+- `final_performance.json`: current per-frame order-only positional deviation and hierarchy lower bounds for every method; drives main Table 1.
 - `eval_projection.json`: motion errors, paired bootstrap, neighbourhood costs,
   R/packed-sort optimal-filling costs, and actual native Hilbert/Morton merge costs.
 - `replicate_*.json`: frame/feature counts, packing and hierarchy certificates.
@@ -15,7 +16,7 @@ included automatically in main aggregates.
 - `method_performance_audit.json`: declared-setting rankings, including undefined rates.
 - `pm25_season_protocol.json`: four frozen 30-day seasonal controls.
 - `archive/pm25_janfeb/`: superseded main period, retained for the selection audit.
-- `revised_suite/`: completion manifests and per-stage logs; retired OISST logs are historical.
+- `revised_suite/`: completion manifests and per-stage logs; retired OISST outputs have been removed.
 
 [The visualization gallery](visualizations/README.md) contains ten figures in
 PNG/PDF/SVG, a combined PDF booklet, and `manifest.json` with evidence, source

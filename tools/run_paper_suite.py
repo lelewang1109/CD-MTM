@@ -8,7 +8,7 @@ import argparse,sys,subprocess,json,hashlib,platform,time
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'analysis'))
 from dataset_suite import PAPER_DATASETS
-STAGES=('replicate','evaluation','attainable','filling','robustness','pointcert','persistence','witness_stats')
+STAGES=('replicate','evaluation','attainable','filling','robustness','pointcert','persistence','witness_stats','result_tables')
 
 def main():
  p=argparse.ArgumentParser(description=__doc__)

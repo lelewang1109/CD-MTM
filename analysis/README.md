@@ -4,9 +4,11 @@ Active membership is defined in `dataset_suite.py`: ERA5 1999/2000, wildfire,
 OLR, January PM2.5, Ring and Gaussians, totalling 342 frames. Main PM2.5 was
 selected after seasonal exploration; all seasonal controls remain saved.
 
-The shared evidence chain is run by `../tools/run_paper_suite.py`. Its eight
+The shared evidence chain is run by `../tools/run_paper_suite.py`. Its nine
 stages are `replicate`, `evaluation`, `attainable`, `filling`, `robustness`,
-`pointcert`, `persistence`, and `witness_stats`. `evaluation.py` contains both
+`pointcert`, `persistence`, `witness_stats`, and `result_tables`.
+The final stage computes all methods against the same width-free positional
+certificate; `tools/update_paper_evidence.py` consumes it to create two main tables. `evaluation.py` contains both
 2-D and projected motion references, native Hilbert/Morton merge costs,
 fragmentation, neighbourhood costs and paired moving-block bootstrap results.
 

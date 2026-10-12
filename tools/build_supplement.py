@@ -16,7 +16,9 @@ def include_files():
              ROOT / "analysis/README.md",
              ROOT / "notes/january-pm25-and-sfc-baselines.md",
              ROOT / "notes/experiment-documentation-history.md",
-             ROOT / "notes/method-performance-audit.md", Path(__file__)]
+             ROOT / "notes/method-performance-audit.md",
+             ROOT / "notes/result-presentation-cleanup.json",
+             ROOT / "results/final_performance.csv", Path(__file__)]
     for directory in ("src", "experiments", "analysis", "tests", "tools"):
         paths.extend(p for p in (ROOT / directory).rglob("*.py") if "archive_oisst" not in str(p))
     paths.extend(p for p in (ROOT / "results").glob("*.json") if not any(n in p.name for n in ("era5_2014", "oisst")))
@@ -28,6 +30,7 @@ def include_files():
     paths.extend(paper.glob("*.bst"))
     paths.append(paper / "experiments_revised.tex")
     paths.append(paper / "seasonal_controls.tex")
+    paths.append(paper / "performance_diagnostics.tex")
     paths.extend((paper / "figures").glob("*.pdf"))
     paths.extend(p for p in (paper / "figures/panels").rglob("*.pdf") if not any(n in p.name for n in ("era5_2014", "oisst")))
     paths.extend(p for p in (paper / "figures/panels").rglob("*.png") if not any(n in p.name for n in ("era5_2014", "oisst")))

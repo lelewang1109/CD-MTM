@@ -105,3 +105,20 @@ artifact, so the main paper's page allocation stays intact.
 
 Historical documentation is preserved in
 [`notes/experiment-documentation-history.md`](notes/experiment-documentation-history.md).
+
+### Consolidated manuscript results
+
+The manuscript now uses two main tables: certificate-calibrated order deviation
+and 2-D distance stress / motion proxy error, both across six datasets and all
+main comparison methods. Native curve fragmentation and merge costs are
+supplementary diagnostics. Reproduce with:
+
+```sh
+PYTHONPATH=src python3 analysis/result_tables.py
+PYTHONPATH=src python3 tools/update_paper_evidence.py
+```
+
+`results/final_performance.csv` is the flat, unrounded export behind both tables;
+`results/final_performance.json` stores per-frame positional results and provenance.
+Retired dataset exports and obsolete duplicate bundles were removed; the PM2.5
+seasonal selection audit and raw inputs are retained.
