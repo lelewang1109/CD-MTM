@@ -108,13 +108,14 @@ Historical documentation is preserved in
 
 ### Consolidated manuscript results
 
-The manuscript now uses two main tables: certificate-calibrated order deviation
-and 2-D distance stress / motion proxy error, both across six datasets and all
+The manuscript now uses two main tables: hierarchy-constrained certificate decomposition
+and position--topology trade-offs, both across six datasets and all
 main comparison methods. Native curve fragmentation and merge costs are
 supplementary diagnostics. Reproduce with:
 
 ```sh
 PYTHONPATH=src python3 analysis/result_tables.py
+PYTHONPATH=src python3 analysis/native_merge_errors.py
 PYTHONPATH=src python3 tools/update_paper_evidence.py
 ```
 
@@ -122,3 +123,9 @@ PYTHONPATH=src python3 tools/update_paper_evidence.py
 `results/final_performance.json` stores per-frame positional results and provenance.
 Retired dataset exports and obsolete duplicate bundles were removed; the PM2.5
 seasonal selection audit and raw inputs are retained.
+
+The two main tables follow the paper's two core contributions: unavoidable
+position error under topology constraints and merge-level cost when position
+is improved. `spatial_motion_controls.tex` retains the auxiliary geometric
+validation. `native_merge_errors.json` measures TMTM/ST-MTM/Fixed-X scalar
+barriers at the evaluated anchors; nominal-resolution checks are also saved.

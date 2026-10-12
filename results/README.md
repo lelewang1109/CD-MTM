@@ -5,7 +5,7 @@ OLR, January 2000 PM2.5, Ring and Gaussians. Main membership is defined by
 `../analysis/dataset_suite.py`. Older records are kept for traceability, not
 included automatically in main aggregates.
 
-- `final_performance.json`: current per-frame order-only positional deviation and hierarchy lower bounds for every method; drives main Table 1.
+- `final_performance.json`: current per-frame order-only positional deviation and hierarchy lower bounds for every method; drives the width-free comparisons.
 - `eval_projection.json`: motion errors, paired bootstrap, neighbourhood costs,
   R/packed-sort optimal-filling costs, and actual native Hilbert/Morton merge costs.
 - `replicate_*.json`: frame/feature counts, packing and hierarchy certificates.
@@ -32,3 +32,9 @@ rendering protocols, applied to the same processed input fields.
 Earlier `paper_stats.json`, `quality.json` and other historical-window records
 are not sources for current manuscript claims. Historical documentation is in
 `../notes/experiment-documentation-history.md`.
+
+The two main tables follow the paper's two core contributions: unavoidable
+position error under topology constraints and merge-level cost when position
+is improved. `spatial_motion_controls.tex` retains the auxiliary geometric
+validation. `native_merge_errors.json` measures TMTM/ST-MTM/Fixed-X scalar
+barriers at the evaluated anchors; nominal-resolution checks are also saved.

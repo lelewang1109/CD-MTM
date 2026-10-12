@@ -17,7 +17,7 @@ paths.extend([ROOT / 'pyproject.toml', ROOT / 'analysis/panels/README.md',
 for name in [f'{stage}_{dataset}' for stage in ('replicate', 'attainable') for dataset in PAPER_DATASETS]:
     paths.append(ROOT / 'results' / (name + '.json'))
 paths.append(ROOT / 'results/eval_projection.json')
-paths.extend(ROOT / name for name in ('results/final_performance.json', 'results/final_performance.csv', 'tools/update_paper_evidence.py'))
+paths.extend(ROOT / name for name in ('results/final_performance.json', 'results/final_performance.csv', 'results/native_merge_errors.json', 'tools/update_paper_evidence.py'))
 paths.append(ROOT / 'analysis/visualization/README.md')
 paths.append(ROOT / 'data/geo/ne_110m_coastline.geojson')
 with ZipFile(OUT, 'w', ZIP_DEFLATED) as archive:

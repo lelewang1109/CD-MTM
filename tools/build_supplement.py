@@ -31,6 +31,7 @@ def include_files():
     paths.append(paper / "experiments_revised.tex")
     paths.append(paper / "seasonal_controls.tex")
     paths.append(paper / "performance_diagnostics.tex")
+    paths.append(paper / "spatial_motion_controls.tex")
     paths.extend((paper / "figures").glob("*.pdf"))
     paths.extend(p for p in (paper / "figures/panels").rglob("*.pdf") if not any(n in p.name for n in ("era5_2014", "oisst")))
     paths.extend(p for p in (paper / "figures/panels").rglob("*.png") if not any(n in p.name for n in ("era5_2014", "oisst")))

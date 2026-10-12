@@ -4,9 +4,9 @@ Active membership is defined in `dataset_suite.py`: ERA5 1999/2000, wildfire,
 OLR, January PM2.5, Ring and Gaussians, totalling 342 frames. Main PM2.5 was
 selected after seasonal exploration; all seasonal controls remain saved.
 
-The shared evidence chain is run by `../tools/run_paper_suite.py`. Its nine
+The shared evidence chain is run by `../tools/run_paper_suite.py`. Its ten
 stages are `replicate`, `evaluation`, `attainable`, `filling`, `robustness`,
-`pointcert`, `persistence`, `witness_stats`, and `result_tables`.
+`pointcert`, `persistence`, `witness_stats`, `result_tables`, and `native_merge_errors`.
 The final stage computes all methods against the same width-free positional
 certificate; `tools/update_paper_evidence.py` consumes it to create two main tables. `evaluation.py` contains both
 2-D and projected motion references, native Hilbert/Morton merge costs,
@@ -37,3 +37,9 @@ that the complete order-enumerating layout pipeline scales to the same leaf coun
 
 Historical configurations and earlier entry-point descriptions are retained in
 `../notes/experiment-documentation-history.md`.
+
+The two main tables follow the paper's two core contributions: unavoidable
+position error under topology constraints and merge-level cost when position
+is improved. `spatial_motion_controls.tex` retains the auxiliary geometric
+validation. `native_merge_errors.json` measures TMTM/ST-MTM/Fixed-X scalar
+barriers at the evaluated anchors; nominal-resolution checks are also saved.
