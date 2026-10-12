@@ -1,7 +1,7 @@
 """Teaser: the same ERA5 winter as (a) ST-MTM, (b) reference-anchored layout keeping the merge tree, with the
 per-frame certificate strip, and (c) certificate-driven relaxation rendered with the optimal barrier filling,
 with the per-frame topological cost strip.
-Output: results/fig_teaser.png (+ .pdf)
+Output: results/fig_teaser.png (+ .pdf). Independent subplots: analysis/panels/fig1/
 Run: .venv/bin/python -W ignore analysis/fig_teaser.py
 """
 from pathlib import Path
@@ -61,7 +61,7 @@ def main():
         a = fig.add_subplot(gs, **kw); a.tick_params(labelbottom=False); a.set_xlim(-.5, T - .5); return a
     # (a)
     ax = fig.add_subplot(g[2, 0]); ext = [min(u.min() for u in Ust), max(u.max() for u in Ust)]
-    ax.imshow(st['maps'], origin='lower', aspect='auto', extent=[-.5, T - .5, ext[0], ext[1]], vmin=lo, vmax=hi, cmap='magma')
+    ax.imshow(st['maps'], origin='lower', aspect='auto', extent=[-.5, T - .5, ext[0], ext[1]], vmin=lo, vmax=hi, cmap=fs.FIELD_CMAP)
     tracks(ax, sc, Ust); ax.set(xlabel='time step', yticks=[]); ax.set_ylabel(f'position along {ref["label"].split()[-1]}')
     top = strip(g[0:2, 0])
     top.bar(t, np.array(cert_pt) / L * 100, color='#555555', width=.9, label='unavoidable')
@@ -70,7 +70,7 @@ def main():
     top.legend(loc='upper left', ncol=2, framealpha=.7, handlelength=1)
     # (b)
     ax = fig.add_subplot(g[2, 1]); ax.imshow(mapsA, origin='lower', aspect='auto', extent=[-.5, T - .5, p.canvas_origin, p.canvas_origin + L],
-                                             vmin=lo, vmax=hi, cmap='magma')
+                                             vmin=lo, vmax=hi, cmap=fs.FIELD_CMAP)
     tracks(ax, sc, [r['x'] for r in rowsA]); ax.set(xlabel='time step', yticks=[])
     top = strip(g[0:2, 1]); top.set_ylim(0, ymax); top.tick_params(labelleft=False)
     top.bar(t, F / L * 100, color='#999999', width=.9, label='space cost')
@@ -79,7 +79,7 @@ def main():
     top.set(title='(b) Merge tree kept: certificate $\\tau^*$'); top.legend(loc='upper left', ncol=2, framealpha=.7, handlelength=1)
     # (c)
     ax = fig.add_subplot(g[2, 2]); ax.imshow(optR, origin='lower', aspect='auto', extent=[-.5, T - .5, p.canvas_origin, p.canvas_origin + L],
-                                             vmin=lo, vmax=hi, cmap='magma')
+                                             vmin=lo, vmax=hi, cmap=fs.FIELD_CMAP)
     tracks(ax, sc, [r['x'] for r in rowsR]); ax.set(xlabel='time step', yticks=[])
     top = strip(g[0, 2]); top.bar(t, errR / L * 100, color='#009e73', width=.9); top.set_ylim(0, ymax / 2)
     top.set_title(f'(c) Relaxed ($\\kappa$ = {int(KAPPA*100)}%), optimal filling'); top.tick_params(labelleft=False)
@@ -99,7 +99,7 @@ def main():
     for a in maps_axes: a.set_xlabel('')
     sub = gout[1].subgridspec(1, len(SN), wspace=.05)
     for k, tt_ in enumerate(SN):
-        a = fig.add_subplot(sub[k]); a.imshow(sc.get('fields_smooth', sc['fields'])[tt_], origin='lower', extent=G.extent, cmap='magma', vmin=lo, vmax=hi)
+        a = fig.add_subplot(sub[k]); a.imshow(sc.get('fields_smooth', sc['fields'])[tt_], origin='lower', extent=G.extent, cmap=fs.FIELD_CMAP, vmin=lo, vmax=hi)
         G.graticule(a); G.coastlines(a, COAST)
         P_ = np.array([sc['frames'][tt_].coordinates[i] for i in sc['ids'][tt_]])
         a.plot(P_[:, 0], P_[:, 1], 'o', mfc='none', mec='w', mew=.8, ms=4)

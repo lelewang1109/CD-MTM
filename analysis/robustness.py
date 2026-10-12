@@ -9,6 +9,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import general_method as gm, relax_hierarchy as rh, replicate as rp, task_reference as tr
 from cdmtm.reference_points import reference_points_from_frames
 
+from dataset_suite import REAL_DATASETS
+
 OUT = tr.OUT
 ANGLES = list(np.arange(0, 180, 22.5)); THETAS = [.01, .02, .05]
 
@@ -35,7 +37,9 @@ def run(name):
 
 
 if __name__ == '__main__':
-    res = {n: run(n) for n in ['era5', 'era5_2014', 'wildfire']}
+    path = OUT / 'robustness.json'
+    res = json.loads(path.read_text()) if path.exists() else {}
+    res.update({n: run(n) for n in (sys.argv[1:] or list(REAL_DATASETS))})
     (OUT / 'robustness.json').write_text(json.dumps(res, indent=1))
     for n, rows in res.items():
         s2 = [r['share_theta_2'] for r in rows[1:]]

@@ -31,7 +31,8 @@ def to_list(s, mp): return mp[s] if isinstance(s, int) else [to_list(c, mp) for 
 
 def main():
     res = {}
-    for name in ['era5', 'era5_2014', 'wildfire']:
+    from dataset_suite import REAL_DATASETS
+    for name in (sys.argv[1:] or list(REAL_DATASETS)):
         ds = rp.LOADERS[name](); sc = ds['sc']
         ext = reference_points_from_frames(sc['frames'], sc['ids'], kind='extremum')
         ref = gm.auto_reference(sc, ext, ds['lo'], ds['hi'])

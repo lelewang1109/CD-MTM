@@ -1,0 +1,4 @@
+pm25_apr   eps 0%: conflicts 10%, leaves/frame 2.1, features removed 0%
+pm25_apr   eps 1%: conflicts 0%, leaves/frame 1.7, features removed 17%
+pm25_apr   eps 2%: conflicts 0%, leaves/frame 1.6, features removed 24%
+pm25_apr   eps 5%: conflicts 0%, leaves/frame 1.2, features removed 41%

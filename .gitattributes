@@ -1,0 +1,5 @@
+*.pdf binary
+*.png binary
+*.zip binary
+# Generated vectors use multiline path coordinates with significant separators.
+results/visualizations/*.svg -diff whitespace=-blank-at-eol linguist-generated=true

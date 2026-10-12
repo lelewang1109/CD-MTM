@@ -64,7 +64,7 @@ def analyse(key):
 
 
 def main():
-    keys = sys.argv[1:] or list(VARIANTS)
+    keys = sys.argv[1:] or [k for k in VARIANTS if not k.startswith('era5_2014')]
     path = OUT / 'sensitivity.json'; res = json.loads(path.read_text()) if path.exists() else {}
     for k in keys:
         r = analyse(k); res[k] = r; path.write_text(json.dumps(res, indent=1, default=float))

@@ -1,0 +1,6 @@
+pm25_apr   width-free certificate > theta in 3/30 frames (10%), max 12.5%
+    TMTM                   mean 0.035  frames>theta   4  excess over certificate 0.026  below cert 0
+    ST-MTM                 mean 0.095  frames>theta  10  excess over certificate 0.087  below cert 0
+    fixed-X anchored       mean 0.107  frames>theta  10  excess over certificate 0.098  below cert 0
+    ours: auto direction   mean 0.009  frames>theta   3  excess over certificate 0.000  below cert 0
+    ours: relaxed          mean 0.000  frames>theta   0  excess over certificate -0.009  below cert 3

@@ -49,8 +49,8 @@ def evaluate(season):
 
 
 def main():
-    result = {season: evaluate(season) for season in ('1999', '2014')}
-    out = Path(__file__).resolve().parent / 'output' / 'independent_scale.json'
+    result = {season: evaluate(season) for season in (sys.argv[1:] or ['1999'])}
+    out = Path(__file__).resolve().parents[1] / 'results' / 'independent_scale.json'
     out.write_text(json.dumps(result, indent=2) + '\n')
     for row in result.values():
         print(row, flush=True)

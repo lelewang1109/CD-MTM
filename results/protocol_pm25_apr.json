@@ -1,0 +1,277 @@
+{
+  "name": "pm25_apr",
+  "variable": "PM2.5",
+  "kind": "split",
+  "units": "ug m-3",
+  "dates": [
+    "2000-04-01",
+    "2000-04-30"
+  ],
+  "frames": 30,
+  "step_days": 1,
+  "window": {
+    "lon": [
+      102.0,
+      114.0
+    ],
+    "lat": [
+      28.0,
+      38.0
+    ]
+  },
+  "grid": 49,
+  "buffer_cells": 5,
+  "sigma_km": 100.0,
+  "sigma_ladder_km": [
+    100.0,
+    150.0,
+    200.0,
+    250.0,
+    350.0,
+    500.0,
+    700.0,
+    1000.0
+  ],
+  "sigma_trials": [
+    {
+      "sigma_km": 100.0,
+      "leaves_min": 1,
+      "leaves_max": 5
+    }
+  ],
+  "exhaustive_leaf_limit": 8,
+  "smoothing_selection": "shared seasonal sigma fixed before performance evaluation",
+  "projection": "spherical Lambert cylindrical equal-area",
+  "standard_parallel_degrees": 33.0,
+  "cell_area_layout": 2.998662687910028,
+  "cell_area_km2": 517.6057235744462,
+  "priority_flood_epsilon": 1.2436650637204503e-06,
+  "boundary_policy": "keep interior extrema of buffered field; impose them in cropped field; fallback logged",
+  "feature_interpretation": "extrema of processed scalar field; not independently validated objects",
+  "preprocessing": [
+    {
+      "t": 0,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 15.751614488293058,
+      "mean_imposition": 0.8537808401969154
+    },
+    {
+      "t": 1,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 23.90706379486722,
+      "mean_imposition": 2.621788311974484
+    },
+    {
+      "t": 2,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 21.589190918875033,
+      "mean_imposition": 1.7577145164496684
+    },
+    {
+      "t": 3,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 6.164973056011419,
+      "mean_imposition": 0.035143543611962515
+    },
+    {
+      "t": 4,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 13.730062581764315,
+      "mean_imposition": 1.3402089518140308
+    },
+    {
+      "t": 5,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 24.68762339068936,
+      "mean_imposition": 4.06691398748297
+    },
+    {
+      "t": 6,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 19.20193900307705,
+      "mean_imposition": 2.0709593008570972
+    },
+    {
+      "t": 7,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 38.03260252497165,
+      "mean_imposition": 6.372709779446753
+    },
+    {
+      "t": 8,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 2.898677186751769,
+      "mean_imposition": 0.01619230304696354
+    },
+    {
+      "t": 9,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 5.876079520308487,
+      "mean_imposition": 0.13149871767159754
+    },
+    {
+      "t": 10,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 6.096278176023354,
+      "mean_imposition": 0.2034804953066823
+    },
+    {
+      "t": 11,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 40.242610348214804,
+      "mean_imposition": 8.829333407562137
+    },
+    {
+      "t": 12,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 23.34622709245933,
+      "mean_imposition": 0.45225905309880143
+    },
+    {
+      "t": 13,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 18.829763557363336,
+      "mean_imposition": 2.554776746277044
+    },
+    {
+      "t": 14,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 12.275190189665551,
+      "mean_imposition": 1.011889146940467
+    },
+    {
+      "t": 15,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 6.69791398998121,
+      "mean_imposition": 0.1550765586169711
+    },
+    {
+      "t": 16,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 9.614706342981286,
+      "mean_imposition": 0.4253133679926422
+    },
+    {
+      "t": 17,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 11.21597145901162,
+      "mean_imposition": 0.33602576932797795
+    },
+    {
+      "t": 18,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 20.734931877069954,
+      "mean_imposition": 0.18652703147173205
+    },
+    {
+      "t": 19,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 11.196892780503248,
+      "mean_imposition": 0.20533468537574415
+    },
+    {
+      "t": 20,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 11.060609199659623,
+      "mean_imposition": 0.2879958134921402
+    },
+    {
+      "t": 21,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 3.283785418667655,
+      "mean_imposition": 0.028608344491379063
+    },
+    {
+      "t": 22,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 48.988968411328,
+      "mean_imposition": 12.105898627071753
+    },
+    {
+      "t": 23,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 8.413038494941318,
+      "mean_imposition": 0.07589909092267003
+    },
+    {
+      "t": 24,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 11.291197434590373,
+      "mean_imposition": 0.3079801440348269
+    },
+    {
+      "t": 25,
+      "retained_extrema": 5,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.0,
+      "mean_imposition": 0.0
+    },
+    {
+      "t": 26,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 11.967093021714419,
+      "mean_imposition": 0.688938041727189
+    },
+    {
+      "t": 27,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 27.60547865213288,
+      "mean_imposition": 7.133512670197972
+    },
+    {
+      "t": 28,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 37.145620234999,
+      "mean_imposition": 3.1167335223595436
+    },
+    {
+      "t": 29,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 13.877813476153449,
+      "mean_imposition": 0.5033460225027925
+    }
+  ],
+  "sha256": "e95545cba26c0fdbf71cdf714d270e8da280675b7e8b58a4e9483baffe69e3ab",
+  "source_units": "\u00b5g/m3",
+  "source_attributes": {
+    "description": "Subset of user-provided merged CN-Reanalysis; upstream PM2.5 filling retained.",
+    "source_collection": "CN-Reanalysis/2000",
+    "source_doi": "10.57760/sciencedb.35623",
+    "source_dataset_version": "V2",
+    "source_citation_status": "User identifies local files as the DOI-linked V2 integrated dataset; per-file hashes identify this local snapshot",
+    "upstream_fill_method": "griddata_linear_then_nearest",
+    "temporal_interpretation": "One field per file at 10:30; averaging interval not established by metadata",
+    "source_file_sha256": "{\"20000401.nc\": \"d709f7d60bc40f6b8ebbdb0f4667db1d646de3287a8763439c1b9d336ab5084f\", \"20000402.nc\": \"5cb75b5af50c2824072299c37c879100c172d17a16d1c11fce940d2b0237413b\", \"20000403.nc\": \"6ce63d482ee9cbfaa26ea665f190b5d5235a4765f0a8f432ef2524ea5a71c048\", \"20000404.nc\": \"b4ae7446d7007597df49a0bda8bce11ebdf3595cf6cdc228fff2bdb71ba9fb2b\", \"20000405.nc\": \"0ac939d31ead12b4e4a1a2a7e4d7086de5b5234d33e9b9d50d5e2bedc8b68811\", \"20000406.nc\": \"194b7a11a1ff70ebc81881e2a3eae9bfaf87978e169d5bf0beb4bed4a5133579\", \"20000407.nc\": \"53f74857a193eb82f8c7f7fdb8078fb9c095bca1115026a64b61a8d4f2749879\", \"20000408.nc\": \"39234d231b6fc293e72e814a18e096b5750b7adbb01494ef415c8c56e606ea5b\", \"20000409.nc\": \"42d879de97dc5d67f2d90b701d81d5fa6bd51e0669c376ca6f3f61260f765b9c\", \"20000410.nc\": \"2df924a11dca7ac3c5594e464a0350f1b2d991d86e8702bdf5fc30449ff63516\", \"20000411.nc\": \"4a3e4e3935972368cadc2496e5eb791ae443a7527610b276821b18c24783dae2\", \"20000412.nc\": \"84c01e2713ffb88ad2baf426bb493592f80aa3a683010ab7b1a6de4e461aba42\", \"20000413.nc\": \"83a09c114ad133667b3463bc6e03e4173c0753bd6599eb3d545867d7c99ebd15\", \"20000414.nc\": \"3b1685f213a70314f9d8a8ecc9fa44c36e87e343a3fffbe423037efa39bc07fd\", \"20000415.nc\": \"588675ded0199a21549c6b52f6334b5fb1bdac1b1988ec870820259072edcd76\", \"20000416.nc\": \"f07a37fca2d8ed60975faac806b8a5bb944ca4019862928d4511109c0bcb2f37\", \"20000417.nc\": \"ea8e4bb223f7dccf4f26f0117993b263dd8905ea9cd2ae04080e3f55c3d420ed\", \"20000418.nc\": \"865fa64eab1100377d12fe028da22bcf66db7e5ee6b07c22efa8edf5da62de51\", \"20000419.nc\": \"4c71bd390a943d5bfdcb38955f6978b8b40d1c3ff0507c9f25f0fb643f7af932\", \"20000420.nc\": \"ae2618442191d3f132a5313fb429f526e5aae1cb1cf1a8ed1b43cadbc612adf9\", \"20000421.nc\": \"5dc57bd94b26c41d8b74304cf78fcb910ab0a834c87f24ae05e597eba02590eb\", \"20000422.nc\": \"0b3e313b606151329d49824540c495567118a413f3bae9f8daf16474ed49aefa\", \"20000423.nc\": \"8b81ec03e8b2903f5d6db973404be4149e2d800250a69a5b70819e78ffdaec40\", \"20000424.nc\": \"2a524a13cfd5c9f1cb8c3d9867409f29ed2ac95c4d60658459c50f6dd27091ef\", \"20000425.nc\": \"74614ae727254984efcfca082d6b2d8002f2ec50bbf349abb70e29e7cbcb609f\", \"20000426.nc\": \"4ede3e67348abb7cff5ab91cb44bef8f245bbe19c88e6c3896f6c1c6faba20d4\", \"20000427.nc\": \"4de6d8a1fa147a644ba7a8b3b3a665e5ec2cb93cb247b2f40cf56d15c16170d2\", \"20000428.nc\": \"83a4a23a07c2dcc55764d7f635f0858cfae34217e648a542f232b287039cf39d\", \"20000429.nc\": \"a493a70876af1d02ed982d43593f7d1ea0ade579835dab21ba4aed314f791b7f\", \"20000430.nc\": \"82fd33a815c99e15fa5116ec4aa207a7e083ebee1a256eeadab8cef5bed60554\"}"
+  },
+  "path": "data/public_scalar/pm25_apr_20000401_20000430.nc",
+  "source_page": "https://doi.org/10.57760/sciencedb.35623"
+}

@@ -96,9 +96,13 @@ def analyse(name):
     runs = {cap: rh.run(ds, cap, make_figure=False, return_internal=True) for cap in CAPS}
     base = runs[0.]; ref, p = base['_internal']['ref'], base['_internal']['p']; L = p.canvas; theta = base['theta']
     frames, steps = [], []
-    import pickle
+    import pickle, hashlib
+    from dataclasses import asdict
+    fingerprint = hashlib.sha256(np.asarray(sc['fields'], dtype='<f8').tobytes() + np.asarray(sc['coords'], dtype='<f8').tobytes() + json.dumps(asdict(p), sort_keys=True).encode() + Path(__file__).read_bytes()).hexdigest()
     cpath = OUT / f'attainable_{name}_cache.pkl'
-    cache = pickle.loads(cpath.read_bytes()) if cpath.exists() else None; new_cache = []
+    saved = pickle.loads(cpath.read_bytes()) if cpath.exists() else None
+    cache = saved['frames'] if isinstance(saved, dict) and saved.get('fingerprint') == fingerprint else None
+    new_cache = []
     for t, (fr, ids) in enumerate(zip(sc['frames'], sc['ids'])):
         w = p.width_scale * np.asarray(sc['areas'][t]); q = ref['qs'][t]
         V = lca_matrix(fr, ids, kind); s0 = rh.node_tree(fr, ids)
@@ -111,7 +115,7 @@ def analyse(name):
         frames.append(dict(t=t, n=len(ids), V=V, pts=ex['pts'], tau_hier=tau_h, tau_free_exact=tf,
                            tau_free_old=lg['tau_free'], F0_minus_tauhier=f_at(ex['pts'], 0.) - tau_h))
     if cache is None:
-        cpath.write_bytes(pickle.dumps(new_cache))
+        cpath.write_bytes(pickle.dumps(dict(fingerprint=fingerprint, frames=new_cache)))
         if '--cache-only' in sys.argv: return None
     H = np.array([f['tau_hier'] - f['tau_free_exact'] for f in frames])
     Hold = np.array([f['tau_hier'] - f['tau_free_old'] for f in frames])
@@ -216,9 +220,13 @@ def main():
 def plot():
     """Figure: certified bound Phi, exact attainable frontier F, and our layouts (LCA vs optimal filling)."""
     import figstyle as fs; fs.apply(); plt = tr.plt
-    names = [n for n in rp.LOADERS if (OUT / f'attainable_{n}.json').exists()]
-    TITLE = dict(era5='ERA5 1999/2000', era5_2014='ERA5 2013/14', wildfire='Wildfire 2019', ring='Ring', gaussians='Gaussians')
-    fig, axs = plt.subplots(1, len(names), figsize=(fs.TEXT_W, 1.75), layout='constrained')
+    from dataset_suite import PAPER_DATASETS
+    names = [n for n in PAPER_DATASETS if (OUT / f'attainable_{n}.json').exists()]
+    from dataset_suite import LABELS
+    TITLE = LABELS
+    fig, axs = plt.subplots(2, 3, figsize=(fs.TEXT_W, 3.25), layout='constrained')
+    axs = axs.ravel()
+    for unused in axs[len(names):]: unused.set_visible(False)
     for ax, n in zip(np.atleast_1d(axs), names):
         r = json.loads((OUT / f'attainable_{n}.json').read_text())
         d = [x['delta'] * 100 for x in r['frontier']]
@@ -228,6 +236,8 @@ def plot():
             ax.plot(o['D_lca_share'] * 100, o['E_share'] * 100, 'o', mfc='none', color='#009e73', ms=4.5)
             ax.plot(o['D_opt_share'] * 100, o['E_share'] * 100, 'o', color='#009e73', ms=4.5)
             ax.plot([o['D_opt_share'] * 100, o['D_lca_share'] * 100], [o['E_share'] * 100] * 2, '-', color='#009e73', lw=.5)
+        ymax=max([x['F']*100 for x in r['frontier']]+[x['E_share']*100 for x in r['ours']]+[.1])
+        ax.set_ylim(0,1.12*ymax)
         ax.set(title=TITLE.get(n, n), xlabel='$d_{top}$ (% of value range)', xlim=(-2, 72))
     np.atleast_1d(axs)[0].set_ylabel('τ(π), % of axis')
     np.atleast_1d(axs)[0].plot([], [], 'o', color='#009e73', label='R, optimal filling'); np.atleast_1d(axs)[0].plot([], [], 'o', mfc='none', color='#009e73', label='R, LCA filling')

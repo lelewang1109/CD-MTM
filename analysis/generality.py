@@ -91,7 +91,7 @@ def demo_figure():
     fig, axs = plt.subplots(1, 4, figsize=(fs.TEXT_W, 2.3), gridspec_kw=dict(width_ratios=[4, 1.1, 4, 1.1]), layout='constrained')
     for k, (order, disp, title) in enumerate([(olo, disp_olo, 'rows in OLO dendrogram order (fire time series)'),
                                                 (ref, disp_ref, 'rows in geographic order (ignores dendrogram)')]):
-        ax = axs[2 * k]; ax.imshow(X[order], aspect='auto', cmap='inferno', origin='lower', interpolation='nearest')
+        ax = axs[2 * k]; ax.imshow(X[order], aspect='auto', cmap='Blues', origin='lower', interpolation='nearest')
         ax.set(title=title, xlabel='time step (2 days)', ylabel='row (10-km cell)' if k == 0 else '')
         ax2 = axs[2 * k + 1]; ax2.plot(disp / n * 100, np.arange(n), color='#0072b2', lw=.35)
         ax2.axvline(tau / n * 100, color='#d55e00', ls='--', lw=.8, label='$\\tau^*$')

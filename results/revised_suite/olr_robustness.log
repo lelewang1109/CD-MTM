@@ -1,0 +1,14 @@
+olr        auto 171°  θ=1%: 12%  θ=2%: 12%  θ=5%: 8%   H max 16.3%
+olr        0.0°       θ=1%: 12%  θ=2%: 10%  θ=5%: 7%   H max 15.3%
+olr        22.5°      θ=1%: 8%  θ=2%: 5%  θ=5%: 5%   H max 10.8%
+olr        45.0°      θ=1%: 10%  θ=2%: 8%  θ=5%: 3%   H max 5.4%
+olr        67.5°      θ=1%: 15%  θ=2%: 13%  θ=5%: 5%   H max 10.3%
+olr        90.0°      θ=1%: 38%  θ=2%: 33%  θ=5%: 18%   H max 20.1%
+olr        112.5°     θ=1%: 52%  θ=2%: 50%  θ=5%: 38%   H max 14.4%
+olr        135.0°     θ=1%: 33%  θ=2%: 28%  θ=5%: 18%   H max 17.7%
+olr        157.5°     θ=1%: 18%  θ=2%: 15%  θ=5%: 10%   H max 16.8%
+era5: over 8 fixed directions, share(H > 2%) = 11%–35% (auto 34%)
+era5_2014: over 8 fixed directions, share(H > 2%) = 15%–32% (auto 24%)
+wildfire: over 8 fixed directions, share(H > 2%) = 50%–77% (auto 63%)
+oisst: over 8 fixed directions, share(H > 2%) = 0%–2% (auto 0%)
+olr: over 8 fixed directions, share(H > 2%) = 5%–50% (auto 12%)

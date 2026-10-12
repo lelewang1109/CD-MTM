@@ -1,14 +1,15 @@
-"""Print every number used in paper/pacificvis2027/main.tex (and draft_zh.md), grouped by section, from the saved
-JSON outputs. Each line names its source file, so every claim can be traced.
+"""Print selected quantitative claims used in paper/pacificvis2027/main.tex , grouped by section, from the saved
+JSON outputs. Each line names its source file, for tracing claims to the saved records. Missing optional records are skipped.
 Run: .venv/bin/python analysis/paper_numbers.py
 Sources are produced by: replicate.py, robustness.py, pointcert.py, persistence.py, witness_stats.py, evaluation.py,
 attainable.py, filling.py, generality.py, stmtm_grid.py, sensitivity.py, fig_teaser.py / fig_witness.py (printed values).
 """
 import json
 from pathlib import Path
-OUT = Path(__file__).resolve().parent / 'output'
+OUT = Path(__file__).resolve().parents[1] / 'results'
 J = lambda f: json.loads((OUT / f).read_text()) if (OUT / f).exists() else None
-REAL = ['era5', 'era5_2014', 'wildfire']; ALL = REAL + ['ring', 'gaussians']
+from dataset_suite import REAL_DATASETS, PAPER_DATASETS
+REAL = list(REAL_DATASETS); ALL = list(PAPER_DATASETS)
 pct = lambda x: f'{100 * x:.1f}%'
 
 
@@ -37,14 +38,14 @@ wi = J('witness.json')
 if wi:
     for n, r in wi.items(): print(f"  {n:10s} witness/tau* median {pct(r['median'])} (witness.json)")
 
-sec('RQ2 reader proxy, k=2, eps=2% (evaluation.json): reversal / miss / error')
-ev = J('evaluation.json')
+sec('RQ3 geometric motion proxy, k=2, eps=2% (eval_projection.json): reversal / miss / error')
+ev = J('eval_projection.json')
 if ev:
     for n in REAL + ['ring']:
         if n not in ev: continue
         P = {(x['method'], x['k'], x['eps']): x for x in ev[n]['proxy']}
         print(f"  {n}: clear cases {P[('A', 2, .02)]['clear']}")
-        for m in ['TMTM', 'ST-MTM', 'fixed-X anchored', 'A', 'R 2%', 'R 20%', 'R inf', 'oracle q', 'oracle x']:
+        for m in ['TMTM', 'ST-MTM', 'fixed-X anchored', 'A', 'R 2%', 'R 20%', 'R inf', 'q-sort (packed)', 'oracle q', 'oracle x']:
             x = P.get((m, 2, .02))
             if x: print(f"     {m:16s} {pct(x['reversal']):>6s} / {pct(x['miss']):>6s} / {pct(x['error']):>6s}  null {pct(x['null_reversal'])}  feature-flag recall {pct(x['feature_flag_recall'])} share {pct(x['feature_flag_share'])} lift {x['feature_flag_lift']}")
         for m, d in ev[n]['dstar'].items(): print(f"     delta* {m}: max {pct(d['max_share'])} of range ({d['max']:.2f}), mean {pct(d['mean_share'])}")
@@ -58,14 +59,14 @@ if ev:
                 tot += 1; better += x['rev']['diff'] < 0; sig += x['rev']['significant'] and x['rev']['diff'] < 0
     print(f"  robustness: R20 < ST-MTM in {better}/{tot} settings, significant in {sig}")
 
-sec('RQ2 ST-MTM parameter grid (stmtm_grid.json)')
+sec('RQ3 ST-MTM parameter grid (stmtm_grid.json)')
 sg = J('stmtm_grid.json')
 if sg:
     for n, r in sg.items():
         b, e = r['best_reversal'], r['best_error']
         print(f"  {n:10s} best reversal {pct(b['reversal'])} (miss {pct(b['miss'])}, {b['weights']}, r={b['r']}, lambda={b['lam']}); best error {pct(e['error'])}")
 
-sec('RQ3 frontier (attainable_*.json)')
+sec('RQ2 frontier (attainable_*.json)')
 for n in ALL:
     a = J(f'attainable_{n}.json')
     if not a: continue
@@ -83,11 +84,11 @@ for n in REAL:
         for c in ['0.02', '0.2']:
             t = r['tradeoff'][c]; print(f"  {n:10s} kappa {c}: mean error {t['ref_err_mean']/t0['ref_err_mean']-1:+.0%}, LCA d_top max {t['merge_err_max']:.2f} ({pct(t['merge_err_max']/rng)})")
 
-sec('Hidden costs (evaluation.json: hidden)')
+sec('Hidden costs (eval_projection.json: hidden)')
 if ev:
     for n in ['era5', 'wildfire']:
         for m, h in ev[n]['hidden'].items():
-            print(f"  {n:10s} {m:16s} flips {h['order_flip_rate']:.3f} jitter {h['jitter']:.3f} stress {h['stress']:.3f} NN {h['nn_preservation']:.3f}")
+            print(f"  {n:10s} {m:16s} flips {h['order_flip_rate']:.3f} step {h['jitter']:.3f} stress {h['stress']:.3f} NN {h['nn_preservation']:.3f}")
 
 sec('RQ4 dendrogram (generality.json, dendrogram_demo.json)')
 g = J('generality.json'); dd = J('dendrogram_demo.json')

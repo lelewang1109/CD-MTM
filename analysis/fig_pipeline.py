@@ -78,7 +78,7 @@ def main():
     # (1) field
     ax = axs[0]; C = np.asarray(sc['coords']); lo, hi = C.min(0), C.max(0)
     import geo; G = geo.Era5Geo(sc['window'], C) if 'window' in sc else None
-    ax.imshow(sc.get('fields_smooth', sc['fields'])[t], origin='lower', extent=G.extent if G else [lo[0], hi[0], lo[1], hi[1]], cmap='magma')
+    ax.imshow(sc.get('fields_smooth', sc['fields'])[t], origin='lower', extent=G.extent if G else [lo[0], hi[0], lo[1], hi[1]], cmap=fs.FIELD_CMAP)
     if G: G.graticule(ax); G.coastlines(ax, Path(__file__).resolve().parents[1] / 'data/geo/ne_110m_coastline.geojson'); ax.set(xlim=G.extent[:2], ylim=G.extent[2:])
     P = np.array([fr.coordinates[k] for k in ids])
     for i in range(n): ax.plot(P[i, 0], P[i, 1], 'o', color=cl[i], ms=4, mec='w', mew=.5)
@@ -112,7 +112,7 @@ def main():
     ax.set(title=f'⑤ error {np.max(abs(rowR["x"]-q))/L:.1%}; $\\delta^*$ = {dst[t]:.1f} hPa (LCA {me_lca:.1f})')
     # (6) map excerpt with strips
     ax = axs[5]; w0, w1 = max(0, t - 18), min(len(rowsR), t + 4)
-    ax.imshow(opt[:, w0:w1], origin='lower', aspect='auto', extent=[w0 - .5, w1 - .5, p.canvas_origin, p.canvas_origin + L], cmap='magma',
+    ax.imshow(opt[:, w0:w1], origin='lower', aspect='auto', extent=[w0 - .5, w1 - .5, p.canvas_origin, p.canvas_origin + L], cmap=fs.FIELD_CMAP,
               vmin=np.min(sc['fields']), vmax=np.max(sc['fields']))
     ax.axvline(t, color='w', lw=.8, ls=':')
     top = ax.inset_axes([0, 1.03, 1, .25]); tt_ = np.arange(w0, w1)

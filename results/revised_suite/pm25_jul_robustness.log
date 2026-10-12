@@ -1,0 +1,17 @@
+pm25_jul   auto -3°   θ=1%: 13%  θ=2%: 13%  θ=5%: 13%   H max 15.9%
+pm25_jul   0.0°       θ=1%: 13%  θ=2%: 13%  θ=5%: 13%   H max 18.9%
+pm25_jul   22.5°      θ=1%: 7%  θ=2%: 7%  θ=5%: 3%   H max 5.7%
+pm25_jul   45.0°      θ=1%: 7%  θ=2%: 7%  θ=5%: 7%   H max 11.7%
+pm25_jul   67.5°      θ=1%: 10%  θ=2%: 10%  θ=5%: 10%   H max 11.4%
+pm25_jul   90.0°      θ=1%: 17%  θ=2%: 17%  θ=5%: 13%   H max 11.8%
+pm25_jul   112.5°     θ=1%: 17%  θ=2%: 17%  θ=5%: 17%   H max 17.3%
+pm25_jul   135.0°     θ=1%: 20%  θ=2%: 20%  θ=5%: 17%   H max 21.5%
+pm25_jul   157.5°     θ=1%: 20%  θ=2%: 20%  θ=5%: 10%   H max 20.4%
+era5: over 8 fixed directions, share(H > 2%) = 11%–35% (auto 34%)
+era5_2014: over 8 fixed directions, share(H > 2%) = 15%–32% (auto 24%)
+wildfire: over 8 fixed directions, share(H > 2%) = 50%–77% (auto 63%)
+olr: over 8 fixed directions, share(H > 2%) = 5%–50% (auto 12%)
+pm25: over 8 fixed directions, share(H > 2%) = 3%–22% (auto 23%)
+pm25_jan: over 8 fixed directions, share(H > 2%) = 0%–30% (auto 17%)
+pm25_apr: over 8 fixed directions, share(H > 2%) = 7%–13% (auto 10%)
+pm25_jul: over 8 fixed directions, share(H > 2%) = 7%–20% (auto 13%)

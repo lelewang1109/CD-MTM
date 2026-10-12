@@ -16,7 +16,8 @@ GRID = list(itertools.product(['uniform', 'inverse'], [.65, .85, .95], [.05, .5,
 
 
 def main():
-    names = sys.argv[1:] or ['era5', 'era5_2014', 'wildfire', 'ring']
+    from dataset_suite import PROXY_DATASETS
+    names = sys.argv[1:] or list(PROXY_DATASETS)
     path = OUT / 'stmtm_grid.json'; res = json.loads(path.read_text()) if path.exists() else {}
     for name in names:
         ds = rp.LOADERS[name](); sc = ds['sc']; t0 = time.perf_counter()

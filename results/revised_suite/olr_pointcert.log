@@ -1,0 +1,6 @@
+olr        width-free certificate > theta in 7/60 frames (12%), max 16.0%
+    TMTM                   mean 0.193  frames>theta  46  excess over certificate 0.184  below cert 0
+    ST-MTM                 mean 0.172  frames>theta  34  excess over certificate 0.163  below cert 0
+    fixed-X anchored       mean 0.328  frames>theta  60  excess over certificate 0.319  below cert 0
+    ours: auto direction   mean 0.009  frames>theta   7  excess over certificate 0.000  below cert 0
+    ours: relaxed          mean 0.000  frames>theta   0  excess over certificate -0.009  below cert 7

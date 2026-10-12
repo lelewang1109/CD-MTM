@@ -1,0 +1,32 @@
+{
+  "pm25": [
+    {
+      "eps": 0.0,
+      "conflict_share": 0.23333333333333334,
+      "mean_leaves": 2.6166666666666667,
+      "removed_share": 0.0,
+      "removed_median_persistence_share": 0.0
+    },
+    {
+      "eps": 0.01,
+      "conflict_share": 0.11666666666666667,
+      "mean_leaves": 1.9,
+      "removed_share": 0.2738853503184714,
+      "removed_median_persistence_share": 0.0004688760316915234
+    },
+    {
+      "eps": 0.02,
+      "conflict_share": 0.08333333333333333,
+      "mean_leaves": 1.7,
+      "removed_share": 0.35031847133757965,
+      "removed_median_persistence_share": 0.0015274925111835938
+    },
+    {
+      "eps": 0.05,
+      "conflict_share": 0.016666666666666666,
+      "mean_leaves": 1.4666666666666666,
+      "removed_share": 0.4394904458598726,
+      "removed_median_persistence_share": 0.005245415073946724
+    }
+  ]
+}

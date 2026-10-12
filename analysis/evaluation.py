@@ -29,6 +29,10 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import replicate as rp, misreading as mr, relax_hierarchy as rh, general_method as gm, task_reference as tr, attainable as at
 import conflict_strategies as cs
+from cdmtm.baselines import space_filling as sfc
+from scipy.spatial import cKDTree
+
+from dataset_suite import PROXY_DATASETS
 
 OUT = tr.OUT
 KS = [1, 2, 4, 8]; EPS = [.01, .02, .05]; CAPS = [.02, .2, np.inf]; THETA = gm.THETA_FRACTION
@@ -101,6 +105,31 @@ def methods(ds):
     U = [np.asarray(r['x'], float) for r in rows]; out['R 20% (x)'] = dict(u=U, extent=occ(U))
     Uq = [np.asarray(q, float) for q in ref['qs']]; out['oracle q'] = dict(u=Uq, extent=occ(Uq))
     Ux = [np.asarray(e, float)[:, 0] for e in ext]; out['oracle x'] = dict(u=Ux, extent=occ(Ux))
+    # Native space-filling curves traverse all samples, not only the leaf centroids.
+    shape=sc['fields'].shape[1:];N=int(np.prod(shape));tree=cKDTree(sc['coords'])
+    source_indices=[]
+    for points in ext:
+        distance,index=tree.query(points)
+        if np.max(distance)>1e-7:raise ValueError('Feature extremum is not a grid sample')
+        source_indices.append(np.asarray(index,int))
+    for curve in ('Hilbert','Morton'):
+        inv=sfc.inverse_order(shape,curve);line=sfc.linearize(sc['fields'],curve)
+        ranks=[inv[ix] for ix in source_indices]
+        U=[p.canvas_origin+(r+.5)/N*p.canvas for r in ranks]
+        errors=[];segments=[]
+        for t,(fr,ids,ranks_t) in enumerate(zip(sc['frames'],sc['ids'],ranks)):
+            native=sfc.merge_levels_on_line(line[:,t],ranks_t,kind)
+            true=at.lca_matrix(fr,ids,kind)*( -1 if kind=='split' else 1)
+            errors.append(float(np.max(np.abs(native-true))) if len(ids)>1 else 0.)
+            for leaf in ids:
+                occupied=np.sort(inv[fr.leaf_feature_vertices(leaf)])
+                segments.append(int(1+np.count_nonzero(np.diff(occupied)>1)) if len(occupied) else 0)
+        out[curve]=dict(u=U,extent=occ(U),native_sample_order=True)
+        dstar[curve]=dict(max=max(errors),mean=float(np.mean(errors)),max_share=max(errors)/rng,
+                         mean_share=float(np.mean(errors))/rng,relaxed_frames=0,unit_range=rng,
+                         cost_definition='actual pairwise merge error of the unchanged native scalar sequence; not optimal filling',
+                         segments_max=max(segments),segments_mean=float(np.mean(segments)),grid=list(shape),
+                         orientation='fixed x=column,y=row; canonical origin; power-of-two index then discard exterior cells')
     return out, ext, ref, p, theta, dstar
 
 
@@ -182,8 +211,9 @@ def hidden_costs(sc, ext, U, extent):
             if not np.isnan(v): sp.append(v)
         D1 = np.abs(u[:, None] - u[None]); D2 = np.linalg.norm(P[:, None] - P[None], axis=2)
         np.fill_diagonal(D1, np.inf); np.fill_diagonal(D2, np.inf); nn.append(float(np.mean(D1.argmin(1) == D2.argmin(1))))
-    return dict(order_flip_rate=flips / max(1, tot), jitter=float(np.mean(jit)), stress=float(np.mean(st)),
-                spearman=float(np.mean(sp)), nn_preservation=float(np.mean(nn)))
+    return dict(order_flip_rate=flips / max(1, tot), jitter=float(np.mean(jit)) if jit else None,
+                stress=float(np.mean(st)) if st else None, spearman=float(np.mean(sp)) if sp else None,
+                nn_preservation=float(np.mean(nn)) if nn else None, neighbourhood_frames=len(st), matched_steps=len(jit))
 
 
 def at_spearman(a, b):
@@ -210,7 +240,7 @@ def analyse(name):
                 if Wp is not None:
                     out['projected_proxy'].append(dict(method=m, k=k, eps=e, **summary(Wp, rng)))
                 if m.startswith('R ') and not m.endswith('(x)') and W['clear'].sum():
-                    for other in ['ST-MTM', 'A']:
+                    for other in ['ST-MTM', 'A', 'Hilbert', 'Morton']:
                         Wo = windows(sc, ext, M[other]['u'], M[other]['extent'], k, e, diag, qs, theta)
                         out['paired'].append(dict(method=m, other=other, k=k, eps=e, **paired(W, Wo, T, k, rng)))
                         if Wp is not None and Wp['clear'].sum():
@@ -222,7 +252,7 @@ def analyse(name):
 
 
 def main():
-    names = sys.argv[1:] or ['era5', 'era5_2014', 'wildfire', 'ring']
+    names = sys.argv[1:] or list(PROXY_DATASETS)
     res = {}
     path = OUT / 'eval_projection.json'
     if path.exists(): res = json.loads(path.read_text())
@@ -244,7 +274,8 @@ def main():
                 print(f"  {x['method']:9s} - {x['other']:6s}: rev {x['rev']['diff']:+.3f} {x['rev']['ci95']} sig {x['rev']['significant']} | "
                       f"miss {x['miss']['diff']:+.3f} {x['miss']['ci95']} ({x['blocks']} blocks)")
         for m, h in r['hidden'].items():
-            print(f"  hidden {m:16s} flips {h['order_flip_rate']:.3f} jitter {h['jitter']:.3f} stress {h['stress']:.3f} spearman {h['spearman']:.3f} NN {h['nn_preservation']:.3f}", flush=True)
+            fmt = lambda v: f'{v:.3f}' if v is not None else '--'
+            print(f"  hidden {m:16s} flips {fmt(h['order_flip_rate'])} step {fmt(h['jitter'])} stress {fmt(h['stress'])} spearman {fmt(h['spearman'])} NN {fmt(h['nn_preservation'])}", flush=True)
         path.write_text(json.dumps(res, indent=1, default=float))
 
 

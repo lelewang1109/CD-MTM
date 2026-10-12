@@ -74,7 +74,7 @@ def main():
     fig = plt.figure(figsize=(fs.TEXT_W, 2.05))
     gs = fig.add_gridspec(1, 4, width_ratios=[1.0, .95, 1.25, 1.25], wspace=.38, left=.025, right=.99, top=.86, bottom=.15)
     # (a) field
-    ax = fig.add_subplot(gs[0]); ax.imshow(f, origin='lower', extent=[0, 10, 0, 10], cmap='RdBu_r', vmin=-1.1, vmax=1.1)
+    ax = fig.add_subplot(gs[0]); ax.imshow(f, origin='lower', extent=[0, 10, 0, 10], cmap=fs.FIELD_CMAP, vmin=-1.1, vmax=1.1)
     ax.contour(g, g, f, levels=np.linspace(f.min(), f.max(), 13), colors='k', linewidths=.25, alpha=.5)
     for k, (x, y) in P.items():
         i, j = idx[k]; x, y = g[j], g[i]
@@ -135,7 +135,7 @@ def main():
     ax.axhline(sAB, color='#888888', lw=.5, ls='--'); ax.axhline(sRoot, color='#888888', lw=.5, ls='--')
     ax.text(10.1, sAB, 'A–B', fontsize=6, va='center'); ax.text(10.1, sRoot, 'root', fontsize=6, va='center')
     lo = min(vals.values()) - .2
-    ax.imshow(prof[None, :], extent=[0, 10, lo - .25, lo - .05], aspect='auto', cmap='RdBu_r', vmin=-1.1, vmax=1.1)
+    ax.imshow(prof[None, :], extent=[0, 10, lo - .25, lo - .05], aspect='auto', cmap=fs.FIELD_CMAP, vmin=-1.1, vmax=1.1)
     ax.set(xlim=(0, 11.2), ylim=(lo - .28, top + .1), xticks=[], yticks=[]); ax.set_xlabel('1-D position (one map column)')
     ax.set_title('(d) merge tree map column')
     fig.savefig(OUT / 'fig_concept.png', dpi=300); fig.savefig(OUT / 'fig_concept.pdf'); plt.close(fig)

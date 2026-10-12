@@ -1,0 +1,4 @@
+olr        eps 0%: conflicts 12%, leaves/frame 4.4, features removed 0%
+olr        eps 1%: conflicts 7%, leaves/frame 3.1, features removed 30%
+olr        eps 2%: conflicts 5%, leaves/frame 2.8, features removed 37%
+olr        eps 5%: conflicts 2%, leaves/frame 2.3, features removed 48%

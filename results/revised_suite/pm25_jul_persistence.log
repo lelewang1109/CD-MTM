@@ -1,0 +1,4 @@
+pm25_jul   eps 0%: conflicts 13%, leaves/frame 2.1, features removed 0%
+pm25_jul   eps 1%: conflicts 7%, leaves/frame 1.9, features removed 10%
+pm25_jul   eps 2%: conflicts 3%, leaves/frame 1.8, features removed 16%
+pm25_jul   eps 5%: conflicts 0%, leaves/frame 1.6, features removed 22%

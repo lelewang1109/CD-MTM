@@ -17,3 +17,8 @@ paper/pacificvis2027/*.blg
 paper/pacificvis2027/*.log
 paper/pacificvis2027/*.out
 paper/pacificvis2027/*.pdfsync
+
+# Downloaded NOAA inputs and transient exact-frontier caches
+data/public_scalar/
+results/*_cache.pkl
+results/visualization_cache/

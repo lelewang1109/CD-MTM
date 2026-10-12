@@ -13,8 +13,12 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import general_method as gm, relax_hierarchy as rh, misreading as mr, datasets_extra as dx, task_reference as tr
 
+from dataset_suite import PAPER_DATASETS
+import public_scalar as ps
+
 OUT = tr.OUT; plt = tr.plt
-LOADERS = dict(era5=gm.era5, era5_2014=dx.era5_2014, wildfire=dx.wildfire, ring=gm.ring, gaussians=gm.gaussians)
+ARCHIVE_LOADERS = dict(era5_2014=dx.era5_2014, oisst=ps.oisst)
+LOADERS = dict(era5=gm.era5, wildfire=dx.wildfire, olr=ps.olr, pm25=ps.pm25, ring=gm.ring, gaussians=gm.gaussians)
 CAPS = [0., .02, .2, np.inf]
 EPS = [.01, .02, .05]
 

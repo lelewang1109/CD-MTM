@@ -1,0 +1,20 @@
+running gaussians
+  R 2%: relaxed frames 0, delta* max 0.00 (0.0%), mean 0.00
+  R 20%: relaxed frames 26, delta* max 0.15 (10.0%), mean 0.05
+  R inf: relaxed frames 47, delta* max 0.19 (12.4%), mean 0.11
+  q-sort (packed): relaxed frames 52, delta* max 0.19 (12.7%), mean 0.12
+  Hilbert: relaxed frames 0, delta* max 0.50 (33.4%), mean 0.50
+  Morton: relaxed frames 0, delta* max 0.50 (33.4%), mean 0.50
+  hidden TMTM             flips 0.004 step 0.003 stress 0.584 spearman 0.065 NN 0.445
+  hidden ST-MTM           flips 0.000 step 0.002 stress 0.291 spearman 0.239 NN 0.605
+  hidden fixed-X anchored flips 0.000 step 0.003 stress 0.308 spearman 0.281 NN 0.605
+  hidden A                flips 0.000 step 0.003 stress 0.343 spearman 0.281 NN 0.605
+  hidden R 2%             flips 0.000 step 0.003 stress 0.343 spearman 0.281 NN 0.605
+  hidden R 20%            flips 0.004 step 0.005 stress 0.238 spearman 0.723 NN 0.790
+  hidden R inf            flips 0.004 step 0.004 stress 0.195 spearman 0.723 NN 0.900
+  hidden q-sort (packed)  flips 0.004 step 0.003 stress 0.194 spearman 0.723 NN 0.926
+  hidden R 20% (x)        flips 0.004 step 0.003 stress 0.263 spearman 0.519 NN 0.695
+  hidden oracle q         flips 0.004 step 0.003 stress 0.216 spearman 0.723 NN 0.926
+  hidden oracle x         flips 0.008 step 0.002 stress 0.274 spearman 0.519 NN 0.721
+  hidden Hilbert          flips 0.000 step 0.001 stress 0.340 spearman 0.065 NN 0.605
+  hidden Morton           flips 0.004 step 0.003 stress 0.242 spearman 0.753 NN 0.801

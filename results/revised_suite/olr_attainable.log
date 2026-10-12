@@ -1,0 +1,19 @@
+running olr
+  13s, n<= 8: conflicts exact 7 (old 7), tau_free old-exact max 0.0000, space max 0.009, F(0)=tau* check 0.0e+00
+  bound tightness: 175/204 breakpoints tight; gap mean 0.0021 p90 0.0006 max 0.1631 (min 0.0000)
+   [implemented cap 0.02] conflicts None, resolved None, relaxed   1 (evaluated 1), on frontier   1, gap mean 0.0000 max 0.0000, delta* mean 0.000
+   [implemented cap 0.2] conflicts None, resolved None, relaxed   7 (evaluated 7), on frontier   7, gap mean 0.0000 max 0.0000, delta* mean 0.000
+   [implemented cap inf] conflicts None, resolved None, relaxed   7 (evaluated 7), on frontier   7, gap mean 0.0000 max 0.0000, delta* mean 0.000
+   [threshold cap 0.02] conflicts 7, resolved 1, relaxed   1 (evaluated 1), on frontier   1, gap mean 0.0000 max 0.0000, delta* mean 0.018
+   [threshold cap 0.2] conflicts 7, resolved 7, relaxed   7 (evaluated 7), on frontier   7, gap mean 0.0000 max 0.0000, delta* mean 0.094
+   [threshold cap inf] conflicts 7, resolved 7, relaxed   7 (evaluated 7), on frontier   7, gap mean 0.0000 max 0.0000, delta* mean 0.094
+   [greedy    cap 0.02] conflicts 7, resolved 1, relaxed   1 (evaluated 1), on frontier   1, gap mean 0.0000 max 0.0000, delta* mean 0.018
+   [greedy    cap 0.2] conflicts 7, resolved 4, relaxed   5 (evaluated 5), on frontier   5, gap mean 0.0000 max 0.0000, delta* mean 0.055
+   [greedy    cap inf] conflicts 7, resolved 5, relaxed   5 (evaluated 5), on frontier   5, gap mean 0.0000 max 0.0000, delta* mean 0.089
+   [flatall   cap 0.02] conflicts 7, resolved 1, relaxed   3 (evaluated 3), on frontier   3, gap mean 0.0000 max 0.0000, delta* mean 0.006
+   [flatall   cap 0.2] conflicts 7, resolved 7, relaxed   7 (evaluated 7), on frontier   7, gap mean 0.0000 max 0.0000, delta* mean 0.094
+   [flatall   cap inf] conflicts 7, resolved 7, relaxed   7 (evaluated 7), on frontier   7, gap mean 0.0000 max 0.0000, delta* mean 0.094
+   cap 0.0: E 0.010 D_lca 0.000 D_opt 0.000 pareto-opt frames 60/60 excess mean 0.0000 max 0.0000; F@D 0.010 Phi@D 0.010; thm2 slack 0.0000
+   cap 0.02: E 0.008 D_lca 0.018 D_opt 0.018 pareto-opt frames 60/60 excess mean 0.0000 max 0.0000; F@D 0.006 Phi@D 0.006; thm2 slack 0.0000
+   cap 0.2: E 0.000 D_lca 0.336 D_opt 0.336 pareto-opt frames 60/60 excess mean 0.0000 max 0.0000; F@D 0.000 Phi@D 0.000; thm2 slack 0.0000
+   cap inf: E 0.000 D_lca 0.336 D_opt 0.336 pareto-opt frames 60/60 excess mean 0.0000 max 0.0000; F@D 0.000 Phi@D 0.000; thm2 slack 0.0000

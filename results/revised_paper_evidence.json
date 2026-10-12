@@ -1,0 +1,52 @@
+{
+  "active_real": [
+    "era5",
+    "wildfire",
+    "olr",
+    "pm25"
+  ],
+  "active_all": [
+    "era5",
+    "wildfire",
+    "olr",
+    "pm25",
+    "ring",
+    "gaussians"
+  ],
+  "retired": [
+    "era5_2014",
+    "oisst"
+  ],
+  "frames": 342,
+  "conflict_share_range": [
+    0.11666666666666667,
+    0.6333333333333333
+  ],
+  "source_sha256": {
+    "replicate_era5.json": "b03e03ad1c1e2f70b7c5c0080e0075fe79ee11c910d25f450ea49f14b9d84562",
+    "replicate_wildfire.json": "71eca5d9fa07d8d6b52ea9ca168c0e66c02ed0cf15124a8fb3f1705a951e1ae9",
+    "replicate_olr.json": "b767adcf8cb8f051547b10ae69665d1d0be0ae198a74dca91255d0a1d714be7c",
+    "replicate_pm25.json": "8f80c03aeb7be4f6ce0c6b1d15414f574e23707cfe931865ccc1bec0e3c2b9fc",
+    "replicate_ring.json": "757ba6d219d5df4714869f13b2fed8f3a467b949f3bdc9f8adac000c4194eec2",
+    "replicate_gaussians.json": "902dfb4fcbcc78a4a48e470b4ae966bc8ccbe803ba39e7ebe2c1604f4c12a336",
+    "attainable_era5.json": "241a8cc451024eb988030815d85e5978f61d145bce6fa268ddf80ca68bf54342",
+    "attainable_wildfire.json": "6a2fb2a4da5f67bcd962d0692780a1ca16e3646272e5142a515ce6fc828ece68",
+    "attainable_olr.json": "55e624effce24294b3d5649f77de02764d80fda1ed6297a73e7ef102f44abdbc",
+    "attainable_pm25.json": "7d5befd9e1f5424a5f6dfa8e57e2549f3de8c91a94ee7565d204729ceab47613",
+    "attainable_ring.json": "87d9a77042f96407b191fc4e1b3c8c9bdf085e49d68819304d9843e1c463b515",
+    "attainable_gaussians.json": "2f498f867cd849d52103be4e11ee1683a9e4e52dee64859c9cdbc1fa1a63cc84",
+    "protocol_olr.json": "5dabd44dae11e27ee42c2348b378a0f967d726fbc779ed04b512ddd7489ff0dc",
+    "protocol_pm25.json": "b4b00b52c56fb992daadf9842789f41f1ba3cc6c6b9318eaff63166016896e1c",
+    "eval_projection.json": "f70a343b68ac04531d12480f8e043587b8dd7715ab752b5fd7c4c081d8836cda",
+    "filling.json": "21391204df5994165010abeb3c5079b4a7f847118fae2edb6dcc2ac17f92307c",
+    "robustness.json": "40b9a9e1056245f986f06d16c36ec0eba1a41f2b2df0295dc2916a20560a7f31",
+    "witness.json": "89ec57c968e60c65bdd1a8924339fed118422d4bf5864ceef17c3e2c05c2337f",
+    "sfc_baseline_protocol.json": "16e10a3995ac9c5e6b921ad305410ff6e5cecd1504f63fa9eb7ccff4bcad6a44",
+    "pm25_season_protocol.json": "507997840dc5e46b566894f644ffc40a9ddaa5dff3c56017aceaf7ffad7c3604",
+    "method_performance_audit.json": "af2167dc89585f0fd9fb2b1764b19a2d718b2c48f6e61b75dab5d81deb3210db",
+    "replicate_pm25_jan.json": "81ff39df2f8dad23bffb6b9cf64155f3450f0c38f08735be66ef93b5d64b0746",
+    "replicate_pm25_apr.json": "d611d9837d2a8ca5ae6146281dfc47a9c031d916dbe4f3b7d6da5dc7464be977",
+    "replicate_pm25_jul.json": "e3f2db82f833e3e53742f310727f101b0365dffd5e2ba88872c72da73539c67d",
+    "replicate_pm25_oct.json": "6ae3c3c3a5f79f29f358479b0289f7d27b3700185669149ba13fe1cb341c153d"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "datasets": [
+    "olr",
+    "pm25"
+  ],
+  "methods": [
+    "TMTM",
+    "ST-MTM",
+    "A",
+    "R 20%",
+    "Hilbert",
+    "Morton"
+  ],
+  "metrics_only": false,
+  "evidence_sha256": "f70a343b68ac04531d12480f8e043587b8dd7715ab752b5fd7c4c081d8836cda",
+  "dataset_fingerprints": {
+    "olr": "299e1ce5e0ec8200289258f05e3dc3afdd1dc4e1e17d3fdf726ec63a6b177f00",
+    "pm25": "8b549c112fa682eeeff48f68986090d2b265d4cdf2ca8e21d7bf7241f1ad8b98"
+  },
+  "figures": [
+    {
+      "stem": "olr_spatial_topology",
+      "caption": "Fixed first/middle/last frames. Colors identify frame-local features, not temporal tracks. Trees suppress degree-one nodes and retain scalar heights; grey cells lie outside leaf supports.",
+      "files": {
+        "olr_spatial_topology.png": "10c636d2bd5edc3c38ddff5411646b4868933744b6fa974e8ca0caad57a06d1f",
+        "olr_spatial_topology.pdf": "63bac518ac30710eb53fd571bcddb78ca28c0bbb84e00096c2df728ef28e48fe",
+        "olr_spatial_topology.svg": "c385eb5e213dda3b0d9dc1a4d3945c8ae1af1a1255f231c1025023d7f90897f6"
+      }
+    },
+    {
+      "stem": "olr_temporal_methods",
+      "caption": "Common processed fields, scalar range and time axis. Vertical axes are normalized separately; native Hilbert/Morton sample ranks do not represent geographical coordinates. R uses optimal barrier filling. Actual row counts are disclosed; no scalar-value rescaling is used.",
+      "files": {
+        "olr_temporal_methods.png": "b33aa9983376dee0a9b2e6189c95f4ae4769f37cce6935aad9fb49464f1ecc5f",
+        "olr_temporal_methods.pdf": "97e420ba7f3d121b932084160e30432060bb4893439456b0657939e906be987d",
+        "olr_temporal_methods.svg": "648b00a57d1dcba22e75e1f9ed10073a47d7c8f673fb88b881c9198edd33fcab"
+      }
+    },
+    {
+      "stem": "olr_curve_fragmentation",
+      "caption": "Frame 41: first maximum-extremum-count frame, chosen for structural illustration. Both curves visit every processed grid cell; direction and orientation are fixed. No value interpolation or barrier correction is applied. Fragment counts are for this frame only.",
+      "files": {
+        "olr_curve_fragmentation.png": "a16c848a564eeccd5ef667b4c0495b27f113cacc17e34921775bae2fb3c17949",
+        "olr_curve_fragmentation.pdf": "0f05d85f4277028d945062a85169bfcacefd93e24c916d759e73a0edfa455e0e",
+        "olr_curve_fragmentation.svg": "f59b23605d2cd434924578beaddcc10d1e27881e5372d416b7c086e43a47d11b"
+      }
+    },
+    {
+      "stem": "pm25_spatial_topology",
+      "caption": "Fixed first/middle/last frames. Colors identify frame-local features, not temporal tracks. Trees suppress degree-one nodes and retain scalar heights; grey cells lie outside leaf supports.",
+      "files": {
+        "pm25_spatial_topology.png": "b8271bf885c9a7abb0eba3fc353e2f6fe7b6fad044160336a3d1aa931d1191d3",
+        "pm25_spatial_topology.pdf": "f8828054ff340066a350339726dd6f8d51023d0deef6a6e2ffff5ca773d59d74",
+        "pm25_spatial_topology.svg": "7119a232fb853f161ed5467fb6162873ca60b3f7f7a77e0808fd7a4c49686890"
+      }
+    },
+    {
+      "stem": "pm25_temporal_methods",
+      "caption": "Common processed fields, scalar range and time axis. Vertical axes are normalized separately; native Hilbert/Morton sample ranks do not represent geographical coordinates. R uses optimal barrier filling. Actual row counts are disclosed; no scalar-value rescaling is used.",
+      "files": {
+        "pm25_temporal_methods.png": "293b606103f058088c6104363680c09aeb8ae75d40b5a02394e602ab87a571c0",
+        "pm25_temporal_methods.pdf": "7b3705e391250a973870b3a983b90d032d91e928fc244997e4909b118689b1e6",
+        "pm25_temporal_methods.svg": "2330a0ea3999a683239d7d5cada6432d0fe7f5c54cb168fdc88bcf243d84300c"
+      }
+    },
+    {
+      "stem": "pm25_curve_fragmentation",
+      "caption": "Frame 17: first maximum-extremum-count frame, chosen for structural illustration. Both curves visit every processed grid cell; direction and orientation are fixed. No value interpolation or barrier correction is applied. Fragment counts are for this frame only.",
+      "files": {
+        "pm25_curve_fragmentation.png": "2d34b56f0f3f3d23492f0dc9e41ca1c7d35422597447c9907bf85c42e9834d61",
+        "pm25_curve_fragmentation.pdf": "1c2049cb698748d7c09c1539f2927cbbed865def7ce6483f766c7efd67172dc8",
+        "pm25_curve_fragmentation.svg": "f26caccdb8e446d6639ac0bd5b65fda71319d8baa12b4c282661f7b201bd893f"
+      }
+    },
+    {
+      "stem": "motion_error_comparison",
+      "caption": "Total error = reversal + miss, using the declared two-step, 2% setting. Counts are clear 2-D events, not independent samples. No significance claim is encoded by bar height; PM2.5 January was selected after seasonal exploration. Gaussian has no clear events.",
+      "files": {
+        "motion_error_comparison.png": "7acbb317a79fd8d69b05d7caf1116711e4101909444ff31f5b558f20877f5a13",
+        "motion_error_comparison.pdf": "f80840e092ca0ac244bdaf26a22978a988a6da420b4d3df608df4a742e815a30",
+        "motion_error_comparison.svg": "1c562b1b5ef6caebb3a44ae836697ecffe5accb65fe7bf7d691b98f73906839b"
+      }
+    },
+    {
+      "stem": "topology_motion_tradeoff",
+      "caption": "R uses optimal barrier filling; Hilbert/Morton use their unchanged native scalar sequences. Costs are achieved maxima over frames, not \u03ba bounds. Points show one fixed operating setting, not a Pareto frontier or a statistical superiority claim.",
+      "files": {
+        "topology_motion_tradeoff.png": "dbe9960a016ab4c14bc19799dc782c281d040f979da8e7da58b853be7745d183",
+        "topology_motion_tradeoff.pdf": "eb6afb4f32e7c0374881adef289f078585c7ef68b38e8e607cbaf644a40151a4",
+        "topology_motion_tradeoff.svg": "bd29d733c217e3873537d06fbca5b00cbe471dc8d5311a5e509e9ba486c393f8"
+      }
+    },
+    {
+      "stem": "neighbourhood_preservation",
+      "caption": "Frame-mean stress and nearest-neighbour preservation from the saved hidden-cost evaluation. These metrics measure spatial relationships, not human performance. Frames with fewer than three extrema are excluded by the shared evaluation protocol.",
+      "files": {
+        "neighbourhood_preservation.png": "75eb5fa7a4a3fcb8d7da889b585609a8fe7b5a8ef1ef701cb6b57bc141c44038",
+        "neighbourhood_preservation.pdf": "fcd973c742bb325e5d2feae5c8fff5eca7430e1d6d9f952415e5b1b2e6ec0d33",
+        "neighbourhood_preservation.svg": "c681d0b1d180d90b6a2377c41240a2fab8590b7a1055989694c2f0838d9dd180"
+      }
+    },
+    {
+      "stem": "motion_window_sensitivity",
+      "caption": "Each k uses its own set of clear events; lines connect operating settings, not physical trajectories. Step duration differs across datasets. Undefined rates are omitted, including Gaussian k=1/2.",
+      "files": {
+        "motion_window_sensitivity.png": "44591aad49a569be6ed93865ba61c9a3d5ab0aaf784134430f8e5a5a751f3548",
+        "motion_window_sensitivity.pdf": "644f2779a2a3381121d5d824f1f34647657db7992667e5a7dc822473cddd8eae",
+        "motion_window_sensitivity.svg": "f08c4e32c3b3994d2cfac72be342cb24485831cdf5553ece08d9bc7797d3bf9a"
+      }
+    }
+  ],
+  "booklet_sha256": "9cf24635001a624d86d6a637696a68d30d2db6b0dc37cadc4c5e5c0b565ed4e4",
+  "source_sha256": {
+    "analysis/visualization/__init__.py": "6e2bb76e47a84c78ad54cfce32ee9c59bddfb32f1d9c5ec3cdbd1cb60c7736c8",
+    "analysis/visualization/catalog.py": "886da15c8c7a7f198245e3cc16d6cf726ac9eebfd27bc11c1a3cf0e63cbffaa0",
+    "analysis/visualization/gallery.py": "0bc022184a845c25ccb0b2183429c548e05f5a4ea332475b50f8f20b0ebe4ae2",
+    "analysis/visualization/metrics.py": "c1fae7f484f5f4b730c108a4ed5345b41db2978b6bd24b9af56808a81142a233",
+    "analysis/visualization/rendering.py": "edec1d5818bee9a1e0163ec9a9ab78317d5a31faccb294d3fdd2d6cc9995a308",
+    "analysis/visualization/spatial.py": "71e751590d1c8edf0519b9b11703e9d19f376f32496728e6140c8bc44096843a"
+  }
+}

@@ -28,8 +28,9 @@ def tau_pt(orders, q):
 
 
 def main():
-    res = {}
-    for name in rp.LOADERS:
+    path = OUT / 'pointcert.json'
+    res = json.loads(path.read_text()) if path.exists() else {}
+    for name in (sys.argv[1:] or list(rp.LOADERS)):
         ds = rp.LOADERS[name](); sc = ds['sc']
         M, ext, conflict, ref = mr.method_positions(ds)
         L = ref['extent']; theta = .02 * L

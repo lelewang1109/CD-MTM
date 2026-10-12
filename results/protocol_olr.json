@@ -1,0 +1,522 @@
+{
+  "name": "olr",
+  "variable": "olr",
+  "kind": "join",
+  "units": "W m-2",
+  "dates": [
+    "2024-06-01",
+    "2024-07-30"
+  ],
+  "frames": 60,
+  "step_days": 1,
+  "window": {
+    "lon": [
+      60.0,
+      150.0
+    ],
+    "lat": [
+      -15.0,
+      20.0
+    ]
+  },
+  "grid": 49,
+  "buffer_cells": 5,
+  "sigma_km": 500.0,
+  "sigma_ladder_km": [
+    100.0,
+    150.0,
+    200.0,
+    250.0,
+    350.0,
+    500.0,
+    700.0,
+    1000.0
+  ],
+  "sigma_trials": [
+    {
+      "sigma_km": 100.0,
+      "leaves_min": 28,
+      "leaves_max": 45
+    },
+    {
+      "sigma_km": 150.0,
+      "leaves_min": 14,
+      "leaves_max": 27
+    },
+    {
+      "sigma_km": 200.0,
+      "leaves_min": 9,
+      "leaves_max": 21
+    },
+    {
+      "sigma_km": 250.0,
+      "leaves_min": 7,
+      "leaves_max": 17
+    },
+    {
+      "sigma_km": 350.0,
+      "leaves_min": 4,
+      "leaves_max": 10
+    },
+    {
+      "sigma_km": 500.0,
+      "leaves_min": 2,
+      "leaves_max": 8
+    }
+  ],
+  "exhaustive_leaf_limit": 8,
+  "smoothing_selection": "smallest common sigma meeting the predeclared leaf limit; no evaluation metric used",
+  "projection": "spherical Lambert cylindrical equal-area",
+  "standard_parallel_degrees": 2.5,
+  "cell_area_layout": 2.0041115304573984,
+  "cell_area_km2": 15955.160524173798,
+  "priority_flood_epsilon": 1.8817584578725414e-06,
+  "boundary_policy": "keep interior extrema of buffered field; impose them in cropped field; fallback logged",
+  "feature_interpretation": "extrema of processed scalar field; not independently validated objects",
+  "preprocessing": [
+    {
+      "t": 0,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 9.911592671285206,
+      "mean_imposition": 0.0524394311322897
+    },
+    {
+      "t": 1,
+      "retained_extrema": 7,
+      "fallback_global_extremum": false,
+      "max_imposition": 16.035177833041956,
+      "mean_imposition": 0.22875964301046128
+    },
+    {
+      "t": 2,
+      "retained_extrema": 7,
+      "fallback_global_extremum": false,
+      "max_imposition": 4.316000635233792,
+      "mean_imposition": 0.03611820747127182
+    },
+    {
+      "t": 3,
+      "retained_extrema": 6,
+      "fallback_global_extremum": false,
+      "max_imposition": 7.289454962104713,
+      "mean_imposition": 0.04389326094329274
+    },
+    {
+      "t": 4,
+      "retained_extrema": 6,
+      "fallback_global_extremum": false,
+      "max_imposition": 1.9096342562289124,
+      "mean_imposition": 0.0038244142787463974
+    },
+    {
+      "t": 5,
+      "retained_extrema": 6,
+      "fallback_global_extremum": false,
+      "max_imposition": 4.021822049122363,
+      "mean_imposition": 0.008031735561658883
+    },
+    {
+      "t": 6,
+      "retained_extrema": 7,
+      "fallback_global_extremum": false,
+      "max_imposition": 6.410117994470596,
+      "mean_imposition": 0.0228491109599122
+    },
+    {
+      "t": 7,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 7.814395546605795,
+      "mean_imposition": 0.06605267990584913
+    },
+    {
+      "t": 8,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 25.5308062127296,
+      "mean_imposition": 0.3350378126727605
+    },
+    {
+      "t": 9,
+      "retained_extrema": 5,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.21705210396874008,
+      "mean_imposition": 9.040070969127034e-05
+    },
+    {
+      "t": 10,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 18.794901027020273,
+      "mean_imposition": 0.22624630847247204
+    },
+    {
+      "t": 11,
+      "retained_extrema": 5,
+      "fallback_global_extremum": false,
+      "max_imposition": 4.499247835314748,
+      "mean_imposition": 0.01587511498013497
+    },
+    {
+      "t": 12,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 10.829691179992807,
+      "mean_imposition": 0.11875328409431478
+    },
+    {
+      "t": 13,
+      "retained_extrema": 5,
+      "fallback_global_extremum": false,
+      "max_imposition": 9.188996568313456,
+      "mean_imposition": 0.11297865983786261
+    },
+    {
+      "t": 14,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 9.788851662572938,
+      "mean_imposition": 0.08952252222577405
+    },
+    {
+      "t": 15,
+      "retained_extrema": 7,
+      "fallback_global_extremum": false,
+      "max_imposition": 1.0612652289304094,
+      "mean_imposition": 0.001455494332022517
+    },
+    {
+      "t": 16,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 29.863860856930415,
+      "mean_imposition": 1.4703534684587911
+    },
+    {
+      "t": 17,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 19.067523540416175,
+      "mean_imposition": 0.5083364251580392
+    },
+    {
+      "t": 18,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 30.859887593154014,
+      "mean_imposition": 0.5219754667595076
+    },
+    {
+      "t": 19,
+      "retained_extrema": 5,
+      "fallback_global_extremum": false,
+      "max_imposition": 18.466695625934022,
+      "mean_imposition": 0.3065435144957653
+    },
+    {
+      "t": 20,
+      "retained_extrema": 6,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.0,
+      "mean_imposition": 0.0
+    },
+    {
+      "t": 21,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 24.21558462347943,
+      "mean_imposition": 0.4616064398047213
+    },
+    {
+      "t": 22,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.05301689787177111,
+      "mean_imposition": 2.2081173624227867e-05
+    },
+    {
+      "t": 23,
+      "retained_extrema": 5,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.0,
+      "mean_imposition": 0.0
+    },
+    {
+      "t": 24,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.3903581898676691,
+      "mean_imposition": 0.00042786456967648304
+    },
+    {
+      "t": 25,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 13.935263093269697,
+      "mean_imposition": 0.09578502976232148
+    },
+    {
+      "t": 26,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 37.712505290767865,
+      "mean_imposition": 2.397846340602572
+    },
+    {
+      "t": 27,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 42.05059974136324,
+      "mean_imposition": 2.8632151777511012
+    },
+    {
+      "t": 28,
+      "retained_extrema": 5,
+      "fallback_global_extremum": false,
+      "max_imposition": 32.453888169110456,
+      "mean_imposition": 0.397612070855278
+    },
+    {
+      "t": 29,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 15.446711439502678,
+      "mean_imposition": 0.2708048640919528
+    },
+    {
+      "t": 30,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 25.741309583433406,
+      "mean_imposition": 0.8115100744687428
+    },
+    {
+      "t": 31,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 17.259830037771195,
+      "mean_imposition": 0.14914582597536835
+    },
+    {
+      "t": 32,
+      "retained_extrema": 7,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.0,
+      "mean_imposition": 0.0
+    },
+    {
+      "t": 33,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.0,
+      "mean_imposition": 0.0
+    },
+    {
+      "t": 34,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 24.75984039654182,
+      "mean_imposition": 0.787917813882215
+    },
+    {
+      "t": 35,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 48.03109337244089,
+      "mean_imposition": 1.886753450081583
+    },
+    {
+      "t": 36,
+      "retained_extrema": 5,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.0,
+      "mean_imposition": 0.0
+    },
+    {
+      "t": 37,
+      "retained_extrema": 6,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.37647586994305016,
+      "mean_imposition": 0.0001922601223718656
+    },
+    {
+      "t": 38,
+      "retained_extrema": 5,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.44540877732623585,
+      "mean_imposition": 0.00025198614006369236
+    },
+    {
+      "t": 39,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.0,
+      "mean_imposition": 0.0
+    },
+    {
+      "t": 40,
+      "retained_extrema": 6,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.3402315708054289,
+      "mean_imposition": 0.0002948871428660878
+    },
+    {
+      "t": 41,
+      "retained_extrema": 8,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.0,
+      "mean_imposition": 0.0
+    },
+    {
+      "t": 42,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.17096949871614697,
+      "mean_imposition": 7.327771997738702e-05
+    },
+    {
+      "t": 43,
+      "retained_extrema": 6,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.0,
+      "mean_imposition": 0.0
+    },
+    {
+      "t": 44,
+      "retained_extrema": 6,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.0,
+      "mean_imposition": 0.0
+    },
+    {
+      "t": 45,
+      "retained_extrema": 5,
+      "fallback_global_extremum": false,
+      "max_imposition": 5.078453753204229,
+      "mean_imposition": 0.03708852255662422
+    },
+    {
+      "t": 46,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 6.269759324881079,
+      "mean_imposition": 0.04497265139918587
+    },
+    {
+      "t": 47,
+      "retained_extrema": 5,
+      "fallback_global_extremum": false,
+      "max_imposition": 4.303148216667324,
+      "mean_imposition": 0.01753210840774191
+    },
+    {
+      "t": 48,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.0,
+      "mean_imposition": 0.0
+    },
+    {
+      "t": 49,
+      "retained_extrema": 7,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.0,
+      "mean_imposition": 0.0
+    },
+    {
+      "t": 50,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 24.621214322252825,
+      "mean_imposition": 0.4832325486499854
+    },
+    {
+      "t": 51,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 18.97176661050773,
+      "mean_imposition": 0.31721837775812495
+    },
+    {
+      "t": 52,
+      "retained_extrema": 5,
+      "fallback_global_extremum": false,
+      "max_imposition": 57.4210544585581,
+      "mean_imposition": 3.7673662747836443
+    },
+    {
+      "t": 53,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 67.32088574053898,
+      "mean_imposition": 4.868118013756694
+    },
+    {
+      "t": 54,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 25.288665849425115,
+      "mean_imposition": 0.2308432582815208
+    },
+    {
+      "t": 55,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 19.811468645076275,
+      "mean_imposition": 0.17848250041668812
+    },
+    {
+      "t": 56,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 23.029633235418316,
+      "mean_imposition": 0.7000104230486979
+    },
+    {
+      "t": 57,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 20.31826107029505,
+      "mean_imposition": 0.4790025112669412
+    },
+    {
+      "t": 58,
+      "retained_extrema": 5,
+      "fallback_global_extremum": false,
+      "max_imposition": 11.866550120363627,
+      "mean_imposition": 0.1449567357439725
+    },
+    {
+      "t": 59,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 41.5559280686829,
+      "mean_imposition": 1.6464817480420302
+    }
+  ],
+  "sha256": "fb0a8f6b6fc0df4b4f41db0c3da443b9c395bd472cb21ce9d95ce151354ca658",
+  "source_units": "W m-2",
+  "source_attributes": {
+    "title": "Daily Mean  OLR",
+    "description": "The product contains the 1-degree by 1-degree daily mean outgoing longwave radiation flux at the top of the atmosphere derived from HIRS radiance observations onboard NOAA TIROS-N series and MetOp satellites. The OLR retrieval uses multispectral regression models (Ellingson et al., 1989, Lee, 2014). The CDR processing includes HIRS radiance calibration, inter-satellite HIRS OLR calibration, normalization of geostationary-based  OLR retrieval to HIRS, and grid-based 7-day boxcar temporal integration assisted with Imager-based OLR derived from Gridsat CDR data (Lee, 2014).",
+    "platform": "Observation",
+    "ncdc_metadatalink": "gov.noaa.ncdc:C00875",
+    "version": "Ver01Rev02",
+    "creator_notes": "Hai-Tien Lee http://cicsmd.umd.edu/ lee@umd.edu at UMD/ESSIC > Earth System Science Interdisciplinary Center, University of Maryland ",
+    "sensor": "HIRS-2 > High Resolution Infra-red Sounder/2, HIRS-2I > High Resolution Infra-red Sounder/2I, HIRS-3 > High Resolution Infra-red Sounder/3, HIRS-4 > High Resolution Infra-red Sounder/4",
+    "platform_source": "TIROS-N > Television Infrared Observation Satellite - N, NOAA-6 > National Oceanic Atmospheric Administration - 6, NOAA-7 > National Oceanic Atmospheric Administration - 7, NOAA-8 > National Oceanic Atmospheric Administration - 8, NOAA-9 > National Oceanic Atmospheric Administration - 9, NOAA-10 > National Oceanic Atmospheric Administration - 10, NOAA-11 > National Oceanic Atmospheric Administration - 11, NOAA-12 > National Oceanic Atmospheric Administration - 12, NOAA-14 > National Oceanic Atmospheric Administration - 14, NOAA-15 > National Oceanic Atmospheric Administration - 15, NOAA-16 > National Oceanic Atmospheric Administration - 16, NOAA-17 > National Oceanic Atmospheric Administration - 17, NOAA-18 > National Oceanic Atmospheric Administration - 18, NOAA-19 > National Oceanic Atmospheric Administration - 19, MetOp-A > Meteorological Operational Polar Satellite - A, MetOp-B > Meteorological Operational Polar Satellite - B",
+    "acknowledgment": "This project was supported in part by a grant from the NOAA Climate Data Record (CDR) Program for Satellites",
+    "keywords": "Earth Science > Atmosphere >  Atmospheric Radiation > Outgoing Longwave Radiation",
+    "summary": "The product contains the 1-degree by 1-degree daily mean outgoing longwave radiation flux at the top of the atmosphere derived from HIRS radiance observations onboard NOAA TIROS-N series and MetOp satellites. The OLR retrieval uses multispectral regression models (Ellingson et al., 1989, Lee, 2014). The CDR processing includes HIRS radiance calibration, inter-satellite HIRS OLR calibration, normalization of geostationary-based  OLR retrieval to HIRS, and grid-based 7-day boxcar temporal integration assisted with Imager-based OLR derived from Gridsat CDR data (Lee, 2014).",
+    "keywords_vocabulary": "NASA Global Change Master Directory (GCMD) Earth Science Keywords, Version 8.0.0.0",
+    "NCO": "netCDF Operators version 4.8.1 (Homepage = http://nco.sf.net, Code = http://github.com/nco/nco)",
+    "Conventions": "CF-1.2",
+    "dataset_title": "Outgoing Longwave Radiation Daily Climate Data Record (OLR Daily CDR)",
+    "original_source": "https://www.ncdc.noaa.gov/news/new-outgoing-longwave-radiation-climate-data-record",
+    "References": "https://www.psl.noaa.gov/data/gridded/data.olr_tcdr.html",
+    "history": "Thu Apr 30 12:06:38 2026: ncks -d time,,-2 olr.day.mean.v2.nc a.nc\nRedone to match original NCEI version (no longer interpolated to offset grid) Jan 2022"
+  },
+  "path": "data/public_scalar/olr_20240601_20240730.nc",
+  "source_page": "https://www.ncei.noaa.gov/access/metadata/landing-page/bin/iso?id=gov.noaa.ncdc%3AC00875"
+}

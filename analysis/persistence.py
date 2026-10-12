@@ -14,6 +14,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import general_method as gm, theory as th, replicate as rp, task_reference as tr
 from cdmtm.reference_points import reference_points_from_frames
 
+from dataset_suite import REAL_DATASETS
+
 OUT = tr.OUT
 EPS = [0., .01, .02, .05]; NPIX = 1024
 
@@ -39,8 +41,9 @@ def relabel(t, mp): return mp[t] if isinstance(t, int) else [relabel(c, mp) for 
 
 
 def main():
-    res = {}
-    for name in ['era5', 'era5_2014', 'wildfire']:
+    path = OUT / 'persistence.json'
+    res = json.loads(path.read_text()) if path.exists() else {}
+    for name in (sys.argv[1:] or list(REAL_DATASETS)):
         ds = rp.LOADERS[name](); sc = ds['sc']; s = -1. if sc['trees'][0].kind == 'split' else 1.
         ext = reference_points_from_frames(sc['frames'], sc['ids'], kind='extremum')
         ref = gm.auto_reference(sc, ext, ds['lo'], ds['hi'])

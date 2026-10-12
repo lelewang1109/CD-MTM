@@ -1,0 +1,4 @@
+pm25_jan   cap 0.0: max d_top LCA 0.000 -> optimal 0.000 (mean 0.000 -> 0.000); |measured - delta*| 0.0e+00; exact-topology frames opt 30 / LCA 30 of 30
+pm25_jan   cap 0.02: max d_top LCA 0.000 -> optimal 0.000 (mean 0.000 -> 0.000); |measured - delta*| 0.0e+00; exact-topology frames opt 29 / LCA 29 of 30
+pm25_jan   cap 0.2: max d_top LCA 0.104 -> optimal 0.095 (mean 0.009 -> 0.009); |measured - delta*| 6.1e-07; exact-topology frames opt 26 / LCA 26 of 30
+pm25_jan   cap inf: max d_top LCA 0.258 -> optimal 0.173 (mean 0.018 -> 0.014); |measured - delta*| 6.1e-07; exact-topology frames opt 25 / LCA 25 of 30

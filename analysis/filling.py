@@ -46,8 +46,9 @@ def optimal_fill(col, order_ids, anchors, fr, kind):
 
 
 def main():
-    res = {}
-    for name in rp.LOADERS:
+    path = OUT / 'filling.json'
+    res = json.loads(path.read_text()) if path.exists() else {}
+    for name in (sys.argv[1:] or list(rp.LOADERS)):
         ds = rp.LOADERS[name](); sc = ds['sc']; kind = sc['trees'][0].kind; rng = float(np.ptp(sc['fields']))
         res[name] = []
         for cap in CAPS:

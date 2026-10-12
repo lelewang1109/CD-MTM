@@ -8,8 +8,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import relax_hierarchy as rh, replicate as rp, task_reference as tr
 from fig_witness import witness
 
-res = {}
-for name in ['era5', 'era5_2014', 'wildfire']:
+from dataset_suite import REAL_DATASETS
+
+path = tr.OUT / 'witness.json'
+res = json.loads(path.read_text()) if path.exists() else {}
+for name in (sys.argv[1:] or list(REAL_DATASETS)):
     ds = rp.LOADERS[name](); sc = ds['sc']
     o = rh.run(ds, 0., make_figure=False, return_internal=True); ref = o['_internal']['ref']; theta = o['theta']
     r = []
@@ -17,6 +20,6 @@ for name in ['era5', 'era5_2014', 'wildfire']:
         lg = o['frame_log'][t]
         if lg['tau_hier'] - lg['tau_free'] > theta:
             r.append(witness(fr, ids, np.asarray(ref['qs'][t]))[0] / lg['tau_hier'])
-    r = np.array(r); res[name] = dict(conflict_frames=len(r), median=float(np.median(r)), share_at_least_half=float(np.mean(r >= .5)), min=float(r.min()))
+    r = np.array(r); res[name] = dict(conflict_frames=len(r), median=float(np.median(r)) if len(r) else None, share_at_least_half=float(np.mean(r >= .5)) if len(r) else None, min=float(r.min()) if len(r) else None)
     print(name, res[name], flush=True)
 (tr.OUT / 'witness.json').write_text(json.dumps(res, indent=1))

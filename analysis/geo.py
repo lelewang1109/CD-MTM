@@ -49,5 +49,6 @@ class Era5Geo:
                 a = np.asarray(part)
                 m = (a[:, 0] >= self.lon0 - 1) & (a[:, 0] <= self.lon1 + 1) & (a[:, 1] >= self.lat0 - 1) & (a[:, 1] <= self.lat1 + 1)
                 if m.sum() < 2: continue
-                x, y = self.xy(np.where(m, a[:, 0], np.nan), np.where(m, a[:, 1], np.nan)); ax.plot(x, y, color=color, lw=lw, alpha=alpha)
+                x, y = self.xy(np.where(m, a[:, 0], np.nan), np.where(m, a[:, 1], np.nan))
+                ax.plot(x, y, color=color, lw=lw, alpha=alpha, gid='coastline')
         return True

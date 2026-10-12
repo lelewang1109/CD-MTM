@@ -1,0 +1,1563 @@
+{
+  "metric": "2-D motion proxy total error (reversal + miss); lower is better",
+  "main_methods": "Fixed kappa=20%, k=2, eps=2%; caps/axes are not selected separately for each dataset",
+  "controls": "oracle q/x are projection references, excluded from feasible-method ranking; fixed-axis control remains included",
+  "inference": "Exploratory seasonal runs are reported in full; sparse cases and uncorrected multiple comparisons do not establish universal superiority",
+  "source_sha256": "f70a343b68ac04531d12480f8e043587b8dd7715ab752b5fd7c4c081d8836cda",
+  "results": [
+    {
+      "dataset": "era5",
+      "setting": {
+        "k": 2,
+        "eps": 0.02
+      },
+      "clear": 104,
+      "total_errors": {
+        "TMTM": 0.47115384615384615,
+        "ST-MTM": 0.41346153846153844,
+        "fixed-X anchored": 0.2403846153846154,
+        "A": 0.23076923076923078,
+        "R 2%": 0.2403846153846154,
+        "R 20%": 0.18269230769230768,
+        "R inf": 0.1346153846153846,
+        "q-sort (packed)": 0.14423076923076922,
+        "R 20% (x)": 0.16346153846153846,
+        "Hilbert": 0.46153846153846156,
+        "Morton": 0.4423076923076923
+      },
+      "best_methods": [
+        "R inf"
+      ],
+      "R20_best": false,
+      "R20_minus_ST": -0.23076923076923075,
+      "R20_minus_A": -0.0480769230769231,
+      "bootstrap_comparisons": [
+        {
+          "method": "R 20%",
+          "other": "ST-MTM",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.07692307692307693,
+            "ci95": [
+              -0.16001785714285716,
+              0.0185228452751817
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": -0.15384615384615385,
+            "ci95": [
+              -0.24210731907894734,
+              -0.061919969218930504
+            ],
+            "significant": true
+          },
+          "err": {
+            "diff": -0.23076923076923075,
+            "ci95": [
+              -0.33614230739024586,
+              -0.12790079168728352
+            ],
+            "significant": true
+          },
+          "blocks": 30,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "A",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.05769230769230771,
+            "ci95": [
+              -0.12,
+              0.0
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": 0.009615384615384616,
+            "ci95": [
+              -0.05303433268858801,
+              0.0821917808219178
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": -0.0480769230769231,
+            "ci95": [
+              -0.1111111111111111,
+              0.019422234913382797
+            ],
+            "significant": false
+          },
+          "blocks": 30,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Hilbert",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.09615384615384617,
+            "ci95": [
+              -0.19999999999999998,
+              0.0
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": -0.1826923076923077,
+            "ci95": [
+              -0.28703703703703703,
+              -0.07824879227053147
+            ],
+            "significant": true
+          },
+          "err": {
+            "diff": -0.27884615384615385,
+            "ci95": [
+              -0.40518803098450773,
+              -0.144
+            ],
+            "significant": true
+          },
+          "blocks": 30,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Morton",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.12500000000000003,
+            "ci95": [
+              -0.28095187619249523,
+              0.0
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": -0.1346153846153846,
+            "ci95": [
+              -0.21520228344502357,
+              -0.042062732589048614
+            ],
+            "significant": true
+          },
+          "err": {
+            "diff": -0.2596153846153846,
+            "ci95": [
+              -0.43079545454545454,
+              -0.10783523086654022
+            ],
+            "significant": true
+          },
+          "blocks": 30,
+          "block_steps": 4
+        }
+      ],
+      "topology_R20": {
+        "max": 24.787950632728325,
+        "mean": 1.3957711456575945,
+        "max_share": 0.26070358299714025,
+        "mean_share": 0.014679815371122791,
+        "relaxed_frames": 32,
+        "unit_range": 95.08097413835787
+      },
+      "exact_projection_2d_error": 0.1346153846153846
+    },
+    {
+      "dataset": "wildfire",
+      "setting": {
+        "k": 2,
+        "eps": 0.02
+      },
+      "clear": 112,
+      "total_errors": {
+        "TMTM": 0.39285714285714285,
+        "ST-MTM": 0.35714285714285715,
+        "fixed-X anchored": 0.36607142857142855,
+        "A": 0.32142857142857145,
+        "R 2%": 0.42857142857142855,
+        "R 20%": 0.3125,
+        "R inf": 0.33035714285714285,
+        "q-sort (packed)": 0.33035714285714285,
+        "R 20% (x)": 0.3482142857142857,
+        "Hilbert": 0.5,
+        "Morton": 0.48214285714285715
+      },
+      "best_methods": [
+        "R 20%"
+      ],
+      "R20_best": true,
+      "R20_minus_ST": -0.04464285714285715,
+      "R20_minus_A": -0.008928571428571452,
+      "bootstrap_comparisons": [
+        {
+          "method": "R 20%",
+          "other": "ST-MTM",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.15178571428571427,
+            "ci95": [
+              -0.2638988095238095,
+              -0.030978826796251458
+            ],
+            "significant": true
+          },
+          "miss": {
+            "diff": 0.10714285714285715,
+            "ci95": [
+              -0.04200398142003983,
+              0.2815658451580781
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": -0.04464285714285715,
+            "ci95": [
+              -0.16102378348824492,
+              0.1039868733417116
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "A",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.09821428571428573,
+            "ci95": [
+              -0.16544486215538845,
+              -0.03759398496240601
+            ],
+            "significant": true
+          },
+          "miss": {
+            "diff": 0.08928571428571427,
+            "ci95": [
+              0.012041105598866064,
+              0.16216654966654964
+            ],
+            "significant": true
+          },
+          "err": {
+            "diff": -0.008928571428571452,
+            "ci95": [
+              -0.11343159364261167,
+              0.0869638167493434
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Hilbert",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.08035714285714285,
+            "ci95": [
+              -0.21277769086357945,
+              0.04
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": -0.10714285714285715,
+            "ci95": [
+              -0.23006896551724135,
+              0.013014450338393827
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": -0.1875,
+            "ci95": [
+              -0.31304347826086953,
+              -0.04672897196261683
+            ],
+            "significant": true
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Morton",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.053571428571428575,
+            "ci95": [
+              -0.14375000000000002,
+              0.03741013659237944
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": -0.11607142857142855,
+            "ci95": [
+              -0.2087987012987013,
+              -0.036464223295980445
+            ],
+            "significant": true
+          },
+          "err": {
+            "diff": -0.16964285714285715,
+            "ci95": [
+              -0.28915911580205117,
+              -0.07382412806689401
+            ],
+            "significant": true
+          },
+          "blocks": 8,
+          "block_steps": 4
+        }
+      ],
+      "topology_R20": {
+        "max": 0.8231044199162044,
+        "mean": 0.1664001898862855,
+        "max_share": 0.19563867795215498,
+        "mean_share": 0.03955064797690506,
+        "relaxed_frames": 19,
+        "unit_range": 4.207268360898969
+      },
+      "exact_projection_2d_error": 0.26785714285714285
+    },
+    {
+      "dataset": "olr",
+      "setting": {
+        "k": 2,
+        "eps": 0.02
+      },
+      "clear": 56,
+      "total_errors": {
+        "TMTM": 0.44642857142857145,
+        "ST-MTM": 0.21428571428571427,
+        "fixed-X anchored": 0.03571428571428571,
+        "A": 0.05357142857142857,
+        "R 2%": 0.05357142857142857,
+        "R 20%": 0.05357142857142857,
+        "R inf": 0.05357142857142857,
+        "q-sort (packed)": 0.05357142857142857,
+        "R 20% (x)": 0.03571428571428571,
+        "Hilbert": 0.48214285714285715,
+        "Morton": 0.4642857142857143
+      },
+      "best_methods": [
+        "fixed-X anchored",
+        "R 20% (x)"
+      ],
+      "R20_best": false,
+      "R20_minus_ST": -0.1607142857142857,
+      "R20_minus_A": 0.0,
+      "bootstrap_comparisons": [
+        {
+          "method": "R 20%",
+          "other": "ST-MTM",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.0,
+            "ci95": [
+              -0.047638248847926265,
+              0.05660377358490566
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": -0.1607142857142857,
+            "ci95": [
+              -0.29508196721311475,
+              -0.05170222092343671
+            ],
+            "significant": true
+          },
+          "err": {
+            "diff": -0.1607142857142857,
+            "ci95": [
+              -0.3023255813953488,
+              -0.03571428571428572
+            ],
+            "significant": true
+          },
+          "blocks": 15,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "A",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.017857142857142856,
+            "ci95": [
+              0.0,
+              0.06350050658561292
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": -0.017857142857142856,
+            "ci95": [
+              -0.08333333333333333,
+              0.04081632653061225
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": 0.0,
+            "ci95": [
+              -0.047619047619047616,
+              0.05555555555555555
+            ],
+            "significant": false
+          },
+          "blocks": 15,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Hilbert",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.23214285714285715,
+            "ci95": [
+              -0.3823774509803921,
+              -0.061224489795918366
+            ],
+            "significant": true
+          },
+          "miss": {
+            "diff": -0.19642857142857145,
+            "ci95": [
+              -0.3508771929824561,
+              -0.07996078431372569
+            ],
+            "significant": true
+          },
+          "err": {
+            "diff": -0.4285714285714286,
+            "ci95": [
+              -0.5599999999999999,
+              -0.26666666666666666
+            ],
+            "significant": true
+          },
+          "blocks": 15,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Morton",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.32142857142857145,
+            "ci95": [
+              -0.43548387096774194,
+              -0.19508261211644395
+            ],
+            "significant": true
+          },
+          "miss": {
+            "diff": -0.08928571428571429,
+            "ci95": [
+              -0.19446138211382114,
+              0.021751207729468532
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": -0.41071428571428575,
+            "ci95": [
+              -0.5526315789473684,
+              -0.24444444444444444
+            ],
+            "significant": true
+          },
+          "blocks": 15,
+          "block_steps": 4
+        }
+      ],
+      "topology_R20": {
+        "max": 53.50430025051156,
+        "mean": 1.7476754808662456,
+        "max_share": 0.3355519955594428,
+        "mean_share": 0.01096053947905562,
+        "relaxed_frames": 7,
+        "unit_range": 159.45159307220783
+      },
+      "exact_projection_2d_error": 0.07142857142857142
+    },
+    {
+      "dataset": "pm25",
+      "setting": {
+        "k": 2,
+        "eps": 0.02
+      },
+      "clear": 7,
+      "total_errors": {
+        "TMTM": 0.7142857142857143,
+        "ST-MTM": 0.42857142857142855,
+        "fixed-X anchored": 0.2857142857142857,
+        "A": 0.42857142857142855,
+        "R 2%": 0.2857142857142857,
+        "R 20%": 0.2857142857142857,
+        "R inf": 0.42857142857142855,
+        "q-sort (packed)": 0.42857142857142855,
+        "R 20% (x)": 0.2857142857142857,
+        "Hilbert": 0.42857142857142855,
+        "Morton": 0.2857142857142857
+      },
+      "best_methods": [
+        "fixed-X anchored",
+        "R 2%",
+        "R 20%",
+        "R 20% (x)",
+        "Morton"
+      ],
+      "R20_best": true,
+      "R20_minus_ST": -0.14285714285714285,
+      "R20_minus_A": -0.14285714285714285,
+      "bootstrap_comparisons": [
+        {
+          "method": "R 20%",
+          "other": "ST-MTM",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.14285714285714285,
+            "ci95": [
+              -0.75,
+              0.6666666666666666
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": -0.14285714285714285,
+            "ci95": [
+              -0.75,
+              0.6666666666666666
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "A",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.14285714285714285,
+            "ci95": [
+              -0.3076923076923077,
+              0.0
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": -0.14285714285714285,
+            "ci95": [
+              -0.3333333333333333,
+              0.0
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Hilbert",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.14285714285714285,
+            "ci95": [
+              -0.2857142857142857,
+              0.75
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": -0.2857142857142857,
+            "ci95": [
+              -0.5,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": -0.14285714285714285,
+            "ci95": [
+              -0.6000000000000001,
+              0.6666666666666666
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Morton",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        }
+      ],
+      "topology_R20": {
+        "max": 9.38299802819062,
+        "mean": 0.8525496498142738,
+        "max_share": 0.09481795684416597,
+        "mean_share": 0.008615265148807338,
+        "relaxed_frames": 4,
+        "unit_range": 98.95802799897544
+      },
+      "exact_projection_2d_error": 0.5714285714285714
+    },
+    {
+      "dataset": "ring",
+      "setting": {
+        "k": 2,
+        "eps": 0.02
+      },
+      "clear": 124,
+      "total_errors": {
+        "TMTM": 0.6451612903225806,
+        "ST-MTM": 0.3467741935483871,
+        "fixed-X anchored": 0.3709677419354839,
+        "A": 0.31451612903225806,
+        "R 2%": 0.22580645161290322,
+        "R 20%": 0.12903225806451613,
+        "R inf": 0.12903225806451613,
+        "q-sort (packed)": 0.12096774193548387,
+        "R 20% (x)": 0.3467741935483871,
+        "Hilbert": 0.3870967741935484,
+        "Morton": 0.25
+      },
+      "best_methods": [
+        "q-sort (packed)"
+      ],
+      "R20_best": false,
+      "R20_minus_ST": -0.217741935483871,
+      "R20_minus_A": -0.18548387096774194,
+      "bootstrap_comparisons": [
+        {
+          "method": "R 20%",
+          "other": "ST-MTM",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.03225806451612903,
+            "ci95": [
+              -0.11111111111111112,
+              0.11807291666666658
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": -0.24999999999999997,
+            "ci95": [
+              -0.36843382728666324,
+              -0.12607516275399516
+            ],
+            "significant": true
+          },
+          "err": {
+            "diff": -0.217741935483871,
+            "ci95": [
+              -0.36470588235294116,
+              -0.07403143274853824
+            ],
+            "significant": true
+          },
+          "blocks": 10,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "A",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.13709677419354838,
+            "ci95": [
+              -0.18181818181818182,
+              -0.09166507633587788
+            ],
+            "significant": true
+          },
+          "miss": {
+            "diff": -0.048387096774193554,
+            "ci95": [
+              -0.12,
+              0.011908347676419946
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": -0.18548387096774194,
+            "ci95": [
+              -0.23076923076923078,
+              -0.1417788773523687
+            ],
+            "significant": true
+          },
+          "blocks": 10,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Hilbert",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.0,
+            "ci95": [
+              -0.10719155844155845,
+              0.09090909090909091
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": -0.2580645161290323,
+            "ci95": [
+              -0.3795771249321349,
+              -0.12986765143253692
+            ],
+            "significant": true
+          },
+          "err": {
+            "diff": -0.25806451612903225,
+            "ci95": [
+              -0.3775566893424036,
+              -0.13460051546391757
+            ],
+            "significant": true
+          },
+          "blocks": 10,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Morton",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.02419354838709678,
+            "ci95": [
+              -0.02106395019807583,
+              0.06918359941944847
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": -0.14516129032258063,
+            "ci95": [
+              -0.222240990990991,
+              -0.05263157894736842
+            ],
+            "significant": true
+          },
+          "err": {
+            "diff": -0.12096774193548387,
+            "ci95": [
+              -0.2,
+              -0.024382897443432312
+            ],
+            "significant": true
+          },
+          "blocks": 10,
+          "block_steps": 4
+        }
+      ],
+      "topology_R20": {
+        "max": 1.5679516792297363,
+        "mean": 0.34656737446784974,
+        "max_share": 0.12346384203815648,
+        "mean_share": 0.02728945039804881,
+        "relaxed_frames": 21,
+        "unit_range": 12.69968318939209
+      },
+      "exact_projection_2d_error": 0.13709677419354838
+    },
+    {
+      "dataset": "gaussians",
+      "setting": {
+        "k": 2,
+        "eps": 0.02
+      },
+      "clear": 0,
+      "total_errors": {
+        "TMTM": null,
+        "ST-MTM": null,
+        "fixed-X anchored": null,
+        "A": null,
+        "R 2%": null,
+        "R 20%": null,
+        "R inf": null,
+        "q-sort (packed)": null,
+        "R 20% (x)": null,
+        "Hilbert": null,
+        "Morton": null
+      },
+      "best_methods": [],
+      "R20_best": null,
+      "R20_minus_ST": null,
+      "R20_minus_A": null,
+      "bootstrap_comparisons": [],
+      "topology_R20": {
+        "max": 0.14961144860411102,
+        "mean": 0.05013230018047434,
+        "max_share": 0.09984121084852868,
+        "mean_share": 0.03345512391825699,
+        "relaxed_frames": 26,
+        "unit_range": 1.4984939318403288
+      },
+      "exact_projection_2d_error": null
+    },
+    {
+      "dataset": "pm25_jan",
+      "setting": {
+        "k": 2,
+        "eps": 0.02
+      },
+      "clear": 7,
+      "total_errors": {
+        "TMTM": 0.7142857142857143,
+        "ST-MTM": 0.42857142857142855,
+        "fixed-X anchored": 0.2857142857142857,
+        "A": 0.42857142857142855,
+        "R 2%": 0.2857142857142857,
+        "R 20%": 0.2857142857142857,
+        "R inf": 0.42857142857142855,
+        "q-sort (packed)": 0.42857142857142855,
+        "R 20% (x)": 0.2857142857142857,
+        "Hilbert": 0.42857142857142855,
+        "Morton": 0.2857142857142857
+      },
+      "best_methods": [
+        "fixed-X anchored",
+        "R 2%",
+        "R 20%",
+        "R 20% (x)",
+        "Morton"
+      ],
+      "R20_best": true,
+      "R20_minus_ST": -0.14285714285714285,
+      "R20_minus_A": -0.14285714285714285,
+      "bootstrap_comparisons": [
+        {
+          "method": "R 20%",
+          "other": "ST-MTM",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.14285714285714285,
+            "ci95": [
+              -0.75,
+              0.6666666666666666
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": -0.14285714285714285,
+            "ci95": [
+              -0.75,
+              0.6666666666666666
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "A",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.14285714285714285,
+            "ci95": [
+              -0.3076923076923077,
+              0.0
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": -0.14285714285714285,
+            "ci95": [
+              -0.3333333333333333,
+              0.0
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Hilbert",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.14285714285714285,
+            "ci95": [
+              -0.2857142857142857,
+              0.75
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": -0.2857142857142857,
+            "ci95": [
+              -0.5,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": -0.14285714285714285,
+            "ci95": [
+              -0.6000000000000001,
+              0.6666666666666666
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Morton",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        }
+      ],
+      "topology_R20": {
+        "max": 9.38299802819062,
+        "mean": 0.8525496498142738,
+        "max_share": 0.09481795684416597,
+        "mean_share": 0.008615265148807338,
+        "relaxed_frames": 4,
+        "unit_range": 98.95802799897544
+      },
+      "exact_projection_2d_error": 0.5714285714285714
+    },
+    {
+      "dataset": "pm25_apr",
+      "setting": {
+        "k": 2,
+        "eps": 0.02
+      },
+      "clear": 1,
+      "total_errors": {
+        "TMTM": 0.0,
+        "ST-MTM": 0.0,
+        "fixed-X anchored": 1.0,
+        "A": 0.0,
+        "R 2%": 0.0,
+        "R 20%": 0.0,
+        "R inf": 0.0,
+        "q-sort (packed)": 0.0,
+        "R 20% (x)": 1.0,
+        "Hilbert": 0.0,
+        "Morton": 0.0
+      },
+      "best_methods": [
+        "TMTM",
+        "ST-MTM",
+        "A",
+        "R 2%",
+        "R 20%",
+        "R inf",
+        "q-sort (packed)",
+        "Hilbert",
+        "Morton"
+      ],
+      "R20_best": true,
+      "R20_minus_ST": 0.0,
+      "R20_minus_A": 0.0,
+      "bootstrap_comparisons": [
+        {
+          "method": "R 20%",
+          "other": "ST-MTM",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "A",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Hilbert",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Morton",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        }
+      ],
+      "topology_R20": {
+        "max": 5.395799584347543,
+        "mean": 0.25035616734074156,
+        "max_share": 0.05166711004783153,
+        "mean_share": 0.0023972683653170814,
+        "relaxed_frames": 3,
+        "unit_range": 104.43393445757481
+      },
+      "exact_projection_2d_error": 0.0
+    },
+    {
+      "dataset": "pm25_jul",
+      "setting": {
+        "k": 2,
+        "eps": 0.02
+      },
+      "clear": 8,
+      "total_errors": {
+        "TMTM": 0.5,
+        "ST-MTM": 0.125,
+        "fixed-X anchored": 0.0,
+        "A": 0.0,
+        "R 2%": 0.0,
+        "R 20%": 0.125,
+        "R inf": 0.125,
+        "q-sort (packed)": 0.125,
+        "R 20% (x)": 0.125,
+        "Hilbert": 0.25,
+        "Morton": 0.5
+      },
+      "best_methods": [
+        "fixed-X anchored",
+        "A",
+        "R 2%"
+      ],
+      "R20_best": false,
+      "R20_minus_ST": 0.0,
+      "R20_minus_A": 0.125,
+      "bootstrap_comparisons": [
+        {
+          "method": "R 20%",
+          "other": "ST-MTM",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.0,
+            "ci95": [
+              -0.3333333333333333,
+              0.4
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": 0.0,
+            "ci95": [
+              -0.3333333333333333,
+              0.375
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "A",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.125,
+            "ci95": [
+              0.0,
+              0.4
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": 0.125,
+            "ci95": [
+              0.0,
+              0.4
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Hilbert",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": -0.125,
+            "ci95": [
+              -0.3333333333333333,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": -0.125,
+            "ci95": [
+              -0.3333333333333333,
+              0.0
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Morton",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.125,
+            "ci95": [
+              -0.3333333333333333,
+              0.25
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": -0.25,
+            "ci95": [
+              -0.375,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": -0.375,
+            "ci95": [
+              -0.6666666666666666,
+              0.14285714285714285
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        }
+      ],
+      "topology_R20": {
+        "max": 3.943046536032332,
+        "mean": 0.44225622625992494,
+        "max_share": 0.07390081982965065,
+        "mean_share": 0.008288793296429899,
+        "relaxed_frames": 4,
+        "unit_range": 53.35592413076714
+      },
+      "exact_projection_2d_error": 0.125
+    },
+    {
+      "dataset": "pm25_oct",
+      "setting": {
+        "k": 2,
+        "eps": 0.02
+      },
+      "clear": 3,
+      "total_errors": {
+        "TMTM": 0.6666666666666666,
+        "ST-MTM": 1.0,
+        "fixed-X anchored": 0.6666666666666666,
+        "A": 0.0,
+        "R 2%": 0.0,
+        "R 20%": 0.0,
+        "R inf": 0.0,
+        "q-sort (packed)": 0.0,
+        "R 20% (x)": 0.6666666666666666,
+        "Hilbert": 1.0,
+        "Morton": 0.0
+      },
+      "best_methods": [
+        "A",
+        "R 2%",
+        "R 20%",
+        "R inf",
+        "q-sort (packed)",
+        "Morton"
+      ],
+      "R20_best": true,
+      "R20_minus_ST": -1.0,
+      "R20_minus_A": 0.0,
+      "bootstrap_comparisons": [
+        {
+          "method": "R 20%",
+          "other": "ST-MTM",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -0.6666666666666666,
+            "ci95": [
+              -1.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": -0.3333333333333333,
+            "ci95": [
+              -0.75,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": -1.0,
+            "ci95": [
+              -1.0,
+              -1.0
+            ],
+            "significant": true
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "A",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Hilbert",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": -1.0,
+            "ci95": [
+              -1.0,
+              -1.0
+            ],
+            "significant": true
+          },
+          "miss": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": -1.0,
+            "ci95": [
+              -1.0,
+              -1.0
+            ],
+            "significant": true
+          },
+          "blocks": 8,
+          "block_steps": 4
+        },
+        {
+          "method": "R 20%",
+          "other": "Morton",
+          "k": 2,
+          "eps": 0.02,
+          "rev": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "miss": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "err": {
+            "diff": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "significant": false
+          },
+          "blocks": 8,
+          "block_steps": 4
+        }
+      ],
+      "topology_R20": {
+        "max": 0.0,
+        "mean": 0.0,
+        "max_share": 0.0,
+        "mean_share": 0.0,
+        "relaxed_frames": 0,
+        "unit_range": 59.52034573010057
+      },
+      "exact_projection_2d_error": 0.0
+    }
+  ],
+  "all_main_R20_best": false
+}

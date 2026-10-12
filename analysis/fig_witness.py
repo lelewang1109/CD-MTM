@@ -54,7 +54,7 @@ def main():
                          left=.035, right=.995, top=.9, bottom=.13)
     ext = [W0 - .5, W1 - .5, p.canvas_origin, p.canvas_origin + L]; tt = np.arange(W0, W1)
     # (a)
-    ax = fig.add_subplot(g[2, 0]); ax.imshow(mapsA[:, W0:W1], origin='lower', aspect='auto', extent=ext, cmap='magma', vmin=lo, vmax=hi)
+    ax = fig.add_subplot(g[2, 0]); ax.imshow(mapsA[:, W0:W1], origin='lower', aspect='auto', extent=ext, cmap=fs.FIELD_CMAP, vmin=lo, vmax=hi)
     for t, (b, (i, j, k)) in W.items():
         u = rowsA[t]['x']; ax.plot([t, t], [u[i], u[j]], color='#56b4e9', lw=1.6, alpha=.95, solid_capstyle='round')
         ax.plot(t, u[k], 'o', mfc='none', mec='#e69f00', mew=1.1, ms=4)
@@ -68,7 +68,7 @@ def main():
     # (b) the 2-D field at the zoomed step with the witness triple and the reference direction
     import geo
     G = geo.Era5Geo(sc.get('window', Path(__file__).resolve().parents[1] / 'data/real/ERA5_MSLP/ERA5_MSLP_19991117_20000114_12h_arco.nc'), sc['coords'])
-    ax = fig.add_subplot(g[:, 1]); ax.imshow(sc.get('fields_smooth', sc['fields'])[tz], origin='lower', extent=G.extent, cmap='magma', vmin=lo, vmax=hi)
+    ax = fig.add_subplot(g[:, 1]); ax.imshow(sc.get('fields_smooth', sc['fields'])[tz], origin='lower', extent=G.extent, cmap=fs.FIELD_CMAP, vmin=lo, vmax=hi)
     G.graticule(ax); G.coastlines(ax, Path(__file__).resolve().parents[1] / 'data/geo/ne_110m_coastline.geojson')
     b, (i, j, k) = W[tz]; ids = sc['ids'][tz]; Pw = np.array([sc['frames'][tz].coordinates[x] for x in ids])
     dvec = np.asarray(ref['candidates']['direction']['a']); c0 = np.array([np.mean(G.extent[:2]), np.mean(G.extent[2:])])
@@ -93,7 +93,7 @@ def main():
     for sp in ['left', 'bottom']: ax.spines[sp].set_visible(False)
     ax.set_title(f'(c) witness {b/L:.0%}, $\\tau^*$ {log[tz]["tau_hier"]/L:.0%}')
     # (c)
-    ax = fig.add_subplot(g[2, 3]); ax.imshow(optR[:, W0:W1], origin='lower', aspect='auto', extent=ext, cmap='magma', vmin=lo, vmax=hi)
+    ax = fig.add_subplot(g[2, 3]); ax.imshow(optR[:, W0:W1], origin='lower', aspect='auto', extent=ext, cmap=fs.FIELD_CMAP, vmin=lo, vmax=hi)
     for t in range(W0, W1):
         if R['frame_log'][t]['relaxed_nodes']: ax.plot(t, p.canvas_origin + .975 * L, 'v', color='#009e73', ms=3)
     ax.axvline(tz, color='w', ls=':', lw=.7); ax.set(xlabel='time step', yticks=[])
