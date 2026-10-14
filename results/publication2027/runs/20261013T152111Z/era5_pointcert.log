@@ -1,0 +1,6 @@
+era5       width-free certificate > theta in 37/118 frames (31%), max 24.1%
+    TMTM                   mean 0.192  frames>theta  89  excess over certificate 0.155  below cert 0
+    ST-MTM                 mean 0.163  frames>theta  75  excess over certificate 0.125  below cert 0
+    fixed-X anchored       mean 0.038  frames>theta  37  excess over certificate 0.000  below cert 0
+    ours: auto direction   mean 0.038  frames>theta  37  excess over certificate 0.000  below cert 0
+    ours: relaxed          mean 0.000  frames>theta   0  excess over certificate -0.037  below cert 40

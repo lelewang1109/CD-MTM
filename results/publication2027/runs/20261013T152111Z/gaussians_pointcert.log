@@ -1,0 +1,6 @@
+gaussians  width-free certificate > theta in 44/64 frames (69%), max 11.1%
+    TMTM                   mean 0.258  frames>theta  64  excess over certificate 0.203  below cert 0
+    ST-MTM                 mean 0.258  frames>theta  64  excess over certificate 0.203  below cert 0
+    fixed-X anchored       mean 0.258  frames>theta  64  excess over certificate 0.203  below cert 0
+    ours: auto direction   mean 0.054  frames>theta  44  excess over certificate 0.000  below cert 0
+    ours: relaxed          mean 0.000  frames>theta   0  excess over certificate -0.054  below cert 47

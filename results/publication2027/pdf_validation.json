@@ -1,0 +1,20 @@
+{
+  "main": {
+    "pages": 10,
+    "sha256": "571e5d6d9f1bb1b982da09048561a9d74461d393da0de6a7a8f13872557660df",
+    "no_overfull": true,
+    "no_undefined": true,
+    "no_replacement_characters": true,
+    "body_pages": 9,
+    "main_figures": 7,
+    "main_tables": 2,
+    "main_algorithms": 1
+  },
+  "supplement": {
+    "pages": 18,
+    "sha256": "bb3b9df73b2f523abf521dcf8b986c1e86bf84196f91219736e520f2c2692210",
+    "no_overfull": true,
+    "no_undefined": true,
+    "no_replacement_characters": true
+  }
+}

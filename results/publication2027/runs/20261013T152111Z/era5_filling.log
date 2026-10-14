@@ -1,0 +1,4 @@
+era5       cap 0.0: max d_top LCA 0.000 -> optimal 0.000 (mean 0.000 -> 0.000); |measured - delta*| 0.0e+00; exact-topology frames opt 118 / LCA 118 of 118
+era5       cap 0.02: max d_top LCA 0.017 -> optimal 0.012 (mean 0.001 -> 0.000); |measured - delta*| 1.1e-05; exact-topology frames opt 107 / LCA 107 of 118
+era5       cap 0.2: max d_top LCA 0.296 -> optimal 0.261 (mean 0.021 -> 0.015); |measured - delta*| 1.1e-05; exact-topology frames opt 86 / LCA 86 of 118
+era5       cap inf: max d_top LCA 0.645 -> optimal 0.587 (mean 0.069 -> 0.057); |measured - delta*| 1.1e-05; exact-topology frames opt 78 / LCA 78 of 118

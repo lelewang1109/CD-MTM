@@ -1,0 +1,4 @@
+ring       cap 0.0: max d_top LCA 0.000 -> optimal 0.000 (mean 0.000 -> 0.000); |measured - delta*| 0.0e+00; exact-topology frames opt 40 / LCA 40 of 40
+ring       cap 0.02: max d_top LCA 0.043 -> optimal 0.022 (mean 0.003 -> 0.001); |measured - delta*| 0.0e+00; exact-topology frames opt 34 / LCA 34 of 40
+ring       cap 0.2: max d_top LCA 0.247 -> optimal 0.123 (mean 0.055 -> 0.027); |measured - delta*| 0.0e+00; exact-topology frames opt 19 / LCA 19 of 40
+ring       cap inf: max d_top LCA 0.247 -> optimal 0.123 (mean 0.055 -> 0.027); |measured - delta*| 0.0e+00; exact-topology frames opt 19 / LCA 19 of 40

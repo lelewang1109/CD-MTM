@@ -22,3 +22,12 @@ paper/pacificvis2027/*.pdfsync
 data/public_scalar/
 results/*_cache.pkl
 results/visualization_cache/
+
+# Local reading copies and manuscript revision backups
+references/*.pdf
+notes/archive/before-*/
+notes/archive/layout-before-*/
+
+# Regenerable source archives (keep editable files and published PDFs)
+paper/*/latex_sources.zip
+paper/pacificvis2027-restructured/figures/panels/

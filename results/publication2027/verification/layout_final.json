@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "workspace_tests": 25,
+  "clean_bundle_tests": 25,
+  "clean_bundle_figure_regeneration": "passed without raw data",
+  "clean_bundle_integrity_and_claims": "passed",
+  "visual_review": "all pages reviewed; figure labels and case annotations checked",
+  "pdfs": {
+    "main_body": 8,
+    "main_total": 9,
+    "supplement": 16
+  },
+  "numerical_scope": "existing 30-stage completed suite retained; ERA5 and OLR renders freshly regenerated and scalar costs checked"
+}

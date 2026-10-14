@@ -1,0 +1,58 @@
+running wildfire
+  R 2%: relaxed frames 13, delta* max 0.07 (1.7%), mean 0.01
+  R 20%: relaxed frames 19, delta* max 0.82 (19.6%), mean 0.17
+  R inf: relaxed frames 19, delta* max 2.21 (52.6%), mean 0.30
+  q-sort (packed): relaxed frames 20, delta* max 2.21 (52.6%), mean 0.32
+  Hilbert: relaxed frames 0, delta* max 3.28 (78.0%), mean 1.39
+  Morton: relaxed frames 0, delta* max 3.42 (81.4%), mean 1.42
+  TMTM             n  112 rev 0.214 miss 0.179 err 0.393 commit-rev 0.261 null 0.360 | flag share 1.00 recall 1.00 lift None
+  ST-MTM           n  112 rev 0.214 miss 0.143 err 0.357 commit-rev 0.250 null 0.366 | flag share 0.94 recall 1.00 lift None
+  fixed-X anchored n  112 rev 0.179 miss 0.188 err 0.366 commit-rev 0.220 null 0.320 | flag share 1.00 recall 1.00 lift None
+  A                n  112 rev 0.161 miss 0.161 err 0.321 commit-rev 0.191 null 0.369 | flag share 0.71 recall 0.89 lift 3.2
+  R 2%             n  112 rev 0.125 miss 0.304 err 0.429 commit-rev 0.179 null 0.291 | flag share 0.46 recall 0.79 lift 4.38562091503268
+  R 20%            n  112 rev 0.062 miss 0.250 err 0.312 commit-rev 0.083 null 0.254 | flag share 0.12 recall 0.57 lift 10.153846153846153
+  R inf            n  112 rev 0.036 miss 0.295 err 0.330 commit-rev 0.051 null 0.213 | flag share 0.00 recall 0.00 lift 0.0
+  q-sort (packed)  n  112 rev 0.036 miss 0.295 err 0.330 commit-rev 0.051 null 0.215 | flag share 0.00 recall 0.00 lift 0.0
+  R 20% (x)        n  112 rev 0.116 miss 0.232 err 0.348 commit-rev 0.151 null 0.279 | flag share 1.00 recall 1.00 lift None
+  oracle q         n  112 rev 0.054 miss 0.214 err 0.268 commit-rev 0.068 null 0.218 | flag share 0.00 recall 0.00 lift 0.0
+  oracle x         n  112 rev 0.107 miss 0.250 err 0.357 commit-rev 0.143 null 0.235 | flag share 1.00 recall 1.00 lift None
+  Hilbert          n  112 rev 0.143 miss 0.357 err 0.500 commit-rev 0.222 null 0.208 | flag share 1.00 recall 1.00 lift None
+  Morton           n  112 rev 0.116 miss 0.366 err 0.482 commit-rev 0.183 null 0.233 | flag share 1.00 recall 1.00 lift None
+  projected TMTM             n  107 rev 0.262 miss 0.159 err 0.421
+  projected ST-MTM           n  107 rev 0.262 miss 0.150 err 0.411
+  projected fixed-X anchored n  107 rev 0.224 miss 0.178 err 0.402
+  projected A                n  107 rev 0.131 miss 0.093 err 0.224
+  projected R 2%             n  107 rev 0.075 miss 0.224 err 0.299
+  projected R 20%            n  107 rev 0.028 miss 0.150 err 0.178
+  projected R inf            n  107 rev 0.000 miss 0.140 err 0.140
+  projected q-sort (packed)  n  107 rev 0.000 miss 0.140 err 0.140
+  projected R 20% (x)        n  107 rev 0.168 miss 0.215 err 0.383
+  projected oracle q         n  107 rev 0.000 miss 0.000 err 0.000
+  projected oracle x         n  107 rev 0.178 miss 0.234 err 0.411
+  projected Hilbert          n  107 rev 0.140 miss 0.346 err 0.486
+  projected Morton           n  107 rev 0.056 miss 0.308 err 0.364
+  R 2%      - ST-MTM: rev -0.089 [-0.18055973895582325, 0.0] sig False | miss +0.161 [0.014249084249084255, 0.3296874999999999] (8 blocks)
+  R 2%      - A     : rev -0.036 [-0.09009347693558221, 0.020408163265306117] sig False | miss +0.143 [0.0, 0.2671772176888655] (8 blocks)
+  R 2%      - Hilbert: rev -0.018 [-0.13514385353095032, 0.08662273194111603] sig False | miss -0.054 [-0.24428304684496677, 0.13141571969696916] (8 blocks)
+  R 2%      - Morton: rev +0.009 [-0.06410550458715596, 0.0714610389610388] sig False | miss -0.062 [-0.20833333333333331, 0.09678846702826144] (8 blocks)
+  R 20%     - ST-MTM: rev -0.152 [-0.2638988095238095, -0.030978826796251458] sig True | miss +0.107 [-0.04200398142003983, 0.2815658451580781] (8 blocks)
+  R 20%     - A     : rev -0.098 [-0.16544486215538845, -0.03759398496240601] sig True | miss +0.089 [0.012041105598866064, 0.16216654966654964] (8 blocks)
+  R 20%     - Hilbert: rev -0.080 [-0.21277769086357945, 0.04] sig False | miss -0.107 [-0.23006896551724135, 0.013014450338393827] (8 blocks)
+  R 20%     - Morton: rev -0.054 [-0.14375000000000002, 0.03741013659237944] sig False | miss -0.116 [-0.2087987012987013, -0.036464223295980445] (8 blocks)
+  R inf     - ST-MTM: rev -0.179 [-0.2727436232831916, -0.08449520653331762] sig True | miss +0.152 [0.008403361344537813, 0.3333333333333333] (8 blocks)
+  R inf     - A     : rev -0.125 [-0.19230769230769232, -0.058823529411764705] sig True | miss +0.134 [0.04503003003003001, 0.21774393165122963] (8 blocks)
+  R inf     - Hilbert: rev -0.107 [-0.22549019607843135, 0.0] sig False | miss -0.062 [-0.20837710084033617, 0.09678846702826144] (8 blocks)
+  R inf     - Morton: rev -0.080 [-0.14635265159991048, -0.022896426092990998] sig True | miss -0.071 [-0.15944421657095978, -0.009796918767507008] (8 blocks)
+  hidden TMTM             flips 0.334 step 0.102 stress 0.458 spearman 0.594 NN 0.639
+  hidden ST-MTM           flips 0.076 step 0.053 stress 0.256 spearman 0.843 NN 0.753
+  hidden fixed-X anchored flips 0.070 step 0.050 stress 0.397 spearman 0.633 NN 0.525
+  hidden A                flips 0.094 step 0.054 stress 0.261 spearman 0.821 NN 0.658
+  hidden R 2%             flips 0.008 step 0.024 stress 0.237 spearman 0.847 NN 0.637
+  hidden R 20%            flips 0.026 step 0.022 stress 0.221 spearman 0.862 NN 0.630
+  hidden R inf            flips 0.010 step 0.019 stress 0.219 spearman 0.865 NN 0.600
+  hidden q-sort (packed)  flips 0.005 step 0.018 stress 0.219 spearman 0.863 NN 0.594
+  hidden R 20% (x)        flips 0.000 step 0.025 stress 0.390 spearman 0.627 NN 0.504
+  hidden oracle q         flips 0.005 step 0.017 stress 0.227 spearman 0.857 NN 0.589
+  hidden oracle x         flips 0.018 step 0.022 stress 0.403 spearman 0.605 NN 0.508
+  hidden Hilbert          flips 0.016 step 0.020 stress 0.479 spearman 0.586 NN 0.559
+  hidden Morton           flips 0.010 step 0.015 stress 0.308 spearman 0.776 NN 0.530

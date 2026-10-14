@@ -1,0 +1,20 @@
+{
+  "methods": [
+    "Hilbert",
+    "Morton"
+  ],
+  "implementation": "independent canonical 2-D curves; follows native sample-domain comparison, not the original external Inviwo binary",
+  "source_paper": "https://people.kth.se/~weinkauf/publications/abskoepp22.html",
+  "orientation": "x=column, y=row, origin=(0,0), no orientation selection",
+  "domain": "minimal power-of-two square; discard exterior cells; traverse every retained cell exactly once",
+  "values": "all processed scalar samples preserved unchanged",
+  "anchor": "extremum grid-sample rank; same per-method occupied-anchor-range decision normalization",
+  "native_topology": "max pairwise native/source LCA merge-level error per frame; temporal max and mean; no optimal refilling",
+  "fragmentation": "disjoint runs in the native ordering per source leaf support; average over supports and frames",
+  "main_pm25": "January 1-30 2000 selected after seasonal comparison; 7 clear events; other months and original January-February retained",
+  "source_sha256": {
+    "src/cdmtm/baselines/space_filling.py": "cf8116e153bb9d7abee12d80f36bd7b8005174ad92a54d5c590c4f5f9f670b4a",
+    "analysis/evaluation.py": "877076083fd9cd8dd68bb4b991f59d01b62c0b647dda678581200188802bd7ff",
+    "tests/test_space_filling.py": "1e8d9826b1bbf05c281d7829292c7203d1a84aee42d862444b62eff2f3663f25"
+  }
+}

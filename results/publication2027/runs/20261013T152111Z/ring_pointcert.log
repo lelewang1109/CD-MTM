@@ -1,0 +1,6 @@
+ring       width-free certificate > theta in 20/40 frames (50%), max 10.7%
+    TMTM                   mean 0.072  frames>theta  30  excess over certificate 0.045  below cert 0
+    ST-MTM                 mean 0.104  frames>theta  30  excess over certificate 0.077  below cert 0
+    fixed-X anchored       mean 0.109  frames>theta  30  excess over certificate 0.082  below cert 0
+    ours: auto direction   mean 0.027  frames>theta  20  excess over certificate 0.000  below cert 0
+    ours: relaxed          mean 0.001  frames>theta   0  excess over certificate -0.025  below cert 21

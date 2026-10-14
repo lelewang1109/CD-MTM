@@ -1,0 +1,4 @@
+gaussians  cap 0.0: max d_top LCA 0.000 -> optimal 0.000 (mean 0.000 -> 0.000); |measured - delta*| 0.0e+00; exact-topology frames opt 64 / LCA 64 of 64
+gaussians  cap 0.02: max d_top LCA 0.000 -> optimal 0.000 (mean 0.000 -> 0.000); |measured - delta*| 0.0e+00; exact-topology frames opt 64 / LCA 64 of 64
+gaussians  cap 0.2: max d_top LCA 0.200 -> optimal 0.100 (mean 0.067 -> 0.033); |measured - delta*| 1.9e-17; exact-topology frames opt 38 / LCA 38 of 64
+gaussians  cap inf: max d_top LCA 0.248 -> optimal 0.124 (mean 0.142 -> 0.071); |measured - delta*| 1.9e-17; exact-topology frames opt 17 / LCA 17 of 64

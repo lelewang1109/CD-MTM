@@ -1,0 +1,4 @@
+olr        cap 0.0: max d_top LCA 0.000 -> optimal 0.000 (mean 0.000 -> 0.000); |measured - delta*| 0.0e+00; exact-topology frames opt 60 / LCA 60 of 60
+olr        cap 0.02: max d_top LCA 0.018 -> optimal 0.018 (mean 0.000 -> 0.000); |measured - delta*| 1.3e-06; exact-topology frames opt 59 / LCA 59 of 60
+olr        cap 0.2: max d_top LCA 0.336 -> optimal 0.336 (mean 0.013 -> 0.011); |measured - delta*| 1.5e-06; exact-topology frames opt 53 / LCA 53 of 60
+olr        cap inf: max d_top LCA 0.336 -> optimal 0.336 (mean 0.013 -> 0.011); |measured - delta*| 1.5e-06; exact-topology frames opt 53 / LCA 53 of 60

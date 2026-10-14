@@ -1,5 +1,12 @@
 # Experiment evidence and visualization outputs
 
+Start with the [active publication snapshot](publication2027/README.md),
+[42-row comparison CSV](publication2027/main_comparison.csv), and
+[reproduction guide](../experiments/publication2027/REPRODUCING.md).
+`publication2027/manifest.json` links original records to grouped evidence,
+source hashes, and figure exports. Original result files below remain available
+for traceability.
+
 The main suite has six sequences / 342 frames: ERA5 1999/2000, wildfire,
 OLR, January 2000 PM2.5, Ring and Gaussians. Main membership is defined by
 `../analysis/dataset_suite.py`. Older records are kept for traceability, not

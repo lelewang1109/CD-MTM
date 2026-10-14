@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "scope": "clean index-export snapshot in a fresh Python 3.10 virtual environment; no prepared real inputs",
+  "python": "3.10.19",
+  "platform": "Darwin",
+  "dependencies": {
+    "numpy": "2.0.2",
+    "scipy": "1.13.1",
+    "matplotlib": "3.9.4",
+    "PIL": "12.3.0",
+    "netCDF4": "1.7.4"
+  },
+  "checks": [
+    "25 scientific/contract tests passed",
+    "snapshot imports its own src/cdmtm",
+    "committed evidence/source/figure hashes validated",
+    "saved-evidence tables and figures rebuilt without raw observations",
+    "rebuilt evidence validated",
+    "120-order synthetic filling and named node-to-pixel checks passed",
+    "experiment runner argument interface available"
+  ],
+  "numerical_real_data_rerun": false,
+  "tested_sources": {
+    "experiments/publication2027/build.py": "aacddb69565c1f9cb839189996be636040abb480f1bcb1e9440e47cf072cfec1",
+    "experiments/publication2027/domain_filling_figures.py": "ae66970c195f0b6ec76c1b361732508c7b93ba4e1eaefa3067af1dd4770a778b",
+    "experiments/publication2027/figures.py": "72a976d326d881aaa0304221df6d7be2c35fef8c70b04ee8be87bb953f2aae34",
+    "experiments/publication2027/layout_figures.py": "b09f091d77590a1db45d80c89087bd0153748a0ff54db7157425c675bb438f2f",
+    "experiments/publication2027/package.py": "00dfc1ad398b271d01d0356a9b0e7f2e3831988a7f03ee4270280670fb59fd2d",
+    "experiments/publication2027/run.py": "e3119c8038e15f9b078e26ef5881d184358a95ad580312b1ae852b154a526b1b",
+    "experiments/publication2027/supplement_tables.py": "441ad0dcfa4bca755762fca77c8a9683f580d3c2fdd0289cea5c3d4dbc6f31d8",
+    "experiments/publication2027/validate.py": "1329dc0fecd785dc9595acc7b4070cbfdc4bcc5d5076ace75c2c0e8547ef9093",
+    "src/cdmtm/__init__.py": "699dd2810fd8e28cf1723fb8b19b1e405149917f6de702d6e6b8ca62c93cf404",
+    "src/cdmtm/baselines/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/cdmtm/baselines/space_filling.py": "cf8116e153bb9d7abee12d80f36bd7b8005174ad92a54d5c590c4f5f9f670b4a",
+    "src/cdmtm/baselines/stmtm.py": "97a232bfbd6b4b7f8e0d125396a2a6d3619b5f661c106ded574c55d1c5be5f77",
+    "src/cdmtm/baselines/tmtm.py": "6e4afab614042ab798f904a8c1e6928bc50bb822840c6f9fc7f9d4f4e2188f73",
+    "src/cdmtm/error_budget.py": "5ce53150773d8058b0a50c7907f5133995a88ea8cc87defdd1e2b34bd80b82fa",
+    "src/cdmtm/reference_anchored.py": "a018dcff0b2991be6b8e46b64cd8f236f606a2de6d87120eca843e4a8883225e",
+    "src/cdmtm/reference_points.py": "b412afed9a03885591cd100754f69af1d28ad34ffd635df0a82e03b23b5ca0e7",
+    "tests/test_cn_pm25.py": "808d7b75eb6c702bda488d8ae7c0adb49206cba8cfea9f3a35d1b27e18103d22",
+    "tests/test_native_merge_errors.py": "35df274eb4ac46896fc5643368dfedf2cba70993b9afb8d91ea7af979c2d9e56",
+    "tests/test_paper_certificates.py": "947ace41cc6929a0dfe5d5f67969adc7a6cb6dd82f2e3eedbc4060217bf8d305",
+    "tests/test_projection_proxy.py": "3ddc822fa9795f3fb49d274ff9d677f39888522be62a7642d9780d1ccd400788",
+    "tests/test_public_scalar.py": "8dc4dfa3065f0447c673feaeceff528e3c5b0a96dd51fe2bb7a231395e569c09",
+    "tests/test_result_tables.py": "d5ac1f776ff50b5c6d67d613a670dd8f3b3620f6f6d0604df43ab8bdce46e5a9",
+    "tests/test_space_filling.py": "1e8d9826b1bbf05c281d7829292c7203d1a84aee42d862444b62eff2f3663f25",
+    "tests/test_visualization.py": "a6972ac879f3f71511c560698c7d1ded40f62f206171b504c1b96f7c38489eda"
+  }
+}

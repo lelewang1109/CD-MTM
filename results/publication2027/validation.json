@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "checks": [
+    "All evidence, tables, numeric render exports and figure hashes match",
+    "Main numerical claims agree with result files, including sparse and negative cases"
+  ],
+  "run_manifest": "results/publication2027/runs/20261013T152111Z/manifest.json"
+}

@@ -10,6 +10,10 @@ import public_scalar as ps
 from dataset_suite import PAPER_DATASETS,REAL_DATASETS
 
 class PublicInputContract(unittest.TestCase):
+ @classmethod
+ def setUpClass(cls):
+  (ps.ROOT/"tmp").mkdir(parents=True,exist_ok=True)
+
  def fixture(self,path,*,missing_day=False,units='degC'):
   with Dataset(path,'w') as d:
    for k,n in [('time',60),('lat',2),('lon',2)]:d.createDimension(k,n)

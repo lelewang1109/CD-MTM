@@ -1,131 +1,93 @@
 # CD-MTM: Certificate-Driven Merge Tree Maps
 
-Code, experiment records and figures for **CD-MTM: Diagnosing and Exploring
-Position–Topology Trade-offs in Merge Tree Maps**, prepared for PacificVis 2027.
-The method diagnoses positional conflict imposed by hierarchy, optionally
-relaxes merge relations, and reports the achieved position–topology trade-off.
+**Making Position–Topology Trade-offs Explicit** — a restructured research draft
+for the PacificVis 2027 Conference Paper Track.
 
-## Datasets and comparison methods
+CD-MTM diagnoses how far feature anchors must move when a merge-tree hierarchy
+is kept, and measures the scalar merge-level cost of optional relaxation. It
+preserves the selected extrema and their values. The contribution is a quantified
+trade-off, with mixed geometric motion-proxy benefits across datasets.
 
-| Dataset | Main period | Frames | Tree |
-|---|---|---:|---|
-| ERA5 pressure | 1999-11-17–2000-01-14 | 118 | join |
-| Australian wildfire | November–December 2019 | 30 | split |
-| NOAA OLR | 2024-06-01–2024-07-30 | 60 | join |
-| China PM2.5 | 2000-01-01–2000-01-30 | 30 | split |
-| Ring | synthetic | 40 | split |
-| Gaussians | synthetic | 64 | split |
+## Start here
 
-The active suite contains **six sequences / 342 frames**, defined once in
-[`analysis/dataset_suite.py`](analysis/dataset_suite.py). OISST and ERA5 2013/14
-are excluded from main aggregates and default runs. PM2.5 uses the integrated
-China dataset V2, DOI [10.57760/sciencedb.35623](https://doi.org/10.57760/sciencedb.35623).
-Its January display was selected after seasonal comparison; all four seasonal
-runs and the original January–February records remain available. Seven clear
-January events support a descriptive case, not general superiority.
+- New manuscript and supplement: [`paper/pacificvis2027-restructured/`](paper/pacificvis2027-restructured/README.md).
+- Read the current [main paper](paper/pacificvis2027-restructured/main.pdf) and [supplement](paper/pacificvis2027-restructured/supplement.pdf).
+- Experiment code and commands: [`experiments/publication2027/`](experiments/publication2027/README.md).
+- Clean-checkout reproduction: [`experiments/publication2027/REPRODUCING.md`](experiments/publication2027/REPRODUCING.md).
+- Organized results and provenance: [`results/publication2027/`](results/publication2027/README.md).
+- Research and writing audit in Chinese: [`notes/research-restructure-20261013.md`](notes/research-restructure-20261013.md).
+- Raw-data acquisition/preparation: [`data/README.md`](data/README.md).
 
-The main visual comparison includes **TMTM, ST-MTM, A, R (κ=20%), Hilbert and
-Morton**. Hilbert/Morton traverse every processed grid sample in a fixed canonical
-orientation and preserve its value. They receive no optimal refilling. R uses
-optimal barrier filling; additional caps, fixed directions and packed sorting
-remain in the saved evaluation. The baseline implementations and source caveats
-are recorded in [`notes/january-pm25-and-sfc-baselines.md`](notes/january-pm25-and-sfc-baselines.md).
+The earlier manuscript remains in `paper/pacificvis2027/` for traceability.
+The new paper has modular prose and separately generated tables; rebuilding
+scientific evidence does not replace its text.
 
-## Visualization gallery
+## Main experiments
 
-[Browse all 10 figures and captions](results/visualizations/README.md) ·
-[Combined PDF booklet](results/visualizations/visualization-gallery.pdf) ·
-[Figure-generation architecture](analysis/visualization/README.md)
+| Dataset | Frames | Tree | Purpose |
+|---|---:|---|---|
+| ERA5 pressure, 1999/2000 | 118 | Join | Atmospheric minima and illustrated conflict |
+| Australian fire, 2019 | 30 | Split | More complex feature configurations |
+| NOAA OLR, June–July 2024 | 60 | Join | Additional domain and no motion-proxy benefit case |
+| China PM2.5, January 2000 | 30 | Split | Selected, sparse descriptive case |
+| Ring | 40 | Split | Synthetic expanding geometry |
+| Gaussians | 64 | Split | Synthetic hierarchy/position control |
 
-The gallery covers spatial fields and trees, six-method temporal maps, native
-curve fragmentation, motion-error components, measured topology–motion trade-offs,
-neighbourhood preservation, and time-window sensitivity. Each figure has a PNG,
-PDF and SVG export. Undefined rates remain undefined; scalar images use a common
-color scale within each dataset. Editable SVG axes and labels accompany raster
-scalar matrices.
+Membership is defined in `analysis/dataset_suite.py`: six sequences / 342 frames.
+The 2013/14 ERA5 period and OISST are excluded from main aggregates. Four PM2.5
+months are a separate exploratory selection audit. Gaussian motion error is
+undefined at the default setting because no clear events occur.
 
-![PM2.5 six-method temporal comparison](results/visualizations/pm25_temporal_methods.png)
-
-![Motion-error comparison](results/visualizations/motion_error_comparison.png)
+The main methods are TMTM, a reimplementation of ST-MTM, native Hilbert and Morton,
+packed reference sorting, and tree-preserving/relaxed CD-MTM. Native curves retain
+all processed samples and do not receive optimal filling. This rendering-policy
+difference is explicit in the paper. Fixed-X and exact projection are controls.
 
 ## Reproduce
 
-Use Python 3.10 or newer and install the pinned dependencies:
+Use Python 3.10+ and the pinned dependencies:
 
 ```sh
-python3 -m pip install -e .
-PYTHONPATH=src python3 -m unittest discover -s tests -v
-# Quantitative figures require saved JSON only:
-PYTHONPATH=src python3 tools/build_visualization_gallery.py --metrics-only --out tmp/gallery-metrics
-# Full default gallery uses locally prepared OLR and PM2.5 inputs:
-PYTHONPATH=src python3 tools/build_visualization_gallery.py
+python -m pip install -e .
+PYTHONPATH=src python -m unittest discover -s tests -v
+# Recompute five critical numerical stages on all six prepared sequences:
+PYTHONPATH=src python experiments/publication2027/run.py
+# Regenerate tables, quantitative figures, organized records and provenance:
+PYTHONPATH=src python experiments/publication2027/build.py
+# Verify source/figure hashes and numerical manuscript claims:
+PYTHONPATH=src python experiments/publication2027/validate.py
 ```
 
-There are 21 independent tests, including native sample preservation, actual
-barrier semantics, no-event handling and cache invalidation. Numeric visualization
-caches are generated from input/source hashes, excluded from Git and loaded
-without pickle.
+There are 25 scientific/contract tests. Full numerical runs require prepared raw
+inputs; saved records suffice to regenerate publication tables and figures.
+The runner writes timestamped status manifests and logs. Exact-frontier,
+sensitivity, scalability, and transfer records retained from prior runs are
+identified separately. See the experiment README for the explicit ten-stage run.
 
-Raw inputs are excluded from Git. Acquisition and upstream preprocessing are
-explained in [`data/README.md`](data/README.md). Prepare the new real sequences with:
+The organized export includes a 42-row unrounded comparison CSV, a claim ledger,
+source/snapshot hashes, and separate `main`, `sensitivity`, `validation`, `transfer`,
+and `protocols` folders. No original result files or raw observations are removed.
 
-```sh
-python3 tools/fetch_public_scalar.py olr
-python3 tools/prepare_cn_pm25.py --source-dir ../data/real/CN-Reanalysis/2000
-PYTHONPATH=src python3 tools/run_paper_suite.py --datasets olr pm25
-```
+## Reading the results
 
-The shared eight-stage runner covers replication, evaluation, exact frontiers,
-filling, robustness, point certificates, persistence and witnesses. Running it
-without `--datasets` selects all six main sequences. To refresh the manuscript's
-computed tables and reproducible supplement:
+Full interval certificates, width-free calibrated order error, and achieved anchor
+displacement measure different feasible sets. Scalar-cost means do not bound the
+worst frame, and the relaxation eligibility threshold is not an error guarantee.
+The motion proxy assumes known identities and is not a participant study. Improved
+reference alignment may worsen two-dimensional stress or provide no proxy benefit.
 
-```sh
-python3 tools/audit_method_performance.py
-PYTHONPATH=src python3 tools/update_paper_evidence.py
-python3 tools/build_supplement.py
-```
+The retained [visualization gallery](results/visualizations/README.md) provides
+additional spatial/tree views, six-method temporal maps, fragmentation, and
+geometric diagnostics. The new publication figures have PDF, PNG, and SVG exports.
+The source reference papers are held locally under `references/`; their text and
+figures are not redistributed in the new source bundle.
 
-The [review manuscript](paper/pacificvis2027/review-preview.pdf) has nine body
-pages and two reference pages. [Paper source instructions](paper/pacificvis2027/README.md)
-explain compilation. The visualization booklet remains a separate supplementary
-artifact, so the main paper's page allocation stays intact.
+## Implementation
 
-## Structure
-
-| Path | Purpose |
-|---|---|
-| `src/cdmtm/` | Certificate, layout, rendering and baseline implementations |
-| `analysis/` | Shared dataset protocol, evaluation, exact frontier and robustness |
-| `analysis/visualization/` | Method catalogue, numeric rendering cache and figure families |
-| `tools/` | Experiment, gallery and supplement entry points |
-| `results/` | Evidence JSON, provenance manifests and exported figures |
-| `paper/` | Manuscript, proofs and publication figures |
-| `tests/` | Independent scientific and reproducibility checks |
-
-Historical documentation is preserved in
-[`notes/experiment-documentation-history.md`](notes/experiment-documentation-history.md).
-
-### Consolidated manuscript results
-
-The manuscript now uses two main tables: hierarchy-constrained certificate decomposition
-and position--topology trade-offs, both across six datasets and all
-main comparison methods. Native curve fragmentation and merge costs are
-supplementary diagnostics. Reproduce with:
-
-```sh
-PYTHONPATH=src python3 analysis/result_tables.py
-PYTHONPATH=src python3 analysis/native_merge_errors.py
-PYTHONPATH=src python3 tools/update_paper_evidence.py
-```
-
-`results/final_performance.csv` is the flat, unrounded export behind both tables;
-`results/final_performance.json` stores per-frame positional results and provenance.
-Retired dataset exports and obsolete duplicate bundles were removed; the PM2.5
-seasonal selection audit and raw inputs are retained.
-
-The two main tables follow the paper's two core contributions: unavoidable
-position error under topology constraints and merge-level cost when position
-is improved. `spatial_motion_controls.tex` retains the auxiliary geometric
-validation. `native_merge_errors.json` measures TMTM/ST-MTM/Fixed-X scalar
-barriers at the evaluated anchors; nominal-resolution checks are also saved.
+`src/cdmtm/` contains the certificate, interval layout, rendering, and baseline
+implementations. `analysis/` contains shared preprocessing, exact frontiers,
+filling, motion evaluation, and controls. `experiments/publication2027/` supplies
+publication orchestration. `results/` retains original computation evidence;
+`results/publication2027/` is the organized active snapshot. `paper/` contains
+editable LaTeX sources and generated PDFs. `notes/` preserves the research audit
+and earlier documentation history.

@@ -83,7 +83,7 @@ def main():
         ax.plot(x, -.9, 'v', color=COL[k], ms=4, clip_on=False)
     ax.annotate('', (9.7, -.9), (.3, -.9), arrowprops=dict(arrowstyle='->', lw=.8), annotation_clip=False)
     ax.text(5, -1.8, 'reference coordinate $q$', ha='center', fontsize=6.5)
-    ax.set(xlim=(0, 10), ylim=(0, 10), xticks=[], yticks=[], aspect='auto'); ax.set_title('(a) field: A, B share a trough')
+    ax.set(xlim=(0, 10), ylim=(0, 10), xticks=[], yticks=[], aspect='auto'); ax.set_title('(a) Synthetic scalar field')
     # (b) join tree
     ax = fig.add_subplot(gs[1]); xs = dict(A=0, B=1, C=2); xAB = .5
     for k in 'AB': ax.plot([xs[k], xs[k]], [vals[k], sAB], color=COL[k], lw=2)
@@ -96,7 +96,7 @@ def main():
     ax.text(1.68, (sAB + sRoot) / 2, r'$\gamma_v$', color='#c0392b', fontsize=7.5, va='center')
     ax.text(-.15, sAB + .03, 'A–B merge', fontsize=6, va='bottom'); ax.text(.55, sRoot + .03, 'root', fontsize=6, va='bottom')
     ax.set(xlim=(-.4, 2.4), ylim=(min(vals.values()) - .3, sRoot + .3), xticks=[]); ax.set_ylabel('value', labelpad=1)
-    ax.set_title('(b) merge tree $((A,B),C)$')
+    ax.set_title('(b) Merge tree')
     # (c) layouts on the reference axis
     ax = fig.add_subplot(gs[2]); q = {k: g[idx[k][1]] for k in P}; w, gap = 1.0, .2
     tau = (w + gap + q['B'] - q['C']) / 2; u = dict(A=q['A'], B=q['B'] - tau, C=q['C'] + tau)
@@ -138,7 +138,7 @@ def main():
     ax.imshow(prof[None, :], extent=[0, 10, lo - .25, lo - .05], aspect='auto', cmap=fs.FIELD_CMAP, vmin=-1.1, vmax=1.1)
     ax.set(xlim=(0, 11.2), ylim=(lo - .28, top + .1), xticks=[], yticks=[]); ax.set_xlabel('1-D position (one map column)')
     ax.set_title('(d) merge tree map column')
-    fig.savefig(OUT / 'fig_concept.png', dpi=300); fig.savefig(OUT / 'fig_concept.pdf'); plt.close(fig)
+    fig.savefig(OUT / 'fig_concept.png', dpi=300); fig.savefig(OUT / 'fig_concept.pdf'); fig.savefig(OUT / 'fig_concept.svg'); plt.close(fig)
     print('values', vals, 'sAB', sAB, 'root', sRoot, 'gamma', gamma, 'tau*', tau, 'merges', [(round(m[0], 3), sorted(m[1]), sorted(m[2])) for m in merges])
 
 

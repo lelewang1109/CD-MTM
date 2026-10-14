@@ -1,0 +1,32 @@
+test_missing_required_file_is_an_error (test_cn_pm25.LocalPM25Contract) ... ok
+test_preserves_values_missing_cells_and_upstream_metadata (test_cn_pm25.LocalPM25Contract) ... ok
+test_rejects_wrong_units_and_nonmatching_timestamp (test_cn_pm25.LocalPM25Contract) ... ok
+test_thirty_day_control_preserves_declared_period (test_cn_pm25.LocalPM25Contract) ... ok
+test_changed_barrier_is_detected_for_join_and_split (test_native_merge_errors.NativeMergeTests) ... ok
+test_fixed_and_free_match_independent_linear_programs (test_paper_certificates.PaperCertificates) ... ok
+test_no_silent_heuristic_above_resource_limit (test_paper_certificates.PaperCertificates) ... ok
+test_projected_motion_margin (test_paper_certificates.PaperCertificates) ... ok
+test_pruning_uses_one_total_tolerance (test_paper_certificates.PaperCertificates) ... ok
+test_relaxed_grid_bound_never_exceeds_continuous_optimum (test_paper_certificates.PaperCertificates) ... ok
+test_sorted_shortcut_is_certified_even_for_large_inputs (test_paper_certificates.PaperCertificates) ... ok
+test_orthogonal_motion_separates_projected_and_two_dimensional_truth (test_projection_proxy.ProjectionProxyTests) ... ok
+test_descending_coordinates_are_sorted_with_values (test_public_scalar.PublicInputContract) ... ok
+test_membership_has_one_era5_and_no_retired_ocean_input (test_public_scalar.PublicInputContract) ... ok
+test_missing_day_and_wrong_units_are_rejected (test_public_scalar.PublicInputContract) ... ok
+test_hierarchy_lower_bound_and_relaxed_order (test_result_tables.PositionTableTests) ... ok
+test_incomplete_or_duplicate_evidence_is_rejected (test_result_tables.PositionTableTests) ... ok
+test_scaling_and_invalid_frames (test_result_tables.PositionTableTests) ... ok
+test_hilbert_known_order_and_adjacent_power_two_cells (test_space_filling.SpaceFillingContract) ... ok
+test_morton_known_quadrant_order (test_space_filling.SpaceFillingContract) ... ok
+test_rectangular_and_nonpower_grids_preserve_all_samples (test_space_filling.SpaceFillingContract) ... ok
+test_true_barriers_use_all_intermediate_samples (test_space_filling.SpaceFillingContract) ... ok
+test_cache_changes_with_fields_tracking_or_code (test_visualization.EvidenceTests) ... ok
+test_no_events_is_undefined_not_perfect_performance (test_visualization.EvidenceTests) ... ok
+test_snapshot_rule_uses_time_only (test_visualization.EvidenceTests) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.756s
+
+OK
+/private/var/folders/bj/s8v2p08s4cl9b1_6ygz9mkhc0000gn/T/cdmtm-layout-bundle-kp_oaa5k/CD-MTM/tmp/tmpc_qgsrkb/subset.nc
+/private/var/folders/bj/s8v2p08s4cl9b1_6ygz9mkhc0000gn/T/cdmtm-layout-bundle-kp_oaa5k/CD-MTM/tmp/tmp_dpdw0md/subset.nc

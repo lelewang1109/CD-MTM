@@ -1,0 +1,49 @@
+{
+  "type": "dataset",
+  "id": "https://doi.org/10.57760/sciencedb.35623",
+  "categories": [
+    "Artificial intelligence",
+    "Information science and systems science",
+    "Atmospheric science",
+    "Computer science and technology",
+    "Air Pollution",
+    "Meteorological Data",
+    "PM2.5",
+    "Spatiotemporal Alignment",
+    "Gridded Data"
+  ],
+  "language": "zh",
+  "author": [
+    {
+      "family": "Dong",
+      "given": "Yu"
+    },
+    {
+      "family": "Wang",
+      "given": "Lele"
+    },
+    {
+      "literal": "Guihua Shan"
+    },
+    {
+      "family": "Liu",
+      "given": "Jun"
+    }
+  ],
+  "issued": {
+    "date-parts": [
+      [
+        2026,
+        1,
+        22
+      ]
+    ]
+  },
+  "abstract": "This dataset supports research on regional air quality mechanism analysis, pollutant deviation correction, and deep learning spatiotemporal prediction models in China. The dataset integrates high-quality data products from multiple heterogeneous sources, including the China High Resolution High Quality PM2.5 dataset (CHAP), the China Regional Ground Meteorological Element Driven Dataset (CMFD V2.0), and a digital elevation model generated based on the Open Elevation API. In the process of creating the dataset, a spatial grid of 0.1 °× 0.1 ° (approximately 10km) within the Chinese region is pre-set as the standard reference grid, and the original annual meteorological grid data is split into daily scale files to unify the time granularity. In terms of spatial alignment, the 1km resolution CHAP PM2.5 data is resampled to the reference grid through nearest neighbor interpolation, and the elevation data corresponding to the latitude and longitude of the reference grid is matched using the Open Elevation API. The aligned PM2.5 concentration, elevation data, and 11 meteorological variables are merged to generate a daily standardized NetCDF file. Compared to version 1, version 2 further performs spatial interpolation to fill in missing PM2.5 grids within the effective coverage range of meteorological variables. After cross validation with measured data from ground monitoring stations nationwide, the results show that version 2 PM2.5 data has a high correlation with ground observations at a scale of 10km, with a determination coefficient R ² of 0.9143, verifying the usability and accuracy of the dataset. This dataset covers the entire region of China, with a time span from January 1, 2000 to December 31, 2023. The time resolution is daily and the spatial resolution is 10km. Each data file contains 13 core variables: PM2.5 concentration, surface elevation, temperature, surface pressure, relative humidity, wind speed, precipitation rate, rainfall, snowfall, shortwave radiation, longwave radiation, specific humidity, and black carbon. The data files are stored in the universal NetCDF (. nc) format, and it is recommended to use Python (xarry, netCDF4 library) or software such as Panoply, QGIS to read and process them. ",
+  "DOI": "10.57760/SCIENCEDB.35623",
+  "publisher": "Science Data Bank",
+  "title": "An integrated dataset of PM2.5, elevation, and meteorological variables over China at a 10-km resolution (2000-2023)",
+  "URL": "https://www.scidb.cn/detail?dataSetId=f782b19807ce4b1299563e6dfaf67a91",
+  "copyright": "Creative Commons Attribution 4.0 International",
+  "version": "V2"
+}

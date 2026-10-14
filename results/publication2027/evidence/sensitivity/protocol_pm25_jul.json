@@ -1,0 +1,277 @@
+{
+  "name": "pm25_jul",
+  "variable": "PM2.5",
+  "kind": "split",
+  "units": "ug m-3",
+  "dates": [
+    "2000-07-01",
+    "2000-07-30"
+  ],
+  "frames": 30,
+  "step_days": 1,
+  "window": {
+    "lon": [
+      102.0,
+      114.0
+    ],
+    "lat": [
+      28.0,
+      38.0
+    ]
+  },
+  "grid": 49,
+  "buffer_cells": 5,
+  "sigma_km": 100.0,
+  "sigma_ladder_km": [
+    100.0,
+    150.0,
+    200.0,
+    250.0,
+    350.0,
+    500.0,
+    700.0,
+    1000.0
+  ],
+  "sigma_trials": [
+    {
+      "sigma_km": 100.0,
+      "leaves_min": 0,
+      "leaves_max": 5
+    }
+  ],
+  "exhaustive_leaf_limit": 8,
+  "smoothing_selection": "shared seasonal sigma fixed before performance evaluation",
+  "projection": "spherical Lambert cylindrical equal-area",
+  "standard_parallel_degrees": 33.0,
+  "cell_area_layout": 2.998662687910028,
+  "cell_area_km2": 517.6057235744462,
+  "priority_flood_epsilon": 8.133773453417102e-07,
+  "boundary_policy": "keep interior extrema of buffered field; impose them in cropped field; fallback logged",
+  "feature_interpretation": "extrema of processed scalar field; not independently validated objects",
+  "preprocessing": [
+    {
+      "t": 0,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 15.208910736073026,
+      "mean_imposition": 3.2739211634005057
+    },
+    {
+      "t": 1,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 13.447511245006513,
+      "mean_imposition": 1.4054057896167782
+    },
+    {
+      "t": 2,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 7.088899028604359,
+      "mean_imposition": 0.12530704946612567
+    },
+    {
+      "t": 3,
+      "retained_extrema": 5,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.0,
+      "mean_imposition": 0.0
+    },
+    {
+      "t": 4,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 2.5810571425749735,
+      "mean_imposition": 0.11493198393896328
+    },
+    {
+      "t": 5,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 2.4786601011811236,
+      "mean_imposition": 0.030976232127163893
+    },
+    {
+      "t": 6,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 8.750826975881267,
+      "mean_imposition": 0.15617472481230923
+    },
+    {
+      "t": 7,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 41.388535588708265,
+      "mean_imposition": 4.1586863381061505
+    },
+    {
+      "t": 8,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 37.823230467683864,
+      "mean_imposition": 5.245170043668603
+    },
+    {
+      "t": 9,
+      "retained_extrema": 1,
+      "fallback_global_extremum": true,
+      "max_imposition": 9.053449691336702,
+      "mean_imposition": 0.5031933395993952
+    },
+    {
+      "t": 10,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 38.946366677110014,
+      "mean_imposition": 8.590557234886335
+    },
+    {
+      "t": 11,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 9.780154542990893,
+      "mean_imposition": 0.21669355201824533
+    },
+    {
+      "t": 12,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 11.342512091880565,
+      "mean_imposition": 0.1993561354827984
+    },
+    {
+      "t": 13,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 4.2336879404217385,
+      "mean_imposition": 0.03832633025067757
+    },
+    {
+      "t": 14,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 12.676358152686653,
+      "mean_imposition": 1.247173685688425
+    },
+    {
+      "t": 15,
+      "retained_extrema": 4,
+      "fallback_global_extremum": false,
+      "max_imposition": 7.659080239741968,
+      "mean_imposition": 0.09828731966504027
+    },
+    {
+      "t": 16,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 17.069886638076383,
+      "mean_imposition": 0.546735880483171
+    },
+    {
+      "t": 17,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 14.849755461043074,
+      "mean_imposition": 0.9145780729273989
+    },
+    {
+      "t": 18,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 25.773907774817364,
+      "mean_imposition": 5.552669578164237
+    },
+    {
+      "t": 19,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 50.25697581921069,
+      "mean_imposition": 6.499745853379403
+    },
+    {
+      "t": 20,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 33.00337024203128,
+      "mean_imposition": 4.544956258597695
+    },
+    {
+      "t": 21,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 30.672210855802703,
+      "mean_imposition": 4.606191800049502
+    },
+    {
+      "t": 22,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 10.241154043979428,
+      "mean_imposition": 0.15801662243728928
+    },
+    {
+      "t": 23,
+      "retained_extrema": 3,
+      "fallback_global_extremum": false,
+      "max_imposition": 0.0,
+      "mean_imposition": 0.0
+    },
+    {
+      "t": 24,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 17.200472861466096,
+      "mean_imposition": 0.20188429695751942
+    },
+    {
+      "t": 25,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 26.629653357031835,
+      "mean_imposition": 0.9811474645306832
+    },
+    {
+      "t": 26,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 25.132514540660296,
+      "mean_imposition": 2.5662355489356092
+    },
+    {
+      "t": 27,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 17.466104788876315,
+      "mean_imposition": 0.9817096533845193
+    },
+    {
+      "t": 28,
+      "retained_extrema": 2,
+      "fallback_global_extremum": false,
+      "max_imposition": 28.513165018633813,
+      "mean_imposition": 5.923068799940419
+    },
+    {
+      "t": 29,
+      "retained_extrema": 1,
+      "fallback_global_extremum": false,
+      "max_imposition": 18.880341080939417,
+      "mean_imposition": 1.8503800011865017
+    }
+  ],
+  "sha256": "b2e48e338037441d5a64a61cb0ef45447f022cecbc99564dd940050d037d024c",
+  "source_units": "\u00b5g/m3",
+  "source_attributes": {
+    "description": "Subset of user-provided merged CN-Reanalysis; upstream PM2.5 filling retained.",
+    "source_collection": "CN-Reanalysis/2000",
+    "source_doi": "10.57760/sciencedb.35623",
+    "source_dataset_version": "V2",
+    "source_citation_status": "User identifies local files as the DOI-linked V2 integrated dataset; per-file hashes identify this local snapshot",
+    "upstream_fill_method": "griddata_linear_then_nearest",
+    "temporal_interpretation": "One field per file at 10:30; averaging interval not established by metadata",
+    "source_file_sha256": "{\"20000701.nc\": \"8df217960b02c52d305a965c388929ce62e833a439a01c76945ffe026f3a2e52\", \"20000702.nc\": \"f6991d62a97ea2e4861a0d1870e6ab9524ca64f59bbc436382fe0f74575bdc7e\", \"20000703.nc\": \"dfae79015edb754be48303e378595ecf57194eca70bb49a2d7e6eac93fd23ebd\", \"20000704.nc\": \"b4fed523198ae722d465b1d933d3581e63ea3f5a77200c33544ff47804615f8f\", \"20000705.nc\": \"04719037011803fb09d9f160d40d3b0a4f07e17787eaf28b74003f6e4a74ce65\", \"20000706.nc\": \"59344e5bd16c9857bb08c646426226c44a1bb29e6224224fe56ba18a4c8c4c62\", \"20000707.nc\": \"a83681ee55667913b3bcfeeec59862b4242a9e3909b8b9ac90c84db7a78aa414\", \"20000708.nc\": \"d723d65a62ca06df0d577a978928807d67e8a63cd1a4eaaac8946dc37d8f02cb\", \"20000709.nc\": \"44ec3ec07bc4d870035707ae14857c0a5f674d05e0c8a9c9d57215974a90b855\", \"20000710.nc\": \"b0fe07d73cfc34fe48139f853c317d52aa85bf41ccb02c2262a83097dff7ead5\", \"20000711.nc\": \"b6cbd11a3d32c7c77e6ec45133d6fa5b5a7e3f864688a60ca4af10d6f6cbb5d3\", \"20000712.nc\": \"70d49e94af127dd3b6dd969568045ae3a6683f5070e798b953de53766c45e8a5\", \"20000713.nc\": \"dca01442f391488cc197dbbfb8ab690c7d5ed5a4678d931b99088622d13d668c\", \"20000714.nc\": \"42d75102eea7880e59cebe8dad9a08f0203c6c255ec55bbf913caecc4b2a0b24\", \"20000715.nc\": \"bfd32e7d586234129bbc34a3c951c1197c0d547e52348f6f88daeb9dfe0933b7\", \"20000716.nc\": \"1864bfb55644763bb1348ea100ee4410508bb965d23e491f3c5e1c403dc30f10\", \"20000717.nc\": \"4d0934dd2e678fe1af4d15fae72cf96f688ef2605823e125bb2c5eef13631df1\", \"20000718.nc\": \"9abf9d17d01ba9b96704d9c36ea3316564ab130ad2346444907f5e9bfbaae7fc\", \"20000719.nc\": \"0bc98cb9853a4251cb2935e3ce53f24cec97a5f058ae2524738d3a5105c02ca9\", \"20000720.nc\": \"16ffa30e20eab046691ec14eb0a9f4add8b014519b1dea47c8bfe191b0c03146\", \"20000721.nc\": \"d0ca6f90295e5b6e4fd827e54229fae2f653f6f9047dfe233806c177014baa4d\", \"20000722.nc\": \"2771233838db244a712ccad67eebd2b4fd6d7e8e02590ceaff0d9fd74a4261b8\", \"20000723.nc\": \"58d093af000f8b8dd2c77fa4892808d49be526fc0f845ead5f81e0a0f70473da\", \"20000724.nc\": \"12414ec6bb35f958ae791080b6fefa75a572e22f98f1bc913ddb7cd4356f2ebd\", \"20000725.nc\": \"e9b9c8d58954b69773cfe990ff341ba7909f8bc776b9cec3d3694ca7f263c687\", \"20000726.nc\": \"87e29d60235ac100b26c9e9ac9d1e1699ba3822bca7f992f429af4169e77d3b0\", \"20000727.nc\": \"5c4ffbf8866947bb3538c76fb22b882ecd93146c1b9494a24f8ad788dc966802\", \"20000728.nc\": \"3a41fe4dc8e9a781aea60e15f97e0e5e0b006539d79a5e8acade0e243e674221\", \"20000729.nc\": \"404c142ec8f4991e4c08652bc67bbfc5cf08b99c87ee0da5399c7ec876670334\", \"20000730.nc\": \"2d59a11ffab1e558afadb0a1787eba8e7a0924e837fc2f6fd2697ba4a87edcc9\"}"
+  },
+  "path": "data/public_scalar/pm25_jul_20000701_20000730.nc",
+  "source_page": "https://doi.org/10.57760/sciencedb.35623"
+}

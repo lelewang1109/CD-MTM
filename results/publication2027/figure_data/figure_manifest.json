@@ -1,0 +1,43 @@
+{
+  "selection": {
+    "era5": {
+      "frame": 48,
+      "window": [
+        38,
+        57
+      ],
+      "rule": "retained interior witness at step 48"
+    },
+    "olr": {
+      "frame": 32,
+      "window": [
+        26,
+        39
+      ],
+      "rule": "first maximum hierarchy-cost frame; not selected by proxy outcome"
+    }
+  },
+  "evidence_sha256": {
+    "eval_projection.json": "f70a343b68ac04531d12480f8e043587b8dd7715ab752b5fd7c4c081d8836cda",
+    "replicate_era5.json": "b03e03ad1c1e2f70b7c5c0080e0075fe79ee11c910d25f450ea49f14b9d84562",
+    "replicate_wildfire.json": "71eca5d9fa07d8d6b52ea9ca168c0e66c02ed0cf15124a8fb3f1705a951e1ae9",
+    "replicate_olr.json": "b767adcf8cb8f051547b10ae69665d1d0be0ae198a74dca91255d0a1d714be7c",
+    "replicate_pm25.json": "8f80c03aeb7be4f6ce0c6b1d15414f574e23707cfe931865ccc1bec0e3c2b9fc",
+    "attainable_era5.json": "241a8cc451024eb988030815d85e5978f61d145bce6fa268ddf80ca68bf54342",
+    "attainable_wildfire.json": "6a2fb2a4da5f67bcd962d0692780a1ca16e3646272e5142a515ce6fc828ece68"
+  },
+  "render_exports": {
+    "era5": "bd2f2500c72b0aa60297ea79cfac0bd2cfe3b785dd16942e5257b5cf2769948d",
+    "olr": "d02bbead0d5c42d1f8684af5de46f50e0e46f44d33e1853e2db74bff4f9dc36a"
+  },
+  "generator_sha256": "b09f091d77590a1db45d80c89087bd0153748a0ff54db7157425c675bb438f2f",
+  "figures": {
+    "fig_teaser_focus": "9ad77dcc009d9acb274b78e030213837465f798077a6e624d35522d2b20447dd",
+    "fig_method_visual": "ebfa1341e60e986e07b7bb94b461fc5eb0d63e40e6759a69e67e71c52890c286",
+    "fig_diagnosis_tradeoff": "0ba33b59010d19913962116e8a2061235d5d0ef8bca0ffab3007c59766e700a7",
+    "fig_motion_scalar_cost": "a9c9f867f705876f81b95fc52bf154b640cb96b1d8c1b15afed1f672526a2292",
+    "fig_linked_cases": "a600d6f32ff05ad55184e01db0e0f4f0e7ba06acbeaf611b57d0803c1fbaae4e",
+    "fig_concept": "4d6e4d99160e8fc6337da1df21b8e3b91148cf62d4df6f3b72e7b6f9dec7dd38"
+  },
+  "semantics": "k=2, epsilon=2%; paired confidence intervals from saved moving-block bootstrap; no participant outcomes"
+}

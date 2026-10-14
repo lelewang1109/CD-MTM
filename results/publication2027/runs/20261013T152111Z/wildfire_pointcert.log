@@ -1,0 +1,6 @@
+wildfire   width-free certificate > theta in 19/30 frames (63%), max 19.1%
+    TMTM                   mean 0.293  frames>theta  30  excess over certificate 0.235  below cert 0
+    ST-MTM                 mean 0.240  frames>theta  26  excess over certificate 0.182  below cert 0
+    fixed-X anchored       mean 0.312  frames>theta  30  excess over certificate 0.254  below cert 0
+    ours: auto direction   mean 0.058  frames>theta  19  excess over certificate 0.000  below cert 0
+    ours: relaxed          mean 0.001  frames>theta   0  excess over certificate -0.057  below cert 19

@@ -1,0 +1,4 @@
+wildfire   cap 0.0: max d_top LCA 0.000 -> optimal 0.000 (mean 0.000 -> 0.000); |measured - delta*| 0.0e+00; exact-topology frames opt 30 / LCA 30 of 30
+wildfire   cap 0.02: max d_top LCA 0.019 -> optimal 0.017 (mean 0.005 -> 0.003); |measured - delta*| 2.8e-07; exact-topology frames opt 17 / LCA 17 of 30
+wildfire   cap 0.2: max d_top LCA 0.196 -> optimal 0.196 (mean 0.047 -> 0.040); |measured - delta*| 3.4e-07; exact-topology frames opt 11 / LCA 11 of 30
+wildfire   cap inf: max d_top LCA 0.529 -> optimal 0.526 (mean 0.079 -> 0.071); |measured - delta*| 3.4e-07; exact-topology frames opt 11 / LCA 11 of 30
