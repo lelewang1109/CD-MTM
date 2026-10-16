@@ -9,6 +9,7 @@ trade-off, with mixed geometric motion-proxy benefits across datasets.
 
 ## Start here
 
+- 最新实验、公共指标与复现入口：[`experiments/latest/`](experiments/latest/README.md)。
 - RG-MTM 实验图片：[统一图片索引](results/figures/README.md)（PNG / SVG，含生成脚本及来源哈希）。
 - Experiment code and commands: [`experiments/publication2027/`](experiments/publication2027/README.md).
 - Scientific reproduction: [`experiments/publication2027/REPRODUCING.md`](experiments/publication2027/REPRODUCING.md).
