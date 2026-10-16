@@ -21,8 +21,8 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import general_method as gm, relax_hierarchy as rh, conflict_strategies as cs, task_reference as tr
 from experiments import era5 as ep
-from cdmtm.error_budget import solve_sequence
-from cdmtm.reference_points import reference_points_from_frames
+from rgmtm.error_budget import solve_sequence
+from rgmtm.reference_points import reference_points_from_frames
 
 OUT = tr.OUT; THETA = gm.THETA_FRACTION
 KS = [1, 2, 4, 8]

@@ -13,9 +13,9 @@ import general_method as gm
 import relax_hierarchy as rh
 import attainable as at
 from experiments import era5 as ep
-from cdmtm.baselines.space_filling import merge_levels_on_line
-from cdmtm.error_budget import solve_sequence
-from cdmtm.reference_points import reference_points_from_frames
+from rgmtm.baselines.space_filling import merge_levels_on_line
+from rgmtm.error_budget import solve_sequence
+from rgmtm.reference_points import reference_points_from_frames
 from dataset_suite import PAPER_DATASETS
 
 
@@ -62,7 +62,7 @@ def main():
         anchors=[np.asarray(s.anchors)[[s.ordering.index(leaf) for leaf in ids]] for s,ids in zip(skeletons,sc['ids'])]
         output['fixed-X anchored']=measure(sc,matrix,anchors)
         output['source_sha256']={str(f.relative_to(ROOT)):hashlib.sha256(f.read_bytes()).hexdigest()
-              for f in [Path(__file__),ROOT/'experiments/era5.py',ROOT/'src/cdmtm/baselines/space_filling.py',ROOT/f'results/replicate_{name}.json']}
+              for f in [Path(__file__),ROOT/'experiments/era5.py',ROOT/'src/rgmtm/baselines/space_filling.py',ROOT/f'results/replicate_{name}.json']}
         saved[name]=output;path.write_text(json.dumps(saved,indent=2)+'\n')
         print('Saved',name,{m:round(100*v['max_share'],3) for m,v in output.items() if m!='source_sha256'},flush=True)
 

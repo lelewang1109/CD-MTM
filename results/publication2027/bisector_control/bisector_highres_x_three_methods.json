@@ -1,0 +1,392 @@
+{
+  "dataset": "bisector_highres",
+  "reference_axis": "x",
+  "frames": 64,
+  "kind": "split",
+  "scalar_range": 1.05,
+  "reference_origin": 0.0,
+  "reference_extent": 120.0,
+  "reference_direction": [
+    1.0,
+    0.0
+  ],
+  "cap_fraction": 0.2,
+  "calibration": "Baselines receive their best single affine minimax calibration to reference coordinates over the whole sequence, including one global reflection; no framewise fitting. CD-MTM uses its native reference coordinates.",
+  "methods": {
+    "TMTM": {
+      "affine_scale": 1.0842293906810037,
+      "affine_shift": 2.187631881038472,
+      "best_sequence_max_error_pct": 16.666666666666668,
+      "native_raster_length": 58081,
+      "unconstrained_affine_error_pct": 16.666666666666668,
+      "affine_fit_degenerate": false,
+      "nonzero_scale_floor": null,
+      "mean_frame_max_position_pct": 15.765084798760453,
+      "mean_extremum_stress": 0.019073774795966805,
+      "mean_centroid_stress": 0.022279749732580432,
+      "mean_merge_error_pct": 0.0,
+      "max_merge_error_pct": 0.0
+    },
+    "ST-MTM": {
+      "affine_scale": 0.37452925354954575,
+      "affine_shift": 40.025703660234534,
+      "best_sequence_max_error_pct": 16.674368453481208,
+      "native_raster_length": 4096,
+      "unconstrained_affine_error_pct": 16.674368453481208,
+      "affine_fit_degenerate": false,
+      "nonzero_scale_floor": null,
+      "mean_frame_max_position_pct": 16.646930837954404,
+      "mean_extremum_stress": 0.01906457772958387,
+      "mean_centroid_stress": 0.02226848114645433,
+      "mean_merge_error_pct": 0.0,
+      "max_merge_error_pct": 0.0
+    },
+    "CD-MTM": {
+      "affine_scale": 1.0,
+      "affine_shift": 0.0,
+      "native_raster_length": 4096,
+      "mean_frame_max_position_pct": 0.8426339285714284,
+      "mean_extremum_stress": 0.12910256227521016,
+      "mean_centroid_stress": 0.12964672314104603,
+      "mean_merge_error_pct": 0.0,
+      "max_merge_error_pct": 0.0
+    }
+  },
+  "spatial_resolution": 241,
+  "grid_pitch": 0.5,
+  "analytic_B_centres": [
+    [
+      40.0,
+      80.0
+    ],
+    [
+      40.63492063492063,
+      79.36507936507937
+    ],
+    [
+      41.26984126984127,
+      78.73015873015873
+    ],
+    [
+      41.904761904761905,
+      78.0952380952381
+    ],
+    [
+      42.53968253968254,
+      77.46031746031747
+    ],
+    [
+      43.17460317460318,
+      76.82539682539682
+    ],
+    [
+      43.80952380952381,
+      76.19047619047619
+    ],
+    [
+      44.44444444444444,
+      75.55555555555556
+    ],
+    [
+      45.079365079365076,
+      74.92063492063492
+    ],
+    [
+      45.714285714285715,
+      74.28571428571428
+    ],
+    [
+      46.34920634920635,
+      73.65079365079364
+    ],
+    [
+      46.98412698412699,
+      73.01587301587301
+    ],
+    [
+      47.61904761904762,
+      72.38095238095238
+    ],
+    [
+      48.25396825396825,
+      71.74603174603175
+    ],
+    [
+      48.888888888888886,
+      71.11111111111111
+    ],
+    [
+      49.523809523809526,
+      70.47619047619048
+    ],
+    [
+      50.15873015873016,
+      69.84126984126985
+    ],
+    [
+      50.79365079365079,
+      69.20634920634922
+    ],
+    [
+      51.42857142857143,
+      68.57142857142857
+    ],
+    [
+      52.06349206349206,
+      67.93650793650794
+    ],
+    [
+      52.698412698412696,
+      67.3015873015873
+    ],
+    [
+      53.33333333333333,
+      66.66666666666667
+    ],
+    [
+      53.96825396825397,
+      66.03174603174602
+    ],
+    [
+      54.6031746031746,
+      65.39682539682539
+    ],
+    [
+      55.23809523809524,
+      64.76190476190476
+    ],
+    [
+      55.87301587301587,
+      64.12698412698413
+    ],
+    [
+      56.507936507936506,
+      63.492063492063494
+    ],
+    [
+      57.14285714285714,
+      62.85714285714286
+    ],
+    [
+      57.77777777777778,
+      62.22222222222222
+    ],
+    [
+      58.41269841269841,
+      61.58730158730159
+    ],
+    [
+      59.04761904761905,
+      60.95238095238095
+    ],
+    [
+      59.682539682539684,
+      60.317460317460316
+    ],
+    [
+      60.317460317460316,
+      59.682539682539684
+    ],
+    [
+      60.95238095238095,
+      59.04761904761905
+    ],
+    [
+      61.58730158730158,
+      58.41269841269842
+    ],
+    [
+      62.22222222222222,
+      57.77777777777778
+    ],
+    [
+      62.857142857142854,
+      57.142857142857146
+    ],
+    [
+      63.492063492063494,
+      56.507936507936506
+    ],
+    [
+      64.12698412698413,
+      55.87301587301587
+    ],
+    [
+      64.76190476190476,
+      55.23809523809524
+    ],
+    [
+      65.39682539682539,
+      54.60317460317461
+    ],
+    [
+      66.03174603174602,
+      53.968253968253975
+    ],
+    [
+      66.66666666666666,
+      53.33333333333334
+    ],
+    [
+      67.3015873015873,
+      52.698412698412696
+    ],
+    [
+      67.93650793650794,
+      52.06349206349206
+    ],
+    [
+      68.57142857142857,
+      51.42857142857143
+    ],
+    [
+      69.2063492063492,
+      50.7936507936508
+    ],
+    [
+      69.84126984126983,
+      50.158730158730165
+    ],
+    [
+      70.47619047619048,
+      49.52380952380952
+    ],
+    [
+      71.11111111111111,
+      48.888888888888886
+    ],
+    [
+      71.74603174603175,
+      48.25396825396825
+    ],
+    [
+      72.38095238095238,
+      47.61904761904762
+    ],
+    [
+      73.01587301587301,
+      46.98412698412699
+    ],
+    [
+      73.65079365079364,
+      46.349206349206355
+    ],
+    [
+      74.28571428571428,
+      45.71428571428572
+    ],
+    [
+      74.92063492063491,
+      45.07936507936509
+    ],
+    [
+      75.55555555555556,
+      44.44444444444444
+    ],
+    [
+      76.19047619047619,
+      43.80952380952381
+    ],
+    [
+      76.82539682539682,
+      43.17460317460318
+    ],
+    [
+      77.46031746031746,
+      42.539682539682545
+    ],
+    [
+      78.0952380952381,
+      41.9047619047619
+    ],
+    [
+      78.73015873015873,
+      41.269841269841265
+    ],
+    [
+      79.36507936507937,
+      40.63492063492063
+    ],
+    [
+      80.0,
+      40.0
+    ]
+  ],
+  "sampling_note": "Same fields and algorithms as diagonal control, spatial grid refined from 61x61 to 241x241. Reference and reported anchors use sampled extrema, not smoothed display paths.",
+  "selected_frame": 63,
+  "selection_rule": "Final mirror endpoint. Original generic rule unused: Maximum ST-MTM-minus-CD-MTM achieved position-error gain among 3-leaf conflict frames with ST-MTM stress below TMTM and CD-MTM position error below ST-MTM. If none, maximize gain among conflict frames.",
+  "candidate_count": 0,
+  "candidate_frames": [],
+  "selected": {
+    "TMTM": {
+      "position_pct": 16.666666666666664,
+      "extremum_stress": 0.05346056837686922,
+      "centroid_stress": 0.06377134457986842,
+      "merge_error_pct": 0.0
+    },
+    "ST-MTM": {
+      "position_pct": 16.674368453481208,
+      "extremum_stress": 0.05345952703447257,
+      "centroid_stress": 0.06377047266615338,
+      "merge_error_pct": 0.0
+    },
+    "CD-MTM": {
+      "position_pct": 0.8424908424908425,
+      "extremum_stress": 0.2635525706295923,
+      "centroid_stress": 0.26568397307031016,
+      "merge_error_pct": 0.0
+    }
+  },
+  "source_sha256": {
+    "analysis/task_reference.py": "64e7b8acc8568bd8e4e762c1f5f3922b195c9aec190789cee6a661e9f0132646",
+    "analysis/general_method.py": "2d35bef824816106e843718ceca1582fd58f8c1234a1a910534c6ce67e5af7e4",
+    "analysis/relax_hierarchy.py": "5728905344a93c7c212ec30696e50318d6c849f91a346212c6d2eb82c860749a",
+    "analysis/filling.py": "17518b2e861e25791024ec7b4a80f20e16a5c702edfcbb1e96b6b38d0f0d50e0",
+    "experiments/era5.py": "117cd70db12decb63beea688dde571fb35987b8d980d260435d74c12da883932"
+  },
+  "arrays_sha256": "676c5d3b4c323d7cfbcd1b735e8bf63c0cba7955fa5dbcd25e1d4ed3c48afb6f",
+  "resolution_verification": {
+    "old_shape": [
+      61,
+      61
+    ],
+    "new_shape": [
+      241,
+      241
+    ],
+    "old_pitch": 2.0,
+    "new_pitch": 0.5,
+    "old_reference_distinct_positions": 21,
+    "new_reference_distinct_positions": 64,
+    "old_achieved_distinct_positions": 24,
+    "new_achieved_distinct_positions": 64,
+    "new_adjacent_reference_repeats": 0,
+    "new_adjacent_anchor_repeats": 0,
+    "new_minimum_achieved_increment": 0.3223443223443212,
+    "new_reference_max_difference_from_analytic_peak_centre": 0.24603174603174693,
+    "trajectory_smoothing": false
+  },
+  "producer_script_sha256": "725376360bd154c993983314bb9ff66b34e3aa4cb714bd6555267be059144968",
+  "plot_script_sha256": "ecd7a263bb3ed6ef101a6935163c17b4230f520670cc68131158e13b5d345d8b",
+  "case_purpose": "Qualitative absolute-coordinate control; not a claim of lower Stress or necessary hierarchy relaxation.",
+  "visual_style": {
+    "scalar_palette": "Common mint/teal/blue sequential color scale and shared scalar limits for all field and map images.",
+    "feature_colors": {
+      "A": "#3B8FA6",
+      "B": "#C98636",
+      "C": "#9570A7"
+    },
+    "reference_image_access": "User Feishu reference could not be read: tool/browser access blocked. Palette chosen from user request for fresh, light style.",
+    "data_modified": false,
+    "text_color": "black",
+    "figure_size_inches": [
+      14,
+      5.6
+    ],
+    "layout": "Restored compact side-by-side version, before time-aligned stacked layout and added identity markers.",
+    "explanatory_small_print_displayed": false,
+    "method_implementation_provenance": "TMTM and ST-MTM reimplementations; provenance retained in notes rather than compact titles.",
+    "semantic_identity_overlay": "Colored identity points in projections; only B trajectory emphasized in maps, original scalar snapshots without extra identity points.",
+    "restored_from": "qa/bisector_compact_side_by_side.pdf"
+  }
+}

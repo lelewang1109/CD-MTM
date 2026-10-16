@@ -1,0 +1,192 @@
+{
+  "official_commit": "2c75a10ed2cd55177a25ff751e0c0a8261200717",
+  "scope": "Verbatim official C++ LandscapeInfo / objectiveForSeveralArcs / decideGreedy / decideGreedyTree on identical Python-extracted trees and spatial-overlap counts. This is a core equivalence test, not a complete Inviwo/TTK pipeline execution.",
+  "frame_pairs": 63,
+  "branch_decisions_checked": 145,
+  "arc_intervals_and_anchors_checked": 353,
+  "mismatches": [],
+  "initial_order_sensitivity": [
+    {
+      "seed_decisions": [
+        0,
+        0
+      ],
+      "raw_order_track_ids_at_0_44_63": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          2,
+          3,
+          1
+        ]
+      ],
+      "best_fixed_affine_scale": 0.10065814943863723,
+      "mean_frame_position_pct": 19.916985256162086,
+      "selected44_position_pct": 19.94450896889923,
+      "sequence_max_position_pct": 20.363917924893542
+    },
+    {
+      "seed_decisions": [
+        0,
+        1
+      ],
+      "raw_order_track_ids_at_0_44_63": [
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          3,
+          0,
+          1
+        ]
+      ],
+      "best_fixed_affine_scale": 0.039300451955197484,
+      "mean_frame_position_pct": 28.253784033099706,
+      "selected44_position_pct": 28.229732975262547,
+      "sequence_max_position_pct": 28.426235235038533
+    },
+    {
+      "seed_decisions": [
+        1,
+        0
+      ],
+      "raw_order_track_ids_at_0_44_63": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ]
+      ],
+      "best_fixed_affine_scale": -0.039300451955197484,
+      "mean_frame_position_pct": 28.269647496779545,
+      "selected44_position_pct": 28.164232222003893,
+      "sequence_max_position_pct": 28.458985611667877
+    },
+    {
+      "seed_decisions": [
+        1,
+        1
+      ],
+      "raw_order_track_ids_at_0_44_63": [
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          1,
+          3,
+          2,
+          0
+        ]
+      ],
+      "best_fixed_affine_scale": -0.10127568409776998,
+      "mean_frame_position_pct": 19.92556480669978,
+      "selected44_position_pct": 19.742266368033224,
+      "sequence_max_position_pct": 20.417437595351718
+    }
+  ],
+  "official_repository": "https://github.com/Wiebke/TemporalMergeTreeMaps",
+  "sources_sha256": {
+    "optimizemergetreemapgreedy.cpp": "9025314c193ad0aa68f5aef31b6f2311b5d09dc7246176082404e4712a44deb9",
+    "official_core_fixture.cpp": "b31689c681a2f7b05d0f87827f6125af511f8f399a764d036126e26b0298642e",
+    "mergetreemaputils.cpp": "3093b1bdefb8d8669d665ea77bb290981d929144f64fd4a6e720fdcab045da15",
+    "contourtreesequencetolandscape.cpp": "a0f9aacb0768343f5f4c5cc893f8ceb793e37a945d2226c5ad69c167e727adf6",
+    "mergetreemaputils.h": "2423b930eb2f012d5468053daa9f3b984f97f6062791d6ce096ee87e8c0f19a0",
+    "contourtreetolandscape.cpp": "c9cd1631fd9ac2571a6b1aa513c1d7e3e8e8bdbad2121d938fea8e6a6ee9a9ae"
+  },
+  "dataset_differences": {
+    "paper_shape": [
+      128,
+      128
+    ],
+    "local_shape": [
+      64,
+      64
+    ],
+    "paper_features": 3,
+    "local_features_counts": {
+      "3": 45,
+      "4": 19
+    },
+    "local_four_leaf_frames": [
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63
+    ],
+    "local_range": [
+      2.4945546963975092e-20,
+      1.4984939318403288
+    ],
+    "local_AB_highest_pair_frames": 64,
+    "original_fig2_initial_top_to_bottom": "C A B (l3 l1 l2)",
+    "local_display_initial_top_to_bottom": "C B A",
+    "paper_ST_parameters": {
+      "W": "uniform",
+      "K": 65,
+      "r": 0.95,
+      "lambda": 1.5,
+      "L": 4096,
+      "Start": 1
+    },
+    "local_ST_parameters": {
+      "W": "uniform",
+      "r": 0.95,
+      "lambda": 0.5,
+      "L": 1024,
+      "Start": 0,
+      "K": "ep.P.width_scale * initial total area (runner default)"
+    },
+    "original_gaussian_data_available": false,
+    "full_Inviwo_TTK_pipeline_executed": false
+  }
+}

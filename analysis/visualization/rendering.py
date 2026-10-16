@@ -55,7 +55,7 @@ def temporal_maps(dataset, refresh=False):
     """Six actual sample/render matrices; each method retains its native length."""
     from experiments import era5 as ep
     import general_method as gm
-    from cdmtm.baselines import space_filling as sfc
+    from rgmtm.baselines import space_filling as sfc
     token = fingerprint(dataset); CACHE.mkdir(parents=True, exist_ok=True)
     path = CACHE / f'{dataset["name"]}-{token}.npz'
     if path.exists() and not refresh:

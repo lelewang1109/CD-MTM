@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "sklearn_version": "1.7.2",
+  "sklearn_tw_comparisons": 285,
+  "max_tw_absolute_error": 1.1102230246251565e-16,
+  "numerical_sns_comparisons": 90,
+  "max_sns_absolute_error": 1.6653345369377348e-16,
+  "checks": [
+    "SNS scale/reflection/translation invariance",
+    "SNS collinear perfect embedding and collapsed embedding",
+    "TW public-library equivalence and invalid small-n rejection",
+    "TD identity matching with birth/death",
+    "TD static-layout zero",
+    "Two-feature SNS retained but TW undefined"
+  ]
+}

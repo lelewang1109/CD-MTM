@@ -1,4 +1,4 @@
-# Reproduce the CD-MTM experiments
+# Reproduce the RG-MTM experiments
 
 Run all commands from the repository root. Use Python 3.10 or later; dependencies
 are pinned in `pyproject.toml`. There are three different workflows below.
@@ -7,8 +7,8 @@ Rebuilding figures from saved evidence is not a new raw-data experiment.
 ## 1. Install and verify the committed snapshot
 
 ```sh
-git clone https://github.com/lelewang1109/CD-MTM.git
-cd CD-MTM
+git clone https://github.com/lelewang1109/RG-MTM.git
+cd RG-MTM
 python3.10 -m venv .venv
 source .venv/bin/activate
 python -m pip install -e .
@@ -96,3 +96,7 @@ tectonic -X compile supplement.tex --outdir build --keep-logs
 The manuscript retains the original VGTC layout, with nine body pages within
 the 9+2 allowance. The complete frontier is evaluated only on small trees;
 large-tree timings concern certificate diagnosis.
+
+## Renamed sources and current figures
+
+The Python package is now `rgmtm`; the layout entry is `rgmtm.reference_guided`. Use `PYTHONPATH=src python tools/build_rgmtm_figures.py` for current figures, and `PYTHONPATH=src python tools/verify_rgmtm_migration.py` to verify numeric integrity, reversible historical hashes, and image manifests. Prior run manifests retain their original hashes and method keys; they do not claim the renamed code was rerun.

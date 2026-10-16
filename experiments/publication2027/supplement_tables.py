@@ -11,7 +11,7 @@ def longtable(cols,header,rows,caption):
 def main():
  ev=read('eval_projection.json');pos=read('final_performance.json');nat=read('native_merge_errors.json');fill=read('filling.json')
  sections=[];rows=[]
- labels={'A':'CD-MTM tree kept','R 20%':'CD-MTM relaxed','q-sort (packed)':'Packed sort','fixed-X anchored':'Fixed X','oracle q':'Exact projection'}
+ labels={'A':'RG-MTM-P','R 20%':'RG-MTM-R','q-sort (packed)':'Packed sort','fixed-X anchored':'Fixed X','oracle q':'Exact projection'}
  for n in PAPER_DATASETS:
   for m in ['TMTM','ST-MTM','Hilbert','Morton','A','R 20%','q-sort (packed)','fixed-X anchored','oracle q']:
    v=next(v for v in ev[n]['proxy'] if v['method']==m and v['k']==2 and v['eps']==.02)

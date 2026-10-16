@@ -1,0 +1,80 @@
+{
+  "era5": {
+    "axis": [
+      0.9998129355353527,
+      -0.019341508115477836
+    ],
+    "input_hashes_match": true,
+    "clear_event_error_change_due_to_raster": {
+      "TMTM": 0,
+      "ST-MTM": 0,
+      "RG-MTM-P": 0,
+      "RG-MTM-R": 0
+    }
+  },
+  "wildfire": {
+    "axis": [
+      -0.6757848709593748,
+      -0.7370989134318549
+    ],
+    "input_hashes_match": true,
+    "clear_event_error_change_due_to_raster": {
+      "TMTM": 0,
+      "ST-MTM": 0,
+      "RG-MTM-P": 0,
+      "RG-MTM-R": 0
+    }
+  },
+  "olr": {
+    "axis": [
+      -0.9874520896148259,
+      0.1579188738413292
+    ],
+    "input_hashes_match": true,
+    "clear_event_error_change_due_to_raster": {
+      "TMTM": 0,
+      "ST-MTM": 0,
+      "RG-MTM-P": 0,
+      "RG-MTM-R": 0
+    }
+  },
+  "pm25": {
+    "axis": [
+      0.6633881978872337,
+      0.7482754164770672
+    ],
+    "input_hashes_match": true,
+    "clear_event_error_change_due_to_raster": {
+      "TMTM": 0,
+      "ST-MTM": 0,
+      "RG-MTM-P": 0,
+      "RG-MTM-R": 0
+    }
+  },
+  "ring": {
+    "axis": [
+      -0.6257273935913881,
+      -0.7800418122827316
+    ],
+    "input_hashes_match": true,
+    "clear_event_error_change_due_to_raster": {
+      "TMTM": 0,
+      "ST-MTM": 0,
+      "RG-MTM-P": 0,
+      "RG-MTM-R": -1
+    }
+  },
+  "gaussians": {
+    "axis": [
+      -0.8506508083520401,
+      -0.5257311121191335
+    ],
+    "input_hashes_match": true,
+    "clear_event_error_change_due_to_raster": {
+      "TMTM": 0,
+      "ST-MTM": 0,
+      "RG-MTM-P": 0,
+      "RG-MTM-R": 0
+    }
+  }
+}

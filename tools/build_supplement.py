@@ -28,7 +28,9 @@ def include_files():
     paper = ROOT / "paper/pacificvis2027"
     paths.extend(paper / name for name in ("README.md", "main.tex", "refs.bib", "vgtc.cls"))
     paths.extend(paper.glob("*.bst"))
-    paths.append(paper / "experiments_revised.tex")
+    paths.extend(paper.glob("*.tex"))
+    paths.extend(paper / n for n in ("review-preview.pdf", "supplement.pdf"))
+    paths.append(ROOT / "notes/manuscript-revision-20261012.md")
     paths.append(paper / "seasonal_controls.tex")
     paths.append(paper / "performance_diagnostics.tex")
     paths.append(paper / "spatial_motion_controls.tex")
@@ -62,7 +64,7 @@ def main():
     if missing:
         raise FileNotFoundError(f"Missing supplement inputs: {missing}")
     manifest = {
-        "scope": "PacificVis 2027 CD-MTM anonymous source and selected final results",
+        "scope": "PacificVis 2027 RG-MTM anonymous source and selected final results",
         "excluded": "Public raw inputs and historical X/Y dual-view experiments",
         "files": {},
     }

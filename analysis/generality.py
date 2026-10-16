@@ -15,7 +15,7 @@ from scipy.cluster.hierarchy import linkage, to_tree
 sys.setrecursionlimit(100000)
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import theory as th, datasets_extra as dx, task_reference as tr
-from cdmtm.error_budget import Parameters
+from rgmtm.error_budget import Parameters
 
 OUT = tr.OUT
 

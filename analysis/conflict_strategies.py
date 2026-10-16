@@ -23,7 +23,7 @@ import numpy as np
 from scipy.optimize import minimize
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import task_reference as tr
-from cdmtm.error_budget import constraints, checked_lp, leaf_orders, InfeasibleLayout
+from rgmtm.error_budget import constraints, checked_lp, leaf_orders, InfeasibleLayout
 
 OUT = tr.OUT
 plt = tr.plt

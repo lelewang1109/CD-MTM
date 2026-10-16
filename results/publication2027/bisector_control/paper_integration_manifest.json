@@ -1,0 +1,14 @@
+{
+  "figure_sha256": "e5227d10c61d28bcd676db27cd05ad4a920c2cebdb2f9d4cc2c5db441373a826",
+  "experiment_entry": "experiments/publication2027/bisector_control.py",
+  "entry_sha256": "73b6f12a499a58ad9442a6674a5d14da7744f53d6bc164d905b3175d6f0191ce",
+  "experiment_relocated_without_scientific_changes": true,
+  "source_experiment": "output/pdf/three_method_position_comparison/scripts/prepare_bisector_highres.py",
+  "main_suite_unchanged": true,
+  "new_control_frames": 64,
+  "reference_direction": [
+    1,
+    0
+  ],
+  "main_figure_label": "fig:bisector"
+}

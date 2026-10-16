@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "total_frames": 342,
+  "methods": 4,
+  "rank_frame_checks": 1092,
+  "motion_window_predictions": 3536,
+  "max_manual_tau_error": 1.1102230246251565e-16,
+  "max_manual_balanced_accuracy_error": 0.0,
+  "max_manual_macro_f1_error": 0.0,
+  "all_geometry_scores_replayed_from_saved_arrays": true,
+  "original_scientific_sources_unchanged": true
+}

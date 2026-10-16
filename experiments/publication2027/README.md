@@ -1,9 +1,9 @@
 # PacificVis 2027 publication experiment suite
 
 This is the preferred entry point for the restructured conference manuscript.
-It reuses the scientific implementations under `src/cdmtm/` and `analysis/`;
+It reuses the scientific implementations under `src/rgmtm/` and `analysis/`;
 its purpose is reproducible orchestration, evidence checks, and publication exports.
-Run commands from the CD-MTM root using Python 3.10+ with the pinned dependencies.
+Run commands from the RG-MTM root using Python 3.10+ with the pinned dependencies.
 
 ```sh
 python -m pip install -e .
@@ -44,8 +44,7 @@ a 42-row unrounded main comparison CSV, a claim ledger, and a manifest. Main
 aggregate snapshots filter out retired datasets. Original records remain intact.
 Figures and supplementary tables have independent generators and editable SVGs.
 
-`paper/pacificvis2027-restructured/` contains the new modular manuscript and
-supplement. Its prose is never rewritten by the evidence builder. `tools/update_paper_evidence.py`
+The current editable manuscript and supplement are in `paper/pacificvis2027-no-figures/`. The `paper/pacificvis2027-restructured/` directory retains historical generated assets. Its prose is never rewritten by the evidence builder. `tools/update_paper_evidence.py`
 is now a small compatibility wrapper for this builder, avoiding the previous
 failure caused by a removed subsection title. Its prior implementation is preserved in `notes/archive/update_paper_evidence_legacy.txt`. `tools/run_paper_suite.py` remains
 an older compatible ten-stage entry point.
@@ -76,3 +75,7 @@ errors and optimal-budget feasibility. It also supplies the expanded method
 overview used by `layout_figures.py`. The synthetic numeric export and source
 hashes are in `figure_data/domain_filling_example.json`. The regular `build.py`
 regenerates these assets without changing the real-data algorithms or outcomes.
+
+## Current RG-MTM exports
+
+Run `PYTHONPATH=src python tools/build_rgmtm_figures.py` for the active PNG/SVG figure set. Historical builders above regenerate their original asset paths. Current no-figure tables use `python tools/build_nofigure_paper_tables.py` and write source ledgers to `results/manuscript_tables/`. `package.py` packages the two retained manuscript versions and current code; no raw observations are included.

@@ -12,10 +12,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT), str(ROOT / 'src')]
 from experiments import era5 as ep
 from experiments.ring.dataset import generate
-from cdmtm.error_budget import (Parameters, solve_frame, solve_sequence, constraints,
+from rgmtm.error_budget import (Parameters, solve_frame, solve_sequence, constraints,
                                 checked_lp, leaf_orders, InfeasibleLayout)
-from cdmtm.reference_anchored import render_sequence
-from cdmtm.reference_points import reference_points_from_frames
+from rgmtm.reference_guided import render_sequence
+from rgmtm.reference_points import reference_points_from_frames
 
 OUT = ROOT / 'results'
 plt = ep.plt

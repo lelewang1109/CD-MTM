@@ -25,7 +25,7 @@ OFF_WHITE = '#F7F5F0'
 # Low values are blue, the midpoint is warm white, and high values are red,
 # matching the pressure-anomaly reference while avoiding saturated extremes.
 FIELD_CMAP = LinearSegmentedColormap.from_list(
-    'cdmtm_blue_white_red',
+    'rgmtm_blue_white_red',
     ['#174A73', '#397CA5', '#9BC6D9', '#F7F5F0', '#F2C1AE', '#D66950', '#8F2635'],
     N=256,
 )

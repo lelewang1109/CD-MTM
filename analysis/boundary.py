@@ -11,7 +11,7 @@ import sys, json
 import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import general_method as gm, theory as th, replicate as rp, task_reference as tr, relax_hierarchy as rh, fig_witness as fw
-from cdmtm.reference_points import reference_points_from_frames
+from rgmtm.reference_points import reference_points_from_frames
 
 OUT = tr.OUT; NPIX = 1024
 

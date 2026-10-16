@@ -36,7 +36,7 @@ def main(start, end, out):
         la = nc.createVariable('latitude', 'f8', ('latitude',)); la[:] = data.latitude.values; la.units = 'degrees_north'
         lo = nc.createVariable('longitude', 'f8', ('longitude',)); lo[:] = lon; lo.units = 'degrees_east'
         m = nc.createVariable('msl', 'f4', ('valid_time', 'latitude', 'longitude'), zlib=True); m[:] = arr; m.units = 'Pa'
-        nc.source = URL; nc.note = 'expanded-domain 12-hourly subset for CD-MTM evaluation'
+        nc.source = URL; nc.note = 'expanded-domain 12-hourly subset for RG-MTM evaluation'
     tmp.rename(OUTP)
     print(OUTP, arr.shape, f'{OUTP.stat().st_size/1e6:.1f} MB')
 

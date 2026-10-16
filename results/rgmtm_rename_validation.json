@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "protected_numerical_files": 188,
+  "reversible_source_edits": 46,
+  "figures": 11,
+  "formats": [
+    "PNG",
+    "SVG"
+  ],
+  "numerical_rerun": false
+}

@@ -30,8 +30,8 @@ import task_reference as tr
 import conflict_strategies as cs
 from experiments import era5 as ep
 from experiments.ring.dataset import generate
-from cdmtm.error_budget import Parameters, solve_sequence
-from cdmtm.reference_points import reference_points_from_frames
+from rgmtm.error_budget import Parameters, solve_sequence
+from rgmtm.reference_points import reference_points_from_frames
 
 ROOT = tr.ROOT; OUT = tr.OUT; plt = tr.plt
 THETA_FRACTION = .02            # the one global constant (display legibility)

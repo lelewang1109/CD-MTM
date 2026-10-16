@@ -1,0 +1,12 @@
+{
+  "rank_target": "Same automatic fixed direction as the existing RG-MTM, projected EXTREMUM positions",
+  "rank_metrics": "SciPy Kendall tau-b and Spearman rho, frame means on common eligible n>=3 frames; n>=2 also reported",
+  "orientation": "One optional whole-sequence reflection per method, determined by reference min/max anchors in the FIRST informative frame common to all methods; never choose reflection per frame or by whole-sequence score",
+  "rank_main": "First-frame orientation-aligned scores; original orientation also reported",
+  "motion_target": "Euclidean extremum-pair distance change over two steps; thresholds 2% domain diagonal and 2% method full-sequence occupied anchor range",
+  "motion_main": "Three-class approach/unchanged/separate classification on ALL tracked-pair windows",
+  "motion_eligibility": "At least two true classes; a sequence with only unchanged truth is not evidence of motion classification quality",
+  "motion_supplement": "Clear-event subset, approach/separate with unchanged predictions counted as misses; accuracy is exactly 1-ME apart from any raster-rounding differences",
+  "classification": "scikit-learn accuracy, balanced_accuracy, and macro F1; three-class F1 fixes labels [-1,0,1], clear-event F1 fixes [-1,1]",
+  "interpretation": "Standard metric formulas with declared task targets; no participant responses, universal superiority threshold, or new tuning"
+}

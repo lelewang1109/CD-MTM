@@ -1,32 +1,45 @@
-"""Package editable manuscript and reproducible code/evidence without raw data."""
+"""Package retained manuscripts and RG-MTM code/results; exclude raw inputs."""
 from pathlib import Path
-import hashlib,json,shutil,zipfile
-ROOT=Path(__file__).resolve().parents[2];PAPER=ROOT/'paper/pacificvis2027-restructured';OUT=ROOT/'output/pdf'
+import argparse
+import hashlib
+import json
+import shutil
+import subprocess
+import zipfile
+
+ROOT = Path(__file__).resolve().parents[2]
+
 
 def main():
- OUT.mkdir(parents=True,exist_ok=True)
- for src,name in [('main.pdf','CD-MTM-PacificVis2027.pdf'),('supplement.pdf','CD-MTM-PacificVis2027-supplement.pdf')]:
-  shutil.copy2(PAPER/'build'/src,OUT/name)
- source_files=[p for p in PAPER.rglob('*') if p.is_file() and 'build' not in p.parts and p.suffix in ['.tex','.bib','.cls','.bst','.pdf','.png','.svg','.md']]
- source_zip=PAPER/'latex_sources.zip'
- with zipfile.ZipFile(source_zip,'w',zipfile.ZIP_DEFLATED) as z:
-  for p in sorted(source_files):z.write(p,p.relative_to(PAPER))
- shutil.copy2(source_zip,OUT/'CD-MTM-PacificVis2027-LaTeX.zip')
- manifest=json.loads((ROOT/'results/publication2027/manifest.json').read_text())
- files=set()
- for folder in ['src','analysis','experiments','tests','tools']:
-  files.update(p for p in (ROOT/folder).rglob('*') if p.is_file() and p.suffix in ['.py','.md','.json','.xml'] and '__pycache__' not in p.parts)
- for rec in manifest['records']:files.add(ROOT/rec['source'])
- for rec in manifest['figures']:files.add(ROOT/rec['source'])
- for folder in ['results/publication2027','paper/pacificvis2027-restructured']:
-  files.update(p for p in (ROOT/folder).rglob('*') if p.is_file() and 'build' not in p.parts and p.suffix!='.zip')
- for name in ['README.md','pyproject.toml','data/README.md','notes/research-restructure-20261013.md','notes/layout-optimization-20261014.md','notes/archive/update_paper_evidence_legacy.txt']:
-  files.add(ROOT/name)
- files.update(p for p in (ROOT/'data/geo').glob('*') if p.is_file())
- bundle=OUT/'CD-MTM-PacificVis2027-code-results.zip'
- with zipfile.ZipFile(bundle,'w',zipfile.ZIP_DEFLATED) as z:
-  for p in sorted(files):z.write(p,Path('CD-MTM')/p.relative_to(ROOT))
- artifacts={p.name:dict(bytes=p.stat().st_size,sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in OUT.iterdir() if p.name.startswith('CD-MTM-PacificVis2027')}
- (OUT/'delivery_manifest.json').write_text(json.dumps(artifacts,indent=2)+'\n')
- print('Packaged PDFs, standalone LaTeX, and reproducible code/results bundle.')
-if __name__=='__main__':main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--out', type=Path, default=ROOT / 'output/rgmtm')
+    args = parser.parse_args()
+    args.out.mkdir(parents=True, exist_ok=True)
+    for folder, label in [('pacificvis2027-no-figures', 'current'),
+                          ('pacificvis2027-content-draft', 'illustrated-reference')]:
+        for stem in ('main', 'supplement'):
+            shutil.copy2(ROOT / 'paper' / folder / f'{stem}.pdf',
+                         args.out / f'RG-MTM-{label}-{stem}.pdf')
+    listed = subprocess.check_output(['git', 'ls-files', '-z', '--cached', '--others', '--exclude-standard'], cwd=ROOT)
+    files = sorted({Path(name.decode()) for name in listed.split(b'\0') if name})
+    bundle = args.out / 'RG-MTM-code-results.zip'
+    with zipfile.ZipFile(bundle, 'w', zipfile.ZIP_DEFLATED) as archive:
+        for relative in files:
+            source = ROOT / relative
+            if not source.is_file() or source.is_symlink():
+                continue
+            if relative.parts[0] in {'output', 'tmp', '.venv'}:
+                continue
+            if relative.parts[0] == 'data' and relative.parts[1] != 'geo' and relative.name != 'README.md':
+                continue
+            if relative.parts[0] == 'references' and source.suffix == '.pdf':
+                continue
+            archive.write(source, Path('RG-MTM') / relative)
+    artifacts = {f.name: dict(bytes=f.stat().st_size, sha256=hashlib.sha256(f.read_bytes()).hexdigest())
+                 for f in args.out.iterdir() if f.is_file() and f.name.startswith('RG-MTM-')}
+    (args.out / 'manifest.json').write_text(json.dumps(artifacts, indent=2) + '\n')
+    print('Packaged RG-MTM manuscripts and code/results:', args.out)
+
+
+if __name__ == '__main__':
+    main()

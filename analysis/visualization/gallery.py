@@ -66,7 +66,7 @@ def main(argv=None):
     parser.add_argument('--metrics-only', action='store_true', help='Draw saved-record charts without raw inputs')
     parser.add_argument('--out', type=Path, default=ROOT / 'results/visualizations')
     args = parser.parse_args(argv); fs.apply()
-    matplotlib.rcParams.update({'svg.fonttype': 'none', 'svg.hashsalt': 'cdmtm-gallery'})
+    matplotlib.rcParams.update({'svg.fonttype': 'none', 'svg.hashsalt': 'rgmtm-gallery'})
     path = ROOT / 'results/eval_projection.json'; records = json.loads(path.read_text())
     for name in PAPER_DATASETS:
         for method in METHODS:
@@ -95,7 +95,7 @@ def main(argv=None):
     (args.out / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     lines = ['# Dataset and method visualization gallery', '',
         'Generated from processed scalar arrays and saved experiment JSON, never from existing screenshots.', '',
-        'Six methods: TMTM, ST-MTM, A, R (κ=20%), Hilbert, Morton. Main PM2.5: January 1–30, 2000, '
+        'Six methods: TMTM, ST-MTM, RG-MTM-P, RG-MTM-R (κ=20%), Hilbert, Morton. Main PM2.5: January 1–30, 2000, '
         'selected after seasonal exploration; seven clear events do not establish general superiority.', '',
         '[Combined figure booklet](visualization-gallery.pdf)', '',
         'Reproduce: `PYTHONPATH=src:analysis python3 -m visualization.gallery`', '',

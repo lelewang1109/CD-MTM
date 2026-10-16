@@ -12,7 +12,7 @@ import sys, json
 import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import general_method as gm, theory as th, replicate as rp, task_reference as tr
-from cdmtm.reference_points import reference_points_from_frames
+from rgmtm.reference_points import reference_points_from_frames
 
 from dataset_suite import REAL_DATASETS
 

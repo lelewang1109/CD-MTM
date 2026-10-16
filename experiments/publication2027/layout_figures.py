@@ -12,6 +12,7 @@ from matplotlib.patches import Patch
 ROOT=Path(__file__).resolve().parents[2]
 sys.path[:0]=[str(ROOT/'analysis'),str(ROOT/'src'),str(ROOT)]
 import figstyle as fs
+from provenance import verify_saved_file
 OUT=ROOT/'paper/pacificvis2027-restructured/figures';DATA=ROOT/'results/publication2027/figure_data'
 NAMES=['era5','wildfire','olr','pm25'];LABELS=['ERA5','Fire','OLR','PM2.5'];COLS=['#666666',fs.BLUE,fs.GREEN]
 def read(name):return json.loads((ROOT/'results'/name).read_text())
@@ -49,7 +50,7 @@ def prepare(name):
  (DATA/f'{name}_render.json').write_text(json.dumps(report,indent=2)+'\n');print('Verified numeric renders:',name,flush=True)
 def load(name):
  p=DATA/f'{name}_render.npz';m=json.loads((DATA/f'{name}_render.json').read_text());assert sha(p)==m['arrays_sha256']
- for source,h in m['source_sha256'].items():assert sha(ROOT/source)==h,source
+ for source,h in m['source_sha256'].items():verify_saved_file(ROOT,source,h)
  with np.load(p,allow_pickle=False) as z:return {k:z[k] for k in z.files}
 def event(ev,n,m):return next(r for r in ev[n]['proxy'] if r['method']==m and r['k']==2 and r['eps']==.02)
 def decorate(ax):ax.spines[['top','right']].set_visible(False)
@@ -91,7 +92,7 @@ def teaser(d):
   ax.imshow(d['map'+mode][:,start:end],origin='lower',aspect='auto',extent=[start-.5,end-.5,0,1],cmap=fs.FIELD_CMAP,vmin=d['field'].min(),vmax=d['field'].max());tracks(ax,d,mode,start,end)
   ax.axvline(t,color='white',ls=':',lw=.7);ax.set(xlabel='time step (step 48 marked)',yticks=[])
   top.plot(np.arange(start,end),d['pos'+mode][start:end]/L*100,color=fs.BLUE if mode=='A' else fs.GREEN,lw=1);top.set(ylabel='error %',ylim=(0,50),xlim=(start-.5,end-.5),xticks=[]);decorate(top)
-  top.set_title('(b) Tree kept: displaced anchors' if mode=='A' else '(c) Relaxed: scalar cost disclosed')
+  top.set_title('(b) RG-MTM-P: displaced anchors' if mode=='A' else '(c) RG-MTM-R: scalar cost')
   if mode=='R':ax.text(.02,.04,f'step 48: merge error {d["delta"][t]:.1f} hPa',transform=ax.transAxes,fontsize=6.5,bbox=dict(fc='white',alpha=.9,ec='none',pad=1))
  save(fig,'fig_teaser_focus')
 def overview():
@@ -129,9 +130,9 @@ def motion_cost():
   d=ev[n]['dstar']['R 20%'];a,b=100*d['mean_share'],100*d['max_share'];axs[2].plot([a,b],[i,i],color=fs.BLUE,lw=.9);axs[2].plot(a,i,'o',color=fs.BLUE,ms=4);axs[2].plot(b,i,'D',color=fs.CORAL,ms=4);axs[2].text(b+.7,i,f'{b:.1f}',va='center',fontsize=6)
  axs[2].set(xlim=(0,43),yticks=y,yticklabels=[],ylim=(3.5,-.5),xlabel='merge error (% scalar range)',title='(c) Relaxed scalar cost')
  for ax in axs:decorate(ax)
- handles=[Patch(color=c,label=l) for c,l in zip(COLS,['ST-MTM','Tree kept','Relaxed'])]+[Line2D([0],[0],marker='o',color=COLS[0],ls='none',ms=3,label='vs ST-MTM'),Line2D([0],[0],marker='s',color=COLS[1],ls='none',ms=3,label='vs tree kept'),Line2D([0],[0],marker='o',color=fs.BLUE,ls='none',ms=3,label='mean cost'),Line2D([0],[0],marker='D',color=fs.CORAL,ls='none',ms=3,label='max cost')]
- fig.legend(handles=handles,loc='lower center',ncol=7,frameon=False,bbox_to_anchor=(.5,-.005),columnspacing=.8,handlelength=1)
- fig.subplots_adjust(left=.145,right=.985,top=.84,bottom=.28,wspace=.25);save(fig,'fig_motion_scalar_cost')
+ handles=[Patch(color=c,label=l) for c,l in zip(COLS,['ST-MTM','RG-MTM-P','RG-MTM-R'])]+[Line2D([0],[0],marker='o',color=COLS[0],ls='none',ms=3,label='vs ST-MTM'),Line2D([0],[0],marker='s',color=COLS[1],ls='none',ms=3,label='vs RG-MTM-P'),Line2D([0],[0],marker='o',color=fs.BLUE,ls='none',ms=3,label='mean cost'),Line2D([0],[0],marker='D',color=fs.CORAL,ls='none',ms=3,label='max cost')]
+ fig.legend(handles=handles,loc='lower center',ncol=4,frameon=False,bbox_to_anchor=(.5,-.005),columnspacing=.8,handlelength=1)
+ fig.subplots_adjust(left=.145,right=.985,top=.84,bottom=.35,wspace=.25);save(fig,'fig_motion_scalar_cost')
 def cases(data):
  ev=read('eval_projection.json');fig=plt.figure(figsize=(7,3.55));gs=fig.add_gridspec(2,4,width_ratios=[1.05,.75,1.15,1.15],left=.055,right=.97,bottom=.18,top=.9,hspace=.75,wspace=.36);sel={}
  for row,name in enumerate(['era5','olr']):
@@ -144,7 +145,7 @@ def cases(data):
   ax.set(xlim=(0,1),ylim=(-.15,1.15),xticks=[],yticks=[]);ax.set_title('Reference / tree anchors',fontsize=6.5);ax.text(0,1.08,'q',fontsize=7);ax.text(0,-.1,'u',fontsize=7);ax.set_xlabel(f'H = {100*d["H"][t]/L:.1f}% axis',fontsize=6.5);ax.spines[:].set_visible(False)
   for j,mode in enumerate(['A','R']):
    ax=fig.add_subplot(gs[row,j+2]);ax.imshow(d['map'+mode][:,start:end],origin='lower',aspect='auto',extent=[start-.5,end-.5,0,1],cmap=fs.FIELD_CMAP,vmin=d['field'].min(),vmax=d['field'].max());tracks(ax,d,mode,start,end);ax.axvline(t,color='white',ls=':',lw=.7);ax.set(yticks=[],xlabel='time step')
-   e=event(ev,name,'A' if mode=='A' else 'R 20%');ax.set_title(f'{"Tree kept" if mode=="A" else "Relaxed"}: {round(e["error"]*e["clear"])}/{e["clear"]} errors*',pad=3)
+   e=event(ev,name,'A' if mode=='A' else 'R 20%');ax.set_title(f'{"RG-MTM-P" if mode=="A" else "RG-MTM-R"}: {round(e["error"]*e["clear"])}/{e["clear"]} errors*',pad=3)
    text=f'step {t}: position {100*d["pos"+mode][t]/L:.1f}%'
    if mode=='R':text+=f'\nmerge error {d["delta"][t]:.1f} '+('hPa' if name=='era5' else r'W m$^{-2}$')
    ax.text(.02,.04,text,transform=ax.transAxes,fontsize=6,bbox=dict(fc='white',alpha=.9,ec='none',pad=1))
@@ -152,7 +153,7 @@ def cases(data):
  save(fig,'fig_linked_cases');return sel
 
 def main():
- ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--prepare',action='store_true');args=ap.parse_args();OUT.mkdir(exist_ok=True);DATA.mkdir(parents=True,exist_ok=True);fs.apply();plt.rcParams.update({'svg.fonttype':'none','svg.hashsalt':'cdmtm-layout-20261014'})
+ ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--prepare',action='store_true');args=ap.parse_args();OUT.mkdir(exist_ok=True);DATA.mkdir(parents=True,exist_ok=True);fs.apply();plt.rcParams.update({'svg.fonttype':'none','svg.hashsalt':'rgmtm-layout-20261014'})
  if args.prepare:
   for n in ['era5','olr']:prepare(n)
  import fig_concept as concept

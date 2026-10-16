@@ -1,0 +1,43 @@
+{
+  "protocol": {
+    "rank_target": "Same automatic fixed direction as the existing RG-MTM, projected EXTREMUM positions",
+    "rank_metrics": "SciPy Kendall tau-b and Spearman rho, frame means on common eligible n>=3 frames; n>=2 also reported",
+    "orientation": "One optional whole-sequence reflection per method, determined by reference min/max anchors in the FIRST informative frame common to all methods; never choose reflection per frame or by whole-sequence score",
+    "rank_main": "First-frame orientation-aligned scores; original orientation also reported",
+    "motion_target": "Euclidean extremum-pair distance change over two steps; thresholds 2% domain diagonal and 2% method full-sequence occupied anchor range",
+    "motion_main": "Three-class approach/unchanged/separate classification on ALL tracked-pair windows",
+    "motion_eligibility": "At least two true classes; a sequence with only unchanged truth is not evidence of motion classification quality",
+    "motion_supplement": "Clear-event subset, approach/separate with unchanged predictions counted as misses; accuracy is exactly 1-ME apart from any raster-rounding differences",
+    "classification": "scikit-learn accuracy, balanced_accuracy, and macro F1; three-class F1 fixes labels [-1,0,1], clear-event F1 fixes [-1,1]",
+    "interpretation": "Standard metric formulas with declared task targets; no participant responses, universal superiority threshold, or new tuning"
+  },
+  "sklearn_version": "1.7.2",
+  "evaluator_sha256": "ec7a591a4615d9c7ab2901e51e4f813e94c0e122f39c119a0d4c0ec47e9feccf",
+  "parent_evaluator_sha256": "860e1ee69b0d9eadfc14221307d1b39bb3ffbd0eb0871c63ab62c3d0b0ef8f7f",
+  "input_landmark_sha256": {
+    "era5": "57b27e2762f37e4b4631fd50f1922fa2a3c04abcd33f967116f376388f8020d9",
+    "wildfire": "779b061d0fd2f83b31926dafe21e4751b38fdabafae416f6799497928826aada",
+    "olr": "08c7871c76c4af91240512f47264690c4ec5e6109838947e96eb689d3933a50c",
+    "pm25": "ca9f2f5502c35e88707bdf2aca9cf7348a33e20f6d1f928741726b1f2fae2e4f",
+    "ring": "1b561763f52c6ef1274a15cee82d1015ef2227d3aa69a0ad1b343163ab924ba2",
+    "gaussians": "2af2ea4acdcb067b80eb793fa94041944aea2efd72f73fbbe815ee5e24dcebf2"
+  },
+  "output_sha256": {
+    "era5_motion_events.csv": "4716bed48bbb3c3ae5e6085c88d96e6867b7d75b1d39f78a736cbdd5b608ad7f",
+    "pm25_rank_frames.csv": "1b906c2442913915e198fab3ee3a04deca5172abf206c43848f644894b88be3f",
+    "wildfire_rank_frames.csv": "59a977c1ad0d72a70bdfcfaa9173fa2059afe18f168308adcf0709a0e2a06117",
+    "motion_summary.csv": "988eb57e8852d69e66bf4d3b5b6bdbfb18cf482a06edc1da86a584c16050446a",
+    "olr_motion_events.csv": "12ac64383edb650a64059145a84b6cde32aeacfa89ec5bacb2673b5071c23987",
+    "wildfire_motion_events.csv": "3ab0ae3af2b13d38518e1839da8b9e4cb2f4296cdba677419ef986ee85ef7814",
+    "era5_rank_frames.csv": "96412c1f9473b9f3034287d69598b1f85111f0e0aa02d272c7b6e8a2b29b50c1",
+    "gaussians_rank_frames.csv": "7402b07a3501ce185ec54286ddacbe8dee4295ae02c8e869b640a056bf7244a7",
+    "olr_rank_frames.csv": "38536caf55e7a1b34ba9039e601b753a37ff8ce17b3d667a2cfff5b7dc124f6a",
+    "rank_summary.csv": "40a0be016e48b90bb75c3e2e68a95caf06d166eefc9657075c5b781f52df19c1",
+    "validation.json": "9c5633a2f09656467722de675401f3b08eef5f2a9d88ebfa5911afa8603c1dc1",
+    "protocol.json": "95419512590e75a38ff9c09143083e490f07753f5fd2b39b4a2552a13d8efb2b",
+    "pm25_motion_events.csv": "583a99eb1e97a68fd1ed8d305b7d7e0b0886ddf907720cefc997cb9fdabd8b0d",
+    "ring_rank_frames.csv": "9fb8ba7759ed451c7ac8c337a6dd24a5f7490ad0c97f5c1fe7b141ffdec6d99b",
+    "ring_motion_events.csv": "09c96234d3af4f19362d8763dd5bbb89753432a21fce180a691f2b21dfea0226",
+    "gaussians_motion_events.csv": "1005dd2c411ed597296a8a8851fc6e9fa66530a8f0902b3e384f3540e9e9a9f2"
+  }
+}

@@ -45,7 +45,7 @@ def _wildfire_fields():
 
 
 def _count_leaves(fields):
-    from cdmtm.baselines import tmtm as b1
+    from rgmtm.baselines import tmtm as b1
     return max(sum(1 for n in b1.build_augmented_merge_tree(f, 'split').nodes.values() if not n.child_arcs) for f in fields)
 
 

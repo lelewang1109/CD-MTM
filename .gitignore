@@ -31,3 +31,11 @@ notes/archive/layout-before-*/
 # Regenerable source archives (keep editable files and published PDFs)
 paper/*/latex_sources.zip
 paper/pacificvis2027-restructured/figures/panels/
+
+# LaTeX scratch files in all manuscript versions
+paper/**/*.aux
+paper/**/*.bbl
+paper/**/*.blg
+paper/**/*.log
+paper/**/*.out
+paper/**/*.synctex.gz

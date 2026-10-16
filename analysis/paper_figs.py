@@ -11,7 +11,7 @@ import sys, json
 import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import general_method as gm, relax_hierarchy as rh, task_reference as tr
-from cdmtm.error_budget import leaf_orders
+from rgmtm.error_budget import leaf_orders
 
 OUT = tr.OUT; plt = tr.plt
 relax = json.loads((OUT / 'relax_metrics.json').read_text())

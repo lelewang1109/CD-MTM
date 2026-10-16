@@ -15,9 +15,9 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
-from cdmtm.baselines import tmtm as b1, stmtm as b2
-from cdmtm.error_budget import Parameters, solve_frame, leaf_orders
-from cdmtm.reference_anchored import render_sequence
+from rgmtm.baselines import tmtm as b1, stmtm as b2
+from rgmtm.error_budget import Parameters, solve_frame, leaf_orders
+from rgmtm.reference_guided import render_sequence
 SOURCE=ROOT/'data/real/ERA5_MSLP/ERA5_MSLP_19991117_20000114.nc'
 OUT=ROOT/'results/supplementary/era5'
 C=120.; L=8192; R=6371.; PHI=52.5
@@ -61,8 +61,8 @@ def audit_source():
             global_attributes={k:ds.getncattr(k) for k in ds.ncattrs()},
             runtime=dict(python=sys.version,numpy=np.__version__,scipy=scipy.__version__,netCDF4=netCDF4.__version__,platform=platform.platform()),
             code_sha256={name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in [
-                'experiments/era5.py','src/cdmtm/error_budget.py','src/cdmtm/reference_anchored.py',
-                'src/cdmtm/baselines/tmtm.py','src/cdmtm/baselines/stmtm.py']},
+                'experiments/era5.py','src/rgmtm/error_budget.py','src/rgmtm/reference_guided.py',
+                'src/rgmtm/baselines/tmtm.py','src/rgmtm/baselines/stmtm.py']},
             source_type='ERA5 reanalysis, not independent observed cyclone tracks',
             documentation='https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5')
 

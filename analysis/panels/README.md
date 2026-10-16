@@ -34,7 +34,7 @@ PDF、PNG、JPEG、TIFF，检查每个子图只有一个独立坐标系，记录
 
 ## 运行与输出
 
-从 CD-MTM 根目录运行，使用原有 Python 环境及项目数据：
+从 RG-MTM 根目录运行，使用原有 Python 环境及项目数据：
 
 ```sh
 ../.venv/bin/python -W ignore analysis/panels/fig1/middle_tree_kept.py

@@ -26,9 +26,9 @@ import task_reference as tr
 import conflict_strategies as cs
 import general_method as gm
 from experiments import era5 as ep
-from cdmtm.error_budget import leaf_orders
-from cdmtm.reference_anchored import render_sequence
-from cdmtm.reference_points import reference_points_from_frames
+from rgmtm.error_budget import leaf_orders
+from rgmtm.reference_guided import render_sequence
+from rgmtm.reference_points import reference_points_from_frames
 
 OUT = tr.OUT; plt = tr.plt
 

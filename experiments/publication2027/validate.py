@@ -1,6 +1,8 @@
 """Check bundle provenance, rerun completion and numerical manuscript claims."""
 from pathlib import Path
-import argparse,hashlib,json
+import argparse,hashlib,json,sys
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'analysis'))
+from provenance import verify_saved_file
 ROOT=Path(__file__).resolve().parents[2]
 def read(p):return json.loads(p.read_text())
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -11,14 +13,14 @@ def main():
   assert digest(ROOT/r['source'])==r['source_sha256'],r['source']
   assert digest(ROOT/r['snapshot'])==r['snapshot_sha256'],r['snapshot']
  for name,h in m['generated_tables'].items():assert digest(ROOT/name)==h,name
- for name,h in m['source_sha256'].items():assert digest(ROOT/name)==h,name
+ for name,h in m['source_sha256'].items():verify_saved_file(ROOT,name,h)
  for r in m['figures']:assert digest(ROOT/r['source'])==r['sha256'],r['figure']
  figure_data=out/'figure_data';fm=read(figure_data/'figure_manifest.json')
  for n,h in fm['evidence_sha256'].items():assert digest(ROOT/'results'/n)==h,n
  for n,h in fm['render_exports'].items():
   assert digest(figure_data/f'{n}_render.npz')==h,n
   meta=read(figure_data/f'{n}_render.json')
-  for source,source_hash in meta['source_sha256'].items():assert digest(ROOT/source)==source_hash,source
+  for source,source_hash in meta['source_sha256'].items():verify_saved_file(ROOT,source,source_hash)
  for n,h in fm['figures'].items():assert digest(ROOT/'paper/pacificvis2027-restructured/figures'/f'{n}.pdf')==h,n
  assert fm['selection']['era5']['frame']==48
  checks.append('All evidence, tables, numeric render exports and figure hashes match')

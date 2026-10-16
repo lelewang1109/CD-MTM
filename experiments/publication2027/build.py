@@ -5,10 +5,11 @@ import numpy as np
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'analysis'))
 from dataset_suite import PAPER_DATASETS
+from provenance import verify_saved_file
 PAPER=ROOT/'paper/pacificvis2027-restructured'; OUT=ROOT/'results/publication2027'
 SHORT=dict(era5='ERA5',wildfire='Fire',olr='OLR',pm25='PM2.5',ring='Ring',gaussians='Gaussians')
 METHODS=['TMTM','ST-MTM','Hilbert','Morton','q-sort (packed)','A','R 20%']
-LABELS=dict(zip(METHODS,['TMTM','ST-MTM','Hilbert','Morton','Packed sort','CD-MTM (tree kept)',r'CD-MTM, $\kappa=20\%$']))
+LABELS=dict(zip(METHODS,['TMTM','ST-MTM','Hilbert','Morton','Packed sort','RG-MTM-P',r'RG-MTM-R, $\kappa=20\%$']))
 def read(name):return json.loads((ROOT/'results'/name).read_text())
 def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def event(ev,m):
@@ -31,7 +32,7 @@ def main():
   if not(pos[n]['frames']==reps[n]['certificate']['frames']==nat[n]['TMTM']['frames']):raise ValueError('Frame mismatch: '+n)
   for d in [pos[n],nat[n]]:
    for source,h in d['source_sha256'].items():
-    if digest(ROOT/source)!=h:raise ValueError(f'Stale evidence: {n}/{source}')
+    verify_saved_file(ROOT,source,h)
   for m in METHODS:
    event(ev[n],m)
    if m in ['TMTM','ST-MTM','A'] and np.any(np.asarray(pos[n]['methods'][m]['per_frame'])+1e-8<pos[n]['bound_per_frame']):raise ValueError('Hierarchy bound violated: '+n+'/'+m)
@@ -50,7 +51,7 @@ def main():
    dm,dx=topo(n,m);p=pos[n]['methods'][m]['mean'];v=event(ev[n],m);row.extend([f'{100*p:.2f}',f'{100*dm:.2f}'])
    flat.append(dict(dataset=n,method=m,frames=pos[n]['frames'],order_error_mean_pct=100*p,point_bound_mean_pct=100*pos[n]['bound_mean'],merge_error_mean_pct=100*dm,merge_error_max_pct=100*dx,motion_clear_events=v['clear'],motion_error_pct=100*v['error'] if v['clear'] else None))
   rows.append(row)
- table(tabs/'tradeoff.tex','l'+'rr'*6,header,rows,'Reference-order alignment and scalar merge fidelity (\%; lower is better).','tab:tradeoff',r'$P$: mean width-free minimax error after optimal monotone calibration / reference extent; not achieved anchor displacement. $D$: mean framewise maximum tracked-extremum merge error / processed scalar range. Native and rendered baselines use actual scalar barriers; CD-MTM and packed sorting use optimal filling. The protocols differ as stated in the text.')
+ table(tabs/'tradeoff.tex','l'+'rr'*6,header,rows,'Reference-order alignment and scalar merge fidelity (\%; lower is better).','tab:tradeoff',r'$P$: mean width-free minimax error after optimal monotone calibration / reference extent; not achieved anchor displacement. $D$: mean framewise maximum tracked-extremum merge error / processed scalar range. Native and rendered baselines use actual scalar barriers; RG-MTM and packed sorting use optimal filling. The protocols differ as stated in the text.')
  rows=[]
  for n in PAPER_DATASETS:
   vals=[event(ev[n],m) for m in ['ST-MTM','A','R 20%']];count=vals[0]['clear'];dm,dx=topo(n,'R 20%')

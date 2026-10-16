@@ -1,7 +1,7 @@
 """Independent geometry, value preservation, and barrier semantics checks."""
 import unittest
 import numpy as np
-from cdmtm.baselines.space_filling import sample_order,linearize,inverse_order,merge_levels_on_line
+from rgmtm.baselines.space_filling import sample_order,linearize,inverse_order,merge_levels_on_line
 class SpaceFillingContract(unittest.TestCase):
  def test_morton_known_quadrant_order(self):
   np.testing.assert_array_equal(sample_order((4,4),'Morton'),[0,1,4,5,2,3,6,7,8,9,12,13,10,11,14,15])

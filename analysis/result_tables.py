@@ -7,13 +7,13 @@ sys.path.insert(0, str(ROOT / 'analysis'))
 import evaluation as ev
 import replicate as rp
 from pointcert import tau_pt
-from cdmtm.error_budget import leaf_orders
+from rgmtm.error_budget import leaf_orders
 from dataset_suite import PAPER_DATASETS
 
 METHODS = [('TMTM', 'TMTM'), ('ST-MTM', 'ST-MTM'), ('Hilbert', 'Hilbert'),
            ('Morton', 'Morton'), ('fixed-X anchored', 'Fixed-X'),
-           ('q-sort (packed)', 'Packed sort'), ('A', 'A (ours)'),
-           ('R 20%', r'R (ours), $\kappa=20\%$'), ('oracle q', 'Exact projection')]
+           ('q-sort (packed)', 'Packed sort'), ('A', 'RG-MTM-P (ours)'),
+           ('R 20%', r'RG-MTM-R (ours), $\kappa=20\%$'), ('oracle q', 'Exact projection')]
 
 
 def position_metrics(positions, references, hierarchies, extent):

@@ -14,7 +14,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import theory as th
-from cdmtm.error_budget import Parameters
+from rgmtm.error_budget import Parameters
 
 
 def binary(items):

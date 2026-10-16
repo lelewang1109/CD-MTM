@@ -1,7 +1,7 @@
 """Processed fields, compressed merge trees, and native support fragmentation."""
 import numpy as np
 from matplotlib.colors import ListedColormap
-from cdmtm.baselines import space_filling as sfc
+from rgmtm.baselines import space_filling as sfc
 import figstyle as fs
 from .catalog import evenly_spaced_frames
 

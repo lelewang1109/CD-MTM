@@ -17,7 +17,7 @@ import era5_expanded as ee
 import general_method as gm
 import relax_hierarchy as rh
 import theory as th
-from cdmtm.reference_points import reference_points_from_frames
+from rgmtm.reference_points import reference_points_from_frames
 
 
 def evaluate(season):

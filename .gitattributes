@@ -4,3 +4,5 @@
 # Generated vectors use multiline path coordinates with significant separators.
 results/visualizations/*.svg -diff whitespace=-blank-at-eol linguist-generated=true
 paper/pacificvis2027-restructured/figures/*.svg -diff whitespace=-blank-at-eol linguist-generated=true
+
+results/figures/*.svg -diff whitespace=-blank-at-eol linguist-generated=true

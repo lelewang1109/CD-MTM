@@ -1,0 +1,184 @@
+{
+  "dataset": "pm25",
+  "protocol": {
+    "source": "Local ST-MTM preprint, Section 5.2, PDF page 8",
+    "metrics": [
+      "SNS",
+      "TW",
+      "TD"
+    ],
+    "landmarks": "Unweighted leaf-arc support centroids, aligned to exact leaf IDs",
+    "display_positions": "Actual raster anchors, all methods on a fixed [0,1] full canvas per sequence",
+    "sns": "Frame mean of min_alpha sum(d_ij-alpha*abs(x_i-x_j))^2 / sum(d_ij^2), no square root",
+    "sns_eligibility": "n >= 2 and nonzero original pair distances; n >= 3 mean also reported",
+    "tw": "Standard rank-penalized trustworthiness; k=1 primary for every dataset/method",
+    "tw_eligibility": "0 < k < n/2; k=3 and k=5 secondary, only on eligible frames",
+    "ties": "Stable leaf-row order in both distance rankings; tied frames counted; no-tie sensitivity reported",
+    "td": "SUM of absolute matched-anchor displacement over consecutive frames, not an average",
+    "td_units": "Full-canvas widths (one fixed affine raster/canvas mapping per method/sequence); also common 2048-pixel units",
+    "td_caution": "Measures stability, not correctness of motion; compare methods within each dataset",
+    "parameters": "Existing main configurations unchanged: RG-MTM-R eligibility 0.2*scalar range; ST temporal settings retained",
+    "decision": "No universal acceptance threshold; report wins/ties/losses against each baseline without a combined score",
+    "excluded": "No runtime or publication-number replication claim; source preprint uses different preprocessing/resolution"
+  },
+  "methods": {
+    "TMTM": {
+      "raster_length": 2401,
+      "construction": "existing baseline runner",
+      "gauge": {
+        "scale": -1.0,
+        "shift": 116.51927327457959
+      }
+    },
+    "ST-MTM": {
+      "raster_length": 4096,
+      "construction": "existing baseline runner",
+      "gauge": {
+        "scale": -1.0,
+        "shift": 66.93854654915916
+      }
+    },
+    "RG-MTM-P": {
+      "raster_length": 4096,
+      "canvas_origin": 1.2219917146516257,
+      "canvas": 117.31120460655697,
+      "construction": "existing rh.run threshold policy"
+    },
+    "RG-MTM-R": {
+      "raster_length": 4096,
+      "canvas_origin": 1.2219917146516257,
+      "canvas": 117.31120460655697,
+      "construction": "existing rh.run threshold policy"
+    }
+  },
+  "results": [
+    {
+      "dataset": "pm25",
+      "method": "TMTM",
+      "frames": 30,
+      "features_min": 1,
+      "features_max": 5,
+      "SNS": 0.03856940125238075,
+      "SNS_frames": 25,
+      "SNS_n3": 0.08035291927579323,
+      "SNS_n3_frames": 12,
+      "TW1": 0.8020833333333334,
+      "TW1_frames": 12,
+      "TW3": null,
+      "TW3_frames": 0,
+      "TW5": null,
+      "TW5_frames": 0,
+      "TW1_no_ties": 0.8020833333333334,
+      "TW1_no_ties_frames": 12,
+      "distance_tie_frames": 0,
+      "TD": 2.6858333333333326,
+      "TD_common2048px": 5497.900833333332,
+      "matched_steps": 47,
+      "TD_per_match": 0.057145390070921974
+    },
+    {
+      "dataset": "pm25",
+      "method": "ST-MTM",
+      "frames": 30,
+      "features_min": 1,
+      "features_max": 5,
+      "SNS": 0.014819960803351365,
+      "SNS_frames": 25,
+      "SNS_n3": 0.030874918340315336,
+      "SNS_n3_frames": 12,
+      "TW1": 0.9895833333333334,
+      "TW1_frames": 12,
+      "TW3": null,
+      "TW3_frames": 0,
+      "TW5": null,
+      "TW5_frames": 0,
+      "TW1_no_ties": 0.9886363636363636,
+      "TW1_no_ties_frames": 11,
+      "distance_tie_frames": 1,
+      "TD": 1.0620268620268618,
+      "TD_common2048px": 2173.968986568986,
+      "matched_steps": 47,
+      "TD_per_match": 0.022596316213337485
+    },
+    {
+      "dataset": "pm25",
+      "method": "RG-MTM-P",
+      "frames": 30,
+      "features_min": 1,
+      "features_max": 5,
+      "SNS": 0.14430957686025236,
+      "SNS_frames": 25,
+      "SNS_n3": 0.30064495179219247,
+      "SNS_n3_frames": 12,
+      "TW1": 0.6194444444444446,
+      "TW1_frames": 12,
+      "TW3": null,
+      "TW3_frames": 0,
+      "TW5": null,
+      "TW5_frames": 0,
+      "TW1_no_ties": 0.6194444444444446,
+      "TW1_no_ties_frames": 12,
+      "distance_tie_frames": 0,
+      "TD": 6.28302808302808,
+      "TD_common2048px": 12861.35848595848,
+      "matched_steps": 47,
+      "TD_per_match": 0.13368144857506556
+    },
+    {
+      "dataset": "pm25",
+      "method": "RG-MTM-R",
+      "frames": 30,
+      "features_min": 1,
+      "features_max": 5,
+      "SNS": 0.11374699744985184,
+      "SNS_frames": 25,
+      "SNS_n3": 0.23697291135385803,
+      "SNS_n3_frames": 12,
+      "TW1": 0.5986111111111111,
+      "TW1_frames": 12,
+      "TW3": null,
+      "TW3_frames": 0,
+      "TW5": null,
+      "TW5_frames": 0,
+      "TW1_no_ties": 0.5986111111111111,
+      "TW1_no_ties_frames": 12,
+      "distance_tie_frames": 0,
+      "TD": 6.188034188034186,
+      "TD_common2048px": 12666.905982905977,
+      "matched_steps": 47,
+      "TD_per_match": 0.1316603018730678
+    }
+  ],
+  "reconstruction_checks": {
+    "TMTM": {
+      "stress": 0.0,
+      "jitter": 0.0,
+      "order_flip_rate": 0.0,
+      "nn_preservation": 0.0
+    },
+    "ST-MTM": {
+      "stress": 0.0,
+      "jitter": 0.0,
+      "order_flip_rate": 0.0,
+      "nn_preservation": 0.0
+    },
+    "RG-MTM-P": {
+      "stress": 0.0,
+      "jitter": 0.0,
+      "order_flip_rate": 0.0,
+      "nn_preservation": 0.0
+    },
+    "RG-MTM-R": {
+      "stress": 0.0,
+      "jitter": 0.0,
+      "order_flip_rate": 0.0,
+      "nn_preservation": 0.0
+    }
+  },
+  "input_sha256": {
+    "fields": "8ed03acd059375edcc7c6d130c7512d61cd749cc98c697ee2a976acbdb33e4ab",
+    "coords": "03a0709968de5c4307d0d78b1431b77fa39cffb9b07f02a705bab92dc861ae90"
+  },
+  "landmarks_sha256": "ca9f2f5502c35e88707bdf2aca9cf7348a33e20f6d1f928741726b1f2fae2e4f",
+  "seconds": 1.4761152910068631
+}

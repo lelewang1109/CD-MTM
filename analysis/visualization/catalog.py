@@ -12,8 +12,8 @@ class Method:
 METHODS = (
     Method('TMTM', 'TMTM', '#777777'),
     Method('ST-MTM', 'ST-MTM', '#56b4e9'),
-    Method('A', 'A', '#0072b2'),
-    Method('R 20%', 'R (κ=20%)', '#009e73'),
+    Method('A', 'RG-MTM-P', '#0072b2'),
+    Method('R 20%', 'RG-MTM-R', '#009e73'),
     Method('Hilbert', 'Hilbert', '#d55e00'),
     Method('Morton', 'Morton', '#cc79a7'),
 )

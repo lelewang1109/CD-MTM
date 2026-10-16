@@ -1,0 +1,845 @@
+{
+  "scope": "Naming/import/path and presentation migration only; historical evidence retains original hashes; no numerical rerun claimed",
+  "previous_name": "CD-MTM",
+  "current_name": "RG-MTM",
+  "package": "rgmtm",
+  "previous_commit": "5107aa1ab579ff3cf87e42e6569438e038c363c7",
+  "sources": {
+    "src/cdmtm/error_budget.py": {
+      "before_sha256": "5ce53150773d8058b0a50c7907f5133995a88ea8cc87defdd1e2b34bd80b82fa",
+      "after_path": "src/rgmtm/error_budget.py",
+      "after_sha256": "5ce53150773d8058b0a50c7907f5133995a88ea8cc87defdd1e2b34bd80b82fa",
+      "reverse_edits": []
+    },
+    "src/cdmtm/reference_anchored.py": {
+      "before_sha256": "a018dcff0b2991be6b8e46b64cd8f236f606a2de6d87120eca843e4a8883225e",
+      "after_path": "src/rgmtm/reference_guided.py",
+      "after_sha256": "4e59be569228b10bf9010f3c92bfcb683207e62af1e6af190dc5ef90d5bbb188",
+      "reverse_edits": [
+        [
+          0,
+          75,
+          "\"\"\"Certificate-Driven Merge Tree Maps: certified reference-anchored layouts.\n"
+        ],
+        [
+          498,
+          632,
+          "from cdmtm.error_budget import Parameters, solve_sequence, solve_frame\nfrom cdmtm.baselines.stmtm import DiscreteSkeleton, fill_frame\n"
+        ],
+        [
+          633,
+          696,
+          "NAME = 'CD-MTM'\nFULL_NAME = 'Certificate-Driven Merge Tree Maps'\n"
+        ]
+      ]
+    },
+    "src/cdmtm/__init__.py": {
+      "before_sha256": "699dd2810fd8e28cf1723fb8b19b1e405149917f6de702d6e6b8ca62c93cf404",
+      "after_path": "src/rgmtm/__init__.py",
+      "after_sha256": "000bccd81efeeb0618a5a310daec80a407eaf6f9e16db40445cb8046f8cb118e",
+      "reverse_edits": [
+        [
+          0,
+          64,
+          "\"\"\"Certificate-Driven Merge Tree Maps research implementation.\"\"\"\n"
+        ]
+      ]
+    },
+    "src/cdmtm/reference_points.py": {
+      "before_sha256": "b412afed9a03885591cd100754f69af1d28ad34ffd635df0a82e03b23b5ca0e7",
+      "after_path": "src/rgmtm/reference_points.py",
+      "after_sha256": "b412afed9a03885591cd100754f69af1d28ad34ffd635df0a82e03b23b5ca0e7",
+      "reverse_edits": []
+    },
+    "src/cdmtm/baselines/__init__.py": {
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_path": "src/rgmtm/baselines/__init__.py",
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reverse_edits": []
+    },
+    "src/cdmtm/baselines/stmtm.py": {
+      "before_sha256": "97a232bfbd6b4b7f8e0d125396a2a6d3619b5f661c106ded574c55d1c5be5f77",
+      "after_path": "src/rgmtm/baselines/stmtm.py",
+      "after_sha256": "97a232bfbd6b4b7f8e0d125396a2a6d3619b5f661c106ded574c55d1c5be5f77",
+      "reverse_edits": []
+    },
+    "src/cdmtm/baselines/space_filling.py": {
+      "before_sha256": "cf8116e153bb9d7abee12d80f36bd7b8005174ad92a54d5c590c4f5f9f670b4a",
+      "after_path": "src/rgmtm/baselines/space_filling.py",
+      "after_sha256": "cf8116e153bb9d7abee12d80f36bd7b8005174ad92a54d5c590c4f5f9f670b4a",
+      "reverse_edits": []
+    },
+    "src/cdmtm/baselines/tmtm.py": {
+      "before_sha256": "6e4afab614042ab798f904a8c1e6928bc50bb822840c6f9fc7f9d4f4e2188f73",
+      "after_path": "src/rgmtm/baselines/tmtm.py",
+      "after_sha256": "6e4afab614042ab798f904a8c1e6928bc50bb822840c6f9fc7f9d4f4e2188f73",
+      "reverse_edits": []
+    },
+    "analysis/conflict_strategies.py": {
+      "before_sha256": "12dcff57fe7b1ea637d1000e89aff32a38c365f7fd72e91edee1a6e910c85f13",
+      "after_path": "analysis/conflict_strategies.py",
+      "after_sha256": "00fc6cd54c39200cd515c0fa1f196447d163c28116f18a8aff3900e1d50d0b61",
+      "reverse_edits": [
+        [
+          1431,
+          1517,
+          "from cdmtm.error_budget import constraints, checked_lp, leaf_orders, InfeasibleLayout\n"
+        ]
+      ]
+    },
+    "analysis/general_method.py": {
+      "before_sha256": "2d35bef824816106e843718ceca1582fd58f8c1234a1a910534c6ce67e5af7e4",
+      "after_path": "analysis/general_method.py",
+      "after_sha256": "795d635133e987bb3e16c909134331730e6d1e34dc8428411628103ea4fa7a37",
+      "reverse_edits": [
+        [
+          1746,
+          1868,
+          "from cdmtm.error_budget import Parameters, solve_sequence\nfrom cdmtm.reference_points import reference_points_from_frames\n"
+        ]
+      ]
+    },
+    "analysis/boundary.py": {
+      "before_sha256": "e1d7a835c91d0c2cf3f6514dd4fa7e4460ea953c710b1088a0f38065bbf2fc5b",
+      "after_path": "analysis/boundary.py",
+      "after_sha256": "f525ef52897aa336d61113ffd33181e8e644cd0897f7b0b983c47dc841c889ae",
+      "reverse_edits": [
+        [
+          843,
+          907,
+          "from cdmtm.reference_points import reference_points_from_frames\n"
+        ]
+      ]
+    },
+    "analysis/persistence.py": {
+      "before_sha256": "8f75372146266179bf0886fed290965c086c01c0608cbb1171be5792decc1c85",
+      "after_path": "analysis/persistence.py",
+      "after_sha256": "1f7076753e97928575b143b5fe15de0fd152294d1d325c20b635e38b5a479003",
+      "reverse_edits": [
+        [
+          854,
+          918,
+          "from cdmtm.reference_points import reference_points_from_frames\n"
+        ]
+      ]
+    },
+    "analysis/result_tables.py": {
+      "before_sha256": "4d4c0e206eec6c37230499b275d464f7b17cfbc407306e020260f6f778ab368e",
+      "after_path": "analysis/result_tables.py",
+      "after_sha256": "ae1f9ac08669eb5c499955fb9f2f3a3eec98b56cb0096e79339d467e3a587f12",
+      "reverse_edits": [
+        [
+          316,
+          359,
+          "from cdmtm.error_budget import leaf_orders\n"
+        ],
+        [
+          542,
+          706,
+          "           ('q-sort (packed)', 'Packed sort'), ('A', 'A (ours)'),\n           ('R 20%', r'R (ours), $\\kappa=20\\%$'), ('oracle q', 'Exact projection')]\n"
+        ]
+      ]
+    },
+    "analysis/independent_scale.py": {
+      "before_sha256": "677f833d399b5d9f9c7b73f96172a6490e92d13d58d05b087c115f73dab336cc",
+      "after_path": "analysis/independent_scale.py",
+      "after_sha256": "e205f67f746f20db821c05a3e09222490df569f275cbce5543f832a81915c34e",
+      "reverse_edits": [
+        [
+          592,
+          656,
+          "from cdmtm.reference_points import reference_points_from_frames\n"
+        ]
+      ]
+    },
+    "analysis/task_reference.py": {
+      "before_sha256": "64e7b8acc8568bd8e4e762c1f5f3922b195c9aec190789cee6a661e9f0132646",
+      "after_path": "analysis/task_reference.py",
+      "after_sha256": "27131d3951a6b77a114afe3b92fb620b36ba330e1fde18d34c817554ad51c933",
+      "reverse_edits": [
+        [
+          515,
+          601,
+          "from cdmtm.error_budget import (Parameters, solve_frame, solve_sequence, constraints,\n"
+        ],
+        [
+          676,
+          791,
+          "from cdmtm.reference_anchored import render_sequence\nfrom cdmtm.reference_points import reference_points_from_frames\n"
+        ]
+      ]
+    },
+    "analysis/native_merge_errors.py": {
+      "before_sha256": "56b5ce2168a31ee18058fa1ac9f89f347ee61d2fb95554449e9cdbe7a92b025a",
+      "after_path": "analysis/native_merge_errors.py",
+      "after_sha256": "d2ff643779acc1496620bdf4994ee39dff300ce656865b806d4c15d4f0cc5f1d",
+      "reverse_edits": [
+        [
+          516,
+          689,
+          "from cdmtm.baselines.space_filling import merge_levels_on_line\nfrom cdmtm.error_budget import solve_sequence\nfrom cdmtm.reference_points import reference_points_from_frames\n"
+        ],
+        [
+          3453,
+          3603,
+          "              for f in [Path(__file__),ROOT/'experiments/era5.py',ROOT/'src/cdmtm/baselines/space_filling.py',ROOT/f'results/replicate_{name}.json']}\n"
+        ]
+      ]
+    },
+    "analysis/evaluation.py": {
+      "before_sha256": "877076083fd9cd8dd68bb4b991f59d01b62c0b647dda678581200188802bd7ff",
+      "after_path": "analysis/evaluation.py",
+      "after_sha256": "34860040a36348a3ee79d76d7fa52960e205b5b3843165667f458b1f5a54cc20",
+      "reverse_edits": [
+        [
+          2316,
+          2365,
+          "from cdmtm.baselines import space_filling as sfc\n"
+        ]
+      ]
+    },
+    "analysis/relax_hierarchy.py": {
+      "before_sha256": "5728905344a93c7c212ec30696e50318d6c849f91a346212c6d2eb82c860749a",
+      "after_path": "analysis/relax_hierarchy.py",
+      "after_sha256": "f855bf7eb13726c19e492f56317758c4d6da48ee1cc3a35c3a271a258f99e335",
+      "reverse_edits": [
+        [
+          1392,
+          1550,
+          "from cdmtm.error_budget import leaf_orders\nfrom cdmtm.reference_anchored import render_sequence\nfrom cdmtm.reference_points import reference_points_from_frames\n"
+        ]
+      ]
+    },
+    "analysis/datasets_extra.py": {
+      "before_sha256": "e60f3cf4537271727a47537c9c29f4d7d5e9273bd3f48f9ff298935623a0d45d",
+      "after_path": "analysis/datasets_extra.py",
+      "after_sha256": "efd9bc85e5f0884f631a917a2415a4e2781d39c59fe0bdebfaeb0e0c040cb4fc",
+      "reverse_edits": [
+        [
+          2697,
+          2740,
+          "    from cdmtm.baselines import tmtm as b1\n"
+        ]
+      ]
+    },
+    "analysis/paper_figs.py": {
+      "before_sha256": "448511aa0b1a3606e927aad556d037b3c0a45d409e6c5db22e068eca96d242a8",
+      "after_path": "analysis/paper_figs.py",
+      "after_sha256": "e86e0bc4023e3d16c84a9c932b811f79476f4cdd12795d3cdc73befdbb46f357",
+      "reverse_edits": [
+        [
+          578,
+          621,
+          "from cdmtm.error_budget import leaf_orders\n"
+        ]
+      ]
+    },
+    "analysis/stmtm_grid.py": {
+      "before_sha256": "11a7f3725acf2386181cc76d4e677192198083b07a30f1a64109fbfb33ba2b57",
+      "after_path": "analysis/stmtm_grid.py",
+      "after_sha256": "7adf9e4f56c241634bfe065621244435e6e8f7299448b71ce915a040d058d943",
+      "reverse_edits": [
+        [
+          680,
+          744,
+          "from cdmtm.reference_points import reference_points_from_frames\n"
+        ]
+      ]
+    },
+    "analysis/robustness.py": {
+      "before_sha256": "792c99c052e933c9ac23b2ab18abdfe331f527504aeb89b88989cedfc6565a45",
+      "after_path": "analysis/robustness.py",
+      "after_sha256": "54e17420f1af12c8fdbb61c0337329cd1e30b9e71a1aeaabb1d000a2ded5e62c",
+      "reverse_edits": [
+        [
+          478,
+          542,
+          "from cdmtm.reference_points import reference_points_from_frames\n"
+        ]
+      ]
+    },
+    "analysis/era5_arco_expanded.py": {
+      "before_sha256": "017ab1f7395f376bde35363fce56038837300ec2b18aded9f2069ff613914ae7",
+      "after_path": "analysis/era5_arco_expanded.py",
+      "after_sha256": "3ef3605248100931137a81cc166e925e1fce219e75a4212b8ea633b8f188da0c",
+      "reverse_edits": [
+        [
+          2561,
+          2653,
+          "        nc.source = URL; nc.note = 'expanded-domain 12-hourly subset for CD-MTM evaluation'\n"
+        ]
+      ]
+    },
+    "analysis/pointcert.py": {
+      "before_sha256": "b70294f6c56eb82f5470f2eff8638218dcb9381993946695ff555bcab219645e",
+      "after_path": "analysis/pointcert.py",
+      "after_sha256": "dc4894ce3b1dcae0c602ff98b08260c452a94b2fd882a66d589892bc611e8888",
+      "reverse_edits": [
+        [
+          1098,
+          1141,
+          "from cdmtm.error_budget import leaf_orders\n"
+        ]
+      ]
+    },
+    "analysis/benchmark_degree.py": {
+      "before_sha256": "48bb8fc5e1a9ab8f351ace52fdcf223cf7a4b0891ba944f0424200fa901b22b5",
+      "after_path": "analysis/benchmark_degree.py",
+      "after_sha256": "99403307b2725f6debeb079c7df58dd801c3c5359c1d7055c90d8645dfe67c13",
+      "reverse_edits": [
+        [
+          472,
+          514,
+          "from cdmtm.error_budget import Parameters\n"
+        ]
+      ]
+    },
+    "analysis/figstyle.py": {
+      "before_sha256": "3ae072b0b068e8217b5c4f1a55c7e37fe2bd71661d535fcb291d7cb81634be2a",
+      "after_path": "analysis/figstyle.py",
+      "after_sha256": "8adec1ca06972d454d68d58e31802dca19b111b1d3e80e6a5e4ec4b14ea5c823",
+      "reverse_edits": [
+        [
+          830,
+          858,
+          "    'cdmtm_blue_white_red',\n"
+        ]
+      ]
+    },
+    "analysis/misreading.py": {
+      "before_sha256": "4ac3b329d8f045c1e1e8fd8d04e605075d361111570d84d33a6b87c0f40e525e",
+      "after_path": "analysis/misreading.py",
+      "after_sha256": "f0ebace132511eb4f704e7c84361e11eaaa05321cb4874b26fbb10c4be67201c",
+      "reverse_edits": [
+        [
+          1493,
+          1603,
+          "from cdmtm.error_budget import solve_sequence\nfrom cdmtm.reference_points import reference_points_from_frames\n"
+        ]
+      ]
+    },
+    "analysis/generality.py": {
+      "before_sha256": "81ffa42c959ddc90804ea5de37397d64eaaf1395d86a52529b52b1af8eaba8dc",
+      "after_path": "analysis/generality.py",
+      "after_sha256": "db1b1de110fdd20376b7408e9b6168732b406ec19708539943dbaa4be2967591",
+      "reverse_edits": [
+        [
+          998,
+          1040,
+          "from cdmtm.error_budget import Parameters\n"
+        ]
+      ]
+    },
+    "analysis/era5_arco.py": {
+      "before_sha256": "86e3cb8622d827e6af072b5a2142f89dd74b16b17d56f238b34e5d34e68f0612",
+      "after_path": "analysis/era5_arco.py",
+      "after_sha256": "41d88ad5710d440f0e2aa40664d6818576e36ac75c976cbdda53a9e5fecbab11",
+      "reverse_edits": [
+        [
+          2680,
+          2792,
+          "        nc.source = URL; nc.note = '12-hourly subset for CD-MTM evaluation; not byte-identical to the CDS file'\n"
+        ]
+      ]
+    },
+    "analysis/visualization/catalog.py": {
+      "before_sha256": "886da15c8c7a7f198245e3cc16d6cf726ac9eebfd27bc11c1a3cf0e63cbffaa0",
+      "after_path": "analysis/visualization/catalog.py",
+      "after_sha256": "b63d0a142b586cd2f99782278ce901e962c853a8d9fcf1987f451fa765023124",
+      "reverse_edits": [
+        [
+          291,
+          375,
+          "    Method('A', 'A', '#0072b2'),\n    Method('R 20%', 'R (κ=20%)', '#009e73'),\n"
+        ]
+      ]
+    },
+    "analysis/visualization/rendering.py": {
+      "before_sha256": "edec1d5818bee9a1e0163ec9a9ab78317d5a31faccb294d3fdd2d6cc9995a308",
+      "after_path": "analysis/visualization/rendering.py",
+      "after_sha256": "bb493b94c93852be25d415fc90b6902cc5618fc86c6d134308809c883ca0e1b0",
+      "reverse_edits": [
+        [
+          2602,
+          2655,
+          "    from cdmtm.baselines import space_filling as sfc\n"
+        ]
+      ]
+    },
+    "analysis/visualization/spatial.py": {
+      "before_sha256": "71e751590d1c8edf0519b9b11703e9d19f376f32496728e6140c8bc44096843a",
+      "after_path": "analysis/visualization/spatial.py",
+      "after_sha256": "c05b432248d5e28cbf044be8a643ec4c2ec607cd7e0cc71f9be50a63e2c0b941",
+      "reverse_edits": [
+        [
+          146,
+          195,
+          "from cdmtm.baselines import space_filling as sfc\n"
+        ]
+      ]
+    },
+    "analysis/visualization/gallery.py": {
+      "before_sha256": "0bc022184a845c25ccb0b2183429c548e05f5a4ea332475b50f8f20b0ebe4ae2",
+      "after_path": "analysis/visualization/gallery.py",
+      "after_sha256": "990da982a14326dbb9a297984d9330280f838ce09db87f0990877b211ad38584",
+      "reverse_edits": [
+        [
+          3385,
+          3475,
+          "    matplotlib.rcParams.update({'svg.fonttype': 'none', 'svg.hashsalt': 'cdmtm-gallery'})\n"
+        ],
+        [
+          5322,
+          5440,
+          "        'Six methods: TMTM, ST-MTM, A, R (κ=20%), Hilbert, Morton. Main PM2.5: January 1–30, 2000, '\n"
+        ]
+      ]
+    },
+    "experiments/era5.py": {
+      "before_sha256": "117cd70db12decb63beea688dde571fb35987b8d980d260435d74c12da883932",
+      "after_path": "experiments/era5.py",
+      "after_sha256": "892a08702f89740eb178b7432b46c62e0d3bd2cb02b0527605a52d607ccf1801",
+      "reverse_edits": [
+        [
+          678,
+          849,
+          "from cdmtm.baselines import tmtm as b1, stmtm as b2\nfrom cdmtm.error_budget import Parameters, solve_frame, leaf_orders\nfrom cdmtm.reference_anchored import render_sequence\n"
+        ],
+        [
+          3502,
+          3681,
+          "                'experiments/era5.py','src/cdmtm/error_budget.py','src/cdmtm/reference_anchored.py',\n                'src/cdmtm/baselines/tmtm.py','src/cdmtm/baselines/stmtm.py']},\n"
+        ]
+      ]
+    },
+    "experiments/publication2027/package.py": {
+      "before_sha256": "00dfc1ad398b271d01d0356a9b0e7f2e3831988a7f03ee4270280670fb59fd2d",
+      "after_path": "experiments/publication2027/package.py",
+      "after_sha256": "bd20072baed20c2e351581cf3ddd028d1630b6df1c55e115ba18aca6239ef1f3",
+      "reverse_edits": [
+        [
+          0,
+          80,
+          "\"\"\"Package editable manuscript and reproducible code/evidence without raw data.\"\"\"\n"
+        ],
+        [
+          105,
+          240,
+          "import hashlib,json,shutil,zipfile\nROOT=Path(__file__).resolve().parents[2];PAPER=ROOT/'paper/pacificvis2027-restructured';OUT=ROOT/'output/pdf'\n"
+        ],
+        [
+          253,
+          2050,
+          " OUT.mkdir(parents=True,exist_ok=True)\n for src,name in [('main.pdf','CD-MTM-PacificVis2027.pdf'),('supplement.pdf','CD-MTM-PacificVis2027-supplement.pdf')]:\n  shutil.copy2(PAPER/'build'/src,OUT/name)\n source_files=[p for p in PAPER.rglob('*') if p.is_file() and 'build' not in p.parts and p.suffix in ['.tex','.bib','.cls','.bst','.pdf','.png','.svg','.md']]\n source_zip=PAPER/'latex_sources.zip'\n with zipfile.ZipFile(source_zip,'w',zipfile.ZIP_DEFLATED) as z:\n  for p in sorted(source_files):z.write(p,p.relative_to(PAPER))\n shutil.copy2(source_zip,OUT/'CD-MTM-PacificVis2027-LaTeX.zip')\n manifest=json.loads((ROOT/'results/publication2027/manifest.json').read_text())\n files=set()\n for folder in ['src','analysis','experiments','tests','tools']:\n  files.update(p for p in (ROOT/folder).rglob('*') if p.is_file() and p.suffix in ['.py','.md','.json','.xml'] and '__pycache__' not in p.parts)\n for rec in manifest['records']:files.add(ROOT/rec['source'])\n for rec in manifest['figures']:files.add(ROOT/rec['source'])\n for folder in ['results/publication2027','paper/pacificvis2027-restructured']:\n  files.update(p for p in (ROOT/folder).rglob('*') if p.is_file() and 'build' not in p.parts and p.suffix!='.zip')\n for name in ['README.md','pyproject.toml','data/README.md','notes/research-restructure-20261013.md','notes/layout-optimization-20261014.md','notes/archive/update_paper_evidence_legacy.txt']:\n  files.add(ROOT/name)\n files.update(p for p in (ROOT/'data/geo').glob('*') if p.is_file())\n bundle=OUT/'CD-MTM-PacificVis2027-code-results.zip'\n with zipfile.ZipFile(bundle,'w',zipfile.ZIP_DEFLATED) as z:\n  for p in sorted(files):z.write(p,Path('CD-MTM')/p.relative_to(ROOT))\n artifacts={p.name:dict(bytes=p.stat().st_size,sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in OUT.iterdir() if p.name.startswith('CD-MTM-PacificVis2027')}\n (OUT/'delivery_manifest.json').write_text(json.dumps(artifacts,indent=2)+'\\n')\n print('Packaged PDFs, standalone LaTeX, and reproducible code/results bundle.')\nif __name__=='__main__':main()\n"
+        ]
+      ]
+    },
+    "experiments/publication2027/build.py": {
+      "before_sha256": "aacddb69565c1f9cb839189996be636040abb480f1bcb1e9440e47cf072cfec1",
+      "after_path": "experiments/publication2027/build.py",
+      "after_sha256": "9f46f7399d9684cc47fab3e9b6157b25f8cc171faea3fbcd8981f08dba37e704",
+      "reverse_edits": [
+        [
+          304,
+          345,
+          ""
+        ],
+        [
+          600,
+          715,
+          "LABELS=dict(zip(METHODS,['TMTM','ST-MTM','Hilbert','Morton','Packed sort','CD-MTM (tree kept)',r'CD-MTM, $\\kappa=20\\%$']))\n"
+        ],
+        [
+          2386,
+          2423,
+          "    if digest(ROOT/source)!=h:raise ValueError(f'Stale evidence: {n}/{source}')\n"
+        ],
+        [
+          4771,
+          5273,
+          " table(tabs/'tradeoff.tex','l'+'rr'*6,header,rows,'Reference-order alignment and scalar merge fidelity (\\%; lower is better).','tab:tradeoff',r'$P$: mean width-free minimax error after optimal monotone calibration / reference extent; not achieved anchor displacement. $D$: mean framewise maximum tracked-extremum merge error / processed scalar range. Native and rendered baselines use actual scalar barriers; CD-MTM and packed sorting use optimal filling. The protocols differ as stated in the text.')\n"
+        ]
+      ]
+    },
+    "experiments/publication2027/layout_figures.py": {
+      "before_sha256": "b09f091d77590a1db45d80c89087bd0153748a0ff54db7157425c675bb438f2f",
+      "after_path": "experiments/publication2027/layout_figures.py",
+      "after_sha256": "db71caa710204c68aa185db065e816e48ad65c44ee3256078c9ecb402c8277ba",
+      "reverse_edits": [
+        [
+          521,
+          562,
+          ""
+        ],
+        [
+          3937,
+          4014,
+          " for source,h in m['source_sha256'].items():assert sha(ROOT/source)==h,source\n"
+        ],
+        [
+          7466,
+          7563,
+          "  top.set_title('(b) Tree kept: displaced anchors' if mode=='A' else '(c) Relaxed: scalar cost disclosed')\n"
+        ],
+        [
+          11754,
+          12377,
+          " handles=[Patch(color=c,label=l) for c,l in zip(COLS,['ST-MTM','Tree kept','Relaxed'])]+[Line2D([0],[0],marker='o',color=COLS[0],ls='none',ms=3,label='vs ST-MTM'),Line2D([0],[0],marker='s',color=COLS[1],ls='none',ms=3,label='vs tree kept'),Line2D([0],[0],marker='o',color=fs.BLUE,ls='none',ms=3,label='mean cost'),Line2D([0],[0],marker='D',color=fs.CORAL,ls='none',ms=3,label='max cost')]\n fig.legend(handles=handles,loc='lower center',ncol=7,frameon=False,bbox_to_anchor=(.5,-.005),columnspacing=.8,handlelength=1)\n fig.subplots_adjust(left=.145,right=.985,top=.84,bottom=.28,wspace=.25);save(fig,'fig_motion_scalar_cost')\n"
+        ],
+        [
+          14157,
+          14325,
+          "   e=event(ev,name,'A' if mode=='A' else 'R 20%');ax.set_title(f'{\"Tree kept\" if mode==\"A\" else \"Relaxed\"}: {round(e[\"error\"]*e[\"clear\"])}/{e[\"clear\"]} errors*',pad=3)\n"
+        ],
+        [
+          14793,
+          15071,
+          " ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--prepare',action='store_true');args=ap.parse_args();OUT.mkdir(exist_ok=True);DATA.mkdir(parents=True,exist_ok=True);fs.apply();plt.rcParams.update({'svg.fonttype':'none','svg.hashsalt':'cdmtm-layout-20261014'})\n"
+        ]
+      ]
+    },
+    "experiments/publication2027/bisector_control.py": {
+      "before_sha256": "73b6f12a499a58ad9442a6674a5d14da7744f53d6bc164d905b3175d6f0191ce",
+      "after_path": "experiments/publication2027/bisector_control.py",
+      "after_sha256": "3c762341c9664b60de13f766b910c127e4fa3cd5d8f92bbfde80f17ab9a0c19b",
+      "reverse_edits": [
+        [
+          337,
+          464,
+          "from cdmtm.reference_points import reference_points_from_frames\nfrom cdmtm.baselines.space_filling import merge_levels_on_line\n"
+        ],
+        [
+          3429,
+          4236,
+          "report={'dataset':name,'reference_axis':axis,'frames':T,'kind':kind,'scalar_range':float(np.ptp(sc['fields'])),'reference_origin':a,'reference_extent':L,'reference_direction':arrays['direction'].tolist(),'cap_fraction':.2,'calibration':'Baselines receive their best single affine minimax calibration to reference coordinates over the whole sequence, including one global reflection; no framewise fitting. CD-MTM uses its native reference coordinates.','methods':{},'spatial_resolution':241,'grid_pitch':.5,'analytic_B_centres':ds['meta']['B'].tolist(),'sampling_note':'Same fields and algorithms as diagonal control, spatial grid refined from 61x61 to 241x241. Reference and reported anchors use sampled extrema, not smoothed display paths.'}\nfor key,method in [('T','TMTM'),('S','ST-MTM'),('R','CD-MTM')]:\n"
+        ],
+        [
+          8836,
+          9164,
+          "selected=63;report['selected_frame']=selected;report['selection_rule']='Final mirror endpoint. Original generic rule unused: Maximum ST-MTM-minus-CD-MTM achieved position-error gain among 3-leaf conflict frames with ST-MTM stress below TMTM and CD-MTM position error below ST-MTM. If none, maximize gain among conflict frames.'\n"
+        ],
+        [
+          9280,
+          9602,
+          "report['selected']={m:{'position_pct':float(100*arrays['pos'+k][selected]),'extremum_stress':float(arrays['stress'+k][selected]),'centroid_stress':float(arrays['cstress'+k][selected]),'merge_error_pct':float(100*arrays['delta'+k][selected]/report['scalar_range'])} for k,m in [('T','TMTM'),('S','ST-MTM'),('R','CD-MTM')]}\n"
+        ]
+      ]
+    },
+    "experiments/publication2027/validate.py": {
+      "before_sha256": "1329dc0fecd785dc9595acc7b4070cbfdc4bcc5d5076ace75c2c0e8547ef9093",
+      "after_path": "experiments/publication2027/validate.py",
+      "after_sha256": "19d24df21aa7781d5481215fa01c81b033f49db984e804a373354221bf07043c",
+      "reverse_edits": [
+        [
+          106,
+          251,
+          "import argparse,hashlib,json\n"
+        ],
+        [
+          853,
+          926,
+          " for name,h in m['source_sha256'].items():assert digest(ROOT/name)==h,name\n"
+        ],
+        [
+          1298,
+          1399,
+          "  for source,source_hash in meta['source_sha256'].items():assert digest(ROOT/source)==source_hash,source\n"
+        ]
+      ]
+    },
+    "experiments/publication2027/supplement_tables.py": {
+      "before_sha256": "441ad0dcfa4bca755762fca77c8a9683f580d3c2fdd0289cea5c3d4dbc6f31d8",
+      "after_path": "experiments/publication2027/supplement_tables.py",
+      "after_sha256": "924f1c049cb1315e0d64ece01a2a0cd9e6504e9211d845396b79d539a67c2a3c",
+      "reverse_edits": [
+        [
+          988,
+          1123,
+          " labels={'A':'CD-MTM tree kept','R 20%':'CD-MTM relaxed','q-sort (packed)':'Packed sort','fixed-X anchored':'Fixed X','oracle q':'Exact projection'}\n"
+        ]
+      ]
+    },
+    "experiments/publication2027/domain_filling_figures.py": {
+      "before_sha256": "ae66970c195f0b6ec76c1b361732508c7b93ba4e1eaefa3067af1dd4770a778b",
+      "after_path": "experiments/publication2027/domain_filling_figures.py",
+      "after_sha256": "69b504a7252ef7ac87dd422e1e0e3c721930c9c616c723b1d4a60aa180ff3731",
+      "reverse_edits": [
+        [
+          164,
+          266,
+          "Run from CD-MTM: PYTHONPATH=src:analysis python experiments/publication2027/domain_filling_figures.py\n"
+        ],
+        [
+          581,
+          678,
+          "from cdmtm.baselines.stmtm import AugmentedMergeTreeFrame, TreeArc, DiscreteSkeleton, fill_frame\n"
+        ],
+        [
+          4753,
+          4814,
+          "    from cdmtm.baselines.stmtm import _alternating_positions\n"
+        ],
+        [
+          15924,
+          16023,
+          "    plt.rcParams.update({'svg.fonttype': 'none', 'svg.hashsalt': 'cdmtm-domain-filling-20261014'})\n"
+        ],
+        [
+          16407,
+          16461,
+          "               ROOT / 'src/cdmtm/baselines/stmtm.py']\n"
+        ]
+      ]
+    },
+    "tools/build_supplement.py": {
+      "before_sha256": "281708ea6801a9bff5f35cb55958bff0f8c2fdfd65efd02d093c83ba267e24d0",
+      "after_path": "tools/build_supplement.py",
+      "after_sha256": "3bef26960f7ddf0f3ab7e4049b787d6fccf4c9f5a9a008da8f594e8a3c0e821d",
+      "reverse_edits": [
+        [
+          3425,
+          3512,
+          "        \"scope\": \"PacificVis 2027 CD-MTM anonymous source and selected final results\",\n"
+        ]
+      ]
+    },
+    "tools/build_nofigure_paper_tables.py": {
+      "before_sha256": "31d9fcaa8d9d5136a587ba544c4263e038d837b420fc2a6409308ead1f1675e2",
+      "after_path": "tools/build_nofigure_paper_tables.py",
+      "after_sha256": "79fc7cc153ec0ea7f9cd6a18e2b0196e8961458607e692efb6a5dc1221b74aa0",
+      "reverse_edits": [
+        [
+          133,
+          277,
+          "C=Path(__file__).resolve().parents[1];P=C/'paper/pacificvis2027-no-figures';D=C.parents[1]/'02_论文/优化说明';D.mkdir(parents=True,exist_ok=True)\n"
+        ]
+      ]
+    },
+    "tools/evaluate_public_metrics.py": {
+      "before_sha256": "860e1ee69b0d9eadfc14221307d1b39bb3ffbd0eb0871c63ab62c3d0b0ef8f7f",
+      "after_path": "tools/evaluate_public_metrics.py",
+      "after_sha256": "2ccdce51108cb84381d0f1ede9a342498af23e0246aead83381f0ffdc45ead4a",
+      "reverse_edits": [
+        [
+          700,
+          804,
+          "from cdmtm.baselines import stmtm as b2\nfrom cdmtm.reference_points import reference_points_from_frames\n"
+        ]
+      ]
+    },
+    "tools/build_revision_materials.py": {
+      "before_sha256": "6c1d45de81eb2102926d5be00206b38d2e69a895234408ba78163af634a745e9",
+      "after_path": "tools/build_revision_materials.py",
+      "after_sha256": "b4637171d177fdace3ba1eea4f521ddf08b6b7cf1c5f71aee961df15873c199a",
+      "reverse_edits": [
+        [
+          6280,
+          6561,
+          "parts.append(table(['Persistence cutoff \\\\%','Removed leaves \\\\%','Mean leaves','Conflict \\\\%'],rows,'ERA5 persistence simplification. The cutoff is normalized by processed scalar range. This experiment removes extrema, whereas CD-MTM relaxation retains them.','tab:persistence'))\n"
+        ]
+      ]
+    },
+    "tests/test_space_filling.py": {
+      "before_sha256": "1e8d9826b1bbf05c281d7829292c7203d1a84aee42d862444b62eff2f3663f25",
+      "after_path": "tests/test_space_filling.py",
+      "after_sha256": "718b2946cd27c7f39836e8a7ec7874eb716e2a660416d1ef499032573848409a",
+      "reverse_edits": [
+        [
+          113,
+          213,
+          "from cdmtm.baselines.space_filling import sample_order,linearize,inverse_order,merge_levels_on_line\n"
+        ]
+      ]
+    }
+  },
+  "protected_result_sha256": {
+    "results/replicate_ring.json": "757ba6d219d5df4714869f13b2fed8f3a467b949f3bdc9f8adac000c4194eec2",
+    "results/attainable_pm25.json": "7d5befd9e1f5424a5f6dfa8e57e2549f3de8c91a94ee7565d204729ceab47613",
+    "results/protocol_olr.json": "5dabd44dae11e27ee42c2348b378a0f967d726fbc779ed04b512ddd7489ff0dc",
+    "results/replicate_pm25_oct.json": "6ae3c3c3a5f79f29f358479b0289f7d27b3700185669149ba13fe1cb341c153d",
+    "results/replicate_pm25_jan.json": "81ff39df2f8dad23bffb6b9cf64155f3450f0c38f08735be66ef93b5d64b0746",
+    "results/attainable_wildfire.json": "6a2fb2a4da5f67bcd962d0692780a1ca16e3646272e5142a515ce6fc828ece68",
+    "results/protocol_pm25_jul.json": "b2a7214f28ca2da24b27caef03d42fd4079d1797acc1d4aa5deee9e785324374",
+    "results/attainable_pm25_oct.json": "0b6793debb8bdc92dea2794340d5d6752bd5424c6cf4660ffe65205688efe867",
+    "results/attainable_pm25_jan.json": "29f954954d48f62cb066bf1754f620ee5cb6de802e9eb63fd38979f8ca177fd8",
+    "results/replicate_wildfire.json": "71eca5d9fa07d8d6b52ea9ca168c0e66c02ed0cf15124a8fb3f1705a951e1ae9",
+    "results/attainable_era5.json": "241a8cc451024eb988030815d85e5978f61d145bce6fa268ddf80ca68bf54342",
+    "results/pm25_season_protocol.json": "507997840dc5e46b566894f644ffc40a9ddaa5dff3c56017aceaf7ffad7c3604",
+    "results/filling.json": "21391204df5994165010abeb3c5079b4a7f847118fae2edb6dcc2ac17f92307c",
+    "results/native_merge_errors.json": "d831054f59b3647fab439ee7b6f543dcd20fc2c3f50ce49e7e605ee4802d984d",
+    "results/pointcert.json": "6c0be294b3d211680865566047afa50fd6fe0d355c9e30f78f993e46ce137e3a",
+    "results/misreading_sensitivity.json": "c026e7fb6299a382eb4254903170a2d7c4703f8f513632782882ad363960666f",
+    "results/final_performance.json": "af9be2b5e38d148f3b7875e07bff62a802de3fa97ed68b743109563cb149f2e9",
+    "results/relax_tradeoff.json": "b5987fb1ba429951b00bb20ed15744a7569d938224aec60ab45d15d4052dff38",
+    "results/attainable_gaussians.json": "2f498f867cd849d52103be4e11ee1683a9e4e52dee64859c9cdbc1fa1a63cc84",
+    "results/misreading.json": "bbec2de299f68dcb36b2249f9ff8000470e0f8b2140e67434025455790aaaddb",
+    "results/method_performance_audit.json": "af2167dc89585f0fd9fb2b1764b19a2d718b2c48f6e61b75dab5d81deb3210db",
+    "results/frontier.json": "82bff68ba57e14836b4875a4f72555e72375ce67d4c005298e97affada203617",
+    "results/eval_projection.json": "f70a343b68ac04531d12480f8e043587b8dd7715ab752b5fd7c4c081d8836cda",
+    "results/quality.json": "a93b58ea090b2f01d92df03ed4660fdc2dc7930dcb4997276cbb181ab8aa1f07",
+    "results/robustness.json": "40b9a9e1056245f986f06d16c36ec0eba1a41f2b2df0295dc2916a20560a7f31",
+    "results/witness.json": "89ec57c968e60c65bdd1a8924339fed118422d4bf5864ceef17c3e2c05c2337f",
+    "results/protocol_pm25_jan.json": "5308a8176d0f2f94fbc5f80b0f587a34d776ccc0394e50453954d4a45211a989",
+    "results/protocol_pm25_oct.json": "98a245b8a3bc1c4c6f745ed3788ad8f10059b649dbe145ad0147e914a1715df2",
+    "results/attainable_pm25_jul.json": "0102de11109b73e5c79a99df7475cc1beb31739734c1117d39ca3e0252b10dd1",
+    "results/final_performance.csv": "b92f511c69032fa94156d8ae933d6da835d5c316cde9e4847c21c72de3deb65b",
+    "results/replicate_pm25_jul.json": "e3f2db82f833e3e53742f310727f101b0365dffd5e2ba88872c72da73539c67d",
+    "results/attainable_olr.json": "55e624effce24294b3d5649f77de02764d80fda1ed6297a73e7ef102f44abdbc",
+    "results/revision_materials_manifest.json": "f80d1b573477c0e26d278bde7ac18d1f90557922c463943950f89a071d3cfe72",
+    "results/attainable_pm25_apr.json": "fa17fd82cc85b0bfbca9be9e6beec814a2a83c864a9d6889bebe83cde43c7770",
+    "results/topological_case_step48.json": "b2636e646dc133a31c7faec46e3be8b501ae6d98f11bfa4f70f6000860fb9d44",
+    "results/source_pm25_doi.json": "82789b06acdf55f9fb4e5817667be9da6edf7bc0237f34fb3d455ffa3ade9efb",
+    "results/sensitivity.json": "f6d35c06f169209d78de902c42776b814372385b23618ad3ee5d19cc90a15ee3",
+    "results/revised_paper_evidence.json": "9217f4fdb93c2e68ce6a8ea444ee86dd5566cf3f17b7494a64e89053b29e4443",
+    "results/protocol_pm25.json": "b4b00b52c56fb992daadf9842789f41f1ba3cc6c6b9318eaff63166016896e1c",
+    "results/dendrogram_demo.json": "6fc9e882f9806979f32c40fb1b06e8a21e5e4e6210c4a7216f11563d7be27f37",
+    "results/paper_stats.json": "7c3dc8110263196e43c28fe429d93f948e4cbf002d9c24f8feacd70dd4785d5d",
+    "results/replicate_pm25_apr.json": "d611d9837d2a8ca5ae6146281dfc47a9c031d916dbe4f3b7d6da5dc7464be977",
+    "results/sfc_baseline_protocol.json": "16e10a3995ac9c5e6b921ad305410ff6e5cecd1504f63fa9eb7ccff4bcad6a44",
+    "results/replicate_era5.json": "b03e03ad1c1e2f70b7c5c0080e0075fe79ee11c910d25f450ea49f14b9d84562",
+    "results/independent_scale.json": "144c95707628595650c8a0e4a181df9172f5d684467885148b6f30258c04bd5c",
+    "results/stmtm_grid.json": "4d81f0d5041b2bdc552c3af80ad4166b3a94e20ef24928710e7967c300c03cb8",
+    "results/benchmark_degree.json": "27f761bea236f59969659cc05cb909c0ff4d2d867370924af217f8a25abda8e2",
+    "results/boundary.json": "ded6dee93e2fe8854299c7ef9bd442451e5bc1b0c55016d93a23050eebc91900",
+    "results/generality.json": "7296627d49cfa0682095ff1c1470e6f4e72f061c0fdf56b81ddcf3ade0862462",
+    "results/attainable_ring.json": "87d9a77042f96407b191fc4e1b3c8c9bdf085e49d68819304d9843e1c463b515",
+    "results/replicate_gaussians.json": "902dfb4fcbcc78a4a48e470b4ae966bc8ccbe803ba39e7ebe2c1604f4c12a336",
+    "results/replicate_pm25.json": "8f80c03aeb7be4f6ce0c6b1d15414f574e23707cfe931865ccc1bec0e3c2b9fc",
+    "results/protocol_pm25_apr.json": "fdd448a60c92acba4c47cee34728f8ac427b3bceb2561e7ac884374592eef3e5",
+    "results/persistence.json": "76bf7cc5d927de004812a23a760c56a61dc812d7c1eb006f1f23c6df6564ede5",
+    "results/replicate_olr.json": "b767adcf8cb8f051547b10ae69665d1d0be0ae198a74dca91255d0a1d714be7c",
+    "results/archive/pm25_janfeb/robustness_pm25.json": "db1c83403a116b2f6d283c0d4e6ee29aa0b5722a678be952acefdeb90ccd3acb",
+    "results/archive/pm25_janfeb/attainable_pm25.json": "d489ac6f6be97e6d92ee6419a5e95f7126abc9723f45e08c262b9959b768da85",
+    "results/archive/pm25_janfeb/persistence_pm25.json": "8bc7d315ccfd2c22765f87aa94cfc214c640f769d55a4235c33f881c4975d4b1",
+    "results/archive/pm25_janfeb/filling_pm25.json": "5e4361abc5fcf540a71ee978b6322d4f4929ed0d5e5efab994dd2ac5c5a7bc2c",
+    "results/archive/pm25_janfeb/pointcert_pm25.json": "091bad0e8ac7568ff0e99499f351b7dc08faab2c25c506ae6c538474ba122462",
+    "results/archive/pm25_janfeb/eval_projection_pm25.json": "6145fce85b37e0f1e4f890d405f29fd7023b45159d60b089cd6b50b79f7184bd",
+    "results/archive/pm25_janfeb/protocol_pm25.json": "7f22c518a630f7c65d9f896c85ff2b90afb555642cf75672bd4dc6517baef0cd",
+    "results/archive/pm25_janfeb/witness_pm25.json": "1703266e8fb271b69e95f1ddd65f8c59b6181c3cafcde62b349c39a60d3205f1",
+    "results/archive/pm25_janfeb/replicate_pm25.json": "ebb407c98b191939f2a66e9683b6501c8bb996bf80a159a652348a66b53d961b",
+    "results/public_metrics_20261016/wildfire_landmarks.npz": "779b061d0fd2f83b31926dafe21e4751b38fdabafae416f6799497928826aada",
+    "results/public_metrics_20261016/ring_frames.csv": "ebcd60b5d861c0e322c826519e20ad0b48ff509df891dcac722805f88222b4a6",
+    "results/public_metrics_20261016/summary.csv": "275fc8789fc8ad7304099f2ba6e1cd3167d525b933d1f986755c23b2237cc467",
+    "results/public_metrics_20261016/pm25_frames.csv": "bd922942c68914d7d211b79aec8cdc86543c7ab5ab9fb3a49dfb81950916ebb2",
+    "results/public_metrics_20261016/gaussians_landmarks.npz": "2af2ea4acdcb067b80eb793fa94041944aea2efd72f73fbbe815ee5e24dcebf2",
+    "results/public_metrics_20261016/pm25_landmarks.npz": "ca9f2f5502c35e88707bdf2aca9cf7348a33e20f6d1f928741726b1f2fae2e4f",
+    "results/public_metrics_20261016/wildfire_frames.csv": "59dabdae4e78949a3ea15a0f9332d499b8d8a0a300d537d1269934f45c74a03e",
+    "results/public_metrics_20261016/pm25.json": "bdca9290446b7f7c333a72adc14be0b45c547c0c65744e3f9789cc8d86d68cdd",
+    "results/public_metrics_20261016/gaussians_frames.csv": "8187bc084a41ad55053af0c0d8c8845474702875c8f6f3014b0435b3770ac7a7",
+    "results/public_metrics_20261016/tw_common_untied.csv": "ecb744e9748fe3695df094d16b8c770091895006d4bb39d5719a744f36f156d1",
+    "results/public_metrics_20261016/era5_landmarks.npz": "57b27e2762f37e4b4631fd50f1922fa2a3c04abcd33f967116f376388f8020d9",
+    "results/public_metrics_20261016/era5.json": "d56f26cd7affd2f4330ed319d6243b70a871ef56befec9751a0f24f30a1a7eb5",
+    "results/public_metrics_20261016/olr_frames.csv": "0ae197c3e48fbf155955df5ce739bc1273055a35812f3ed9e3f51c1a2deeb52f",
+    "results/public_metrics_20261016/metric_checks.json": "7bdfb34bf3d9d1f7a6f6361dec99837cb599ae3db03c6c100f8b496aa0f4ab4a",
+    "results/public_metrics_20261016/wildfire.json": "3b785b77fd6957ce4dee9d44083f57a6f70ccc76de144f7eac092b75b6b4afeb",
+    "results/public_metrics_20261016/ring_landmarks.npz": "1b561763f52c6ef1274a15cee82d1015ef2227d3aa69a0ad1b343163ab924ba2",
+    "results/public_metrics_20261016/gaussians.json": "27033d6072ab3252f15af4641df005bbb589bd9062f0decdddb18478704ff261",
+    "results/public_metrics_20261016/comparisons.csv": "3c0d01c2c3d93612738cb6f7fadd03ff5abe53044ada43faf02ffe29bd712a44",
+    "results/public_metrics_20261016/manifest.json": "84a9f7f578057525b1e4bc04ea2c445dd5b38bea8217b29fdf73dbc8a0b1bad9",
+    "results/public_metrics_20261016/protocol.json": "a8376417b3237924b897741fbb0fbbdcdaa13498d287574105e7e76f2a3bb98f",
+    "results/public_metrics_20261016/olr.json": "7ec789fe042c6dd66fa8e13b8153a87f839fbabfee677ac8a1ef769f90827df8",
+    "results/public_metrics_20261016/ring.json": "fa63e22b887c3ecc21492840f9a304a2773dee21b807d01531cfb7c39538db8d",
+    "results/public_metrics_20261016/olr_landmarks.npz": "08c7871c76c4af91240512f47264690c4ec5e6109838947e96eb689d3933a50c",
+    "results/public_metrics_20261016/final_audit.json": "b461f59f2561d41ff6db6f1eba4ef025ce0a8c3ea3f625a058efc8bcfab5383f",
+    "results/public_metrics_20261016/era5_frames.csv": "3a0f7b27665cce621b39131ddd3b3e56b0e233b4af46db159c9ae5879312ab84",
+    "results/public_metrics_20261016/reference_tasks/era5_motion_events.csv": "4716bed48bbb3c3ae5e6085c88d96e6867b7d75b1d39f78a736cbdd5b608ad7f",
+    "results/public_metrics_20261016/reference_tasks/pm25_rank_frames.csv": "1b906c2442913915e198fab3ee3a04deca5172abf206c43848f644894b88be3f",
+    "results/public_metrics_20261016/reference_tasks/wildfire_rank_frames.csv": "59a977c1ad0d72a70bdfcfaa9173fa2059afe18f168308adcf0709a0e2a06117",
+    "results/public_metrics_20261016/reference_tasks/motion_summary.csv": "988eb57e8852d69e66bf4d3b5b6bdbfb18cf482a06edc1da86a584c16050446a",
+    "results/public_metrics_20261016/reference_tasks/olr_motion_events.csv": "12ac64383edb650a64059145a84b6cde32aeacfa89ec5bacb2673b5071c23987",
+    "results/public_metrics_20261016/reference_tasks/wildfire_motion_events.csv": "3ab0ae3af2b13d38518e1839da8b9e4cb2f4296cdba677419ef986ee85ef7814",
+    "results/public_metrics_20261016/reference_tasks/era5_rank_frames.csv": "96412c1f9473b9f3034287d69598b1f85111f0e0aa02d272c7b6e8a2b29b50c1",
+    "results/public_metrics_20261016/reference_tasks/gaussians_rank_frames.csv": "7402b07a3501ce185ec54286ddacbe8dee4295ae02c8e869b640a056bf7244a7",
+    "results/public_metrics_20261016/reference_tasks/olr_rank_frames.csv": "38536caf55e7a1b34ba9039e601b753a37ff8ce17b3d667a2cfff5b7dc124f6a",
+    "results/public_metrics_20261016/reference_tasks/rank_summary.csv": "40a0be016e48b90bb75c3e2e68a95caf06d166eefc9657075c5b781f52df19c1",
+    "results/public_metrics_20261016/reference_tasks/validation.json": "9c5633a2f09656467722de675401f3b08eef5f2a9d88ebfa5911afa8603c1dc1",
+    "results/public_metrics_20261016/reference_tasks/manifest.json": "4d798f59fb507a5fae065e42578ad51061a5b20b2d9184273c8e567485836583",
+    "results/public_metrics_20261016/reference_tasks/protocol.json": "95419512590e75a38ff9c09143083e490f07753f5fd2b39b4a2552a13d8efb2b",
+    "results/public_metrics_20261016/reference_tasks/pm25_motion_events.csv": "583a99eb1e97a68fd1ed8d305b7d7e0b0886ddf907720cefc997cb9fdabd8b0d",
+    "results/public_metrics_20261016/reference_tasks/ring_rank_frames.csv": "9fb8ba7759ed451c7ac8c337a6dd24a5f7490ad0c97f5c1fe7b141ffdec6d99b",
+    "results/public_metrics_20261016/reference_tasks/ring_motion_events.csv": "09c96234d3af4f19362d8763dd5bbb89753432a21fce180a691f2b21dfea0226",
+    "results/public_metrics_20261016/reference_tasks/gaussians_motion_events.csv": "1005dd2c411ed597296a8a8851fc6e9fa66530a8f0902b3e384f3540e9e9a9f2",
+    "results/revised_suite/run_manifest_olr.json": "a6b761411a4d0cc87bb06efea68f926f015b63de5d97985bbe353e7eb7041757",
+    "results/revised_suite/season_sfc_manifest.json": "21e264364fa210d4900b97c07fe107ee85a5e7d399488562a311d41136f02413",
+    "results/revised_suite/run_manifest_pm25.json": "0cb94f9fcab4218ceddcf45b4519d46fbef907d6bf3047ee6898074e864d300b",
+    "results/revised_suite/run_manifest_era5_wildfire_olr_ring_gaussians.json": "4df764b47e9af8971bfa5ef212cd14ddc3f9b3df411ccbda124ee90bcd628fef",
+    "results/revised_suite/season_sfc_records/eval_projection.json": "d2fba499641738b3db6aa085f85ec15f2fad60318c905bfb66a6ee18a3e44a70",
+    "results/visualizations/manifest.json": "9568bed471d76a5162976372c126bea91dadecd82ba17b16fa99576dd5e98d10",
+    "results/publication2027/main_comparison.csv": "62e2c338ed733a1462a7e3560d055815fc44ddd40873c8c8e74a615aefc6d8af",
+    "results/publication2027/pdf_validation.json": "d72e539533b548af4a6bfe784fae638e35345c6d5e69a8e35319087bd44cfd0e",
+    "results/publication2027/validation.json": "2ab6314681a5448293f4ce7fb9e3f7181ca12c7a467daa782a56ed1d0442a5e8",
+    "results/publication2027/manifest.json": "b8100c49e3ee99fc387a6fafc66f698ed5f2ab32ddff3eb2f1f20412847514bb",
+    "results/publication2027/claims.json": "9d7bd1afd23563ef3a2621fc5f3a164eba0ad889d503c17cba73d41e2bde7211",
+    "results/publication2027/evidence/sensitivity/replicate_pm25_oct.json": "6ae3c3c3a5f79f29f358479b0289f7d27b3700185669149ba13fe1cb341c153d",
+    "results/publication2027/evidence/sensitivity/replicate_pm25_jan.json": "81ff39df2f8dad23bffb6b9cf64155f3450f0c38f08735be66ef93b5d64b0746",
+    "results/publication2027/evidence/sensitivity/protocol_pm25_jul.json": "b2a7214f28ca2da24b27caef03d42fd4079d1797acc1d4aa5deee9e785324374",
+    "results/publication2027/evidence/sensitivity/attainable_pm25_oct.json": "0b6793debb8bdc92dea2794340d5d6752bd5424c6cf4660ffe65205688efe867",
+    "results/publication2027/evidence/sensitivity/attainable_pm25_jan.json": "29f954954d48f62cb066bf1754f620ee5cb6de802e9eb63fd38979f8ca177fd8",
+    "results/publication2027/evidence/sensitivity/pm25_season_protocol.json": "507997840dc5e46b566894f644ffc40a9ddaa5dff3c56017aceaf7ffad7c3604",
+    "results/publication2027/evidence/sensitivity/robustness.json": "40b9a9e1056245f986f06d16c36ec0eba1a41f2b2df0295dc2916a20560a7f31",
+    "results/publication2027/evidence/sensitivity/protocol_pm25_jan.json": "5308a8176d0f2f94fbc5f80b0f587a34d776ccc0394e50453954d4a45211a989",
+    "results/publication2027/evidence/sensitivity/protocol_pm25_oct.json": "98a245b8a3bc1c4c6f745ed3788ad8f10059b649dbe145ad0147e914a1715df2",
+    "results/publication2027/evidence/sensitivity/attainable_pm25_jul.json": "0102de11109b73e5c79a99df7475cc1beb31739734c1117d39ca3e0252b10dd1",
+    "results/publication2027/evidence/sensitivity/replicate_pm25_jul.json": "e3f2db82f833e3e53742f310727f101b0365dffd5e2ba88872c72da73539c67d",
+    "results/publication2027/evidence/sensitivity/attainable_pm25_apr.json": "fa17fd82cc85b0bfbca9be9e6beec814a2a83c864a9d6889bebe83cde43c7770",
+    "results/publication2027/evidence/sensitivity/sensitivity.json": "f6d35c06f169209d78de902c42776b814372385b23618ad3ee5d19cc90a15ee3",
+    "results/publication2027/evidence/sensitivity/replicate_pm25_apr.json": "d611d9837d2a8ca5ae6146281dfc47a9c031d916dbe4f3b7d6da5dc7464be977",
+    "results/publication2027/evidence/sensitivity/independent_scale.json": "144c95707628595650c8a0e4a181df9172f5d684467885148b6f30258c04bd5c",
+    "results/publication2027/evidence/sensitivity/stmtm_grid.json": "4d81f0d5041b2bdc552c3af80ad4166b3a94e20ef24928710e7967c300c03cb8",
+    "results/publication2027/evidence/sensitivity/protocol_pm25_apr.json": "fdd448a60c92acba4c47cee34728f8ac427b3bceb2561e7ac884374592eef3e5",
+    "results/publication2027/evidence/sensitivity/persistence.json": "76bf7cc5d927de004812a23a760c56a61dc812d7c1eb006f1f23c6df6564ede5",
+    "results/publication2027/evidence/transfer/dendrogram_demo.json": "6fc9e882f9806979f32c40fb1b06e8a21e5e4e6210c4a7216f11563d7be27f37",
+    "results/publication2027/evidence/main/replicate_ring.json": "757ba6d219d5df4714869f13b2fed8f3a467b949f3bdc9f8adac000c4194eec2",
+    "results/publication2027/evidence/main/attainable_pm25.json": "7d5befd9e1f5424a5f6dfa8e57e2549f3de8c91a94ee7565d204729ceab47613",
+    "results/publication2027/evidence/main/attainable_wildfire.json": "6a2fb2a4da5f67bcd962d0692780a1ca16e3646272e5142a515ce6fc828ece68",
+    "results/publication2027/evidence/main/replicate_wildfire.json": "71eca5d9fa07d8d6b52ea9ca168c0e66c02ed0cf15124a8fb3f1705a951e1ae9",
+    "results/publication2027/evidence/main/attainable_era5.json": "241a8cc451024eb988030815d85e5978f61d145bce6fa268ddf80ca68bf54342",
+    "results/publication2027/evidence/main/filling.json": "dd4cad3f5342e2ee8a06f14bbe522eb2da736d624d274e453742743a4bf42fa8",
+    "results/publication2027/evidence/main/native_merge_errors.json": "d831054f59b3647fab439ee7b6f543dcd20fc2c3f50ce49e7e605ee4802d984d",
+    "results/publication2027/evidence/main/pointcert.json": "e822bdf75b97d688517636629dbe7e0d8295104282390addfbe92f142f555bd2",
+    "results/publication2027/evidence/main/final_performance.json": "af9be2b5e38d148f3b7875e07bff62a802de3fa97ed68b743109563cb149f2e9",
+    "results/publication2027/evidence/main/attainable_gaussians.json": "2f498f867cd849d52103be4e11ee1683a9e4e52dee64859c9cdbc1fa1a63cc84",
+    "results/publication2027/evidence/main/eval_projection.json": "5a48371d5e26db6d5fd96f36385bda0d30bf88343db1f95df360564d352a1d97",
+    "results/publication2027/evidence/main/attainable_olr.json": "55e624effce24294b3d5649f77de02764d80fda1ed6297a73e7ef102f44abdbc",
+    "results/publication2027/evidence/main/replicate_era5.json": "b03e03ad1c1e2f70b7c5c0080e0075fe79ee11c910d25f450ea49f14b9d84562",
+    "results/publication2027/evidence/main/attainable_ring.json": "87d9a77042f96407b191fc4e1b3c8c9bdf085e49d68819304d9843e1c463b515",
+    "results/publication2027/evidence/main/replicate_gaussians.json": "902dfb4fcbcc78a4a48e470b4ae966bc8ccbe803ba39e7ebe2c1604f4c12a336",
+    "results/publication2027/evidence/main/replicate_pm25.json": "8f80c03aeb7be4f6ce0c6b1d15414f574e23707cfe931865ccc1bec0e3c2b9fc",
+    "results/publication2027/evidence/main/replicate_olr.json": "b767adcf8cb8f051547b10ae69665d1d0be0ae198a74dca91255d0a1d714be7c",
+    "results/publication2027/evidence/protocols/protocol_olr.json": "5dabd44dae11e27ee42c2348b378a0f967d726fbc779ed04b512ddd7489ff0dc",
+    "results/publication2027/evidence/protocols/source_pm25_doi.json": "82789b06acdf55f9fb4e5817667be9da6edf7bc0237f34fb3d455ffa3ade9efb",
+    "results/publication2027/evidence/protocols/protocol_pm25.json": "b4b00b52c56fb992daadf9842789f41f1ba3cc6c6b9318eaff63166016896e1c",
+    "results/publication2027/evidence/protocols/sfc_baseline_protocol.json": "16e10a3995ac9c5e6b921ad305410ff6e5cecd1504f63fa9eb7ccff4bcad6a44",
+    "results/publication2027/evidence/validation/witness.json": "89ec57c968e60c65bdd1a8924339fed118422d4bf5864ceef17c3e2c05c2337f",
+    "results/publication2027/evidence/validation/topological_case_step48.json": "b2636e646dc133a31c7faec46e3be8b501ae6d98f11bfa4f70f6000860fb9d44",
+    "results/publication2027/evidence/validation/benchmark_degree.json": "27f761bea236f59969659cc05cb909c0ff4d2d867370924af217f8a25abda8e2",
+    "results/publication2027/evidence/validation/boundary.json": "ded6dee93e2fe8854299c7ef9bd442451e5bc1b0c55016d93a23050eebc91900",
+    "results/publication2027/evidence/validation/generality.json": "7296627d49cfa0682095ff1c1470e6f4e72f061c0fdf56b81ddcf3ade0862462",
+    "results/publication2027/bisector_control/tmtm_core_audit.json": "2854e4d1ee86b414568f60ae9f1ef41b71805ba6c4b01085c8fb19e950021e7d",
+    "results/publication2027/bisector_control/paper_integration_manifest.json": "9571bda550137cf3f5ba5ee33dbdbd4ac3d06787d7d115cf390d15ef5d0bf189",
+    "results/publication2027/bisector_control/bisector_highres_x_three_methods.npz": "676c5d3b4c323d7cfbcd1b735e8bf63c0cba7955fa5dbcd25e1d4ed3c48afb6f",
+    "results/publication2027/bisector_control/bisector_highres_metrics.csv": "78fd44301063cd7cf07a5278d2617dd1076aea827cee225bb1fb045faf3f54f4",
+    "results/publication2027/bisector_control/bisector_highres_x_three_methods.json": "a2d6f1b9d4e5014a62660e1829485254b4a72b2e5d99ad8edb8a359ff714012b",
+    "results/publication2027/verification/layout_final.json": "58262f44323fb17af01b8ccbb7c807ae85c143c263db2d0b33025f1f854c7ce6",
+    "results/publication2027/verification/github_export_check.json": "23fcf49643244406d5b3ce9d031b82130b091c420fbb834ff2ba06856d308c63",
+    "results/publication2027/figure_data/era5_render.json": "f664e78ac91922203bf8ec87b8e8697d213f9a2dd0d3d1da972461f5d4170bf1",
+    "results/publication2027/figure_data/olr_render.npz": "d02bbead0d5c42d1f8684af5de46f50e0e46f44d33e1853e2db74bff4f9dc36a",
+    "results/publication2027/figure_data/domain_filling_example.json": "592211d7ede3001356f53b9dd55e45f9fb144cca387a0016ca197c88e0cef82d",
+    "results/publication2027/figure_data/era5_render.npz": "bd2f2500c72b0aa60297ea79cfac0bd2cfe3b785dd16942e5257b5cf2769948d",
+    "results/publication2027/figure_data/motion_scalar_plot_values.csv": "c6445429e95722a8c1f3ea9a8c7e88a31a1254b4b6c6fcaf23054fa0b32a2c45",
+    "results/publication2027/figure_data/figure_manifest.json": "1010a6d562a73e7033f04f6bcdd9f25e6edee114c5a4d271da470fde5e9cc213",
+    "results/publication2027/figure_data/olr_render.json": "8174c4d4ecba09f86fd306ae4ddf682d0a8e7fc30671c53de1644ad66b6150e7",
+    "results/publication2027/runs/20261013T152111Z/manifest.json": "052ad285207730eedb420a3086d4379f8a5a1c171b808a1f489eec049a1f1970",
+    "results/visualization_cache/pm25-062549a3b72bbd7c70630fa770025dbe54eea3d875f742bcf6980abfe8bf01ae.npz": "3be2b13d0ab6625504a581c4b8928570692db849708a8090d7f9b6edabfd2171",
+    "results/visualization_cache/pm25-8b549c112fa682eeeff48f68986090d2b265d4cdf2ca8e21d7bf7241f1ad8b98.npz": "3be2b13d0ab6625504a581c4b8928570692db849708a8090d7f9b6edabfd2171",
+    "results/visualization_cache/ring-acfa16cc55f6b688a3b007e324181e740e1624d1a058fb50f473bbe81f5ba0b5.npz": "29e9ff82b58a932d075bb7fe11937733a699c99b87ed0012ec45fe33d18e3f6c",
+    "results/visualization_cache/pm25-ed055d8f26c48f8374612af7d95ed92420687dc681c9d9aa02776d9f8ffb7cc6.npz": "3be2b13d0ab6625504a581c4b8928570692db849708a8090d7f9b6edabfd2171",
+    "results/visualization_cache/olr-6516e1cba3746a60d8fc8db43aeab58c35f4505a1586acd7ca72ff110eb3b195.npz": "bcd1171ebb3cc7420ea70b8094fbff0c599abb5330ca1db308506141005e4df2",
+    "results/visualization_cache/pm25-160d4528890f3304544fbe72f82ab9b18885911fc12b252b0030afea7dd79bdc.npz": "3be2b13d0ab6625504a581c4b8928570692db849708a8090d7f9b6edabfd2171",
+    "results/visualization_cache/olr-c1bafbce42d56ef046cb67e40d9458cca0c2df44e2eba2c6cb60a36ead120ba2.npz": "bcd1171ebb3cc7420ea70b8094fbff0c599abb5330ca1db308506141005e4df2",
+    "results/visualization_cache/olr-299e1ce5e0ec8200289258f05e3dc3afdd1dc4e1e17d3fdf726ec63a6b177f00.npz": "bcd1171ebb3cc7420ea70b8094fbff0c599abb5330ca1db308506141005e4df2",
+    "results/visualization_cache/olr-5517e75cecada4b19841fe19138c6788177e194d8e72e06b5164dc4a7d3ab022.npz": "bcd1171ebb3cc7420ea70b8094fbff0c599abb5330ca1db308506141005e4df2",
+    "results/visualization_cache/pm25-432cf9e6d8386b2a84679bafeaecdd2c2cdfcb8c2f615694ee91b8eaa674cfab.npz": "3be2b13d0ab6625504a581c4b8928570692db849708a8090d7f9b6edabfd2171",
+    "results/visualization_cache/olr-468e6494ad4f844bcbeab04be4f1a0dc82092d1de221fccbef7f3315e9d35a7d.npz": "bcd1171ebb3cc7420ea70b8094fbff0c599abb5330ca1db308506141005e4df2"
+  }
+}

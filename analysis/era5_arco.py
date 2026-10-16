@@ -38,7 +38,7 @@ def main(start='1999-11-17T00', end='2000-01-15T00', out=OUT):
         la = nc.createVariable('latitude', 'f8', ('latitude',)); la[:] = data.latitude.values; la.units = 'degrees_north'
         lo = nc.createVariable('longitude', 'f8', ('longitude',)); lo[:] = lon; lo.units = 'degrees_east'
         m = nc.createVariable('msl', 'f4', ('valid_time', 'latitude', 'longitude'), zlib=True); m[:] = arr; m.units = 'Pa'
-        nc.source = URL; nc.note = '12-hourly subset for CD-MTM evaluation; not byte-identical to the CDS file'
+        nc.source = URL; nc.note = '12-hourly subset for RG-MTM evaluation; not byte-identical to the CDS file'
     print(OUTP, arr.shape, float(arr.min()), float(arr.max()), f'{OUTP.stat().st_size/1e6:.1f} MB')
 
 

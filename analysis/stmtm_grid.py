@@ -9,7 +9,7 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import replicate as rp, general_method as gm, task_reference as tr, evaluation as ev
 from experiments import era5 as ep
-from cdmtm.reference_points import reference_points_from_frames
+from rgmtm.reference_points import reference_points_from_frames
 
 OUT = tr.OUT
 GRID = list(itertools.product(['uniform', 'inverse'], [.65, .85, .95], [.05, .5, 1.5]))

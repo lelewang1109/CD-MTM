@@ -1,7 +1,7 @@
 """Render and independently verify a synthetic full-domain filling illustration.
 
 This supplements the method description; it does not rerun real-data experiments.
-Run from CD-MTM: PYTHONPATH=src:analysis python experiments/publication2027/domain_filling_figures.py
+Run from RG-MTM: PYTHONPATH=src:analysis python experiments/publication2027/domain_filling_figures.py
 """
 from pathlib import Path
 import hashlib
@@ -17,7 +17,7 @@ from matplotlib.lines import Line2D
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(ROOT / 'src'), str(ROOT / 'analysis')]
-from cdmtm.baselines.stmtm import AugmentedMergeTreeFrame, TreeArc, DiscreteSkeleton, fill_frame
+from rgmtm.baselines.stmtm import AugmentedMergeTreeFrame, TreeArc, DiscreteSkeleton, fill_frame
 from attainable import Filling, lca_matrix
 from filling import barriers, optimal_fill
 import figstyle as fs
@@ -111,7 +111,7 @@ def node_correspondence(frame, profile):
     r1 is on A1's leaf arc; r2 is on the internal A-to-(A,B) arc.
     This trace describes the tree-consistent example, not a general bijection.
     """
-    from cdmtm.baselines.stmtm import _alternating_positions
+    from rgmtm.baselines.stmtm import _alternating_positions
     r1 = int(frame.arc_for_child(0).regular_vertices[0])
     r2 = int(frame.arc_for_child(5).regular_vertices[0])
     positions = np.asarray(_alternating_positions(int(profile['anchors'][0]),
@@ -288,7 +288,7 @@ def overview(out=OUT):
 
 def main():
     fs.apply()
-    plt.rcParams.update({'svg.fonttype': 'none', 'svg.hashsalt': 'cdmtm-domain-filling-20261014'})
+    plt.rcParams.update({'svg.fonttype': 'none', 'svg.hashsalt': 'rgmtm-domain-filling-20261014'})
     frame = example()
     profiles = render_checked(frame)
     trace = node_correspondence(frame, profiles[0])
@@ -296,7 +296,7 @@ def main():
     DATA.mkdir(parents=True, exist_ok=True)
     serial = [{k: v.tolist() if isinstance(v, np.ndarray) else v for k, v in d.items()} for d in profiles]
     sources = [Path(__file__), ROOT / 'analysis/filling.py', ROOT / 'analysis/attainable.py',
-               ROOT / 'src/cdmtm/baselines/stmtm.py']
+               ROOT / 'src/rgmtm/baselines/stmtm.py']
     record = dict(synthetic_only=True, tree='(((A1,A2)_2,B)_4,(C,D)_3)_8', all_orders_checked=120,
                   profiles=serial, values=frame.values.tolist(), node_correspondence=trace,
                   input_samples=len(frame.values), regular_samples=sum(len(a.regular_vertices) for a in frame.arcs.values()),

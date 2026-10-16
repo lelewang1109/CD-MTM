@@ -1,0 +1,21 @@
+{
+  "source": "Local ST-MTM preprint, Section 5.2, PDF page 8",
+  "metrics": [
+    "SNS",
+    "TW",
+    "TD"
+  ],
+  "landmarks": "Unweighted leaf-arc support centroids, aligned to exact leaf IDs",
+  "display_positions": "Actual raster anchors, all methods on a fixed [0,1] full canvas per sequence",
+  "sns": "Frame mean of min_alpha sum(d_ij-alpha*abs(x_i-x_j))^2 / sum(d_ij^2), no square root",
+  "sns_eligibility": "n >= 2 and nonzero original pair distances; n >= 3 mean also reported",
+  "tw": "Standard rank-penalized trustworthiness; k=1 primary for every dataset/method",
+  "tw_eligibility": "0 < k < n/2; k=3 and k=5 secondary, only on eligible frames",
+  "ties": "Stable leaf-row order in both distance rankings; tied frames counted; no-tie sensitivity reported",
+  "td": "SUM of absolute matched-anchor displacement over consecutive frames, not an average",
+  "td_units": "Full-canvas widths (one fixed affine raster/canvas mapping per method/sequence); also common 2048-pixel units",
+  "td_caution": "Measures stability, not correctness of motion; compare methods within each dataset",
+  "parameters": "Existing main configurations unchanged: RG-MTM-R eligibility 0.2*scalar range; ST temporal settings retained",
+  "decision": "No universal acceptance threshold; report wins/ties/losses against each baseline without a combined score",
+  "excluded": "No runtime or publication-number replication claim; source preprint uses different preprocessing/resolution"
+}

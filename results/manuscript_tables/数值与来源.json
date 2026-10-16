@@ -1,0 +1,325 @@
+{
+  "scope": "existing result reanalysis; no numerical experiment rerun",
+  "main_metrics_use": "NROE (P) temporal frame mean; E pooled features; NMLE (D) actual measured barriers; ME decimal rate with clear-event counts",
+  "metric_display_names": {
+    "P": "Normalized Reference-Order Error (NROE)",
+    "D": "Normalized Merge-Level Error (NMLE)"
+  },
+  "records": [
+    {
+      "dataset": "era5",
+      "frames": 118,
+      "methods": {
+        "TMTM": {
+          "P_pct": 19.23365378047747,
+          "motion_errors": 49,
+          "clear_events": 104,
+          "ME_rate": 0.47115384615384615
+        },
+        "ST-MTM": {
+          "P_pct": 16.278371898778904,
+          "motion_errors": 43,
+          "clear_events": 104,
+          "ME_rate": 0.41346153846153844
+        },
+        "A": {
+          "P_pct": 3.7743272412319944,
+          "motion_errors": 24,
+          "clear_events": 104,
+          "ME_rate": 0.23076923076923078
+        },
+        "R 20%": {
+          "P_pct": 1.1618707698268602,
+          "motion_errors": 19,
+          "clear_events": 104,
+          "ME_rate": 0.18269230769230768
+        }
+      },
+      "R_measured_D_mean_pct": 1.4680901592965125,
+      "R_measured_D_max_pct": 26.07142835871198,
+      "achieved_reference": {
+        "A": {
+          "E_pool_pct": 4.132256450858255,
+          "E_p95_pct": 17.62193053722368,
+          "E_max_pct": 26.185374900113136
+        },
+        "R 20%": {
+          "E_pool_pct": 2.1409817881385735,
+          "E_p95_pct": 9.812637264436237,
+          "E_max_pct": 18.464244641223882
+        }
+      },
+      "source_files": [
+        "results/final_performance.json",
+        "results/eval_projection.json",
+        "results/filling.json",
+        "results/replicate_era5.json"
+      ]
+    },
+    {
+      "dataset": "wildfire",
+      "frames": 30,
+      "methods": {
+        "TMTM": {
+          "P_pct": 29.30266105441931,
+          "motion_errors": 44,
+          "clear_events": 112,
+          "ME_rate": 0.39285714285714285
+        },
+        "ST-MTM": {
+          "P_pct": 24.015099920605703,
+          "motion_errors": 40,
+          "clear_events": 112,
+          "ME_rate": 0.35714285714285715
+        },
+        "A": {
+          "P_pct": 5.830214095746283,
+          "motion_errors": 36,
+          "clear_events": 112,
+          "ME_rate": 0.32142857142857145
+        },
+        "R 20%": {
+          "P_pct": 0.34394025457474137,
+          "motion_errors": 35,
+          "clear_events": 112,
+          "ME_rate": 0.3125
+        }
+      },
+      "R_measured_D_mean_pct": 3.955075746241403,
+      "R_measured_D_max_pct": 19.56389492896233,
+      "achieved_reference": {
+        "A": {
+          "E_pool_pct": 3.1824793628313515,
+          "E_p95_pct": 13.205351559592952,
+          "E_max_pct": 20.475582909961712
+        },
+        "R 20%": {
+          "E_pool_pct": 0.804402435370466,
+          "E_p95_pct": 2.064979404349591,
+          "E_max_pct": 6.636770157587331
+        }
+      },
+      "source_files": [
+        "results/final_performance.json",
+        "results/eval_projection.json",
+        "results/filling.json",
+        "results/replicate_wildfire.json"
+      ]
+    },
+    {
+      "dataset": "olr",
+      "frames": 60,
+      "methods": {
+        "TMTM": {
+          "P_pct": 19.311641065267676,
+          "motion_errors": 25,
+          "clear_events": 56,
+          "ME_rate": 0.44642857142857145
+        },
+        "ST-MTM": {
+          "P_pct": 17.209419831059154,
+          "motion_errors": 12,
+          "clear_events": 56,
+          "ME_rate": 0.21428571428571427
+        },
+        "A": {
+          "P_pct": 0.8868398249381654,
+          "motion_errors": 3,
+          "clear_events": 56,
+          "ME_rate": 0.05357142857142857
+        },
+        "R 20%": {
+          "P_pct": 0.0,
+          "motion_errors": 3,
+          "clear_events": 56,
+          "ME_rate": 0.05357142857142857
+        }
+      },
+      "R_measured_D_mean_pct": 1.0960634625843921,
+      "R_measured_D_max_pct": 33.55535259482717,
+      "achieved_reference": {
+        "A": {
+          "E_pool_pct": 1.0033729764570514,
+          "E_p95_pct": 2.6374545164232757,
+          "E_max_pct": 17.14474100635256
+        },
+        "R 20%": {
+          "E_pool_pct": 0.5703013509989894,
+          "E_p95_pct": 0.8333333333333336,
+          "E_max_pct": 1.6865998354235652
+        }
+      },
+      "source_files": [
+        "results/final_performance.json",
+        "results/eval_projection.json",
+        "results/filling.json",
+        "results/replicate_olr.json"
+      ]
+    },
+    {
+      "dataset": "pm25",
+      "frames": 30,
+      "methods": {
+        "TMTM": {
+          "P_pct": 11.860644953584027,
+          "motion_errors": 5,
+          "clear_events": 7,
+          "ME_rate": 0.7142857142857143
+        },
+        "ST-MTM": {
+          "P_pct": 11.297052494450853,
+          "motion_errors": 3,
+          "clear_events": 7,
+          "ME_rate": 0.42857142857142855
+        },
+        "A": {
+          "P_pct": 1.1082488653437677,
+          "motion_errors": 3,
+          "clear_events": 7,
+          "ME_rate": 0.42857142857142855
+        },
+        "R 20%": {
+          "P_pct": 0.16435792974222907,
+          "motion_errors": 2,
+          "clear_events": 7,
+          "ME_rate": 0.2857142857142857
+        }
+      },
+      "R_measured_D_mean_pct": 0.861532081313823,
+      "R_measured_D_max_pct": 9.481856225063636,
+      "achieved_reference": {
+        "A": {
+          "E_pool_pct": 2.3032138014223764,
+          "E_p95_pct": 8.706112589553113,
+          "E_max_pct": 10.240123935034322
+        },
+        "R 20%": {
+          "E_pool_pct": 1.1756235217894087,
+          "E_p95_pct": 3.4255083409212,
+          "E_max_pct": 5.601349937006517
+        }
+      },
+      "source_files": [
+        "results/final_performance.json",
+        "results/eval_projection.json",
+        "results/filling.json",
+        "results/replicate_pm25.json"
+      ]
+    },
+    {
+      "dataset": "ring",
+      "frames": 40,
+      "methods": {
+        "TMTM": {
+          "P_pct": 7.179294071439392,
+          "motion_errors": 80,
+          "clear_events": 124,
+          "ME_rate": 0.6451612903225806
+        },
+        "ST-MTM": {
+          "P_pct": 10.394591082457257,
+          "motion_errors": 43,
+          "clear_events": 124,
+          "ME_rate": 0.3467741935483871
+        },
+        "A": {
+          "P_pct": 2.6558808458004104,
+          "motion_errors": 39,
+          "clear_events": 124,
+          "ME_rate": 0.31451612903225806
+        },
+        "R 20%": {
+          "P_pct": 0.1289775603962825,
+          "motion_errors": 16,
+          "clear_events": 124,
+          "ME_rate": 0.12903225806451613
+        }
+      },
+      "R_measured_D_mean_pct": 2.7289450398048807,
+      "R_measured_D_max_pct": 12.346384203815647,
+      "achieved_reference": {
+        "A": {
+          "E_pool_pct": 2.4348018160794007,
+          "E_p95_pct": 7.8005611996536075,
+          "E_max_pct": 11.903880011187024
+        },
+        "R 20%": {
+          "E_pool_pct": 0.7076110167291526,
+          "E_p95_pct": 2.2461804712461357,
+          "E_max_pct": 2.5227688012417397
+        }
+      },
+      "source_files": [
+        "results/final_performance.json",
+        "results/eval_projection.json",
+        "results/filling.json",
+        "results/replicate_ring.json"
+      ]
+    },
+    {
+      "dataset": "gaussians",
+      "frames": 64,
+      "methods": {
+        "TMTM": {
+          "P_pct": 25.759889065088228,
+          "motion_errors": null,
+          "clear_events": 0,
+          "ME_rate": null
+        },
+        "ST-MTM": {
+          "P_pct": 25.759889065088228,
+          "motion_errors": null,
+          "clear_events": 0,
+          "ME_rate": null
+        },
+        "A": {
+          "P_pct": 5.430838363530845,
+          "motion_errors": null,
+          "clear_events": 0,
+          "ME_rate": null
+        },
+        "R 20%": {
+          "P_pct": 1.3770069361987665,
+          "motion_errors": null,
+          "clear_events": 0,
+          "ME_rate": null
+        }
+      },
+      "R_measured_D_mean_pct": 3.3455123918256993,
+      "R_measured_D_max_pct": 9.984121084852868,
+      "achieved_reference": {
+        "A": {
+          "E_pool_pct": 4.18235404423242,
+          "E_p95_pct": 12.110139066580745,
+          "E_max_pct": 12.11053291234304
+        },
+        "R 20%": {
+          "E_pool_pct": 1.6464913636223792,
+          "E_p95_pct": 6.063867317908299,
+          "E_max_pct": 8.072233451111712
+        }
+      },
+      "source_files": [
+        "results/final_performance.json",
+        "results/eval_projection.json",
+        "results/filling.json",
+        "results/replicate_gaussians.json"
+      ]
+    }
+  ],
+  "display_names": {
+    "A": "RG-MTM-P",
+    "R 20%": "RG-MTM-R"
+  },
+  "source_sha256": {
+    "results/eval_projection.json": "f70a343b68ac04531d12480f8e043587b8dd7715ab752b5fd7c4c081d8836cda",
+    "results/filling.json": "21391204df5994165010abeb3c5079b4a7f847118fae2edb6dcc2ac17f92307c",
+    "results/final_performance.json": "af9be2b5e38d148f3b7875e07bff62a802de3fa97ed68b743109563cb149f2e9",
+    "results/replicate_era5.json": "b03e03ad1c1e2f70b7c5c0080e0075fe79ee11c910d25f450ea49f14b9d84562",
+    "results/replicate_gaussians.json": "902dfb4fcbcc78a4a48e470b4ae966bc8ccbe803ba39e7ebe2c1604f4c12a336",
+    "results/replicate_olr.json": "b767adcf8cb8f051547b10ae69665d1d0be0ae198a74dca91255d0a1d714be7c",
+    "results/replicate_pm25.json": "8f80c03aeb7be4f6ce0c6b1d15414f574e23707cfe931865ccc1bec0e3c2b9fc",
+    "results/replicate_ring.json": "757ba6d219d5df4714869f13b2fed8f3a467b949f3bdc9f8adac000c4194eec2",
+    "results/replicate_wildfire.json": "71eca5d9fa07d8d6b52ea9ca168c0e66c02ed0cf15124a8fb3f1705a951e1ae9"
+  }
+}

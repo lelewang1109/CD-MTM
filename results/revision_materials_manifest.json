@@ -1,0 +1,27 @@
+{
+  "scope": "saved-evidence supplementary summaries; no new raw-data runs",
+  "source_sha256": {
+    "results/replicate_era5.json": "b03e03ad1c1e2f70b7c5c0080e0075fe79ee11c910d25f450ea49f14b9d84562",
+    "results/attainable_era5.json": "241a8cc451024eb988030815d85e5978f61d145bce6fa268ddf80ca68bf54342",
+    "results/replicate_wildfire.json": "71eca5d9fa07d8d6b52ea9ca168c0e66c02ed0cf15124a8fb3f1705a951e1ae9",
+    "results/attainable_wildfire.json": "6a2fb2a4da5f67bcd962d0692780a1ca16e3646272e5142a515ce6fc828ece68",
+    "results/replicate_olr.json": "b767adcf8cb8f051547b10ae69665d1d0be0ae198a74dca91255d0a1d714be7c",
+    "results/attainable_olr.json": "55e624effce24294b3d5649f77de02764d80fda1ed6297a73e7ef102f44abdbc",
+    "results/replicate_pm25.json": "8f80c03aeb7be4f6ce0c6b1d15414f574e23707cfe931865ccc1bec0e3c2b9fc",
+    "results/attainable_pm25.json": "7d5befd9e1f5424a5f6dfa8e57e2549f3de8c91a94ee7565d204729ceab47613",
+    "results/replicate_ring.json": "757ba6d219d5df4714869f13b2fed8f3a467b949f3bdc9f8adac000c4194eec2",
+    "results/attainable_ring.json": "87d9a77042f96407b191fc4e1b3c8c9bdf085e49d68819304d9843e1c463b515",
+    "results/replicate_gaussians.json": "902dfb4fcbcc78a4a48e470b4ae966bc8ccbe803ba39e7ebe2c1604f4c12a336",
+    "results/attainable_gaussians.json": "2f498f867cd849d52103be4e11ee1683a9e4e52dee64859c9cdbc1fa1a63cc84",
+    "results/method_performance_audit.json": "af2167dc89585f0fd9fb2b1764b19a2d718b2c48f6e61b75dab5d81deb3210db",
+    "results/robustness.json": "40b9a9e1056245f986f06d16c36ec0eba1a41f2b2df0295dc2916a20560a7f31",
+    "results/benchmark_degree.json": "27f761bea236f59969659cc05cb909c0ff4d2d867370924af217f8a25abda8e2",
+    "results/independent_scale.json": "144c95707628595650c8a0e4a181df9172f5d684467885148b6f30258c04bd5c",
+    "results/sensitivity.json": "f6d35c06f169209d78de902c42776b814372385b23618ad3ee5d19cc90a15ee3",
+    "results/persistence.json": "76bf7cc5d927de004812a23a760c56a61dc812d7c1eb006f1f23c6df6564ede5"
+  },
+  "generated": [
+    "supplement_results.tex",
+    "fig_method_overview.pdf"
+  ]
+}

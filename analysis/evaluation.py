@@ -29,7 +29,7 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import replicate as rp, misreading as mr, relax_hierarchy as rh, general_method as gm, task_reference as tr, attainable as at
 import conflict_strategies as cs
-from cdmtm.baselines import space_filling as sfc
+from rgmtm.baselines import space_filling as sfc
 from scipy.spatial import cKDTree
 
 from dataset_suite import PROXY_DATASETS
