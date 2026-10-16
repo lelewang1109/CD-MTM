@@ -1,6 +1,7 @@
 {
   "status": "passed",
-  "protected_numerical_files": 188,
+  "protected_numerical_files": 177,
+  "local_caches_checked": 11,
   "reversible_source_edits": 46,
   "figures": 11,
   "formats": [

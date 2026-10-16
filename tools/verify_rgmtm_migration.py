@@ -17,6 +17,11 @@ def main():
     migration = json.loads((ROOT / "provenance/rgmtm_rename_20261016.json").read_text())
     for name, expected in migration["protected_result_sha256"].items():
         assert digest(ROOT / name) == expected, name
+    local_caches_checked = 0
+    for name, expected in migration.get("local_only_result_sha256", {}).items():
+        if (ROOT / name).exists():
+            assert digest(ROOT / name) == expected, name
+            local_caches_checked += 1
     for name, record in migration["sources"].items():
         verify_saved_file(ROOT, name, record["before_sha256"])
     images = json.loads((ROOT / "results/figures/manifest.json").read_text())
@@ -30,6 +35,7 @@ def main():
     assert (ROOT / "src/rgmtm/reference_guided.py").is_file()
     assert not (ROOT / "src/cdmtm").exists()
     report = dict(status="passed", protected_numerical_files=len(migration["protected_result_sha256"]),
+                  local_caches_checked=local_caches_checked,
                   reversible_source_edits=len(migration["sources"]), figures=len(images["figures"]),
                   formats=["PNG", "SVG"], numerical_rerun=False)
     (ROOT / "results/rgmtm_rename_validation.json").write_text(json.dumps(report, indent=2) + "\n")

@@ -829,7 +829,9 @@
     "results/publication2027/figure_data/motion_scalar_plot_values.csv": "c6445429e95722a8c1f3ea9a8c7e88a31a1254b4b6c6fcaf23054fa0b32a2c45",
     "results/publication2027/figure_data/figure_manifest.json": "1010a6d562a73e7033f04f6bcdd9f25e6edee114c5a4d271da470fde5e9cc213",
     "results/publication2027/figure_data/olr_render.json": "8174c4d4ecba09f86fd306ae4ddf682d0a8e7fc30671c53de1644ad66b6150e7",
-    "results/publication2027/runs/20261013T152111Z/manifest.json": "052ad285207730eedb420a3086d4379f8a5a1c171b808a1f489eec049a1f1970",
+    "results/publication2027/runs/20261013T152111Z/manifest.json": "052ad285207730eedb420a3086d4379f8a5a1c171b808a1f489eec049a1f1970"
+  },
+  "local_only_result_sha256": {
     "results/visualization_cache/pm25-062549a3b72bbd7c70630fa770025dbe54eea3d875f742bcf6980abfe8bf01ae.npz": "3be2b13d0ab6625504a581c4b8928570692db849708a8090d7f9b6edabfd2171",
     "results/visualization_cache/pm25-8b549c112fa682eeeff48f68986090d2b265d4cdf2ca8e21d7bf7241f1ad8b98.npz": "3be2b13d0ab6625504a581c4b8928570692db849708a8090d7f9b6edabfd2171",
     "results/visualization_cache/ring-acfa16cc55f6b688a3b007e324181e740e1624d1a058fb50f473bbe81f5ba0b5.npz": "29e9ff82b58a932d075bb7fe11937733a699c99b87ed0012ec45fe33d18e3f6c",
@@ -841,5 +843,6 @@
     "results/visualization_cache/olr-5517e75cecada4b19841fe19138c6788177e194d8e72e06b5164dc4a7d3ab022.npz": "bcd1171ebb3cc7420ea70b8094fbff0c599abb5330ca1db308506141005e4df2",
     "results/visualization_cache/pm25-432cf9e6d8386b2a84679bafeaecdd2c2cdfcb8c2f615694ee91b8eaa674cfab.npz": "3be2b13d0ab6625504a581c4b8928570692db849708a8090d7f9b6edabfd2171",
     "results/visualization_cache/olr-468e6494ad4f844bcbeab04be4f1a0dc82092d1de221fccbef7f3315e9d35a7d.npz": "bcd1171ebb3cc7420ea70b8094fbff0c599abb5330ca1db308506141005e4df2"
-  }
+  },
+  "local_cache_policy": "Disposable visualization caches remain local and are checked if present; required render arrays and numeric evidence are distributed and always checked."
 }
