@@ -8,7 +8,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch
 ROOT=Path(__file__).resolve().parents[1]
-P=ROOT/'paper/pacificvis2027'; R=ROOT/'results'
+P=ROOT/'results/legacy_publication/pacificvis2027'; R=ROOT/'results'
 NAMES=['era5','wildfire','olr','pm25','ring','gaussians']
 LABELS=['ERA5','Fire','OLR','PM2.5','Ring','Gaussians']
 sources={}

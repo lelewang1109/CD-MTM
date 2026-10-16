@@ -1,7 +1,6 @@
 # RG-MTM: Reference-Guided Merge Tree Maps
 
-**Making Position–Topology Trade-offs Explicit** — a restructured research draft
-for the PacificVis 2027 Conference Paper Track.
+Implementation, experiments, and visualization assets for reference-guided merge tree maps.
 
 RG-MTM diagnoses how far feature anchors must move when a merge-tree hierarchy
 is kept, and measures the scalar merge-level cost of optional relaxation. It
@@ -10,16 +9,12 @@ trade-off, with mixed geometric motion-proxy benefits across datasets.
 
 ## Start here
 
-- 当前论文与附录：[无图正文](paper/pacificvis2027-no-figures/main.pdf)、[配套附录](paper/pacificvis2027-no-figures/supplement.pdf)。
 - RG-MTM 实验图片：[统一图片索引](results/figures/README.md)（PNG / SVG，含生成脚本及来源哈希）。
-- 最新有图版源码：[`paper/pacificvis2027-content-draft/`](paper/pacificvis2027-content-draft/README.md)。
-- 当前优化主线（无图版）源码：[`paper/pacificvis2027-no-figures/`](paper/pacificvis2027-no-figures/)。
 - Experiment code and commands: [`experiments/publication2027/`](experiments/publication2027/README.md).
 - Scientific reproduction: [`experiments/publication2027/REPRODUCING.md`](experiments/publication2027/REPRODUCING.md).
 - Organized results and provenance: [`results/publication2027/`](results/publication2027/README.md).
 - Raw-data acquisition/preparation: [`data/README.md`](data/README.md).
 
-`paper/pacificvis2027/` 与 `paper/pacificvis2027-restructured/` 仅保留既有实验脚本和哈希清单依赖的图表资产。旧正文、旧附录、旧编译输出和旧源码包已归档。实验复现文档内旧论文编译段及 `experiments/publication2027/package.py` 面向已归档的旧排版，不作为当前论文打包入口；当前论文编译见工作区论文说明。数值实验和图表重建入口保留。
 
 ## Main experiments
 
@@ -87,9 +82,8 @@ figures are not redistributed in the new source bundle.
 implementations. `analysis/` contains shared preprocessing, exact frontiers,
 filling, motion evaluation, and controls. `experiments/publication2027/` supplies
 publication orchestration. `results/` retains original computation evidence;
-`results/publication2027/` is the organized active snapshot. `paper/` contains
-editable LaTeX sources and generated PDFs. `notes/` preserves the research audit
-and earlier documentation history.
+`results/publication2027/` is the organized active snapshot. This repository contains
+experimental code and outputs. Manuscript PDFs, LaTeX sources, appendices, and writing notes stay local and are excluded from GitHub and public code bundles.
 
 ## Naming and repository migration
 
@@ -104,3 +98,7 @@ PYTHONPATH=src python tools/verify_rgmtm_migration.py
 ```
 
 The current figure set is generated in `results/figures/rgmtm_*`. Original numeric files, arrays, and historical paper images remain unchanged. `provenance/rgmtm_rename_20261016.json` records exact reversible source edits; validators distinguish historical source hashes from a new numerical run. The separate RA-MTM project retains its own name and Git repository.
+
+## Public repository contents
+
+Only code, experimental evidence, plots, and reproduction documentation are published. Manuscripts, appendices, LaTeX sources, and writing notes remain local. Historical experimental figures/tables are in `results/legacy_publication/`; current figures are in `results/figures/`. Run `python tools/check_public_export.py` before publishing. The code/results packager also excludes local `paper/` and `notes/` directories.

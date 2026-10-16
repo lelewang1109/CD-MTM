@@ -1,0 +1,15 @@
+\begin{table}[H]
+\caption{Motion-proxy errors and the relaxed map's worst-frame scalar cost.}\label{tab:motion}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrr}\toprule
+Data & Events & ST-MTM & Tree kept & Relaxed & Max $D$ \%\\\midrule
+ERA5 & 104 & 43/104 & 24/104 & 19/104 & 26.1\\
+Fire & 112 & 40/112 & 36/112 & 35/112 & 19.6\\
+OLR & 56 & 12/56 & 3/56 & 3/56 & 33.6\\
+PM2.5 & 7 & 3/7 & 3/7 & 2/7 & 9.5\\
+Ring & 124 & 43/124 & 39/124 & 16/124 & 12.3\\
+Gaussians & 0 & -- & -- & -- & 10.0\\
+\bottomrule\end{tabular}
+\par\smallskip{\footnotesize\raggedright Errors = reversals + misses at $k=2$, 2\% thresholds. -- denotes undefined rates without clear events. These geometric readings assume known identities.\par}
+\end{table}

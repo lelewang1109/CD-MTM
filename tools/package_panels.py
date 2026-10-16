@@ -7,7 +7,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'analysis'))
 from dataset_suite import RETIRED_DATASETS
-PAPER = ROOT / 'paper/pacificvis2027/figures'
+PAPER = ROOT / 'results/legacy_publication/pacificvis2027/figures'
 SOURCES = ROOT / 'analysis/panels'
 NAMES = ('fig_teaser', 'fig_concept', 'fig_topo_price', 'fig_rq1',
          'fig_frontier_exact', 'fig_witness', 'fig_pipeline', 'dendrogram_demo')

@@ -38,7 +38,7 @@
       "caption": "ERA5: RG-MTM-P and RG-MTM-R on the same reference axis.",
       "files": {
         "rgmtm_teaser_focus.png": "b97cb36afa9af17e3956ab29bfffe7bf4c7483d1e27c3f7c984fd54553c326f2",
-        "rgmtm_teaser_focus.svg": "a15395a2d00b345d7b142359f2e8cc16ec7515233fae1f2fd104be1dd24cc139"
+        "rgmtm_teaser_focus.svg": "5ef91d74baf740aad757f83596c32a6a081cb337f0ea08c70a9ff24f01b93e50"
       }
     },
     {
@@ -46,7 +46,7 @@
       "caption": "Construction, scalar filling, and disclosed errors.",
       "files": {
         "rgmtm_method_visual.png": "769386aad58f47ad12ed3ac7f9c8eda3f2fc30663c9d5d9b5a8bae908456d412",
-        "rgmtm_method_visual.svg": "6a3accf347e88206444508a4dd05172e804277944173aaa474d1e54760f20864"
+        "rgmtm_method_visual.svg": "d5137971e3adab99c2561ff3e20646898b20230080a12ced6103fd3e2da50c43"
       }
     },
     {
@@ -54,7 +54,7 @@
       "caption": "Packing/hierarchy certificates and exact small-tree frontiers.",
       "files": {
         "rgmtm_diagnosis_tradeoff.png": "8fe71b4ffc9b2d20cacece0d33b1895a9cc96855aa6fbd20157eb30e88418f89",
-        "rgmtm_diagnosis_tradeoff.svg": "326099597a3379d7c2a18abc7944c4570fb29a9cb1c38270df878441ece0b012"
+        "rgmtm_diagnosis_tradeoff.svg": "85eb87996211a6f8117be5a99ba1d8615267a842b63cc5f0c2fd77388de51953"
       }
     },
     {
@@ -62,7 +62,7 @@
       "caption": "Motion errors, paired exploratory intervals, and scalar costs.",
       "files": {
         "rgmtm_motion_scalar_cost.png": "5f438a17050ee0a4e02c67488bbdbb6021a64fdedcd73fc3722951dd742ec8b9",
-        "rgmtm_motion_scalar_cost.svg": "ffb4a99785d1b915dea57d09901139db62e75dd5607d8db974738f182b595ba9"
+        "rgmtm_motion_scalar_cost.svg": "e0e87d2ea55c5e05cc4f1c6f87eb55554acde42dac96c5da0b82621b3e749776"
       }
     },
     {
@@ -70,7 +70,7 @@
       "caption": "ERA5 and OLR cases; sequence-level counts and local windows.",
       "files": {
         "rgmtm_linked_cases.png": "54e0943aa75767be5527638236f9694e8aa51f46ba9b1e4f324e2c83b54fd891",
-        "rgmtm_linked_cases.svg": "f6629e413495a234eb8a3d53398e937658a013981df79e58a9795334b620adb7"
+        "rgmtm_linked_cases.svg": "5fa46be05bdce5fe4ef809ee59acbdb6784217839b6f40203d5ca0f5cef26269"
       }
     },
     {
@@ -78,7 +78,7 @@
       "caption": "Synthetic augmented-tree samples and scalar correction.",
       "files": {
         "rgmtm_full_domain_filling.png": "72f674cbc53b87faa832ab9e12e3c7b9a5a64d6c7748f480fea300daa63c55c2",
-        "rgmtm_full_domain_filling.svg": "7c5e1c48ab805fabebce1596429a5d01fec062be9945f37d9d6684b2bcd1659c"
+        "rgmtm_full_domain_filling.svg": "da632aad8f7e2404562994eebdac48e06ba1fdbb7dde4ca64ab1a4f6e334f9e3"
       }
     },
     {
@@ -86,7 +86,7 @@
       "caption": "Total error = reversal + miss, using the declared two-step, 2% setting. Counts are clear 2-D events, not independent samples. No significance claim is encoded by bar height; PM2.5 January was selected after seasonal exploration. Gaussian has no clear events.",
       "files": {
         "rgmtm_motion_error_comparison.png": "678970d1676f4568bac10458a34542e4005b08f817e01ed5e77168c8303b6d3d",
-        "rgmtm_motion_error_comparison.svg": "91dfd973c0d923cd8c86567900e4af08a8e42478c7bed7037c024064249fdb41"
+        "rgmtm_motion_error_comparison.svg": "369ee394e7da847066fafa36792213d39d88d872fc755621e7c824d66092b666"
       }
     },
     {
@@ -94,7 +94,7 @@
       "caption": "R uses optimal barrier filling; Hilbert/Morton use their unchanged native scalar sequences. Costs are achieved maxima over frames, not κ bounds. Points show one fixed operating setting, not a Pareto frontier or a statistical superiority claim.",
       "files": {
         "rgmtm_topology_motion_tradeoff.png": "92e9e96ada446fbd5edafe5c484a13e91302f30f23e1f07264eded21105207c2",
-        "rgmtm_topology_motion_tradeoff.svg": "c4a15e6606018e703078f3c227c9767d58a2dbb079d4d90935f27d5c260972e8"
+        "rgmtm_topology_motion_tradeoff.svg": "eb7feec0528f03b98996c5ece0d7c42508f1c96fc916a8219df0dfe48184f98f"
       }
     },
     {
@@ -102,7 +102,7 @@
       "caption": "Frame-mean stress and nearest-neighbour preservation from the saved hidden-cost evaluation. These metrics measure spatial relationships, not human performance. Frames with fewer than three extrema are excluded by the shared evaluation protocol.",
       "files": {
         "rgmtm_neighbourhood_preservation.png": "d89f8eb605286acecca0800dae8a6d8eeee413339d8f33d3f9c11a4d6ac4a75e",
-        "rgmtm_neighbourhood_preservation.svg": "6f7392b3656f2a0a4fb70f14133b575ba604ad5e22a077249c90867783c43f0f"
+        "rgmtm_neighbourhood_preservation.svg": "af6993ed44fdf83786be1ca24805d417789de79935ff60b5c8e85638c0708ec7"
       }
     },
     {
@@ -110,7 +110,7 @@
       "caption": "Each k uses its own set of clear events; lines connect operating settings, not physical trajectories. Step duration differs across datasets. Undefined rates are omitted, including Gaussian k=1/2.",
       "files": {
         "rgmtm_motion_window_sensitivity.png": "687b71a4886a763e536076ea3d62b5e0b544a3833293ce9f314e921f329b38ab",
-        "rgmtm_motion_window_sensitivity.svg": "3151df548cfe53acf05f9833f14709d8b7d821fe3029823eab8f9d3cb3d4e17f"
+        "rgmtm_motion_window_sensitivity.svg": "8e48c19c2af3dcaae8c18006942368a88d3d81b168b584695232c08f58245ba2"
       }
     },
     {
@@ -118,7 +118,7 @@
       "caption": "Time-aligned bisector control: TMTM, ST-MTM, RG-MTM-R.",
       "files": {
         "rgmtm_bisector_absolute_position.png": "a40b27fc4085bd647df6ba29f1e6d554158d721de9a2a98f71fecd22a9bf95bd",
-        "rgmtm_bisector_absolute_position.svg": "0e491cd7c743ea42b7fd388c4acfd0e091e00f4e8b62ac3b5739703c4532fb86"
+        "rgmtm_bisector_absolute_position.svg": "52afca8193128a0e25c9c448f5880ee5dc73407443f6f337e186a51abcf0f827"
       }
     }
   ],
@@ -130,8 +130,8 @@
   },
   "source_sha256": {
     "tools/build_rgmtm_figures.py": "a5a5badd45b20d51e12a06f13e6446937a0103be11206e17003acb34d049970b",
-    "experiments/publication2027/layout_figures.py": "db71caa710204c68aa185db065e816e48ad65c44ee3256078c9ecb402c8277ba",
-    "experiments/publication2027/domain_filling_figures.py": "69b504a7252ef7ac87dd422e1e0e3c721930c9c616c723b1d4a60aa180ff3731",
+    "experiments/publication2027/layout_figures.py": "838464f2c278ecd26eeb0f12d524d2fedc68329665798572c1f3fc8d7455cafe",
+    "experiments/publication2027/domain_filling_figures.py": "b833cf3bdfe0967b8cfcaf015e35ea3a929ab4f8e9aae86661e7d91de23c64fb",
     "experiments/publication2027/rgmtm_bisector_figure.py": "9e6fbf057df1daaf01a94d0b17fbede0813cb270fd073313fe89e6b027d6f19f",
     "src/rgmtm/names.py": "b397d56379e074788b367ef58d942bb31e0ccbb702e1fc01c4ba5897843ef679",
     "analysis/visualization/__init__.py": "6e2bb76e47a84c78ad54cfce32ee9c59bddfb32f1d9c5ec3cdbd1cb60c7736c8",

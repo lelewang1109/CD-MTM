@@ -1,0 +1,15 @@
+\begin{table*}[t]
+\caption{Full interval-model certificates: temporal means normalized by reference extent.}\label{tab:cert}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrrl}\toprule
+Data & Frames & Leaves & Packing \% & Hierarchy $H$ \% & Total $\tau^*$ \% & Conflict frames\\\midrule
+ERA5 & 118 & 1--8 & 0.16 & 4.17 & 4.33 & 40/118\\
+Fire & 30 & 6--11 & 0.06 & 6.12 & 6.18 & 19/30\\
+OLR & 60 & 2--8 & 0.02 & 0.94 & 0.96 & 7/60\\
+PM2.5 & 30 & 1--5 & 0.09 & 1.31 & 1.39 & 5/30\\
+Ring & 40 & 1--7 & 0.05 & 2.83 & 2.88 & 21/40\\
+Gaussians & 64 & 3--4 & 0.03 & 5.95 & 5.98 & 47/64\\
+\bottomrule\end{tabular}
+\par\smallskip{\footnotesize\raggedright Total is $\overline{\tau^*}/L=\overline{\tau_\free}/L+\overline{H}/L$. Conflicts use $H>0.02L$. These are theoretical diagnostics of each input sequence, not competing method scores; no best-result ranking applies. Values are rounded independently.\par}
+\end{table*}

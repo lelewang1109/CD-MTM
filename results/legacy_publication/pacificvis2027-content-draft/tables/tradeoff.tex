@@ -1,0 +1,30 @@
+\begin{table*}[t]
+\caption{Quantitative comparison of merge tree maps (\%).}\label{tab:tradeoff}\label{tab:motion}
+\centering\footnotesize
+\textit{(a) Position and motion quality}
+\par\smallskip\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrrrlrrr}\toprule
+Data (events) & \multicolumn{3}{c}{TMTM} & \multicolumn{3}{c}{ST-MTM} & \multicolumn{4}{c}{\textbf{CD-MTM (ours)}}\\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-11}
+ & $P\downarrow$ & Rev$\downarrow$ & ME$\downarrow$ & $P\downarrow$ & Rev$\downarrow$ & ME$\downarrow$ & Mode & $P\downarrow$ & Rev$\downarrow$ & ME$\downarrow$\\\midrule
+\multirow{2}{*}{ERA5 (104)} & \multirow{2}{*}{19.23} & \multirow{2}{*}{26.9} & \multirow{2}{*}{47.1} & \multirow{2}{*}{16.28} & \multirow{2}{*}{21.2} & \multirow{2}{*}{41.3} & Tree kept (A) & \underline{3.77} & 19.2 & 23.1\\
+ &  &  &  &  &  &  & Relaxed (R) & \textbf{1.16} & \textbf{13.5} & \textbf{18.3}\\\addlinespace[2pt]
+\multirow{2}{*}{Fire (112)} & \multirow{2}{*}{29.30} & \multirow{2}{*}{21.4} & \multirow{2}{*}{39.3} & \multirow{2}{*}{24.02} & \multirow{2}{*}{21.4} & \multirow{2}{*}{35.7} & Tree kept (A) & \underline{5.83} & 16.1 & 32.1\\
+ &  &  &  &  &  &  & Relaxed (R) & \textbf{0.34} & \textbf{6.2} & \textbf{31.2}\\\addlinespace[2pt]
+\multirow{2}{*}{OLR (56)} & \multirow{2}{*}{19.31} & \multirow{2}{*}{32.1} & \multirow{2}{*}{44.6} & \multirow{2}{*}{17.21} & \multirow{2}{*}{1.8} & \multirow{2}{*}{21.4} & Tree kept (A) & \underline{0.89} & \textbf{0.0} & \textbf{5.4}\\
+ &  &  &  &  &  &  & Relaxed (R) & \textbf{0.00} & 1.8 & \textbf{5.4}\\\addlinespace[2pt]
+\multirow{2}{*}{PM2.5 (7)} & \multirow{2}{*}{11.86} & \multirow{2}{*}{\textbf{28.6}} & \multirow{2}{*}{71.4} & \multirow{2}{*}{11.30} & \multirow{2}{*}{42.9} & \multirow{2}{*}{42.9} & Tree kept (A) & \underline{1.11} & 42.9 & 42.9\\
+ &  &  &  &  &  &  & Relaxed (R) & \textbf{0.16} & \textbf{28.6} & \textbf{28.6}\\\addlinespace[2pt]
+\multirow{2}{*}{Ring (124)} & \multirow{2}{*}{7.18} & \multirow{2}{*}{22.6} & \multirow{2}{*}{64.5} & \multirow{2}{*}{10.39} & \multirow{2}{*}{\textbf{7.3}} & \multirow{2}{*}{34.7} & Tree kept (A) & \underline{2.66} & 24.2 & 31.5\\
+ &  &  &  &  &  &  & Relaxed (R) & \textbf{0.13} & 10.5 & \textbf{12.9}\\\addlinespace[2pt]
+\multirow{2}{*}{Gaussians (0)} & \multirow{2}{*}{25.76} & \multirow{2}{*}{--} & \multirow{2}{*}{--} & \multirow{2}{*}{25.76} & \multirow{2}{*}{--} & \multirow{2}{*}{--} & Tree kept (A) & \underline{5.43} & -- & --\\
+ &  &  &  &  &  &  & Relaxed (R) & \textbf{1.38} & -- & --\\\addlinespace[2pt]
+\bottomrule\end{tabular}
+\par\smallskip\textit{(b) Topological cost ($\kappa=20\%$)}
+\par\smallskip\begin{tabular}{lrrrrrr}\toprule
+Metric & ERA5 & Fire & OLR & PM2.5 & Ring & Gaussians\\\midrule
+Mean $D$ & 1.47 & 3.96 & 1.10 & 0.86 & 2.73 & 3.35\\
+Max $D$ & 26.07 & 19.56 & 33.56 & 9.48 & 12.35 & 9.98\\
+\bottomrule\end{tabular}
+\par\smallskip{\footnotesize\raggedright $P$: mean calibrated order error / reference extent. Rev: reversed clear motion events; ME: reversals plus misses. All scores in (a) are lower-is-better; bold marks minima among TMTM, ST-MTM, A, R, including raw ties; underlined $P$ is best among the tree-preserving configurations. The CD-MTM group identifies ours: A keeps the tree and R relaxes it. Event counts are in parentheses; Gaussians has no clear motion events. Panel (b) reports R\'s mean and worst-frame merge errors / processed scalar range. TMTM, ST-MTM, and A have measured zero merge error on this suite; this shared preservation property is stated once rather than repeated as ranked zero-valued columns. Full seven-method comparisons and additional budgets are supplementary.\par}
+\end{table*}

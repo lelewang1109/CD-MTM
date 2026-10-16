@@ -3,7 +3,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
-FOLDER = ROOT / 'paper/pacificvis2027/figures/panels'
+FOLDER = ROOT / 'results/legacy_publication/pacificvis2027/figures/panels'
 
 
 def row(sheet, names, group, top, height):

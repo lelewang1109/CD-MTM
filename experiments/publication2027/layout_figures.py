@@ -13,7 +13,7 @@ ROOT=Path(__file__).resolve().parents[2]
 sys.path[:0]=[str(ROOT/'analysis'),str(ROOT/'src'),str(ROOT)]
 import figstyle as fs
 from provenance import verify_saved_file
-OUT=ROOT/'paper/pacificvis2027-restructured/figures';DATA=ROOT/'results/publication2027/figure_data'
+OUT=ROOT/'results/legacy_publication/pacificvis2027-restructured/figures';DATA=ROOT/'results/publication2027/figure_data'
 NAMES=['era5','wildfire','olr','pm25'];LABELS=['ERA5','Fire','OLR','PM2.5'];COLS=['#666666',fs.BLUE,fs.GREEN]
 def read(name):return json.loads((ROOT/'results'/name).read_text())
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()

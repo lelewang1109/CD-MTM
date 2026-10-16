@@ -3,7 +3,7 @@ from pathlib import Path
 import json,sys
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'analysis'))
 from dataset_suite import PAPER_DATASETS,REAL_DATASETS
-PAPER=ROOT/'paper/pacificvis2027-restructured'
+PAPER=ROOT/'results/legacy_publication/pacificvis2027-restructured'
 SHORT=dict(era5='ERA5',wildfire='Fire',olr='OLR',pm25='PM2.5',ring='Ring',gaussians='Gaussians')
 def read(name):return json.loads((ROOT/'results'/name).read_text())
 def longtable(cols,header,rows,caption):

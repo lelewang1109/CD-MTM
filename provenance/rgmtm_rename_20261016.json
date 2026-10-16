@@ -1,5 +1,5 @@
 {
-  "scope": "Naming/import/path and presentation migration only; historical evidence retains original hashes; no numerical rerun claimed",
+  "scope": "Exact reversible name/import/path and export-policy changes; experimental assets relocated; manuscripts excluded from public export; no numerical rerun claimed",
   "previous_name": "CD-MTM",
   "current_name": "RG-MTM",
   "package": "rgmtm",
@@ -96,6 +96,18 @@
           1746,
           1868,
           "from cdmtm.error_budget import Parameters, solve_sequence\nfrom cdmtm.reference_points import reference_points_from_frames\n"
+        ]
+      ]
+    },
+    "analysis/paper_numbers.py": {
+      "before_sha256": "4de7f6aafa782bc629559e50396285261504a667976eb7b1f62419534ec0b760",
+      "after_path": "analysis/paper_numbers.py",
+      "after_sha256": "f398e71939b9c0d9926247fd92fb78344fddc0724d25f4332f969170855b16a2",
+      "reverse_edits": [
+        [
+          0,
+          134,
+          "\"\"\"Print selected quantitative claims used in paper/pacificvis2027/main.tex , grouped by section, from the saved\n"
         ]
       ]
     },
@@ -395,6 +407,18 @@
         ]
       ]
     },
+    "analysis/panels/common.py": {
+      "before_sha256": "92f94bd80197590a785a8f8faa5a0815312a7e109550b2b956e94db76f98a157",
+      "after_path": "analysis/panels/common.py",
+      "after_sha256": "14883cda647bae0d91ebebafa032ba4cdeda97e5710e96690a73239d309df8a8",
+      "reverse_edits": [
+        [
+          789,
+          861,
+          "OUT = ROOT / 'paper/pacificvis2027/figures/panels'\n"
+        ]
+      ]
+    },
     "experiments/era5.py": {
       "before_sha256": "117cd70db12decb63beea688dde571fb35987b8d980d260435d74c12da883932",
       "after_path": "experiments/era5.py",
@@ -415,21 +439,21 @@
     "experiments/publication2027/package.py": {
       "before_sha256": "00dfc1ad398b271d01d0356a9b0e7f2e3831988a7f03ee4270280670fb59fd2d",
       "after_path": "experiments/publication2027/package.py",
-      "after_sha256": "bd20072baed20c2e351581cf3ddd028d1630b6df1c55e115ba18aca6239ef1f3",
+      "after_sha256": "798a67ee71670a7f784920a6584b4a5a304b85a0846e5f1b6638755c2dcf015b",
       "reverse_edits": [
         [
           0,
-          80,
+          78,
           "\"\"\"Package editable manuscript and reproducible code/evidence without raw data.\"\"\"\n"
         ],
         [
-          105,
-          240,
+          103,
+          238,
           "import hashlib,json,shutil,zipfile\nROOT=Path(__file__).resolve().parents[2];PAPER=ROOT/'paper/pacificvis2027-restructured';OUT=ROOT/'output/pdf'\n"
         ],
         [
-          253,
-          2050,
+          251,
+          1737,
           " OUT.mkdir(parents=True,exist_ok=True)\n for src,name in [('main.pdf','CD-MTM-PacificVis2027.pdf'),('supplement.pdf','CD-MTM-PacificVis2027-supplement.pdf')]:\n  shutil.copy2(PAPER/'build'/src,OUT/name)\n source_files=[p for p in PAPER.rglob('*') if p.is_file() and 'build' not in p.parts and p.suffix in ['.tex','.bib','.cls','.bst','.pdf','.png','.svg','.md']]\n source_zip=PAPER/'latex_sources.zip'\n with zipfile.ZipFile(source_zip,'w',zipfile.ZIP_DEFLATED) as z:\n  for p in sorted(source_files):z.write(p,p.relative_to(PAPER))\n shutil.copy2(source_zip,OUT/'CD-MTM-PacificVis2027-LaTeX.zip')\n manifest=json.loads((ROOT/'results/publication2027/manifest.json').read_text())\n files=set()\n for folder in ['src','analysis','experiments','tests','tools']:\n  files.update(p for p in (ROOT/folder).rglob('*') if p.is_file() and p.suffix in ['.py','.md','.json','.xml'] and '__pycache__' not in p.parts)\n for rec in manifest['records']:files.add(ROOT/rec['source'])\n for rec in manifest['figures']:files.add(ROOT/rec['source'])\n for folder in ['results/publication2027','paper/pacificvis2027-restructured']:\n  files.update(p for p in (ROOT/folder).rglob('*') if p.is_file() and 'build' not in p.parts and p.suffix!='.zip')\n for name in ['README.md','pyproject.toml','data/README.md','notes/research-restructure-20261013.md','notes/layout-optimization-20261014.md','notes/archive/update_paper_evidence_legacy.txt']:\n  files.add(ROOT/name)\n files.update(p for p in (ROOT/'data/geo').glob('*') if p.is_file())\n bundle=OUT/'CD-MTM-PacificVis2027-code-results.zip'\n with zipfile.ZipFile(bundle,'w',zipfile.ZIP_DEFLATED) as z:\n  for p in sorted(files):z.write(p,Path('CD-MTM')/p.relative_to(ROOT))\n artifacts={p.name:dict(bytes=p.stat().st_size,sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in OUT.iterdir() if p.name.startswith('CD-MTM-PacificVis2027')}\n (OUT/'delivery_manifest.json').write_text(json.dumps(artifacts,indent=2)+'\\n')\n print('Packaged PDFs, standalone LaTeX, and reproducible code/results bundle.')\nif __name__=='__main__':main()\n"
         ]
       ]
@@ -437,63 +461,68 @@
     "experiments/publication2027/build.py": {
       "before_sha256": "aacddb69565c1f9cb839189996be636040abb480f1bcb1e9440e47cf072cfec1",
       "after_path": "experiments/publication2027/build.py",
-      "after_sha256": "9f46f7399d9684cc47fab3e9b6157b25f8cc171faea3fbcd8981f08dba37e704",
+      "after_sha256": "618e34c7480f1977afb75cd67f729b0176d7216b76bff04529dcf950fb913ebc",
       "reverse_edits": [
         [
           304,
-          345,
-          ""
+          449,
+          "PAPER=ROOT/'paper/pacificvis2027-restructured'; OUT=ROOT/'results/publication2027'\n"
         ],
         [
-          600,
-          715,
+          621,
+          736,
           "LABELS=dict(zip(METHODS,['TMTM','ST-MTM','Hilbert','Morton','Packed sort','CD-MTM (tree kept)',r'CD-MTM, $\\kappa=20\\%$']))\n"
         ],
         [
-          2386,
-          2423,
+          2407,
+          2444,
           "    if digest(ROOT/source)!=h:raise ValueError(f'Stale evidence: {n}/{source}')\n"
         ],
         [
-          4771,
-          5273,
+          4792,
+          5294,
           " table(tabs/'tradeoff.tex','l'+'rr'*6,header,rows,'Reference-order alignment and scalar merge fidelity (\\%; lower is better).','tab:tradeoff',r'$P$: mean width-free minimax error after optimal monotone calibration / reference extent; not achieved anchor displacement. $D$: mean framewise maximum tracked-extremum merge error / processed scalar range. Native and rendered baselines use actual scalar barriers; CD-MTM and packed sorting use optimal filling. The protocols differ as stated in the text.')\n"
+        ],
+        [
+          9166,
+          9270,
+          "  source=(PAPER if fresh else ROOT/'paper/pacificvis2027')/'figures'/f'{name}.pdf'\n"
         ]
       ]
     },
     "experiments/publication2027/layout_figures.py": {
       "before_sha256": "b09f091d77590a1db45d80c89087bd0153748a0ff54db7157425c675bb438f2f",
       "after_path": "experiments/publication2027/layout_figures.py",
-      "after_sha256": "db71caa710204c68aa185db065e816e48ad65c44ee3256078c9ecb402c8277ba",
+      "after_sha256": "838464f2c278ecd26eeb0f12d524d2fedc68329665798572c1f3fc8d7455cafe",
       "reverse_edits": [
         [
           521,
-          562,
-          ""
+          684,
+          "OUT=ROOT/'paper/pacificvis2027-restructured/figures';DATA=ROOT/'results/publication2027/figure_data'\n"
         ],
         [
-          3937,
-          4014,
+          3958,
+          4035,
           " for source,h in m['source_sha256'].items():assert sha(ROOT/source)==h,source\n"
         ],
         [
-          7466,
-          7563,
+          7487,
+          7584,
           "  top.set_title('(b) Tree kept: displaced anchors' if mode=='A' else '(c) Relaxed: scalar cost disclosed')\n"
         ],
         [
-          11754,
-          12377,
+          11775,
+          12398,
           " handles=[Patch(color=c,label=l) for c,l in zip(COLS,['ST-MTM','Tree kept','Relaxed'])]+[Line2D([0],[0],marker='o',color=COLS[0],ls='none',ms=3,label='vs ST-MTM'),Line2D([0],[0],marker='s',color=COLS[1],ls='none',ms=3,label='vs tree kept'),Line2D([0],[0],marker='o',color=fs.BLUE,ls='none',ms=3,label='mean cost'),Line2D([0],[0],marker='D',color=fs.CORAL,ls='none',ms=3,label='max cost')]\n fig.legend(handles=handles,loc='lower center',ncol=7,frameon=False,bbox_to_anchor=(.5,-.005),columnspacing=.8,handlelength=1)\n fig.subplots_adjust(left=.145,right=.985,top=.84,bottom=.28,wspace=.25);save(fig,'fig_motion_scalar_cost')\n"
         ],
         [
-          14157,
-          14325,
+          14178,
+          14346,
           "   e=event(ev,name,'A' if mode=='A' else 'R 20%');ax.set_title(f'{\"Tree kept\" if mode==\"A\" else \"Relaxed\"}: {round(e[\"error\"]*e[\"clear\"])}/{e[\"clear\"]} errors*',pad=3)\n"
         ],
         [
-          14793,
-          15071,
+          14814,
+          15092,
           " ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--prepare',action='store_true');args=ap.parse_args();OUT.mkdir(exist_ok=True);DATA.mkdir(parents=True,exist_ok=True);fs.apply();plt.rcParams.update({'svg.fonttype':'none','svg.hashsalt':'cdmtm-layout-20261014'})\n"
         ]
       ]
@@ -528,41 +557,63 @@
     "experiments/publication2027/validate.py": {
       "before_sha256": "1329dc0fecd785dc9595acc7b4070cbfdc4bcc5d5076ace75c2c0e8547ef9093",
       "after_path": "experiments/publication2027/validate.py",
-      "after_sha256": "19d24df21aa7781d5481215fa01c81b033f49db984e804a373354221bf07043c",
+      "after_sha256": "08c08f738630c3d5a699697d96280be8b15aed8c3976c784989444f030adc1fc",
       "reverse_edits": [
         [
           106,
-          251,
+          266,
           "import argparse,hashlib,json\n"
         ],
         [
-          853,
-          926,
+          352,
+          454,
+          "def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()\n"
+        ],
+        [
+          906,
+          979,
           " for name,h in m['source_sha256'].items():assert digest(ROOT/name)==h,name\n"
         ],
         [
-          1298,
-          1399,
-          "  for source,source_hash in meta['source_sha256'].items():assert digest(ROOT/source)==source_hash,source\n"
+          1351,
+          1587,
+          "  for source,source_hash in meta['source_sha256'].items():assert digest(ROOT/source)==source_hash,source\n for n,h in fm['figures'].items():assert digest(ROOT/'paper/pacificvis2027-restructured/figures'/f'{n}.pdf')==h,n\n"
         ]
       ]
     },
     "experiments/publication2027/supplement_tables.py": {
       "before_sha256": "441ad0dcfa4bca755762fca77c8a9683f580d3c2fdd0289cea5c3d4dbc6f31d8",
       "after_path": "experiments/publication2027/supplement_tables.py",
-      "after_sha256": "924f1c049cb1315e0d64ece01a2a0cd9e6504e9211d845396b79d539a67c2a3c",
+      "after_sha256": "4faeb402a835ed8516558f838c564de66ec4facfc2640169a1f8ff226c32ac09",
       "reverse_edits": [
         [
-          988,
-          1123,
+          259,
+          327,
+          "PAPER=ROOT/'paper/pacificvis2027-restructured'\n"
+        ],
+        [
+          1009,
+          1144,
           " labels={'A':'CD-MTM tree kept','R 20%':'CD-MTM relaxed','q-sort (packed)':'Packed sort','fixed-X anchored':'Fixed X','oracle q':'Exact projection'}\n"
+        ]
+      ]
+    },
+    "experiments/publication2027/figures.py": {
+      "before_sha256": "72a976d326d881aaa0304221df6d7be2c35fef8c70b04ee8be87bb953f2aae34",
+      "after_path": "experiments/publication2027/figures.py",
+      "after_sha256": "0d48b80c32373a55ed11c73961900a736cd291c9f2af2ae761b85798c4d76f52",
+      "reverse_edits": [
+        [
+          322,
+          396,
+          "OUT=ROOT/'paper/pacificvis2027-restructured/figures'\n"
         ]
       ]
     },
     "experiments/publication2027/domain_filling_figures.py": {
       "before_sha256": "ae66970c195f0b6ec76c1b361732508c7b93ba4e1eaefa3067af1dd4770a778b",
       "after_path": "experiments/publication2027/domain_filling_figures.py",
-      "after_sha256": "69b504a7252ef7ac87dd422e1e0e3c721930c9c616c723b1d4a60aa180ff3731",
+      "after_sha256": "b833cf3bdfe0967b8cfcaf015e35ea3a929ab4f8e9aae86661e7d91de23c64fb",
       "reverse_edits": [
         [
           164,
@@ -575,31 +626,70 @@
           "from cdmtm.baselines.stmtm import AugmentedMergeTreeFrame, TreeArc, DiscreteSkeleton, fill_frame\n"
         ],
         [
-          4753,
-          4814,
+          787,
+          865,
+          "OUT = ROOT / 'paper/pacificvis2027-restructured/figures'\n"
+        ],
+        [
+          4774,
+          4835,
           "    from cdmtm.baselines.stmtm import _alternating_positions\n"
         ],
         [
-          15924,
-          16023,
+          15945,
+          16044,
           "    plt.rcParams.update({'svg.fonttype': 'none', 'svg.hashsalt': 'cdmtm-domain-filling-20261014'})\n"
         ],
         [
-          16407,
-          16461,
+          16428,
+          16482,
           "               ROOT / 'src/cdmtm/baselines/stmtm.py']\n"
+        ]
+      ]
+    },
+    "tools/build_compact_paper_figures.py": {
+      "before_sha256": "a3152a896a366a31dc632415b3f41b177c5e4df1c9ec4a4ee088750ab162ac57",
+      "after_path": "tools/build_compact_paper_figures.py",
+      "after_sha256": "9597cc0bddf101abb8763b92632d58a138156df3ad7f674e398a63acdbd081cd",
+      "reverse_edits": [
+        [
+          322,
+          383,
+          "OUT=ROOT/'paper/pacificvis2027/figures'\n"
+        ]
+      ]
+    },
+    "tools/preview_panels.py": {
+      "before_sha256": "50e1c7234d0a0027672c6e460cccb9ea937210053ed0ef280730c1df4d40f091",
+      "after_path": "tools/preview_panels.py",
+      "after_sha256": "f87239ecd271af6507f9033ca05ea59edc8a281e755b3e95ae7fbd6084ed1d94",
+      "reverse_edits": [
+        [
+          179,
+          254,
+          "FOLDER = ROOT / 'paper/pacificvis2027/figures/panels'\n"
         ]
       ]
     },
     "tools/build_supplement.py": {
       "before_sha256": "281708ea6801a9bff5f35cb55958bff0f8c2fdfd65efd02d093c83ba267e24d0",
       "after_path": "tools/build_supplement.py",
-      "after_sha256": "3bef26960f7ddf0f3ab7e4049b787d6fccf4c9f5a9a008da8f594e8a3c0e821d",
+      "after_sha256": "debd8203d78cf44ea8b6f4f312c9f8742173896b5853f98851aed8fe1fb32ceb",
       "reverse_edits": [
         [
-          3425,
-          3512,
-          "        \"scope\": \"PacificVis 2027 CD-MTM anonymous source and selected final results\",\n"
+          0,
+          84,
+          "\"\"\"Build the deterministic anonymous PacificVis source-and-results archive.\"\"\"\nfrom hashlib import sha256\n"
+        ],
+        [
+          109,
+          122,
+          "import json\nfrom zipfile import ZIP_DEFLATED, ZipFile, ZipInfo\n\n\nROOT = Path(__file__).resolve().parents[1]\nOUT = ROOT / \"paper/pacificvis2027/supplement.zip\"\n\n\ndef include_files():\n    paths = [ROOT / \"README.md\", ROOT / \"pyproject.toml\",\n             ROOT / \"paper/proofs.tex\", ROOT / \"paper/README.md\",\n             ROOT / \"data/README.md\", ROOT / \"results/README.md\",\n             ROOT / \"analysis/README.md\",\n             ROOT / \"notes/january-pm25-and-sfc-baselines.md\",\n             ROOT / \"notes/experiment-documentation-history.md\",\n             ROOT / \"notes/method-performance-audit.md\",\n             ROOT / \"notes/result-presentation-cleanup.json\",\n             ROOT / \"results/final_performance.csv\", Path(__file__)]\n    for directory in (\"src\", \"experiments\", \"analysis\", \"tests\", \"tools\"):\n        paths.extend(p for p in (ROOT / directory).rglob(\"*.py\") if \"archive_oisst\" not in str(p))\n    paths.extend(p for p in (ROOT / \"results\").glob(\"*.json\") if not any(n in p.name for n in (\"era5_2014\", \"oisst\")))\n    paths.extend((ROOT / \"results/archive/pm25_janfeb\").glob(\"*.json\"))\n    paths.extend(p for p in (ROOT / \"results/revised_suite\").glob(\"*.json\") if \"oisst\" not in p.name)\n    paths.extend(p for p in (ROOT / \"results/revised_suite\").glob(\"*.log\") if \"oisst\" not in p.name)\n    paper = ROOT / \"paper/pacificvis2027\"\n    paths.extend(paper / name for name in (\"README.md\", \"main.tex\", \"refs.bib\", \"vgtc.cls\"))\n    paths.extend(paper.glob(\"*.bst\"))\n    paths.extend(paper.glob(\"*.tex\"))\n    paths.extend(paper / n for n in (\"review-preview.pdf\", \"supplement.pdf\"))\n    paths.append(ROOT / \"notes/manuscript-revision-20261012.md\")\n    paths.append(paper / \"seasonal_controls.tex\")\n    paths.append(paper / \"performance_diagnostics.tex\")\n    paths.append(paper / \"spatial_motion_controls.tex\")\n    paths.extend((paper / \"figures\").glob(\"*.pdf\"))\n    paths.extend(p for p in (paper / \"figures/panels\").rglob(\"*.pdf\") if not any(n in p.name for n in (\"era5_2014\", \"oisst\")))\n    paths.extend(p for p in (paper / \"figures/panels\").rglob(\"*.png\") if not any(n in p.name for n in (\"era5_2014\", \"oisst\")))\n    paths.extend((ROOT / \"analysis/panels\").rglob(\"*.md\"))\n    paths.extend((ROOT / \"analysis/visualization\").glob(\"*.md\"))\n    paths.extend(p for p in (ROOT / \"results/visualizations\").glob(\"*\")\n                 if p.suffix in (\".pdf\", \".png\", \".svg\", \".json\", \".md\"))\n    paths.append(ROOT / \"tools/package_panels.py\")\n    paths.append(ROOT / \"tools/preview_panels.py\")\n    paths.append(ROOT / \"tools/fetch_coastline.py\")\n    paths.append(ROOT / \"tools/refresh_pdf_figures.py\")\n    paths.append(ROOT / \"tools/verify_independent_panels.py\")\n    paths.append(ROOT / \"tools/package_panel_code.py\")\n    paths.append(ROOT / \"data/geo/ne_110m_coastline.geojson\")\n    return sorted(set(paths), key=lambda path: str(path.relative_to(ROOT)))\n\n\ndef write_member(archive, name, data):\n    item = ZipInfo(name, date_time=(2026, 1, 1, 0, 0, 0))\n    item.compress_type = ZIP_DEFLATED\n    item.external_attr = 0o644 << 16\n    archive.writestr(item, data)\n\n\ndef main():\n    paths = include_files()\n    missing = [str(path.relative_to(ROOT)) for path in paths if not path.is_file()]\n    if missing:\n        raise FileNotFoundError(f\"Missing supplement inputs: {missing}\")\n    manifest = {\n        \"scope\": \"PacificVis 2027 CD-MTM anonymous source and selected final results\",\n        \"excluded\": \"Public raw inputs and historical X/Y dual-view experiments\",\n        \"files\": {},\n    }\n    OUT.parent.mkdir(parents=True, exist_ok=True)\n    with ZipFile(OUT, \"w\") as archive:\n        for path in paths:\n            name = str(path.relative_to(ROOT))\n            data = path.read_bytes()\n            manifest[\"files\"][name] = sha256(data).hexdigest()\n            write_member(archive, name, data)\n        write_member(archive, \"MANIFEST.json\", (json.dumps(manifest, indent=2) + \"\\n\").encode())\n    print(OUT, len(paths), \"files\", OUT.stat().st_size, \"bytes\", \"sha256\", sha256(OUT.read_bytes()).hexdigest())\n\n"
+        ],
+        [
+          150,
+          275,
+          "    main()\n"
         ]
       ]
     },
@@ -630,12 +720,53 @@
     "tools/build_revision_materials.py": {
       "before_sha256": "6c1d45de81eb2102926d5be00206b38d2e69a895234408ba78163af634a745e9",
       "after_path": "tools/build_revision_materials.py",
-      "after_sha256": "b4637171d177fdace3ba1eea4f521ddf08b6b7cf1c5f71aee961df15873c199a",
+      "after_sha256": "baaafa93f3420bd362608708d0b549d61c4668de0345cdcb323ab4b48a096c20",
       "reverse_edits": [
         [
-          6280,
-          6561,
+          359,
+          428,
+          "P=ROOT/'paper/pacificvis2027'; R=ROOT/'results'\n"
+        ],
+        [
+          6301,
+          6582,
           "parts.append(table(['Persistence cutoff \\\\%','Removed leaves \\\\%','Mean leaves','Conflict \\\\%'],rows,'ERA5 persistence simplification. The cutoff is normalized by processed scalar range. This experiment removes extrema, whereas CD-MTM relaxation retains them.','tab:persistence'))\n"
+        ]
+      ]
+    },
+    "tools/package_panels.py": {
+      "before_sha256": "802897ea9211e9ff4668d36ab73da59abf9acbfda1dff83d57db7adc7da13c65",
+      "after_path": "tools/package_panels.py",
+      "after_sha256": "a264159bb6d277fc1c8f840fbd85ea649b50f51fd8e49d171877aa5a65545b73",
+      "reverse_edits": [
+        [
+          298,
+          365,
+          "PAPER = ROOT / 'paper/pacificvis2027/figures'\n"
+        ]
+      ]
+    },
+    "tools/package_panel_code.py": {
+      "before_sha256": "5ef83045b83676a46148f57a3a2f44e9dd95a3deb164631e30f16ad1317362a4",
+      "after_path": "tools/package_panel_code.py",
+      "after_sha256": "9d809ed90cb3117251eb79b68006c78556be0974f02fb26077165207788f299b",
+      "reverse_edits": [
+        [
+          305,
+          396,
+          "OUT = ROOT / 'paper/pacificvis2027/figures/standalone_panel_code.zip'\n"
+        ]
+      ]
+    },
+    "tools/refresh_pdf_figures.py": {
+      "before_sha256": "0efb619ed4a1ee9ba3bde670071e55d6e5d5dcd92e5b519b2b28ba2aced8ff0d",
+      "after_path": "tools/refresh_pdf_figures.py",
+      "after_sha256": "47150a7353e9f4d37009bd686840dc93652d5d60acc69ddc29f6d3cf1985f36e",
+      "reverse_edits": [
+        [
+          523,
+          582,
+          "PAPER = ROOT / 'paper/pacificvis2027'\n"
         ]
       ]
     },
@@ -844,5 +975,9 @@
     "results/visualization_cache/pm25-432cf9e6d8386b2a84679bafeaecdd2c2cdfcb8c2f615694ee91b8eaa674cfab.npz": "3be2b13d0ab6625504a581c4b8928570692db849708a8090d7f9b6edabfd2171",
     "results/visualization_cache/olr-468e6494ad4f844bcbeab04be4f1a0dc82092d1de221fccbef7f3315e9d35a7d.npz": "bcd1171ebb3cc7420ea70b8094fbff0c599abb5330ca1db308506141005e4df2"
   },
-  "local_cache_policy": "Disposable visualization caches remain local and are checked if present; required render arrays and numeric evidence are distributed and always checked."
+  "local_cache_policy": "Disposable visualization caches remain local and are checked if present; required render arrays and numeric evidence are distributed and always checked.",
+  "asset_relocation": {
+    "paper/<version>/figures": "results/legacy_publication/<version>/figures",
+    "paper/<version>/tables": "results/legacy_publication/<version>/tables"
+  }
 }

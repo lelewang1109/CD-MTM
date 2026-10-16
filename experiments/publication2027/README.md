@@ -44,10 +44,7 @@ a 42-row unrounded main comparison CSV, a claim ledger, and a manifest. Main
 aggregate snapshots filter out retired datasets. Original records remain intact.
 Figures and supplementary tables have independent generators and editable SVGs.
 
-The current editable manuscript and supplement are in `paper/pacificvis2027-no-figures/`. The `paper/pacificvis2027-restructured/` directory retains historical generated assets. Its prose is never rewritten by the evidence builder. `tools/update_paper_evidence.py`
-is now a small compatibility wrapper for this builder, avoiding the previous
-failure caused by a removed subsection title. Its prior implementation is preserved in `notes/archive/update_paper_evidence_legacy.txt`. `tools/run_paper_suite.py` remains
-an older compatible ten-stage entry point.
+Manuscript PDFs, LaTeX sources, appendices, and writing notes remain local. Historical experimental figures/tables are in `results/legacy_publication/`. The public code/results package excludes manuscript directories.
 
 Raw observations are excluded from the source bundle. See `data/README.md` for
 acquisition, required local data, source hashes, and preprocessing. The bundle can
@@ -78,4 +75,4 @@ regenerates these assets without changing the real-data algorithms or outcomes.
 
 ## Current RG-MTM exports
 
-Run `PYTHONPATH=src python tools/build_rgmtm_figures.py` for the active PNG/SVG figure set. Historical builders above regenerate their original asset paths. Current no-figure tables use `python tools/build_nofigure_paper_tables.py` and write source ledgers to `results/manuscript_tables/`. `package.py` packages the two retained manuscript versions and current code; no raw observations are included.
+Run `PYTHONPATH=src python tools/build_rgmtm_figures.py` for the active PNG/SVG figure set. Historical builders above regenerate their original asset paths. Current no-figure tables use `python tools/build_nofigure_paper_tables.py` and write source ledgers to `results/manuscript_tables/`. `package.py` packages public code, experimental results, and figures; no raw observations are included.

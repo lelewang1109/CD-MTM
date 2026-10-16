@@ -1,4 +1,4 @@
-"""Print selected quantitative claims used in paper/pacificvis2027/main.tex , grouped by section, from the saved
+"""Print selected quantitative claims used in results/legacy_publication/pacificvis2027/main.tex , grouped by section, from the saved
 JSON outputs. Each line names its source file, for tracing claims to the saved records. Missing optional records are skipped.
 Run: .venv/bin/python analysis/paper_numbers.py
 Sources are produced by: replicate.py, robustness.py, pointcert.py, persistence.py, witness_stats.py, evaluation.py,

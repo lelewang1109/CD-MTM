@@ -1,0 +1,14 @@
+\begin{table}[t]
+\caption{Spatial and temporal costs on ERA5 / fire.}\label{tab:hidden_quality}
+\centering\footnotesize\setlength{\tabcolsep}{2pt}
+\begin{tabular}{lrrrr}\toprule
+Method & Flips$\downarrow$ & Jitter$\downarrow$ & Stress$\downarrow$ & NN$\uparrow$\\\midrule
+TMTM & .092 / .334 & .046 / .102 & .317 / .458 & .746 / .639\\
+ST-MTM & \textbf{.050} / .076 & \textbf{.027} / .053 & \textbf{.194} / .256 & \textbf{.877} / \textbf{.753}\\
+\textbf{A (ours)} & .110 / .094 & .101 / .054 & .327 / .261 & .731 / .658\\
+\textbf{R, $20\%$ (ours)} & .073 / .026 & .089 / .022 & .308 / .221 & .700 / .630\\
+\textbf{R, $\infty$ (ours)} & .083 / \textbf{.010} & .086 / \textbf{.019} & .296 / \textbf{.219} & .682 / .600\\
+Projection & .078 / .005 & .086 / .017 & .310 / .227 & .660 / .589\\
+\bottomrule\end{tabular}
+\par\smallskip{\footnotesize\raggedright Each cell gives ERA5 / fire. Flips: fraction of matched pairs swapping display order; jitter: mean matched-anchor displacement / occupied range; stress: optimally scaled Kruskal stress-1; NN: nearest-neighbor agreement between 1-D and 2-D extremum distances. Bold marks the best rendered-method value within each dataset, including ties. Projection is a diagnostic control excluded from ranking. Lower flips/jitter indicate stability, not necessarily faithful source motion. Results for all six datasets remain supplementary.\par}
+\end{table}

@@ -2,10 +2,10 @@
 from pathlib import Path
 import argparse,hashlib,json,sys
 sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'analysis'))
-from provenance import verify_saved_file
+from provenance import verify_saved_file, evidence_path
 ROOT=Path(__file__).resolve().parents[2]
 def read(p):return json.loads(p.read_text())
-def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def digest(p):return hashlib.sha256(evidence_path(ROOT,p.relative_to(ROOT)).read_bytes()).hexdigest()
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--require-complete-run',action='store_true');a=p.parse_args()
  out=ROOT/'results/publication2027';m=read(out/'manifest.json');checks=[]
@@ -21,7 +21,7 @@ def main():
   assert digest(figure_data/f'{n}_render.npz')==h,n
   meta=read(figure_data/f'{n}_render.json')
   for source,source_hash in meta['source_sha256'].items():verify_saved_file(ROOT,source,source_hash)
- for n,h in fm['figures'].items():assert digest(ROOT/'paper/pacificvis2027-restructured/figures'/f'{n}.pdf')==h,n
+ for n,h in fm['figures'].items():assert digest(ROOT/'results/legacy_publication/pacificvis2027-restructured/figures'/f'{n}.pdf')==h,n
  assert fm['selection']['era5']['frame']==48
  checks.append('All evidence, tables, numeric render exports and figure hashes match')
  c=read(out/'claims.json');ev=read(out/'evidence/main/eval_projection.json');pos=read(out/'evidence/main/final_performance.json')

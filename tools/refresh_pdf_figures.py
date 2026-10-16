@@ -10,7 +10,7 @@ from pypdf import PdfReader, PdfWriter
 from pypdf.generic import DecodedStreamObject, DictionaryObject, NameObject, NumberObject
 
 ROOT = Path(__file__).resolve().parents[1]
-PAPER = ROOT / 'paper/pacificvis2027'
+PAPER = ROOT / 'results/legacy_publication/pacificvis2027'
 SOURCE = PAPER / 'review-preview.pdf'
 TEMP = ROOT / 'tmp/pdfs/review-with-updated-figures.pdf'
 FIGURES = ((0, '/Fm0', 'fig_teaser'), (2, '/Fm1', 'fig_concept'),

@@ -6,7 +6,7 @@ ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'analysis'))
 from dataset_suite import PAPER_DATASETS
 from provenance import verify_saved_file
-PAPER=ROOT/'paper/pacificvis2027-restructured'; OUT=ROOT/'results/publication2027'
+PAPER=ROOT/'results/legacy_publication/pacificvis2027-restructured'; OUT=ROOT/'results/publication2027'
 SHORT=dict(era5='ERA5',wildfire='Fire',olr='OLR',pm25='PM2.5',ring='Ring',gaussians='Gaussians')
 METHODS=['TMTM','ST-MTM','Hilbert','Morton','q-sort (packed)','A','R 20%']
 LABELS=dict(zip(METHODS,['TMTM','ST-MTM','Hilbert','Morton','Packed sort','RG-MTM-P',r'RG-MTM-R, $\kappa=20\%$']))
@@ -83,7 +83,7 @@ def main():
  figures=[]
  for name in ['fig_teaser','fig_concept','fig_topo_price','fig_displacement_compact','fig_frontier_compact','fig_witness','fig_method_overview','olr_temporal_methods','pm25_temporal_methods','fig_teaser_focus','fig_method_visual','fig_diagnosis_tradeoff','fig_motion_scalar_cost','fig_linked_cases','fig_full_domain_filling']:
   fresh=name in ['fig_concept','fig_displacement_compact','fig_frontier_compact','fig_method_overview','fig_teaser_focus','fig_method_visual','fig_diagnosis_tradeoff','fig_motion_scalar_cost','fig_linked_cases','fig_full_domain_filling']
-  source=(PAPER if fresh else ROOT/'paper/pacificvis2027')/'figures'/f'{name}.pdf'
+  source=(PAPER if fresh else ROOT/'results/legacy_publication/pacificvis2027')/'figures'/f'{name}.pdf'
   if name.endswith('temporal_methods'):source=ROOT/'results/visualizations'/f'{name}.pdf'
   if not source.exists():source=PAPER/'figures'/f'{name}.pdf'
   if not fresh and source.resolve()!=(PAPER/'figures'/source.name).resolve():shutil.copy2(source,PAPER/'figures'/source.name)

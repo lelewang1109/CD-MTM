@@ -71,7 +71,7 @@ retained evidence. Newly redrawn figures do not relabel these as new numerical
 runs. Results concern processed fields and computed tracks; the motion proxy
 is not a participant study.
 
-## Results and manuscript
+## Results
 
 | Item | Path |
 |---|---|
@@ -81,21 +81,8 @@ is not a participant study.
 | Original/grouped evidence hashes | `results/publication2027/manifest.json` |
 | Main, sensitivity, validation, transfer, protocols | `results/publication2027/evidence/` |
 | Derived figure arrays and named-node traces | `results/publication2027/figure_data/` |
-| Current main paper and supplement | `paper/pacificvis2027-restructured/main.pdf`, `supplement.pdf` |
-| Editable LaTeX and vector figures | `paper/pacificvis2027-restructured/` |
 
-To compile the manuscript with Tectonic:
-
-```sh
-cd paper/pacificvis2027-restructured
-mkdir -p build
-tectonic -X compile main.tex --outdir build --keep-logs
-tectonic -X compile supplement.tex --outdir build --keep-logs
-```
-
-The manuscript retains the original VGTC layout, with nine body pages within
-the 9+2 allowance. The complete frontier is evaluated only on small trees;
-large-tree timings concern certificate diagnosis.
+Manuscripts and appendices are local-only. Experimental plots and generated result tables are in `results/figures/` and `results/legacy_publication/`.
 
 ## Renamed sources and current figures
 

@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 import sys
 sys.path.insert(0, str(ROOT / 'analysis'))
 from dataset_suite import PAPER_DATASETS, RETIRED_DATASETS
-OUT = ROOT / 'paper/pacificvis2027/figures/standalone_panel_code.zip'
+OUT = ROOT / 'results/legacy_publication/pacificvis2027/figures/standalone_panel_code.zip'
 paths = []
 for folder in ('analysis', 'src', 'experiments'):
     paths.extend(p for p in (ROOT / folder).rglob('*.py')

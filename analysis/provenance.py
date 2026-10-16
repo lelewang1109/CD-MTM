@@ -9,9 +9,20 @@ import hashlib
 import json
 
 
+def evidence_path(root, relative_path):
+    """Resolve old experimental-asset paths without publishing manuscripts."""
+    root = Path(root)
+    relative_path = Path(relative_path)
+    if relative_path.parts and relative_path.parts[0] == "paper":
+        relocated = root / "results/legacy_publication" / Path(*relative_path.parts[1:])
+        if relocated.is_file():
+            return relocated
+    return root / relative_path
+
+
 def verify_saved_file(root, relative_path, expected):
     root = Path(root)
-    path = root / relative_path
+    path = evidence_path(root, relative_path)
     if path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest() == expected:
         return "unchanged"
     manifest = root / "provenance/rgmtm_rename_20261016.json"

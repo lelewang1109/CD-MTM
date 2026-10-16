@@ -1,0 +1,15 @@
+\begin{table}[H]
+\caption{Motion-proxy error rates (\%, $\downarrow$) with all seven main methods and R's worst-frame scalar cost.}\label{tab:motion}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrrrrrr}\toprule
+Data & Events & TMTM & ST-MTM & Hilbert & Morton & Packed & \textbf{A (ours)} & \textbf{R (ours)} & R $D_{\max}$\\\midrule
+ERA5 & 104 & 47.1 & 41.3 & 46.2 & 44.2 & \textbf{14.4} & 23.1 & 18.3 & 26.1\\
+Fire & 112 & 39.3 & 35.7 & 50.0 & 48.2 & 33.0 & 32.1 & \textbf{31.2} & 19.6\\
+OLR & 56 & 44.6 & 21.4 & 48.2 & 46.4 & \textbf{5.4} & \textbf{5.4} & \textbf{5.4} & 33.6\\
+PM2.5 & 7 & 71.4 & 42.9 & 42.9 & \textbf{28.6} & 42.9 & 42.9 & \textbf{28.6} & 9.5\\
+Ring & 124 & 64.5 & 34.7 & 38.7 & 25.0 & \textbf{12.1} & 31.5 & 12.9 & 12.3\\
+Gaussians & 0 & -- & -- & -- & -- & -- & -- & -- & 10.0\\
+\bottomrule\end{tabular}
+\par\smallskip{\footnotesize\raggedright This complete seven-method comparison complements the primary-method table in the main paper. Bold rates are row minima across the seven shown methods, with all ties; they are numerical minima, not significance claims. Events: common clear-event count at $k=2$, 2\% thresholds. Error = reversal + miss. R $D_{\max}$ (\%, $\downarrow$) is the relaxed method\'s sequence-maximum merge error, not a motion score or cross-method ranking. A/R are our two modes. Gaussians has no clear events, so its rates are undefined. Sparse PM2.5 results are descriptive.\par}
+\end{table}

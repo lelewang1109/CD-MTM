@@ -22,7 +22,7 @@ from attainable import Filling, lca_matrix
 from filling import barriers, optimal_fill
 import figstyle as fs
 
-OUT = ROOT / 'paper/pacificvis2027-restructured/figures'
+OUT = ROOT / 'results/legacy_publication/pacificvis2027-restructured/figures'
 DATA = ROOT / 'results/publication2027/figure_data'
 LEAVES = [r'$A_1$', r'$A_2$', 'B', 'C', 'D']
 COLORS = [fs.BLUE, fs.BLUE_LIGHT, fs.CORAL, fs.GREEN, fs.ORANGE]

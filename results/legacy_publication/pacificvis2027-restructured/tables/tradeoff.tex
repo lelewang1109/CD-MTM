@@ -1,0 +1,16 @@
+\begin{table*}[t]
+\caption{Reference-order alignment and scalar merge fidelity (\%; lower is better).}\label{tab:tradeoff}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrrrrrrrrr}\toprule
+Method & \multicolumn{2}{c}{ERA5} & \multicolumn{2}{c}{Fire} & \multicolumn{2}{c}{OLR} & \multicolumn{2}{c}{PM2.5} & \multicolumn{2}{c}{Ring} & \multicolumn{2}{c}{Gaussians}\\\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}\cmidrule(lr){10-11}\cmidrule(lr){12-13} & $P$ & $D$ & $P$ & $D$ & $P$ & $D$ & $P$ & $D$ & $P$ & $D$ & $P$ & $D$\\\midrule
+TMTM & 19.23 & 0.00 & 29.30 & 0.00 & 19.31 & 0.00 & 11.86 & 0.00 & 7.18 & 0.00 & 25.76 & 0.00\\
+ST-MTM & 16.28 & 0.00 & 24.02 & 0.00 & 17.21 & 0.00 & 11.30 & 0.00 & 10.39 & 0.00 & 25.76 & 0.00\\
+Hilbert & 6.75 & 22.76 & 29.22 & 32.98 & 32.50 & 41.13 & 0.20 & 21.84 & 11.25 & 44.55 & 25.76 & 33.37\\
+Morton & 16.42 & 25.22 & 31.51 & 33.72 & 30.76 & 47.35 & 0.63 & 21.29 & 11.25 & 43.32 & 25.76 & 33.37\\
+Packed sort & 0.00 & 6.18 & 0.00 & 7.66 & 0.00 & 1.10 & 0.00 & 1.78 & 0.00 & 3.44 & 0.00 & 8.09\\
+CD-MTM (tree kept) & 3.77 & 0.00 & 5.83 & 0.00 & 0.89 & 0.00 & 1.11 & 0.00 & 2.66 & 0.00 & 5.43 & 0.00\\
+CD-MTM, $\kappa=20\%$ & 1.16 & 1.47 & 0.34 & 3.96 & 0.00 & 1.10 & 0.16 & 0.86 & 0.13 & 2.73 & 1.38 & 3.35\\
+\bottomrule\end{tabular}
+\par\smallskip{\footnotesize\raggedright $P$: mean width-free minimax error after optimal monotone calibration / reference extent; not achieved anchor displacement. $D$: mean framewise maximum tracked-extremum merge error / processed scalar range. Native and rendered baselines use actual scalar barriers; CD-MTM and packed sorting use optimal filling. The protocols differ as stated in the text.\par}
+\end{table*}

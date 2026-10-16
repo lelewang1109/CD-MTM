@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 ROOT=Path(__file__).resolve().parents[1]
-OUT=ROOT/'paper/pacificvis2027/figures'
+OUT=ROOT/'results/legacy_publication/pacificvis2027/figures'
 plt.rcParams.update({'font.size':7,'axes.titlesize':7,'axes.labelsize':7,'xtick.labelsize':6.5,'ytick.labelsize':6.5,'legend.fontsize':6.5,'axes.linewidth':.5,'xtick.major.size':2,'ytick.major.size':2,'pdf.fonttype':42})
 NAMES=['era5','wildfire','olr','pm25','ring','gaussians']
 LABELS=['ERA5','Fire','OLR','PM2.5','Ring','Gaussians']

@@ -1,0 +1,15 @@
+\begin{table*}[t]
+\caption{Evaluated fields. Processing defines the tested extrema and merge trees.}\label{tab:data}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llrlll}\toprule
+Data & Period / construction & Frames & Grid & Tree & Smoothing\\\midrule
+ERA5 & 1999-11-17--2000-01-14 & 118 & $49\times49$ & Join & 250 km\\
+Fire & Nov.--Dec. 2019 & 30 & $64\times64$ & Split & 50.7 km\\
+OLR & 2024-06-01--2024-07-30 & 60 & $49\times49$ & Join & 500 km\\
+PM2.5 & 2000-01-01--2000-01-30 & 30 & $49\times49$ & Split & 100 km\\
+Ring & Synthetic expansion & 40 & $14\times14$ & Split & None\\
+Gaussians & Synthetic motion & 64 & $64\times64$ & Split & None\\
+\bottomrule\end{tabular}
+\par\smallskip{\footnotesize\raggedright ERA5 is sampled every 12 hours; fire every two days; OLR and PM2.5 daily. January PM2.5 is an exploratory display selection.\par}
+\end{table*}

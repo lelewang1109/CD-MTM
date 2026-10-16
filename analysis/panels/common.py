@@ -21,7 +21,7 @@ from fig_teaser import tracks
 from experiments import era5 as ep
 
 plt = tr.plt
-OUT = ROOT / 'paper/pacificvis2027/figures/panels'
+OUT = ROOT / 'results/legacy_publication/pacificvis2027/figures/panels'
 KAPPA = .2
 W0, W1, TZ = 38, 57, 48
 ROOT_NC = ROOT / 'data/real/ERA5_MSLP/ERA5_MSLP_19991117_20000114_12h_arco.nc'

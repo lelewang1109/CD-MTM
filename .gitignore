@@ -39,3 +39,8 @@ paper/**/*.blg
 paper/**/*.log
 paper/**/*.out
 paper/**/*.synctex.gz
+
+# Manuscripts and writing notes are local-only; never publish to GitHub
+/paper/
+/notes/
+*.bundle
