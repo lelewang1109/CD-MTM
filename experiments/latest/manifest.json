@@ -652,8 +652,8 @@
     },
     "experiments/publication2027/rgmtm_bisector_figure.py": {
       "group": "experiment_code",
-      "bytes": 6717,
-      "sha256": "9e6fbf057df1daaf01a94d0b17fbede0813cb270fd073313fe89e6b027d6f19f"
+      "bytes": 6891,
+      "sha256": "6108742e26447c956c05aea8d49fb6c443e581dc3f0bc98f695570e32c34b01a"
     },
     "experiments/publication2027/run.py": {
       "group": "experiment_code",
@@ -1217,23 +1217,23 @@
     },
     "results/figures/README.md": {
       "group": "current_figures",
-      "bytes": 3191,
-      "sha256": "41e525695828d3b7bd3fd32d126254b0d93598d4c609bce6212c96340e75f727"
+      "bytes": 3231,
+      "sha256": "16077bb14b606ffa045fffb380e464f566669501269b0c3f11abaa332ed92e76"
     },
     "results/figures/manifest.json": {
       "group": "current_figures",
-      "bytes": 7431,
-      "sha256": "f849fb6e602b5ef3e788d3edf8ac39624154d2e9ab33d20e440b0ba007923167"
+      "bytes": 7471,
+      "sha256": "8e66847e3394f6cbf9822e64565a00f9ef94b2d54d23e9b7bfc4f36e72de88c1"
     },
     "results/figures/rgmtm_bisector_absolute_position.png": {
       "group": "current_figures",
-      "bytes": 318280,
-      "sha256": "a40b27fc4085bd647df6ba29f1e6d554158d721de9a2a98f71fecd22a9bf95bd"
+      "bytes": 316474,
+      "sha256": "a2937312bd6dca3a100ec6b430ecc66d0001554d7558f2bb394cbfbfd31df90d"
     },
     "results/figures/rgmtm_bisector_absolute_position.svg": {
       "group": "current_figures",
-      "bytes": 329236,
-      "sha256": "52afca8193128a0e25c9c448f5880ee5dc73407443f6f337e186a51abcf0f827"
+      "bytes": 347911,
+      "sha256": "98a7f540b518559d70796f9a2b9274dcda04c73f9ae14ade7b16f8ce48772dde"
     },
     "results/figures/rgmtm_diagnosis_tradeoff.png": {
       "group": "current_figures",
@@ -1452,8 +1452,8 @@
     },
     "tools/build_rgmtm_figures.py": {
       "group": "evaluation_and_export_code",
-      "bytes": 5623,
-      "sha256": "a5a5badd45b20d51e12a06f13e6446937a0103be11206e17003acb34d049970b"
+      "bytes": 5663,
+      "sha256": "a1293dd56e10f51a93259a3e19f910100633529160f71bac06c7c256ed82544e"
     },
     "tools/verify_rgmtm_migration.py": {
       "group": "evaluation_and_export_code",

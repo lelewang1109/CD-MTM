@@ -85,7 +85,7 @@ def main():
     subprocess.run([sys.executable, str(ROOT / "experiments/publication2027/rgmtm_bisector_figure.py"),
                     "--out", str(args.out)], check=True)
     stem = "rgmtm_bisector_absolute_position"
-    export.items.append(dict(stem=stem, caption="Time-aligned bisector control: TMTM, ST-MTM, RG-MTM-R.",
+    export.items.append(dict(stem=stem, caption="Bisector control: TMTM, ST-MTM and RG-MTM-R in side-by-side panels with identical time ranges.",
         files={f"{stem}.{ext}": sha(args.out / f"{stem}.{ext}") for ext in ("png", "svg")}))
     evidence = [ROOT / "results/eval_projection.json",
                 *sorted((ROOT / "results/publication2027/figure_data").glob("*_render.npz")),

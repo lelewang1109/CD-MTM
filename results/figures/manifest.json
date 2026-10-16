@@ -115,10 +115,10 @@
     },
     {
       "stem": "rgmtm_bisector_absolute_position",
-      "caption": "Time-aligned bisector control: TMTM, ST-MTM, RG-MTM-R.",
+      "caption": "Bisector control: TMTM, ST-MTM and RG-MTM-R in side-by-side panels with identical time ranges.",
       "files": {
-        "rgmtm_bisector_absolute_position.png": "a40b27fc4085bd647df6ba29f1e6d554158d721de9a2a98f71fecd22a9bf95bd",
-        "rgmtm_bisector_absolute_position.svg": "52afca8193128a0e25c9c448f5880ee5dc73407443f6f337e186a51abcf0f827"
+        "rgmtm_bisector_absolute_position.png": "a2937312bd6dca3a100ec6b430ecc66d0001554d7558f2bb394cbfbfd31df90d",
+        "rgmtm_bisector_absolute_position.svg": "98a7f540b518559d70796f9a2b9274dcda04c73f9ae14ade7b16f8ce48772dde"
       }
     }
   ],
@@ -129,10 +129,10 @@
     "results/publication2027/bisector_control/bisector_highres_x_three_methods.npz": "676c5d3b4c323d7cfbcd1b735e8bf63c0cba7955fa5dbcd25e1d4ed3c48afb6f"
   },
   "source_sha256": {
-    "tools/build_rgmtm_figures.py": "a5a5badd45b20d51e12a06f13e6446937a0103be11206e17003acb34d049970b",
+    "tools/build_rgmtm_figures.py": "a1293dd56e10f51a93259a3e19f910100633529160f71bac06c7c256ed82544e",
     "experiments/publication2027/layout_figures.py": "838464f2c278ecd26eeb0f12d524d2fedc68329665798572c1f3fc8d7455cafe",
     "experiments/publication2027/domain_filling_figures.py": "b833cf3bdfe0967b8cfcaf015e35ea3a929ab4f8e9aae86661e7d91de23c64fb",
-    "experiments/publication2027/rgmtm_bisector_figure.py": "9e6fbf057df1daaf01a94d0b17fbede0813cb270fd073313fe89e6b027d6f19f",
+    "experiments/publication2027/rgmtm_bisector_figure.py": "6108742e26447c956c05aea8d49fb6c443e581dc3f0bc98f695570e32c34b01a",
     "src/rgmtm/names.py": "b397d56379e074788b367ef58d942bb31e0ccbb702e1fc01c4ba5897843ef679",
     "analysis/visualization/__init__.py": "6e2bb76e47a84c78ad54cfce32ee9c59bddfb32f1d9c5ec3cdbd1cb60c7736c8",
     "analysis/visualization/catalog.py": "b63d0a142b586cd2f99782278ce901e962c853a8d9fcf1987f451fa765023124",

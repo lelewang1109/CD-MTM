@@ -1,4 +1,4 @@
-"""Time-aligned scalar snapshots, x projections, and three actual temporal maps.
+"""Scalar snapshots, x projections, and three side-by-side temporal maps.
 Implementation provenance and quantitative results remain in companion notes.
 """
 from pathlib import Path
@@ -26,10 +26,10 @@ labels={0:'A',1:'B',2:'C'}
 colors={0:'#177F9D',1:'#D07823',2:'#8453A1'}
 cmap=LinearSegmentedColormap.from_list('mint_teal_blue',[(0.,'#D6EEE6'),(.15,'#B1DDD0'),(.40,'#68BEAD'),(.65,'#3595A6'),(.85,'#286E9E'),(1.,'#244F85')])
 fig=plt.figure(figsize=(14,7.0),facecolor='white')
-mapleft=.145;mapright=.902;mapwidth=mapright-mapleft
+snapshotleft=.145;snapshotright=.902;snapshotwidth=snapshotright-snapshotleft
 snap=[0,12,25,38,51,63]
 time_limits=(0,63)
-def time_x(t):return mapleft+mapwidth*(t-time_limits[0])/(time_limits[1]-time_limits[0])
+def time_x(t):return snapshotleft+snapshotwidth*(t-time_limits[0])/(time_limits[1]-time_limits[0])
 fig.text(.077,.981,'Relative distances and absolute position',fontsize=17,fontweight='bold',va='top')
 fw=.126;fh=fw*14/7;fb=.650
 for t in snap:
@@ -61,12 +61,15 @@ for t in snap:
 fig.text(.022,.575,r'$d=x$',fontsize=12)
 cbax=fig.add_axes([.028,fb+.030,.009,fh-.060]);cb=fig.colorbar(im,cax=cbax)
 cb.set_ticks([0,.5,1.05]);cb.ax.tick_params(labelsize=10,length=2,colors='black');cbax.yaxis.set_ticks_position('left');cbax.set_title('Value',fontsize=11,pad=7);cb.outline.set_edgecolor('#7E9CA2');cb.outline.set_linewidth(.65)
-# Continuous time guides through whitespace join all three method panels.
-for t in snap:
- fig.add_artist(Line2D([time_x(t),time_x(t)],[.057,.526],transform=fig.transFigure,color='#A4B2B5',lw=.65,ls=(0,(3,4)),zorder=.1))
+# Each method has its own horizontal time axis; all show the same 64 steps.
 axes=[]
-for key,name,bottom,height in [('T','TMTM',.365,.120),('S','ST-MTM',.222,.120),('R','RG-MTM-R\n(ours)',.057,.145)]:
- ax=fig.add_axes([mapleft,bottom,mapwidth,height]);axes.append(ax)
+panelleft=.080;panelright=.965;panelgap=.065
+panelwidth=(panelright-panelleft-2*panelgap)/3
+bottom=.085;height=.365
+for column,(key,name) in enumerate([('T','TMTM'),('S','ST-MTM'),('R','RG-MTM-R (ours)')]):
+ left=panelleft+column*(panelwidth+panelgap)
+ ax=fig.add_axes([left,bottom,panelwidth,height]);axes.append(ax)
+ ax.set_title(name,fontsize=13,fontweight='bold',pad=12)
  bounds=(d['bounds'+key]-a)/L;matrix=d['map'+key]
  if key!='R':
   if bounds[1]<bounds[0]:matrix=matrix[::-1]
@@ -85,20 +88,24 @@ for key,name,bottom,height in [('T','TMTM',.365,.120),('S','ST-MTM',.222,.120),(
   ax.scatter(snap,np.array(ys)[snap],s=27,color=colors[track],edgecolor='white',lw=.65,zorder=5,clip_on=False)
   for t in [0,63]:
    ax.text(1.1 if t==0 else 61.9,ys[t],labels[track],ha='left' if t==0 else 'right',va='center',fontsize=11,fontweight='bold',color='black',path_effects=[pe.withStroke(linewidth=1.9,foreground='white')])
- fig.text(.021,bottom+height/2,name,fontsize=13,fontweight='bold',va='center',ha='left',color='black',linespacing=1.4)
  ax.tick_params(labelsize=10,length=3,colors='black');ax.set_xticks(snap)
- if key!='R':ax.set_xticklabels([]);ax.set_yticks([0,.5,1]);ax.set_ylabel('Map',fontsize=11,labelpad=9)
+ ax.set_xlabel('Time',fontsize=12,labelpad=5)
+ if key!='R':ax.set_yticks([0,.5,1]);ax.set_ylabel('Map',fontsize=11,labelpad=9)
  else:
-  ax.set_xlabel('Time',fontsize=12,labelpad=5)
-  ticks=np.array([0,20,40,60,80,100,120]);ax.set_yticks(ticks/120);ax.set_yticklabels([str(v) for v in ticks]);ax.yaxis.tick_right();ax.yaxis.set_label_position('right');ax.set_ylabel(r'Absolute $x$',fontsize=12,labelpad=7)
+  ticks=np.array([0,20,40,60,80,100,120]);ax.set_yticks(ticks/120);ax.set_yticklabels([str(v) for v in ticks]);ax.set_ylabel(r'Absolute $x$',fontsize=12,labelpad=7)
   for track,xx in [(0,20),(2,100)]:ax.axhline(xx/120,color=colors[track],ls=(0,(5,5)),lw=.8,alpha=.8)
  for spine in ax.spines.values():spine.set_visible(True);spine.set_linewidth(.7);spine.set_edgecolor('#7E9CA2')
-# Verify all frame centres and map time positions have one shared x transformation.
+# Verify equal panel geometry and identical relative time positions in each map.
+for previous,current in zip(axes,axes[1:]):
+ assert previous.get_position().x1<current.get_position().x0
+ assert np.allclose(previous.get_position().bounds[1::2],current.get_position().bounds[1::2])
 for ax in axes:
+ box=ax.get_position()
  for t in snap:
   fx=fig.transFigure.inverted().transform(ax.transData.transform((t,.5)))[0]
-  assert abs(fx-time_x(t))<1e-10,(t,fx,time_x(t))
+  expected=(t-time_limits[0])/(time_limits[1]-time_limits[0])
+  assert abs((fx-box.x0)/box.width-expected)<1e-10,(t,fx,expected)
 for extension in ['png','svg']:
  fig.savefig(OUT/('rgmtm_bisector_absolute_position.'+extension),dpi=240,bbox_inches='tight',facecolor='white')
 plt.close(fig)
-print('Saved shared time alignment and consistent A/B/C markers across fields, projections, and all method maps.')
+print('Saved side-by-side method maps with equal panel sizes, identical time ranges, and consistent A/B/C markers.')

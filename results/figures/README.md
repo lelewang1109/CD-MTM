@@ -89,7 +89,7 @@ Each k uses its own set of clear events; lines connect operating settings, not p
 
 ## rgmtm_bisector_absolute_position
 
-Time-aligned bisector control: TMTM, ST-MTM, RG-MTM-R.
+Bisector control: TMTM, ST-MTM and RG-MTM-R in side-by-side panels with identical time ranges.
 
 [SVG](rgmtm_bisector_absolute_position.svg)
 
