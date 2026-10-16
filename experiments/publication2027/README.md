@@ -44,7 +44,7 @@ a 42-row unrounded main comparison CSV, a claim ledger, and a manifest. Main
 aggregate snapshots filter out retired datasets. Original records remain intact.
 Figures and supplementary tables have independent generators and editable SVGs.
 
-Manuscript PDFs, LaTeX sources, appendices, and writing notes remain local. Historical experimental figures/tables are in `results/legacy_publication/`. The public code/results package excludes manuscript directories.
+The latest manuscript and matching supplement PDFs are in `publications/`; editable sources, historical drafts, and writing notes remain local. Historical experimental figures/tables are in `results/legacy_publication/`. The public code/results package excludes manuscript directories.
 
 Raw observations are excluded from the source bundle. See `data/README.md` for
 acquisition, required local data, source hashes, and preprocessing. The bundle can

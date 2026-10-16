@@ -82,7 +82,7 @@ is not a participant study.
 | Main, sensitivity, validation, transfer, protocols | `results/publication2027/evidence/` |
 | Derived figure arrays and named-node traces | `results/publication2027/figure_data/` |
 
-Manuscripts and appendices are local-only. Experimental plots and generated result tables are in `results/figures/` and `results/legacy_publication/`.
+The selected manuscript and supplement PDFs are published in `publications/`; editable writing sources remain local. Experimental plots and generated result tables are in `results/figures/` and `results/legacy_publication/`.
 
 ## Renamed sources and current figures
 

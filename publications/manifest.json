@@ -1,0 +1,17 @@
+{
+  "version_date": "2026-10-16",
+  "title": "Reference-Guided Merge Tree Maps: Quantifying Position–Topology Trade-offs",
+  "scope": "Latest manuscript and matching supplement PDFs; editable sources and historical drafts excluded",
+  "files": {
+    "RG-MTM-latest.pdf": {
+      "pages": 8,
+      "bytes": 105043,
+      "sha256": "99818c6944cc9621eb36a79bd5f814e44308e17f7373006ed49f6681bd6cfdc9"
+    },
+    "RG-MTM-supplement.pdf": {
+      "pages": 22,
+      "bytes": 153031,
+      "sha256": "72efd5d8194903fa062ee595d2b76fe5e57bc48c44526def951b2abbc8312cf4"
+    }
+  }
+}

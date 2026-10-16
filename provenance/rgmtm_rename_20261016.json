@@ -439,7 +439,7 @@
     "experiments/publication2027/package.py": {
       "before_sha256": "00dfc1ad398b271d01d0356a9b0e7f2e3831988a7f03ee4270280670fb59fd2d",
       "after_path": "experiments/publication2027/package.py",
-      "after_sha256": "798a67ee71670a7f784920a6584b4a5a304b85a0846e5f1b6638755c2dcf015b",
+      "after_sha256": "8483a8d62cbd96846fd3bb55c834162ba94599abe9a63a330534f0e37129b363",
       "reverse_edits": [
         [
           0,
@@ -453,7 +453,7 @@
         ],
         [
           251,
-          1737,
+          1753,
           " OUT.mkdir(parents=True,exist_ok=True)\n for src,name in [('main.pdf','CD-MTM-PacificVis2027.pdf'),('supplement.pdf','CD-MTM-PacificVis2027-supplement.pdf')]:\n  shutil.copy2(PAPER/'build'/src,OUT/name)\n source_files=[p for p in PAPER.rglob('*') if p.is_file() and 'build' not in p.parts and p.suffix in ['.tex','.bib','.cls','.bst','.pdf','.png','.svg','.md']]\n source_zip=PAPER/'latex_sources.zip'\n with zipfile.ZipFile(source_zip,'w',zipfile.ZIP_DEFLATED) as z:\n  for p in sorted(source_files):z.write(p,p.relative_to(PAPER))\n shutil.copy2(source_zip,OUT/'CD-MTM-PacificVis2027-LaTeX.zip')\n manifest=json.loads((ROOT/'results/publication2027/manifest.json').read_text())\n files=set()\n for folder in ['src','analysis','experiments','tests','tools']:\n  files.update(p for p in (ROOT/folder).rglob('*') if p.is_file() and p.suffix in ['.py','.md','.json','.xml'] and '__pycache__' not in p.parts)\n for rec in manifest['records']:files.add(ROOT/rec['source'])\n for rec in manifest['figures']:files.add(ROOT/rec['source'])\n for folder in ['results/publication2027','paper/pacificvis2027-restructured']:\n  files.update(p for p in (ROOT/folder).rglob('*') if p.is_file() and 'build' not in p.parts and p.suffix!='.zip')\n for name in ['README.md','pyproject.toml','data/README.md','notes/research-restructure-20261013.md','notes/layout-optimization-20261014.md','notes/archive/update_paper_evidence_legacy.txt']:\n  files.add(ROOT/name)\n files.update(p for p in (ROOT/'data/geo').glob('*') if p.is_file())\n bundle=OUT/'CD-MTM-PacificVis2027-code-results.zip'\n with zipfile.ZipFile(bundle,'w',zipfile.ZIP_DEFLATED) as z:\n  for p in sorted(files):z.write(p,Path('CD-MTM')/p.relative_to(ROOT))\n artifacts={p.name:dict(bytes=p.stat().st_size,sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in OUT.iterdir() if p.name.startswith('CD-MTM-PacificVis2027')}\n (OUT/'delivery_manifest.json').write_text(json.dumps(artifacts,indent=2)+'\\n')\n print('Packaged PDFs, standalone LaTeX, and reproducible code/results bundle.')\nif __name__=='__main__':main()\n"
         ]
       ]

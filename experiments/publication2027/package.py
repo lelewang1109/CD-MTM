@@ -23,7 +23,7 @@ def main():
             source = ROOT / relative
             if not source.is_file() or source.is_symlink():
                 continue
-            if relative.parts[0] in {'output', 'tmp', '.venv', 'paper', 'notes'}:
+            if relative.parts[0] in {'output', 'tmp', '.venv', 'paper', 'notes', 'publications'}:
                 continue
             if relative.parts[0] == 'data' and relative.parts[1] != 'geo' and relative.name != 'README.md':
                 continue

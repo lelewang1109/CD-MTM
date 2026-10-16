@@ -647,8 +647,8 @@
     },
     "experiments/publication2027/package.py": {
       "group": "experiment_code",
-      "bytes": 1737,
-      "sha256": "798a67ee71670a7f784920a6584b4a5a304b85a0846e5f1b6638755c2dcf015b"
+      "bytes": 1753,
+      "sha256": "8483a8d62cbd96846fd3bb55c834162ba94599abe9a63a330534f0e37129b363"
     },
     "experiments/publication2027/rgmtm_bisector_figure.py": {
       "group": "experiment_code",
@@ -1462,8 +1462,8 @@
     },
     "tools/check_public_export.py": {
       "group": "evaluation_and_export_code",
-      "bytes": 1042,
-      "sha256": "cb9c796346497c97c9dae8022a86a6bb493dca616af51a5aba2b146103744c91"
+      "bytes": 1401,
+      "sha256": "9818c7122ba3028300a7baba39d780c8014c30b05d949d4fa87a425c1d6c880d"
     },
     "tools/build_latest_experiment_index.py": {
       "group": "evaluation_and_export_code",

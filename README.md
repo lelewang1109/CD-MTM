@@ -9,6 +9,7 @@ trade-off, with mixed geometric motion-proxy benefits across datasets.
 
 ## Start here
 
+- 最新论文与配套附录 PDF：[`publications/`](publications/README.md)。
 - 最新实验、公共指标与复现入口：[`experiments/latest/`](experiments/latest/README.md)。
 - RG-MTM 实验图片：[统一图片索引](results/figures/README.md)（PNG / SVG，含生成脚本及来源哈希）。
 - Experiment code and commands: [`experiments/publication2027/`](experiments/publication2027/README.md).
@@ -84,7 +85,7 @@ implementations. `analysis/` contains shared preprocessing, exact frontiers,
 filling, motion evaluation, and controls. `experiments/publication2027/` supplies
 publication orchestration. `results/` retains original computation evidence;
 `results/publication2027/` is the organized active snapshot. This repository contains
-experimental code and outputs. Manuscript PDFs, LaTeX sources, appendices, and writing notes stay local and are excluded from GitHub and public code bundles.
+experimental code and outputs. The current manuscript and matching supplement PDFs are published separately in `publications/`. LaTeX sources, historical drafts, and writing notes stay local; code/results bundles exclude the publications folder.
 
 ## Naming and repository migration
 
@@ -102,4 +103,4 @@ The current figure set is generated in `results/figures/rgmtm_*`. Original numer
 
 ## Public repository contents
 
-Only code, experimental evidence, plots, and reproduction documentation are published. Manuscripts, appendices, LaTeX sources, and writing notes remain local. Historical experimental figures/tables are in `results/legacy_publication/`; current figures are in `results/figures/`. Run `python tools/check_public_export.py` before publishing. The code/results packager also excludes local `paper/` and `notes/` directories.
+The repository publishes code, experimental evidence, plots, reproduction documentation, and the two selected PDFs in `publications/`. Editable manuscript sources, historical drafts, and writing notes remain local. Historical experimental figures/tables are in `results/legacy_publication/`; current figures are in `results/figures/`. Run `python tools/check_public_export.py` before publishing. The code/results packager excludes `paper/`, `notes/`, and `publications/`; paper PDFs are downloaded separately.
